@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">GoalReminderBeta</string>
+    <string name="app_name"></string>
+    <string name="menu_mygoal">GOALS</string>
+    <string name="menu_myrecords">RECORDS</string>
+    <string name="menu_myoptions">OPTIONS</string>
+    <string name="circle_add_goal">ADD GOAL</string>
 </resources>
