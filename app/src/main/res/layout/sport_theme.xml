@@ -1,6 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/colorOrange">
+
+        <ImageView
+            android:id="@+id/arrowBack"
+            android:layout_width="25sp"
+            android:layout_height="15sp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10sp"
+            android:background="@drawable/arrow_goalwhite"
+            android:rotation="90" />
+
+        <ImageView
+            android:layout_width="2sp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/ngTitle"
+            android:layout_marginLeft="10sp"
+            android:background="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ngTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="NEW GOAL"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="2sp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/ngTitle"
+            android:layout_marginRight="10sp"
+            android:background="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/mainMenuBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10sp"
+            android:text="MENU"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llCurrentWeight"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/position1"
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="20sp"
+                android:text="CURRENT WEIGHT:"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/position1"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20sp" />
+
+            <Button
+                android:id="@+id/minusWeight"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/btn_orange"
+                android:text="-" />
+
+            <Button
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/minusWeight"
+                android:background="@drawable/btn_orange"
+                android:text="+" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_green"
+                android:text="0"
+                android:layout_marginTop="10sp"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llGoalWeight"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/position2"
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="20sp"
+                android:text="GOAL WEIGHT:"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/position2"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20sp" />
+
+            <Button
+                android:id="@+id/minusWeightGoal"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/btn_orange"
+                android:text="-" />
+
+            <Button
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/minusWeightGoal"
+                android:background="@drawable/btn_orange"
+                android:text="+" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_green"
+                android:text="0"
+                android:layout_marginTop="10sp"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE GOAL"
+            android:id="@+id/titleDateGoal"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="10sp"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"/>
+
+        <CalendarView
+            android:id="@+id/simpleCalendarView"
+            android:layout_below="@+id/titleDateGoal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:background="@color/colorOrange"
+        android:text="SAVE GOAL"/>
 
 </LinearLayout>

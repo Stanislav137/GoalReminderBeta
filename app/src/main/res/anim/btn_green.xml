@@ -2,7 +2,7 @@
 <set android:duration="300"
     android:oneshot="false"
     android:shareInterpolator="false"
-    android:startOffset="2500"
+    android:startOffset="2000"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <scale
     android:repeatCount="infinite"
