@@ -1,18 +1,13 @@
 package com.goalreminderbeta.sa.goalreminderbeta;
 
-import android.animation.ObjectAnimator;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.science_theme);
+        setContentView(R.layout.others_theme);
 //        animCircleAddGoal();
 //
 //        frgmGoals = new FrgmGoals();
@@ -62,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void animCircleAddGoal() {
-        Button animImage = (Button) findViewById(R.id.myGoal);
-        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_green);
+        Button animImage = (Button) findViewById(R.id.editCalendarCircle);
+        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
         animImage.startAnimation(hyperspaceJumpAnimation);
     }
 }

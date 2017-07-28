@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300sp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorOrange">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENTER THE NAME OF YOUR GOAL"
+            android:padding="10sp"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:layout_marginBottom="5sp"
+        android:hint="GOAL 1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="READY"
+        android:layout_marginTop="5sp"
+        android:background="@color/colorOrange"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"/>
+
+</LinearLayout>
