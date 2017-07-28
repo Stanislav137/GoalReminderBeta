@@ -18,13 +18,6 @@
             android:background="@drawable/arrow_goalwhite"
             android:rotation="90" />
 
-        <ImageView
-            android:layout_width="2sp"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/ngTitle"
-            android:layout_marginLeft="10sp"
-            android:background="@color/colorWhite" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,13 +27,6 @@
             android:text="NEW GOAL"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
-
-        <ImageView
-            android:layout_width="2sp"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/ngTitle"
-            android:layout_marginRight="10sp"
-            android:background="@color/colorWhite" />
 
         <TextView
             android:id="@+id/mainMenuBack"
@@ -87,6 +73,8 @@
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position1"
+                android:textSize="25sp"
+                android:textColor="@color/colorWhite"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_orange"
@@ -100,7 +88,9 @@
                 android:layout_marginTop="10sp"
                 android:layout_toRightOf="@+id/minusWeight"
                 android:background="@drawable/btn_orange"
-                android:text="+" />
+                android:text="+"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp" />
 
         </RelativeLayout>
 
@@ -162,7 +152,9 @@
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
+                android:textColor="@color/colorWhite"
                 android:layout_marginLeft="20sp"
+                android:textSize="25sp"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_orange"
                 android:text="-" />
@@ -173,6 +165,8 @@
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
+                android:textSize="25sp"
+                android:textColor="@color/colorWhite"
                 android:layout_toRightOf="@+id/minusWeightGoal"
                 android:background="@drawable/btn_orange"
                 android:text="+" />

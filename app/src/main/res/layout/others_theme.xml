@@ -40,9 +40,9 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/llLvl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llLvl"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -51,9 +51,9 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/chooseLvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chooseLvl"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10sp"
                 android:text="CHOOSE LEVEL:"
@@ -61,9 +61,9 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/yourLvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/yourLvl"
                 android:layout_above="@+id/position1"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="20sp"
@@ -72,37 +72,37 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/currentLvlGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/currentLvlGoal"
-                android:layout_toRightOf="@+id/yourLvl"
                 android:layout_above="@+id/position1"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="5sp"
+                android:layout_toRightOf="@+id/yourLvl"
                 android:text="0"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/maxLvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/maxLvl"
-                android:layout_toRightOf="@+id/currentLvlGoal"
                 android:layout_above="@+id/position1"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="20sp"
+                android:layout_toRightOf="@+id/currentLvlGoal"
                 android:text="MAX LEVEL:"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/maxlLvlGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/maxlLvlGoal"
-                android:layout_toRightOf="@+id/maxLvl"
                 android:layout_above="@+id/position1"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="5sp"
+                android:layout_toRightOf="@+id/maxLvl"
                 android:text="5"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
@@ -118,63 +118,63 @@
                 android:id="@+id/lvlOne"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:textSize="20sp"
                 android:layout_below="@+id/position1"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="10sp"
-                android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_red"
-                android:text="1" />
+                android:text="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
 
             <Button
+                android:id="@+id/lvlTwo"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:id="@+id/lvlTwo"
-                android:textColor="@color/colorWhite"
                 android:layout_below="@+id/position1"
-                android:textSize="20sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
                 android:layout_toRightOf="@+id/lvlOne"
                 android:background="@drawable/btn_lvl_two"
-                android:text="2" />
+                android:text="2"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
 
             <Button
+                android:id="@+id/lvlThree"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:id="@+id/lvlThree"
-                android:textColor="@color/colorWhite"
                 android:layout_below="@+id/position1"
-                android:textSize="20sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
                 android:layout_toRightOf="@+id/lvlTwo"
                 android:background="@drawable/btn_lvl_two"
-                android:text="3" />
+                android:text="3"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
 
             <Button
+                android:id="@+id/lvlFour"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:id="@+id/lvlFour"
                 android:layout_below="@+id/position1"
-                android:textSize="20sp"
-                android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
                 android:layout_toRightOf="@+id/lvlThree"
                 android:background="@drawable/lvl_four_btn"
-                android:text="4" />
+                android:text="4"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
 
             <Button
                 android:layout_width="35sp"
                 android:layout_height="35sp"
-                android:text="ON"
-                android:textSize="15sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10sp"
                 android:layout_marginTop="10sp"
+                android:background="@drawable/btn_green"
+                android:text="ON"
                 android:textColor="@color/colorWhite"
-                android:background="@drawable/btn_green"/>
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
@@ -242,7 +242,7 @@
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"

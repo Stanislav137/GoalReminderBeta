@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.others_theme);
+        setContentView(R.layout.habbits_theme);
 //        animCircleAddGoal();
 //
 //        frgmGoals = new FrgmGoals();
