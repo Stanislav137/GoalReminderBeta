@@ -99,23 +99,20 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/frgmCont"
+    <!--<FrameLayout-->
+        <!--android:id="@+id/frgmCont"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/llMenu">-->
+    <!--</FrameLayout>-->
+
+    <ExpandableListView
+        android:id="@+id/exListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/llMenu">
-    </FrameLayout>
-
-    <Button
-        android:layout_width="130sp"
-        android:layout_height="130sp"
-        android:id="@+id/myGoal"
-        android:text="@string/circle_add_goal"
-        android:textSize="20sp"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/btn_green"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20sp"/>
+        android:layout_below="@+id/llMenu"
+        android:groupIndicator="@color/colorPrimary"
+        android:transcriptMode="alwaysScroll"
+        />
 
 </RelativeLayout>

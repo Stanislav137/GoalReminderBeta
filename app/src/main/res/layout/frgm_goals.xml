@@ -1,99 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="70sp"
-       android:layout_marginTop="1sp"
-       android:layout_below="@+id/line_h_1"
-       android:id="@+id/list1">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-       <ImageView
-           android:layout_width="70sp"
-           android:layout_height="70sp"
-           android:id="@+id/imTheme"
-           android:layout_marginLeft="10sp"
-           android:layout_margin="1sp"
-           android:layout_centerVertical="true"
-           android:background="@color/colorOrange"
-           android:layout_alignParentLeft="true"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="SPORT"
-           android:textSize="25sp"
-           android:layout_toRightOf="@+id/imTheme"
-           android:layout_centerVertical="true"
-           android:layout_marginLeft="10sp"
-           android:textColor="@color/colorBlack"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70sp"
+                android:layout_marginTop="1sp"
+                android:layout_below="@+id/line_h_1"
+                android:id="@+id/list1">
 
-       <ImageView
-           android:layout_width="25sp"
-           android:layout_height="15sp"
-           android:background="@drawable/arrow_goal"
-           android:layout_marginRight="10sp"
-           android:layout_centerVertical="true"
-           android:layout_toLeftOf="@+id/rlCircle"/>
+                <ImageView
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:id="@+id/imTheme"
+                    android:layout_marginLeft="10sp"
+                    android:layout_margin="1sp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorOrange"
+                    android:layout_alignParentLeft="true"/>
 
-       <RelativeLayout
-           android:layout_width="80sp"
-           android:layout_height="80sp"
-           android:id="@+id/rlCircle"
-           android:layout_centerVertical="true"
-           android:layout_alignParentRight="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SPORT"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/imTheme"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/colorBlack"/>
 
-           <ImageView
-               android:layout_width="1sp"
-               android:layout_height="match_parent"
-               android:background="@color/colorGrey"
-               android:id="@+id/line_v"
-               android:layout_toStartOf="@+id/rlCircle"/>
+                <ImageView
+                    android:layout_width="25sp"
+                    android:layout_height="15sp"
+                    android:background="@drawable/arrow_goal"
+                    android:layout_marginRight="10sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rlCircle"/>
 
-           <ProgressBar
-               android:id="@+id/circleProgress"
-               style="?android:attr/progressBarStyleHorizontal"
-               android:layout_width="60dp"
-               android:layout_height="60dp"
-               android:layout_centerVertical="true"
-               android:layout_centerHorizontal="true"
-               android:max="100"
-               android:progress="70"
-               android:progressDrawable="@drawable/circular"/>
+                <RelativeLayout
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:id="@+id/rlCircle"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
 
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/colorGreen"
-               android:layout_centerVertical="true"
-               android:layout_centerHorizontal="true"
-               android:textStyle="bold"
-               android:textSize="18sp"
-               android:text="70%">
-           </TextView>
+                    <ImageView
+                        android:layout_width="1sp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey"
+                        android:id="@+id/line_v"
+                        android:layout_toStartOf="@+id/rlCircle"/>
 
-       </RelativeLayout>
+                    <ProgressBar
+                        android:id="@+id/circleProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:max="100"
+                        android:progress="70"
+                        android:progressDrawable="@drawable/circular_green"/>
 
-       <ImageView
-           android:layout_width="match_parent"
-           android:layout_height="1sp"
-           android:id="@+id/line_h_1"
-           android:layout_marginBottom="20sp"
-           android:layout_alignParentTop="true"
-           android:background="@color/colorGrey"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGreen"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:text="70%">
+                    </TextView>
 
-       <ImageView
-           android:layout_width="match_parent"
-           android:layout_height="1sp"
-           android:layout_alignParentBottom="true"
-           android:background="@color/colorGrey"
-           android:layout_below="@+id/list1"/>
-   </RelativeLayout>
+                </RelativeLayout>
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:id="@+id/line_h_1"
+                    android:layout_marginBottom="20sp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/colorGrey"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorGrey"
+                    android:layout_below="@+id/list1"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70sp"
+                android:id="@+id/list3"
+                android:layout_below="@+id/list2">
+
+                <ImageView
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:id="@+id/imTheme3"
+                    android:layout_marginLeft="10sp"
+                    android:layout_margin="1sp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorOrange"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTHERS"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/imTheme3"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/colorBlack"/>
+
+                <ImageView
+                    android:layout_width="25sp"
+                    android:layout_height="15sp"
+                    android:background="@drawable/arrow_goal"
+                    android:layout_marginRight="10sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rlCircle3"/>
+
+                <RelativeLayout
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:id="@+id/rlCircle3"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:layout_width="1sp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey"
+                        android:id="@+id/line_v3"
+                        android:layout_toStartOf="@+id/rlCircle3"/>
+
+                    <ProgressBar
+                        android:id="@+id/circleProgress3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:max="100"
+                        android:progress="10"
+                        android:progressDrawable="@drawable/circular_red"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorRed"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:text="10%">
+                    </TextView>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:id="@+id/line_h_3"
+                    android:layout_marginBottom="20sp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/colorGrey"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorGrey"
+                    android:layout_below="@+id/list1"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70sp"
+                android:id="@+id/list2"
+                android:layout_below="@+id/list1">
+
+                <ImageView
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:id="@+id/imTheme2"
+                    android:layout_marginLeft="10sp"
+                    android:layout_margin="1sp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorOrange"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SCIENCE"
+                    android:textSize="25sp"
+                    android:layout_toRightOf="@+id/imTheme2"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/colorBlack"/>
+
+                <ImageView
+                    android:layout_width="25sp"
+                    android:layout_height="15sp"
+                    android:background="@drawable/arrow_goal"
+                    android:layout_marginRight="10sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/rlCircle2"/>
+
+                <RelativeLayout
+                    android:layout_width="80sp"
+                    android:layout_height="80sp"
+                    android:id="@+id/rlCircle2"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:layout_width="1sp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey"
+                        android:id="@+id/line_v2"
+                        android:layout_toStartOf="@+id/rlCircle"/>
+
+                    <ProgressBar
+                        android:id="@+id/circleProgress2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:max="100"
+                        android:progress="35"
+                        android:progressDrawable="@drawable/circular_yellow"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorYellow"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:text="35%">
+                    </TextView>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:id="@+id/line_h_2"
+                    android:layout_marginBottom="20sp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/colorGrey"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorGrey"
+                    android:layout_below="@+id/list1"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:id="@+id/myGoal"
+        android:text="@string/circle_add_goal"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_green"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20sp"/>
 
 </RelativeLayout>
