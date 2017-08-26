@@ -1,4 +1,4 @@
-package com.goalreminderbeta.sa.goalreminderbeta;
+package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.goalreminderbeta.sa.goalreminderbeta.R;
+
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<String>> mGroups;
     private Context mContext;
-    private Button chlen;
 
     public ExpListAdapter (Context context,ArrayList<ArrayList<String>> groups){
         mContext = context;

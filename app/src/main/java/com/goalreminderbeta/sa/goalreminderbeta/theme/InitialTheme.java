@@ -1,0 +1,66 @@
+package com.goalreminderbeta.sa.goalreminderbeta.theme;
+
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+import com.goalreminderbeta.sa.goalreminderbeta.theme.childTheme.ChildTheme;
+
+public abstract class InitialTheme {
+
+    private String goalName;
+    private String categoryName;
+    private ImageView image;
+    private ProgressBar progressGoal;
+    private ChildTheme child;
+
+    public InitialTheme() {
+    }
+
+    public InitialTheme(String goalName, String categoryName, ImageView image, ProgressBar progressGoal, ChildTheme child) {
+        this.goalName = goalName;
+        this.categoryName = categoryName;
+        this.image = image;
+        this.progressGoal = progressGoal;
+        this.child = child;
+    }
+
+    public String getGoalName() {
+        return goalName;
+    }
+
+    public void setGoalName(String goalName) {
+        this.goalName = goalName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
+
+    public ProgressBar getProgressGoal() {
+        return progressGoal;
+    }
+
+    public void setProgressGoal(ProgressBar progressGoal) {
+        this.progressGoal = progressGoal;
+    }
+
+    public ChildTheme getChild() {
+        return child;
+    }
+
+    public void setChild(ChildTheme child) {
+        this.child = child;
+    }
+}

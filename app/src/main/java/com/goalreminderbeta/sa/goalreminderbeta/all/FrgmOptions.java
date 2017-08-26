@@ -1,4 +1,4 @@
-package com.goalreminderbeta.sa.goalreminderbeta;
+package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by stas0 on 16.07.2017.
- */
+import com.goalreminderbeta.sa.goalreminderbeta.R;
 
 public class FrgmOptions extends Fragment {
 
