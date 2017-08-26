@@ -43,7 +43,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llNumberPages"
+        android:id="@+id/llNumberDaysSmoke"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -62,17 +62,17 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/position2"
+                android:id="@+id/position1"
                 android:layout_width="1sp"
                 android:layout_height="1sp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20sp" />
 
             <Button
-                android:id="@+id/minusPage"
+                android:id="@+id/minusDaySmoke"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position1"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_orange"
@@ -81,13 +81,13 @@
                 android:textSize="25sp" />
 
             <Button
-                android:id="@+id/addRep"
+                android:id="@+id/addDaySmoke"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position1"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/minusPage"
+                android:layout_toRightOf="@+id/minusDaySmoke"
                 android:background="@drawable/btn_orange"
                 android:text="+"
                 android:textColor="@color/colorWhite"
@@ -96,10 +96,10 @@
             <Button
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position1"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/addRep"
+                android:layout_toRightOf="@+id/addDaySmoke"
                 android:background="@drawable/btn_orange"
                 android:text="OK"
                 android:textColor="@color/colorWhite"
@@ -115,7 +115,7 @@
             <Button
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:id="@+id/currentWeightCircle"
+                android:id="@+id/daysCircleSmoke"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_green"
                 android:text="0"
@@ -145,7 +145,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llNumberPages"
+        android:id="@+id/llNumberPagesDrink"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -156,7 +156,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/position2"
+                android:layout_above="@+id/position1"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="20sp"
                 android:text="HOW MANY DAYS DRINK PER WEEK:"
@@ -164,17 +164,17 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/position2"
+                android:id="@+id/position3"
                 android:layout_width="1sp"
                 android:layout_height="1sp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20sp" />
 
             <Button
-                android:id="@+id/minusPage"
+                android:id="@+id/minusDayDrink"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position3"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_orange"
@@ -183,13 +183,13 @@
                 android:textSize="25sp" />
 
             <Button
-                android:id="@+id/addRep"
+                android:id="@+id/addDayDrink"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position3"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/minusPage"
+                android:layout_toRightOf="@+id/minusDayDrink"
                 android:background="@drawable/btn_orange"
                 android:text="+"
                 android:textColor="@color/colorWhite"
@@ -198,10 +198,10 @@
             <Button
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
+                android:layout_below="@+id/position3"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/addRep"
+                android:layout_toRightOf="@+id/addDayDrink"
                 android:background="@drawable/btn_orange"
                 android:text="OK"
                 android:textColor="@color/colorWhite"
@@ -217,7 +217,7 @@
             <Button
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:id="@+id/currentWeightCircle"
+                android:id="@+id/daysCircleDrink"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_green"
                 android:text="0"
