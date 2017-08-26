@@ -28,9 +28,9 @@ public class SectionTheme extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        frgmGoals = new FrgmGoals(getApplicationContext());
         fTrans = getFragmentManager().beginTransaction();
         fTrans.add(R.id.frgmCont, frgmGoals);
         fTrans.commit();
-        frgmGoals = new FrgmGoals(getApplicationContext());
     }
 }
