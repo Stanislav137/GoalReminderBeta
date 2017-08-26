@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
@@ -20,33 +21,16 @@ public class SectionTheme extends AppCompatActivity {
     private ImageView image;
     private ProgressBar progressGoal;
     private ChildTheme child;
-
+    FragmentTransaction fTrans;
+    FrgmGoals frgmGoals;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ExpandableListView listView = (ExpandableListView)findViewById(R.id.exListView);
-
-        ArrayList<ArrayList<InitialTheme>> groups = new ArrayList<>();
-
-
-        ArrayList<InitialTheme> children1 = new ArrayList<>();
-        ArrayList<InitialTheme> children2 = new ArrayList<>();
-
-        InitialTheme theme1 = new InitialTheme();
-        InitialTheme theme2 = new InitialTheme();
-
-        theme1.setCategoryName("Them1");
-        theme2.setCategoryName("Them2");
-
-        children1.add(theme1);
-        groups.add(children1);
-        children2.add(theme2);
-        groups.add(children2);
-
-        ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
-        listView.setAdapter(adapter);
-
+        fTrans = getFragmentManager().beginTransaction();
+        fTrans.add(R.id.frgmCont, frgmGoals);
+        fTrans.commit();
+        frgmGoals = new FrgmGoals(getApplicationContext());
     }
 }

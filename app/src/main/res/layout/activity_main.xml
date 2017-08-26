@@ -99,20 +99,13 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <!--<FrameLayout-->
-        <!--android:id="@+id/frgmCont"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@+id/llMenu">-->
-    <!--</FrameLayout>-->
-
-    <ExpandableListView
-        android:id="@+id/exListView"
+    <FrameLayout
+        android:id="@+id/frgmCont"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/llMenu"
-        android:groupIndicator="@color/colorPrimary"
-        android:transcriptMode="alwaysScroll"
-        />
+        android:layout_below="@+id/llMenu">
+    </FrameLayout>
+
+
 
 </RelativeLayout>

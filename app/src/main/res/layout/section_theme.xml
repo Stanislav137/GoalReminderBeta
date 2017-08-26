@@ -30,15 +30,6 @@
         android:layout_marginLeft="10sp"
         android:textColor="@color/colorBlack"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_toRightOf="@+id/imTheme"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10sp"
-            android:textColor="@color/colorBlack"/>
-
     <ImageView
         android:layout_width="25sp"
         android:layout_height="15sp"

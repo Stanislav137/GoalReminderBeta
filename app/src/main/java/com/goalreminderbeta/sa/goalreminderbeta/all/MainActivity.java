@@ -14,7 +14,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     FrgmGoals frgmGoals;
     FrgmRecords frgmRecords;
@@ -28,23 +28,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
        // animCircleAddGoal();
 
-        frgmGoals = new FrgmGoals();
-        frgmRecords = new FrgmRecords();
-        frgmOptions = new FrgmOptions();
+//        frgmGoals = new FrgmGoals(getApplicationContext());
+//        frgmRecords = new FrgmRecords();
+//        frgmOptions = new FrgmOptions();
 
-//        rlGoalsBtn = (RelativeLayout) findViewById(R.id.rlGoalBtn);
-//        rlRecordsBtn = (RelativeLayout) findViewById(R.id.rlRecordsBtn);
-//        rlOptionsBtn = (RelativeLayout) findViewById(R.id.rlOptionsBtn);
+        rlGoalsBtn = (RelativeLayout) findViewById(R.id.rlGoalBtn);
+        rlRecordsBtn = (RelativeLayout) findViewById(R.id.rlRecordsBtn);
+        rlOptionsBtn = (RelativeLayout) findViewById(R.id.rlOptionsBtn);
 //        rlGoalsBtn.setOnClickListener(this);
 //        rlRecordsBtn.setOnClickListener(this);
 //        rlOptionsBtn.setOnClickListener(this);
-//
+
 //        fTrans = getFragmentManager().beginTransaction();
 //        fTrans.add(R.id.frgmCont, frgmGoals);
 //        fTrans.commit();
     }
 
-    public void onClick(View v) {
+//    public void onClick(View v) {
 //        fTrans = getFragmentManager().beginTransaction();
 //        switch (v.getId()) {
 //            case R.id.rlGoalBtn:
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                break;
 //        }
 //        fTrans.commit();
-    }
+//    }
 
     public void animCircleAddGoal() {
         Button animImage = (Button) findViewById(R.id.editCalendarCircle);
