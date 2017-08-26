@@ -15,6 +15,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<String>> mGroups;
     private Context mContext;
+    private Button chlen;
 
     public ExpListAdapter (Context context,ArrayList<ArrayList<String>> groups){
         mContext = context;

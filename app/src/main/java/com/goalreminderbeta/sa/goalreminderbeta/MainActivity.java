@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta;
 
 import android.app.FragmentTransaction;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

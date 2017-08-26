@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_marginTop="1sp"
+        android:layout_below="@+id/line_h_1"
+        android:id="@+id/list1">
+
+    <ImageView
+        android:layout_width="70sp"
+        android:layout_height="70sp"
+        android:id="@+id/imTheme"
+        android:layout_marginLeft="10sp"
+        android:layout_margin="1sp"
+        android:layout_centerVertical="true"
+        android:background="@color/colorOrange"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPORT"
+        android:textSize="25sp"
+        android:layout_toRightOf="@+id/imTheme"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10sp"
+        android:textColor="@color/colorBlack"/>
+
+    <ImageView
+        android:layout_width="25sp"
+        android:layout_height="15sp"
+        android:background="@drawable/arrow_goal"
+        android:layout_marginRight="10sp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/rlCircle"/>
+
+    <RelativeLayout
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:id="@+id/rlCircle"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:layout_width="1sp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"
+            android:id="@+id/line_v"
+            android:layout_toStartOf="@+id/rlCircle"/>
+
+        <ProgressBar
+            android:id="@+id/circleProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:max="100"
+            android:progress="70"
+            android:progressDrawable="@drawable/circular_green"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGreen"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="70%">
+        </TextView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+    </RelativeLayout>
