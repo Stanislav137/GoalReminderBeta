@@ -5,9 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 
@@ -64,7 +62,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.group_view, null);
+            convertView = inflater.inflate(R.layout.secton_theme, null);
         }
 
         if (isExpanded){
