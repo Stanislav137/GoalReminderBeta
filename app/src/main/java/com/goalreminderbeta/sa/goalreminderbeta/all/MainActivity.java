@@ -28,21 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
        // animCircleAddGoal();
 
-        ExpandableListView listView = (ExpandableListView)findViewById(R.id.exListView);
-
-        ArrayList<ArrayList<String>> groups = new ArrayList<>();
-        ArrayList<String> children1 = new ArrayList<>();
-        ArrayList<String> children2 = new ArrayList<>();
-        children1.add("Child_2");
-        children2.add("Child_2");
-        children2.add("Child_2");
-        children2.add("Child_3");
-        groups.add(children1);
-        groups.add(children2);
-
-        ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
-        listView.setAdapter(adapter);
-
         frgmGoals = new FrgmGoals();
         frgmRecords = new FrgmRecords();
         frgmOptions = new FrgmOptions();

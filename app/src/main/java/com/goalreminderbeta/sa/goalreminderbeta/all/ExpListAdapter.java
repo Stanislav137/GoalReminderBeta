@@ -1,22 +1,26 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
 
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
-    private ArrayList<ArrayList<String>> mGroups;
+    private ArrayList<ArrayList<InitialTheme>> mGroups;
     private Context mContext;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<String>> groups){
+    public ExpListAdapter (Context context,ArrayList<ArrayList<InitialTheme>> groups){
         mContext = context;
         mGroups = groups;
     }
@@ -62,7 +66,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.secton_theme, null);
+            convertView = inflater.inflate(R.layout.section_theme, null);
         }
 
         if (isExpanded){
@@ -85,15 +89,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
-        textChild.setText(mGroups.get(groupPosition).get(childPosition));
-
-//        Button button = (Button)convertView.findViewById(R.id.buttonChild);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(mContext,"button is pressed",5000).show();
-//            }
-//        });
+        textChild.setText(mGroups.get(groupPosition).get(childPosition).toString());
+        textChild.setTextColor(Color.BLACK);
 
         return convertView;
     }

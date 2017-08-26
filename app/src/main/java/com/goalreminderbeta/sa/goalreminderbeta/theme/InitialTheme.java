@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 
 import com.goalreminderbeta.sa.goalreminderbeta.theme.childTheme.ChildTheme;
 
-public abstract class InitialTheme {
+public class InitialTheme {
 
     private String goalName;
     private String categoryName;
@@ -62,5 +62,15 @@ public abstract class InitialTheme {
 
     public void setChild(ChildTheme child) {
         this.child = child;
+    }
+
+    @Override
+    public String toString() {
+        return "InitialTheme{" +
+                "goalName='" + goalName +
+                ", categoryName='" + categoryName +
+                ", image=" + image +
+                ", progressGoal=" + progressGoal +
+                ", child=" + child + "}";
     }
 }
