@@ -13,7 +13,7 @@ public class InitialTheme {
     private ProgressBar progressGoal;
     private ChildTheme child;
 
-    public InitialTheme() {
+    public InitialTheme() { // TODO зачем это?
     }
 
     public InitialTheme(String goalName, String categoryName, ImageView image, ProgressBar progressGoal, ChildTheme child) {

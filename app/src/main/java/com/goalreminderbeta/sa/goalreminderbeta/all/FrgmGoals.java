@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -30,11 +33,11 @@ public class FrgmGoals extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.frgm_goals, null);
+//        animCircleAddGoal(v);
 
         ExpandableListView listView = (ExpandableListView)v.findViewById(R.id.exListView);
 
         ArrayList<ArrayList<InitialTheme>> groups = new ArrayList<>();
-
 
         ArrayList<InitialTheme> children1 = new ArrayList<>();
         ArrayList<InitialTheme> children2 = new ArrayList<>();
@@ -55,4 +58,9 @@ public class FrgmGoals extends Fragment {
 
         return v;
     }
+//    public void animCircleAddGoal(View v) {
+//        Button animImage = (Button) v.findViewById(R.id.myGoal);
+//        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
+//        animImage.startAnimation(hyperspaceJumpAnimation);
+//    }
 }
