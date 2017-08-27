@@ -60,7 +60,7 @@ public class FrgmGoals extends Fragment {
     }
 //    public void animCircleAddGoal(View v) {
 //        Button animImage = (Button) v.findViewById(R.id.myGoal);
-//        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
+//        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_anim); //TODO не работает анимация
 //        animImage.startAnimation(hyperspaceJumpAnimation);
 //    }
 }
