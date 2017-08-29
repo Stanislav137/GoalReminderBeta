@@ -2,10 +2,13 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -17,6 +20,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<InitialTheme>> mGroups;
     private Context mContext;
+    private ImageView arrowDownUp;
 
     public ExpListAdapter (Context context,ArrayList<ArrayList<InitialTheme>> groups){
         mContext = context;
@@ -69,9 +73,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (isExpanded){
             //Изменяем что-нибудь, если текущая Group раскрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
+            arrowDownUp.setRotation(180);
+            arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
+
         }
         else{
             //Изменяем что-нибудь, если текущая Group скрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
+            arrowDownUp.setRotation(0);
+            arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
 
         return convertView;
@@ -83,12 +94,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section_goal1, null);
+            convertView = inflater.inflate(R.layout.child_section_goal, null);
+            convertView.setMinimumHeight(1500);
         }
 
-        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
-        textChild.setText(mGroups.get(groupPosition).get(childPosition).toString());
-        textChild.setTextColor(Color.BLACK);
+//        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
+//        textChild.setText(mGroups.get(groupPosition).get(childPosition).toString());
+//        textChild.setTextColor(Color.BLACK);
 
         return convertView;
     }

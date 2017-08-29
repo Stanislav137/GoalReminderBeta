@@ -33,8 +33,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
+                    android:id="@+id/llSlide"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGreen"></LinearLayout>
+                    android:background="@color/colorGreen"
+                    android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>
@@ -65,7 +67,6 @@
                     android:layout_height="3sp"
                     android:layout_alignParentBottom="true"
                     android:background="@color/colorOrange"></LinearLayout>
-
             </RelativeLayout>
         </RelativeLayout>
 
@@ -89,12 +90,12 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:text="@string/menu_myoptions"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
                     android:background="@color/colorOrange"
                     android:layout_alignParentBottom="true"></LinearLayout>
-
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>

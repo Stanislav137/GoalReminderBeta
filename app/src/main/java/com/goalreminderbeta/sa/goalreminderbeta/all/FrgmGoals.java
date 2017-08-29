@@ -24,9 +24,14 @@ import java.util.ArrayList;
 public class FrgmGoals extends Fragment {
 
     private Context context;
+    private boolean isExpanded;
 
     public FrgmGoals(Context context) {
         this.context = context;
+    }
+
+    public FrgmGoals() {
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +50,8 @@ public class FrgmGoals extends Fragment {
         InitialTheme theme1 = new InitialTheme();
         InitialTheme theme2 = new InitialTheme();
 
-        theme1.setCategoryName("Them1");
-        theme2.setCategoryName("Them2");
+//        theme1.setCategoryName("Them1");
+//        theme2.setCategoryName("Them2");
 
         children1.add(theme1);
         groups.add(children1);
@@ -62,5 +67,13 @@ public class FrgmGoals extends Fragment {
 //        Button animImage = (Button) v.findViewById(R.id.myGoal);
 //        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.btn_anim); //TODO не работает анимация
 //        animImage.startAnimation(hyperspaceJumpAnimation);
+//    }
+
+//    public void showAddGoal(boolean isExpanded) {
+//
+//        if(isExpanded) {
+//            Button myGoal = (Button) getView().findViewById(R.id.myGoal);
+//            myGoal.setVisibility(View.INVISIBLE);
+//        }
 //    }
 }

@@ -43,6 +43,7 @@
     <ImageView
         android:layout_width="25sp"
         android:layout_height="15sp"
+        android:id="@+id/arrowDownUp"
         android:background="@drawable/arrow_goal"
         android:layout_marginRight="10sp"
         android:layout_centerVertical="true"
@@ -52,11 +53,12 @@
         android:layout_width="80sp"
         android:layout_height="80sp"
         android:id="@+id/rlCircle"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true">
+        android:layout_alignTop="@+id/imTheme"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <ImageView
-            android:layout_width="1sp"
+            android:layout_width="0.5sp"
             android:layout_height="match_parent"
             android:background="@color/colorGrey"
             android:id="@+id/line_v"

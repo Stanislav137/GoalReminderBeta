@@ -37,7 +37,6 @@ public class SectionTheme extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         frgmGoals = new FrgmGoals(getApplicationContext());
         frgmRecords = new FrgmRecords();
         frgmOptions = new FrgmOptions();
