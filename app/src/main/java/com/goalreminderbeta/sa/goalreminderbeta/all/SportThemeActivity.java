@@ -2,8 +2,6 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +12,12 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.db.Goal;
 
 import java.util.Calendar;
+import java.util.Date;
+
+import static com.orm.SugarRecord.findById;
 
 public class SportThemeActivity extends AppCompatActivity {
 
@@ -46,10 +48,10 @@ public class SportThemeActivity extends AppCompatActivity {
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
     }
     private void setListenersOnButtons(){
-        setTimemOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
-        setTimemOnButton(sportPlusWeightCurrent, "+", true);
-        setTimemOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
-        setTimemOnButton(sportPlusWeightGoal, "+", false);
+        setTimerOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
+        setTimerOnButton(sportPlusWeightCurrent, "+", true);
+        setTimerOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
+        setTimerOnButton(sportPlusWeightGoal, "+", false);
     }
 
     private CountDownTimer getTimer(final String direction, final boolean current){
@@ -104,15 +106,8 @@ public class SportThemeActivity extends AppCompatActivity {
     }
 
     public void test(View view) {
-        //Goal goal = new Goal(15, 8, new Date(), new Date());
-        //goal.save();
-        //Goal goalFromDb = findById(Goal.class, 1l);
-        //sportCurrentWeight.setText("" + goalFromDb.getCurrentWeight());
-        //sportGoalWeight.setText("" + goalFromDb.getGoalWeight());
-//        List<Goal> allGoals = Goal.listAll(Goal.class);
-//        for (Goal goal : allGoals){
-//            goal.delete();
-//        }
+        Goal goal = new Goal(15, 8, new Date(), new Date());
+        goal.save();
     }
 
     private void pickDate(final TextView view){
