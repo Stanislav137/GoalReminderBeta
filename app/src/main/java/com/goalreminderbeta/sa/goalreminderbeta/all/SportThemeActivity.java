@@ -33,15 +33,15 @@ public class SportThemeActivity extends AppCompatActivity {
         sportGoalWeight = (Button) findViewById(R.id.sportGoalWeight);
     }
     private void setListenersOnButtons(){
-        setTimemOnButton(sportMinusWeightCurrent, "-", true);
+        setTimemOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
         setTimemOnButton(sportPlusWeightCurrent, "+", true);
-        setTimemOnButton(sportMinusWeightGoal, "-", false);
+        setTimemOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
         setTimemOnButton(sportPlusWeightGoal, "+", false);
     }
 
     private CountDownTimer getTimer(final String direction, final boolean current){
 
-        CountDownTimer timer = new CountDownTimer(30000, 100) {
+        CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления веса
             @Override
             public void onTick(long l) {
                 if (direction.equals("+")){
