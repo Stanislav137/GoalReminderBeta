@@ -161,6 +161,19 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
+            <Button
+                android:id="@+id/addMinusPage"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/addPage"
+                android:background="@drawable/btn_orange"
+                android:text="+20"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -217,6 +230,7 @@
 
             <CheckBox
                 android:id="@+id/cbWithoutThis"
+                android:onClick="cbOnClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
