@@ -16,7 +16,7 @@ public class ScienceThemeActivity extends AppCompatActivity {
 
     private Button scienceGoalPage, minusPage, addPage, addMinusPage;
     private int goalPage;
-    private boolean nameBook = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +81,7 @@ public class ScienceThemeActivity extends AppCompatActivity {
     }
 
     public void cbOnClick(View view){
+        boolean nameBook = true;
         if(!nameBook){
             nameBook = true;
         } else nameBook = false;
