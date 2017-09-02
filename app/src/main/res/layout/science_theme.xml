@@ -109,9 +109,9 @@
     <!--</LinearLayout>-->
 
     <LinearLayout
+        android:id="@+id/llNumberPages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llNumberPages"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -140,25 +140,26 @@
                 android:id="@+id/minusPage"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:textSize="25sp"
-                android:textColor="@color/colorWhite"
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_orange"
-                android:text="-" />
+                android:text="-"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp" />
 
             <Button
+                android:id="@+id/addPage"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
-                android:textSize="25sp"
-                android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
                 android:layout_toRightOf="@+id/minusPage"
                 android:background="@drawable/btn_orange"
-                android:text="+" />
+                android:text="+"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp" />
 
         </RelativeLayout>
 
@@ -168,13 +169,13 @@
             android:layout_weight="2">
 
             <Button
+                android:id="@+id/scienceGoalPage"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:id="@+id/currentWeightCircle"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:text="0"
-                android:layout_marginTop="10sp"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
         </RelativeLayout>
