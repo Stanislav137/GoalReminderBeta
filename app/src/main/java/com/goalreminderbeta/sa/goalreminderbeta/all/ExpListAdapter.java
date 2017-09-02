@@ -1,15 +1,11 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
@@ -66,6 +62,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
                              ViewGroup parent) {
 
+        arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
+
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.section_theme, null);
@@ -73,14 +71,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (isExpanded){
             //Изменяем что-нибудь, если текущая Group раскрыта
-            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(180);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
 
         }
         else{
             //Изменяем что-нибудь, если текущая Group скрыта
-            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(0);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }

@@ -14,6 +14,7 @@ public class InitialTheme {
     private ChildTheme child;
 
     public InitialTheme() { // TODO зачем это?
+        // пустой конструктор что бы можно было создать обект так InitialTheme theme = new InitialTheme();
     }
 
     public InitialTheme(String goalName, String categoryName, ImageView image, ProgressBar progressGoal, ChildTheme child) {

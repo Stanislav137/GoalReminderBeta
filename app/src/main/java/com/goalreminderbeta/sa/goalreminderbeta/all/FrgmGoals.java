@@ -17,9 +17,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
 
 import java.util.ArrayList;
 
-/**
- * Created by stas0 on 16.07.2017.
- */
 
 public class FrgmGoals extends Fragment {
 

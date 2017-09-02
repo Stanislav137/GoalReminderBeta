@@ -69,7 +69,7 @@
                 android:layout_marginLeft="20sp" />
 
             <Button
-                android:id="@+id/minusWeight"
+                android:id="@+id/sportMinusWeightCurrent"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position1"
@@ -81,12 +81,13 @@
                 android:text="-" />
 
             <Button
+                android:id="@+id/sportPlusWeightCurrent"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position1"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/minusWeight"
+                android:layout_toRightOf="@+id/sportMinusWeightCurrent"
                 android:background="@drawable/btn_orange"
                 android:text="+"
                 android:textColor="@color/colorWhite"
@@ -100,13 +101,13 @@
             android:layout_weight="2">
 
             <Button
+                android:id="@+id/sportCurrentWeight"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:id="@+id/currentWeightCircle"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:text="0"
-                android:layout_marginTop="10sp"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
 
@@ -148,7 +149,7 @@
                 android:layout_marginLeft="20sp" />
 
             <Button
-                android:id="@+id/minusWeightGoal"
+                android:id="@+id/sportMinusWeightGoal"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
@@ -160,16 +161,17 @@
                 android:text="-" />
 
             <Button
+                android:id="@+id/sportPlusWeightGoal"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:textSize="25sp"
-                android:textColor="@color/colorWhite"
-                android:layout_toRightOf="@+id/minusWeightGoal"
+                android:layout_toRightOf="@+id/sportMinusWeightGoal"
                 android:background="@drawable/btn_orange"
-                android:text="+" />
+                android:text="+"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp" />
 
         </RelativeLayout>
 
@@ -179,12 +181,13 @@
             android:layout_weight="2">
 
             <Button
+                android:id="@+id/sportGoalWeight"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:text="0"
-                android:layout_marginTop="10sp"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
 
