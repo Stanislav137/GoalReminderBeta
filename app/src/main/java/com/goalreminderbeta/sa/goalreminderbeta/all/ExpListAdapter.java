@@ -90,7 +90,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section_goal, null);
+            convertView = inflater.inflate(R.layout.child_section_sport, null);
             convertView.setMinimumHeight(1500);
         }
 
