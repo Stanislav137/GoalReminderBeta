@@ -30,6 +30,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/enterNameBook"
         android:hint="The 10X Rule"/>
 
     <TextView
@@ -43,12 +44,15 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/enterNameAuthor"
         android:hint="Grant Cardone"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SAVE"
+        android:onClick="saveGoalBtn"
+        android:id="@+id/saveGoal"
         android:layout_marginTop="5sp"
         android:background="@color/colorOrange"
         android:textColor="@color/colorWhite"

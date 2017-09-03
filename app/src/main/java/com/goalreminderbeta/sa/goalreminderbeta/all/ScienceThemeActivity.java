@@ -1,13 +1,21 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.BoolRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -16,6 +24,9 @@ public class ScienceThemeActivity extends AppCompatActivity {
 
     private Button scienceGoalPage, minusPage, addPage, addMinusPage;
     private int goalPage;
+    private String nameBook, nameAuthor;
+    private boolean boolNameBook = true;
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,22 +92,40 @@ public class ScienceThemeActivity extends AppCompatActivity {
     }
 
     public void cbOnClick(View view){
-        boolean nameBook = true;
-        if(!nameBook){
-            nameBook = true;
-        } else nameBook = false;
-        disablePresentBook(nameBook);
+        if(!boolNameBook){
+            boolNameBook = true;
+        } else boolNameBook = false;
+        disablePresentBook(boolNameBook);
     }
 
-    private void disablePresentBook(Boolean nameBook){
+    private void disablePresentBook(Boolean boolNameBook){
         LinearLayout llNameBook = (LinearLayout) findViewById(R.id.llNameBook);
         Button editBook = (Button) findViewById(R.id.editBook);
-        if(!nameBook){
+        if(!boolNameBook){
             llNameBook.setBackgroundColor(Color.argb(255,193,193,193));
             editBook.setVisibility(View.INVISIBLE);
         } else {
             llNameBook.setBackgroundColor(Color.WHITE);
             editBook.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void editPresentBook(View view) {
+        showPresentBook();
+    }
+
+    private void showPresentBook(){
+        dialog = new Dialog(ScienceThemeActivity.this);
+        dialog.setContentView(R.layout.present_book);
+        dialog.show();
+    }
+
+    public void saveGoalBtn(View view) {
+        EditText enterNameBook = (EditText) dialog.findViewById(R.id.enterNameBook);
+        EditText enterNameAuthor = (EditText) dialog.findViewById(R.id.enterNameAuthor);
+        nameBook = enterNameBook.getText().toString();
+        nameAuthor = enterNameAuthor.getText().toString();
+        dialog.dismiss();
+        Log.d("log", nameBook + " " +  nameAuthor);
     }
 }

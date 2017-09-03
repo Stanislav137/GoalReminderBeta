@@ -214,6 +214,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/presentBook"
                 android:layout_above="@+id/position3"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="20sp"
@@ -250,6 +251,7 @@
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:id="@+id/editBook"
+                android:onClick="editPresentBook"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_red"
                 android:text="EDIT"
