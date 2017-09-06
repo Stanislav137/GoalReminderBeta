@@ -1,19 +1,31 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.db.Goal;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import static com.orm.SugarRecord.findById;
 
 public class SportThemeActivity extends AppCompatActivity {
 
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     private Button sportMinusWeightCurrent, sportPlusWeightCurrent,
-            sportCurrentWeight, sportMinusWeightGoal, sportPlusWeightGoal, sportGoalWeight;
+            sportCurrentWeight, sportMinusWeightGoal, sportPlusWeightGoal, sportGoalWeight,
+            sportSaveGoal;
+    private TextView sportDateFrom, sportDateTo;
     private int currentWeight = 0, goalWeight = 0;
 
     @Override
@@ -31,12 +43,15 @@ public class SportThemeActivity extends AppCompatActivity {
         sportMinusWeightGoal = (Button) findViewById(R.id.sportMinusWeightGoal);
         sportPlusWeightGoal = (Button) findViewById(R.id.sportPlusWeightGoal);
         sportGoalWeight = (Button) findViewById(R.id.sportGoalWeight);
+        sportSaveGoal = (Button) findViewById(R.id.sportSaveGoal);
+        sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
+        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
     }
     private void setListenersOnButtons(){
-        setTimemOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
-        setTimemOnButton(sportPlusWeightCurrent, "+", true);
-        setTimemOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
-        setTimemOnButton(sportPlusWeightGoal, "+", false);
+        setTimerOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
+        setTimerOnButton(sportPlusWeightCurrent, "+", true);
+        setTimerOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
+        setTimerOnButton(sportPlusWeightGoal, "+", false);
     }
 
     private CountDownTimer getTimer(final String direction, final boolean current){
@@ -72,7 +87,7 @@ public class SportThemeActivity extends AppCompatActivity {
         };
         return timer;
     }
-    private void setTimemOnButton(Button button, final String direction, final boolean current){
+    private void setTimerOnButton(Button button, final String direction, final boolean current){
         button.setOnTouchListener(new View.OnTouchListener() {
             CountDownTimer timer = getTimer(direction, current);
             @Override
@@ -88,5 +103,34 @@ public class SportThemeActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void test(View view) {
+        Goal goal = new Goal(15, 8, new Date(), new Date());
+        goal.save();
+    }
+
+    private void pickDate(final TextView view){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dialog = new DatePickerDialog(SportThemeActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                view.setText(day+"/"+month+"/"+year); //todo save date to db in Date format
+            }
+        }, year, month, day);
+        dialog.show();
+    }
+
+    public void pickDateFrom(View view) {
+        pickDate(sportDateFrom);
+    }
+
+    public void pickDateTo(View view) {
+        pickDate(sportDateTo);
     }
 }

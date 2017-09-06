@@ -320,7 +320,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/dateFrom"
+                android:id="@+id/sportDateFrom"
                 android:enabled="false"
                 android:textColor="@color/colorBlack"
                 android:text="00.00.0000"
@@ -348,7 +348,7 @@
                 android:textColor="@color/colorBlack"
                 android:layout_marginLeft="5sp"
                 android:textSize="20sp"
-                android:layout_below="@+id/dateFrom"
+                android:layout_below="@+id/sportDateFrom"
                 android:layout_toRightOf="@+id/fromId"/>
 
         </RelativeLayout>
