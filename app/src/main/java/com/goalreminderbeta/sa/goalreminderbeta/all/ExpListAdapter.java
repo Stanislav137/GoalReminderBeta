@@ -98,7 +98,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             convertView.setMinimumHeight(1500);
         }
 
-        SportGoal goal = mGroups.get(groupPosition).get(childPosition);
+        SportGoal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
         TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
         textChild.setText(goal.toString());
         textChild.setTextColor(Color.BLACK);
