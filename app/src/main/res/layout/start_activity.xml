@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ExpandableListView
+        android:id="@+id/allGoalsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:groupIndicator="@color/colorPrimary"
+        android:transcriptMode="alwaysScroll"
+        android:layout_weight="5"
+        />
+
+    <Button
+        android:id="@+id/startAddGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGoalChooser"
+        android:text="AddGoal"
+        android:layout_weight="1"/>
+</LinearLayout>
