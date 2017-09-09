@@ -297,6 +297,6 @@
         android:text="SAVE GOAL"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
-        android:onClick="test"/>
+        android:onClick="saveGoal"/>
 
 </LinearLayout>

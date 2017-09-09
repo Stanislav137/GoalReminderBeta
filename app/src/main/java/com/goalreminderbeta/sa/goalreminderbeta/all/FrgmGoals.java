@@ -2,26 +2,26 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
+import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class FrgmGoals extends Fragment {
 
     private Context context;
     private boolean isExpanded;
+    private Button button;
 
     public FrgmGoals(Context context) {
         this.context = context;
@@ -37,22 +37,32 @@ public class FrgmGoals extends Fragment {
         View v = inflater.inflate(R.layout.frgm_goals, null);
 //        animCircleAddGoal(v);
 
+        button = (Button) v.findViewById(R.id.createGoal);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button.setText("111");
+            }
+        });
+
+
         ExpandableListView listView = (ExpandableListView)v.findViewById(R.id.exListView);
 
-        ArrayList<ArrayList<InitialTheme>> groups = new ArrayList<>();
+        ArrayList<ArrayList<SportGoal>> groups = new ArrayList<>();
 
-        ArrayList<InitialTheme> children1 = new ArrayList<>();
-        ArrayList<InitialTheme> children2 = new ArrayList<>();
+        ArrayList<SportGoal> children1 = new ArrayList<>();
+        ArrayList<SportGoal> children2 = new ArrayList<>();
 
-        InitialTheme theme1 = new InitialTheme();
-        InitialTheme theme2 = new InitialTheme();
+        SportGoal goal1 = new SportGoal(100,70, new Date(),new Date());
+        SportGoal goal2 = new SportGoal(50,70,new Date(),new Date());
 
 //        theme1.setCategoryName("Them1");
 //        theme2.setCategoryName("Them2");
 
-        children1.add(theme1);
+        children1.add(goal1);
         groups.add(children1);
-        children2.add(theme2);
+        children2.add(goal2);
         groups.add(children2);
 
         ExpListAdapter adapter = new ExpListAdapter(context, groups);

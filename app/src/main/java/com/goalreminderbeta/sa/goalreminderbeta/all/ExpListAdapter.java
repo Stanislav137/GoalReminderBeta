@@ -1,24 +1,27 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.constraint.solver.Goal;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
+import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
 
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
-    private ArrayList<ArrayList<InitialTheme>> mGroups;
+    private ArrayList<ArrayList<SportGoal>> mGroups;
     private Context mContext;
     private ImageView arrowDownUp;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<InitialTheme>> groups){
+    public ExpListAdapter (Context context,ArrayList<ArrayList<SportGoal>> groups){
         mContext = context;
         mGroups = groups;
     }
@@ -62,7 +65,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
                              ViewGroup parent) {
 
-        arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -71,12 +73,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (isExpanded){
             //Изменяем что-нибудь, если текущая Group раскрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(180);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
 
         }
         else{
             //Изменяем что-нибудь, если текущая Group скрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(0);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
@@ -90,13 +94,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section_sport, null);
+            convertView = inflater.inflate(R.layout.child_test, null);
             convertView.setMinimumHeight(1500);
         }
 
-//        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
-//        textChild.setText(mGroups.get(groupPosition).get(childPosition).toString());
-//        textChild.setTextColor(Color.BLACK);
+        SportGoal goal = mGroups.get(groupPosition).get(childPosition);
+        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
+        textChild.setText(goal.toString());
+        textChild.setTextColor(Color.BLACK);
 
         return convertView;
     }

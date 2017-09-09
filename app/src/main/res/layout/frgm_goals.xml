@@ -16,13 +16,14 @@
     <Button
         android:layout_width="120sp"
         android:layout_height="120sp"
-        android:id="@+id/myGoal"
+        android:id="@+id/createGoal"
         android:text="@string/circle_add_goal"
         android:textSize="20sp"
         android:textColor="@color/colorWhite"
         android:background="@drawable/btn_green"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20sp"/>
+        android:layout_margin="20sp"
+        android:onClick="createGoal"/>
 
 </RelativeLayout>

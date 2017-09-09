@@ -26,11 +26,11 @@ public class SectionTheme extends AppCompatActivity implements View.OnClickListe
     private ImageView image;
     private ProgressBar progressGoal;
     private ChildTheme child;
-    FrgmGoals frgmGoals;
-    FrgmRecords frgmRecords;
-    FrgmOptions frgmOptions;
-    FragmentTransaction fTrans;
-    RelativeLayout rlGoalsBtn, rlRecordsBtn, rlOptionsBtn;
+    private FrgmGoals frgmGoals;
+    private FrgmRecords frgmRecords;
+    private FrgmOptions frgmOptions;
+    private FragmentTransaction fTrans;
+    private RelativeLayout rlGoalsBtn, rlRecordsBtn, rlOptionsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
