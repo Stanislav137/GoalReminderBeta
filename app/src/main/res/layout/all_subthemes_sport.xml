@@ -8,7 +8,7 @@
     tools:context="com.goalreminderbeta.sa.goalreminderbeta.ChosenTheme">
 
     <LinearLayout
-        android:id="@+id/llSport"
+        android:id="@+id/subWeight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -55,19 +55,19 @@
                 android:layout_below="@+id/themeSportTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="Это тема позволит помочь вам достичь желаемого веса"/>
+                android:text="Это тема позволит помочь вам достичь желаемого веса."/>
 
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llScience"
+        android:id="@+id/subRun"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="Button"
         android:background="@color/colorWhite"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:text="Button">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -75,13 +75,13 @@
             android:layout_weight="2">
 
             <ImageView
+                android:id="@+id/imThemeScience"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imThemeScience"
-                android:background="@color/colorBlack"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:layout_centerVertical="true"
+                android:layout_margin="5sp"
+                android:background="@color/colorBlack" />
 
         </RelativeLayout>
 
@@ -91,30 +91,30 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/themeScienceTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/themeScienceTitle"
-                android:textSize="35sp"
-                android:layout_marginTop="5sp"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
+                android:layout_marginTop="5sp"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="SCIENCE"/>
+                android:text="БЕГ"
+                android:textColor="@color/colorOrange"
+                android:textSize="35sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
                 android:layout_below="@+id/themeScienceTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to learn a new language or read a book."/>
+                android:text="Это тема позволит вам достичь желаемых результатов в беге на время на короткие дистанции либо на длинные."
+                android:textColor="@color/colorOrange" />
 
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llElements"
+        android:id="@+id/subElements"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -152,7 +152,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="OTHERS"/>
+                android:text="ЕЛЕМЕНТЫ"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -161,13 +161,13 @@
                 android:layout_below="@+id/themeElementsTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to learn a new skill."/>
+                android:text="Данная тема поможет вам в выполнении любого елемента."/>
 
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llHabits"
+        android:id="@+id/subRepeat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -205,7 +205,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="HABITS"/>
+                android:text="ПОВТОРЕНИЯ"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                 android:layout_below="@+id/themeHabitsTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to quit Smoking or to drink alcohol."/>
+                android:text="Тема поможет вам набрать желаемого количества повторений на упражнении."/>
 
         </RelativeLayout>
     </LinearLayout>
