@@ -62,7 +62,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
                              ViewGroup parent) {
 
-        arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -71,12 +70,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (isExpanded){
             //Изменяем что-нибудь, если текущая Group раскрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(180);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
 
         }
         else{
             //Изменяем что-нибудь, если текущая Group скрыта
+            arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(0);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
