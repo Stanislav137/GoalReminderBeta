@@ -12,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.db.Goal;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +36,7 @@ public class SportThemeActivity extends AppCompatActivity {
         setListenersOnButtons();
     }
     private void findAllButtons(){
+
         sportMinusWeightCurrent = (Button) findViewById(R.id.sportMinusWeightCurrent);
         sportPlusWeightCurrent = (Button) findViewById(R.id.sportPlusWeightCurrent);
         sportCurrentWeight = (Button) findViewById(R.id.sportCurrentWeight);
@@ -103,11 +103,6 @@ public class SportThemeActivity extends AppCompatActivity {
                 return false;
             }
         });
-    }
-
-    public void test(View view) {
-        Goal goal = new Goal(15, 8, new Date(), new Date());
-        goal.save();
     }
 
     private void pickDate(final TextView view){

@@ -2,16 +2,16 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
-import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +21,7 @@ public class FrgmGoals extends Fragment {
 
     private Context context;
     private boolean isExpanded;
+    private Button button;
 
     public FrgmGoals(Context context) {
         this.context = context;
@@ -35,6 +36,16 @@ public class FrgmGoals extends Fragment {
 
         View v = inflater.inflate(R.layout.frgm_goals, null);
 //        animCircleAddGoal(v);
+
+        button = (Button) v.findViewById(R.id.createGoal);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button.setText("111");
+            }
+        });
+
 
         ExpandableListView listView = (ExpandableListView)v.findViewById(R.id.exListView);
 

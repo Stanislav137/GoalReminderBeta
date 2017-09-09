@@ -1,12 +1,14 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.constraint.solver.Goal;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
@@ -92,13 +94,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section_sport, null);
+            convertView = inflater.inflate(R.layout.child_test, null);
             convertView.setMinimumHeight(1500);
         }
 
-//        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
-//        textChild.setText(mGroups.get(groupPosition).get(childPosition).toString());
-//        textChild.setTextColor(Color.BLACK);
+        SportGoal goal = mGroups.get(groupPosition).get(childPosition);
+        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
+        textChild.setText(goal.toString());
+        textChild.setTextColor(Color.BLACK);
 
         return convertView;
     }
