@@ -2,16 +2,14 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,13 +36,13 @@ public class FrgmGoals extends Fragment {
 
         ExpandableListView listView = (ExpandableListView)v.findViewById(R.id.exListView);
 
-        ArrayList<ArrayList<SportGoal>> groups = new ArrayList<>();
+        ArrayList<ArrayList<WeightCorrectionGoal>> groups = new ArrayList<>();
 
-        ArrayList<SportGoal> children1 = new ArrayList<>();
-        ArrayList<SportGoal> children2 = new ArrayList<>();
+        ArrayList<WeightCorrectionGoal> children1 = new ArrayList<>();
+        ArrayList<WeightCorrectionGoal> children2 = new ArrayList<>();
 
-        SportGoal goal1 = new SportGoal(100,70, new Date(),new Date());
-        SportGoal goal2 = new SportGoal(50,70,new Date(),new Date());
+        WeightCorrectionGoal goal1 = new WeightCorrectionGoal(100,70, new Date(),new Date());
+        WeightCorrectionGoal goal2 = new WeightCorrectionGoal(50,70,new Date(),new Date());
 
         children1.add(goal1);
         groups.add(children1);

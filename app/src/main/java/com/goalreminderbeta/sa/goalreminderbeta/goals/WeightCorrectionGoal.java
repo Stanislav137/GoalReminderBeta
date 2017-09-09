@@ -1,21 +1,20 @@
-package com.goalreminderbeta.sa.goalreminderbeta.db;
+package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
-import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.orm.SugarRecord;
 
 import java.util.Date;
 
 
-public class SportGoal extends SugarRecord implements Goal {
+public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private int currentWeight;
     private int goalWeight;
     private Date currentDate;
     private Date goalDate;
 
-    public SportGoal() {
+    public WeightCorrectionGoal() {
     }
 
-    public SportGoal(int currentWeight, int goalWeight, Date currentDate, Date goalDate) {
+    public WeightCorrectionGoal(int currentWeight, int goalWeight, Date currentDate, Date goalDate) {
         this.currentWeight = currentWeight;
         this.goalWeight = goalWeight;
         this.currentDate = currentDate;
@@ -56,7 +55,7 @@ public class SportGoal extends SugarRecord implements Goal {
 
     @Override
     public String toString() {
-        return "SportGoal{" +
+        return "WeightCorrectionGoal{" +
                 "currentWeight=" + currentWeight +
                 ", goalWeight=" + goalWeight +
                 ", currentDate=" + currentDate +

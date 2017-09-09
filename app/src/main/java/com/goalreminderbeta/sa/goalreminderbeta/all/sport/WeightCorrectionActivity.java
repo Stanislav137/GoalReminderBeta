@@ -1,4 +1,4 @@
-package com.goalreminderbeta.sa.goalreminderbeta.all;
+package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
 
  import android.app.DatePickerDialog;
@@ -13,19 +13,15 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
+ import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+ import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
-import java.text.DateFormat;
-import java.text.ParseException;
+ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
-import static com.orm.SugarRecord.findById;
-
-public class SportThemeActivity extends AppCompatActivity {
+public class WeightCorrectionActivity extends AppCompatActivity {
 
     private Button sportMinusWeightCurrent, sportPlusWeightCurrent,
             sportCurrentWeight, sportMinusWeightGoal, sportPlusWeightGoal, sportGoalWeight,
@@ -117,7 +113,7 @@ public class SportThemeActivity extends AppCompatActivity {
 
         final Date[] finalDate = {new Date()};
 
-        DatePickerDialog dialog = new DatePickerDialog(SportThemeActivity.this, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog dialog = new DatePickerDialog(WeightCorrectionActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
@@ -153,10 +149,10 @@ public class SportThemeActivity extends AppCompatActivity {
         int goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        SportGoal goal = new SportGoal(currentWeight, goalWeight, dateFrom, dateTo);
+        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo);
         goal.save();
 
-        Intent intent = new Intent(SportThemeActivity.this, StartActivity.class);
+        Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }

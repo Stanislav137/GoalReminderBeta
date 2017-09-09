@@ -2,7 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta;
 
 import android.content.res.Configuration;
 
-import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 import com.orm.SugarApp;
 import com.orm.SugarContext;
 
@@ -17,7 +17,7 @@ public class SugarOrmTestApplication extends SugarApp {
     public void onCreate() {
         super.onCreate();
         SugarContext.init(getApplicationContext());
-        SportGoal.findById(SportGoal.class, (long) 1);
+        WeightCorrectionGoal.findById(WeightCorrectionGoal.class, (long) 1);
     }
 
     @Override

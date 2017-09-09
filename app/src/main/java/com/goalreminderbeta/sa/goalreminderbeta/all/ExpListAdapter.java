@@ -2,7 +2,6 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.constraint.solver.Goal;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
-    private ArrayList<ArrayList<SportGoal>> mGroups;
+    private ArrayList<ArrayList<WeightCorrectionGoal>> mGroups;
     private Context mContext;
     private ImageView arrowDownUp;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<SportGoal>> groups){
+    public ExpListAdapter (Context context,ArrayList<ArrayList<WeightCorrectionGoal>> groups){
         mContext = context;
         mGroups = groups;
     }
@@ -98,7 +97,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             convertView.setMinimumHeight(1500);
         }
 
-        SportGoal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
+        WeightCorrectionGoal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
         TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
         textChild.setText(goal.toString());
         textChild.setTextColor(Color.BLACK);

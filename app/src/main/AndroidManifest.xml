@@ -26,7 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".all.SportThemeActivity"></activity>
+        <activity android:name=".all.sport.WeightCorrectionActivity"></activity>
+        <activity android:name=".all.sport.AllSubThemesSport"></activity>
     </application>
 
 </manifest>

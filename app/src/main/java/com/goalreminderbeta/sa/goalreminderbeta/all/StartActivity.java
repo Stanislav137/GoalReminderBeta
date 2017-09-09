@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.ListAdapter;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +35,11 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
 
-                SportGoal goal = (SportGoal) expandableListView.getExpandableListAdapter().getChild(i, i1);
+                WeightCorrectionGoal goal = (WeightCorrectionGoal) expandableListView.getExpandableListAdapter().getChild(i, i1);
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
                     goal.delete();
-                    startAddGoal.setText(goal.toString());
                 }
                 printAllGoals(); // обновляем наш лейаут после удаления
                 return false;
@@ -50,12 +49,12 @@ public class StartActivity extends AppCompatActivity {
 
     private void printAllGoals(){
 
-        ArrayList<ArrayList<SportGoal>> groups = new ArrayList<>();
-        List<SportGoal> allGoals = SportGoal.listAll(SportGoal.class);
+        ArrayList<ArrayList<WeightCorrectionGoal>> groups = new ArrayList<>();
+        List<WeightCorrectionGoal> allGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
         //Находим все записи в базе
 
-        for (SportGoal goal : allGoals){ // Итерация по кажной записи в базе и добавления их в експандер
-            ArrayList<SportGoal> children = new ArrayList<>();
+        for (WeightCorrectionGoal goal : allGoals){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<WeightCorrectionGoal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
         }
@@ -65,7 +64,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void openGoalChooser(View view) {
-        Intent intent = new Intent(StartActivity.this, SportThemeActivity.class);
+        Intent intent = new Intent(StartActivity.this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
     }
