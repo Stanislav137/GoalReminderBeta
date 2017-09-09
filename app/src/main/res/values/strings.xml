@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">BeBetter</string>
     <string name="menu_mygoal">GOALS</string>
     <string name="menu_myrecords">RECORDS</string>
     <string name="menu_myoptions">OPTIONS</string>
