@@ -52,8 +52,9 @@ public class StartActivity extends AppCompatActivity {
 
         ArrayList<ArrayList<SportGoal>> groups = new ArrayList<>();
         List<SportGoal> allGoals = SportGoal.listAll(SportGoal.class);
+        //Находим все записи в базе
 
-        for (SportGoal goal : allGoals){
+        for (SportGoal goal : allGoals){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<SportGoal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
