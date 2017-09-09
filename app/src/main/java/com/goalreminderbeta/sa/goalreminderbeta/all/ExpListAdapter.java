@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
+import android.support.constraint.solver.Goal;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,17 +9,17 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.theme.InitialTheme;
+import com.goalreminderbeta.sa.goalreminderbeta.db.SportGoal;
 
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
-    private ArrayList<ArrayList<InitialTheme>> mGroups;
+    private ArrayList<ArrayList<SportGoal>> mGroups;
     private Context mContext;
     private ImageView arrowDownUp;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<InitialTheme>> groups){
+    public ExpListAdapter (Context context,ArrayList<ArrayList<SportGoal>> groups){
         mContext = context;
         mGroups = groups;
     }
