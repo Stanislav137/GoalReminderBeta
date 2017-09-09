@@ -46,9 +46,6 @@ public class FrgmGoals extends Fragment {
         SportGoal goal1 = new SportGoal(100,70, new Date(),new Date());
         SportGoal goal2 = new SportGoal(50,70,new Date(),new Date());
 
-//        theme1.setCategoryName("Them1");
-//        theme2.setCategoryName("Them2");
-
         children1.add(goal1);
         groups.add(children1);
         children2.add(goal2);

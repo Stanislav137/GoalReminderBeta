@@ -27,7 +27,6 @@ import static com.orm.SugarRecord.findById;
 
 public class SportThemeActivity extends AppCompatActivity {
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
     private Button sportMinusWeightCurrent, sportPlusWeightCurrent,
             sportCurrentWeight, sportMinusWeightGoal, sportPlusWeightGoal, sportGoalWeight,
             sportSaveGoal;
@@ -60,7 +59,6 @@ public class SportThemeActivity extends AppCompatActivity {
         setTimerOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
         setTimerOnButton(sportPlusWeightGoal, "+", false);
     }
-
     private CountDownTimer getTimer(final String direction, final boolean current){
 
         CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления веса
@@ -111,8 +109,6 @@ public class SportThemeActivity extends AppCompatActivity {
             }
         });
     }
-
-
     private void pickDate(final TextView view,final boolean from){
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -145,15 +141,12 @@ public class SportThemeActivity extends AppCompatActivity {
         }, year, month, day);
         dialog.show();
     }
-
     public void pickDateFrom(View view) {
         pickDate(sportDateFrom, true);
     }
-
     public void pickDateTo(View view) {
         pickDate(sportDateTo, false);
     }
-
     public void saveGoal(View view) {
 
         int currentWeight = this.currentWeight;
@@ -162,11 +155,6 @@ public class SportThemeActivity extends AppCompatActivity {
         Date dateTo = this.dateTo;
         SportGoal goal = new SportGoal(currentWeight, goalWeight, dateFrom, dateTo);
         goal.save();
-
-        //List<SportGoal> goals = SportGoal.listAll(SportGoal.class);
-
-        //SportGoal goalFromDb = goals.get(goals.size() -1);
-        //sportSaveGoal.setText(goalFromDb.toString());
 
         Intent intent = new Intent(SportThemeActivity.this, StartActivity.class);
         startActivity(intent);
