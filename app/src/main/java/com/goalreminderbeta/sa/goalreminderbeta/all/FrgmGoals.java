@@ -20,8 +20,6 @@ import java.util.Date;
 public class FrgmGoals extends Fragment {
 
     private Context context;
-    private boolean isExpanded;
-    private Button button;
 
     public FrgmGoals(Context context) {
         this.context = context;
@@ -36,15 +34,6 @@ public class FrgmGoals extends Fragment {
 
         View v = inflater.inflate(R.layout.frgm_goals, null);
 //        animCircleAddGoal(v);
-
-        button = (Button) v.findViewById(R.id.createGoal);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                button.setText("111");
-            }
-        });
 
 
         ExpandableListView listView = (ExpandableListView)v.findViewById(R.id.exListView);
