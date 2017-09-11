@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 
-public class FrgmOptions extends Fragment {
+public class ActivityOptions extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,17 +1,11 @@
-package com.goalreminderbeta.sa.goalreminderbeta.all;
+package com.goalreminderbeta.sa.goalreminderbeta.all.science;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.BoolRes;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +14,7 @@ import android.widget.LinearLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 
-public class ScienceThemeActivity extends AppCompatActivity {
+public class BookCorrectionActivity extends AppCompatActivity {
 
     private Button scienceGoalPage, minusPage, addPage, addMinusPage;
     private int goalPage;
@@ -115,7 +109,7 @@ public class ScienceThemeActivity extends AppCompatActivity {
     }
 
     private void showPresentBook(){
-        dialog = new Dialog(ScienceThemeActivity.this);
+        dialog = new Dialog(BookCorrectionActivity.this);
         dialog.setContentView(R.layout.present_book);
         dialog.show();
     }

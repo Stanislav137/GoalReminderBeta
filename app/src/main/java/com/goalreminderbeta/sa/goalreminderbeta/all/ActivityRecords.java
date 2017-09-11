@@ -16,7 +16,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
  * Created by stas0 on 16.07.2017.
  */
 
-public class FrgmRecords extends Fragment {
+public class ActivityRecords extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

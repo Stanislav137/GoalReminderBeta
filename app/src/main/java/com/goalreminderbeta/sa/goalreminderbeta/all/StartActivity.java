@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
@@ -64,7 +62,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void openGoalChooser(View view) {
-        Intent intent = new Intent(StartActivity.this, AllSubThemesSport.class);
+        Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }

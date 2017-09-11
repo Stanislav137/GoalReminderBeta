@@ -8,11 +8,12 @@
     tools:context="com.goalreminderbeta.sa.goalreminderbeta.ChosenTheme">
 
         <LinearLayout
-            android:id="@+id/llSport"
+            android:id="@+id/llThemeSport"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="Button"
+            android:onClick="startSportTheme"
             android:background="@color/colorWhite"
             android:orientation="horizontal" >
 
@@ -61,11 +62,12 @@
         </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llScience"
+        android:id="@+id/llThemeScience"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:text="Button"
+        android:onClick="startScienceTheme"
         android:background="@color/colorWhite"
         android:orientation="horizontal" >
 
