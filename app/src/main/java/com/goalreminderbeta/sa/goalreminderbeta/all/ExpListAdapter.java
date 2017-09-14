@@ -10,17 +10,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
-    private ArrayList<ArrayList<WeightCorrectionGoal>> mGroups;
+    private ArrayList<ArrayList<Goal>> mGroups;
     private Context mContext;
     private ImageView arrowDownUp;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<WeightCorrectionGoal>> groups){
+    public ExpListAdapter (Context context,ArrayList<ArrayList<Goal>> groups){
         mContext = context;
         mGroups = groups;
     }
@@ -97,7 +99,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             convertView.setMinimumHeight(1500);
         }
 
-        WeightCorrectionGoal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
+        Goal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
         TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
         textChild.setText(goal.toString());
         textChild.setTextColor(Color.BLACK);

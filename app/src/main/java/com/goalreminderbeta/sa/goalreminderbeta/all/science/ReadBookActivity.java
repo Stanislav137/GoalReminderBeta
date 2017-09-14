@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.science;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,8 +14,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 
-public class BookCorrectionActivity extends AppCompatActivity {
+import java.util.Date;
+
+public class ReadBookActivity extends AppCompatActivity {
 
     private Button scienceGoalPage, minusPage, addPage, addMinusPage;
     private int goalPage;
@@ -25,7 +31,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.science_theme);
+        setContentView(R.layout.read_book_goal);
 
         findAllButtons();
         setListenersOnButtons();
@@ -109,7 +115,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     }
 
     private void showPresentBook(){
-        dialog = new Dialog(BookCorrectionActivity.this);
+        dialog = new Dialog(ReadBookActivity.this);
         dialog.setContentView(R.layout.present_book);
         dialog.show();
     }
@@ -121,5 +127,13 @@ public class BookCorrectionActivity extends AppCompatActivity {
         nameAuthor = enterNameAuthor.getText().toString();
         dialog.dismiss();
         Log.d("log", nameBook + " " +  nameAuthor);
+    }
+
+    public void saveGoal(View view) {
+        ReadBookGoal readBook = new ReadBookGoal(20,new Date(), new Date());
+        readBook.save();
+        Intent intent = new Intent(ReadBookActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }

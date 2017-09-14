@@ -360,6 +360,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:background="@color/colorOrange"
+        android:onClick="saveGoal"
         android:text="SAVE GOAL"/>
 
 </LinearLayout>

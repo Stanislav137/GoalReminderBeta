@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
 
 public class AllSubThemesScience extends AppCompatActivity {
 
@@ -22,7 +20,7 @@ public class AllSubThemesScience extends AppCompatActivity {
     }
 
     public void createBookCorrectionGoal(View view) {
-        Intent intent = new Intent(AllSubThemesScience.this, BookCorrectionActivity.class);
+        Intent intent = new Intent(AllSubThemesScience.this, ReadBookActivity.class);
         startActivity(intent);
         this.finish();
     }

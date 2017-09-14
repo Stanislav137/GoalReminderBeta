@@ -30,7 +30,7 @@
         <activity android:name=".all.sport.WeightCorrectionActivity"></activity>
         <activity android:name=".all.sport.AllSubThemesSport"></activity>
         <activity android:name=".all.science.AllSubThemesScience"></activity>
-        <activity android:name=".all.science.BookCorrectionActivity"></activity>
+        <activity android:name=".all.science.ReadBookActivity"></activity>
     </application>
 
 </manifest>

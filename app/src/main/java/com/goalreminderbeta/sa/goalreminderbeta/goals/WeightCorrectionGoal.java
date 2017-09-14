@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.goals;
 import com.orm.SugarRecord;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 
 public class WeightCorrectionGoal extends SugarRecord implements Goal {
@@ -10,6 +11,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private int goalWeight;
     private Date currentDate;
     private Date goalDate;
+    private int differenceInDays;
 
     public WeightCorrectionGoal() {
     }
@@ -19,6 +21,8 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         this.goalWeight = goalWeight;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
+        long milliseconds = goalDate.getTime() - currentDate.getTime();
+        this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
     }
 
     public int getCurrentWeight() {
@@ -53,6 +57,14 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         this.goalDate = goalDate;
     }
 
+    public int getDifferenceInDays() {
+        return differenceInDays;
+    }
+
+    public void setDifferenceInDays(int differenceInDays) {
+        this.differenceInDays = differenceInDays;
+    }
+
     @Override
     public String toString() {
         return "WeightCorrectionGoal{" +
@@ -60,6 +72,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
                 ", goalWeight=" + goalWeight +
                 ", currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
+                ", differenceInDays=" + differenceInDays +
                 '}';
     }
 }

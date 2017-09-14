@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
@@ -47,15 +49,23 @@ public class StartActivity extends AppCompatActivity {
 
     private void printAllGoals(){
 
-        ArrayList<ArrayList<WeightCorrectionGoal>> groups = new ArrayList<>();
-        List<WeightCorrectionGoal> allGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
+        ArrayList<ArrayList<Goal>> groups = new ArrayList<>();
+
+        List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
+        List<WeightCorrectionGoal> allWeightCorrectionGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
         //Находим все записи в базе
 
-        for (WeightCorrectionGoal goal : allGoals){ // Итерация по кажной записи в базе и добавления их в експандер
-            ArrayList<WeightCorrectionGoal> children = new ArrayList<>();
+        for (ReadBookGoal goal : allReadBookGoals){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
         }
+        for (WeightCorrectionGoal goal : allWeightCorrectionGoals  ){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
+            children.add(goal);
+            groups.add(children);
+        }
+
 
         ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
         allGoalsList.setAdapter(adapter);

@@ -12,6 +12,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 public class AllSubThemesSport extends AppCompatActivity {
 
     private LinearLayout weightCorrectionGoal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
