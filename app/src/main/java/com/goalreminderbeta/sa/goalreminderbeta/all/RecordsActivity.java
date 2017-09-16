@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 
-public class Records extends AppCompatActivity {
+public class RecordsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,13 +16,13 @@ public class Records extends AppCompatActivity {
     }
 
     public void openGoals(View view) {
-        Intent intent = new Intent(Records.this, StartActivity.class);
+        Intent intent = new Intent(RecordsActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void openOptions(View view) {
-        Intent intent = new Intent(Records.this, Options.class);
+        Intent intent = new Intent(RecordsActivity.this, OptionsActivity.class);
         startActivity(intent);
         this.finish();
     }

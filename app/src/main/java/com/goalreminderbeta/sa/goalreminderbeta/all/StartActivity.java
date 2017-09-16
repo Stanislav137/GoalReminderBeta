@@ -76,13 +76,13 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void openRecords(View view) {
-        Intent intent = new Intent(StartActivity.this, Records.class);
+        Intent intent = new Intent(StartActivity.this, RecordsActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void openOptions(View view) {
-        Intent intent = new Intent(StartActivity.this, Options.class);
+        Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
         startActivity(intent);
         this.finish();
     }
