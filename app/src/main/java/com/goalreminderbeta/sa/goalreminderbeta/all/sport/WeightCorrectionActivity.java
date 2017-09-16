@@ -2,6 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
 
  import android.app.DatePickerDialog;
+ import android.app.Dialog;
  import android.content.Intent;
  import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -10,11 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TextView;
+ import android.widget.EditText;
+ import android.widget.ImageView;
+ import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+ import com.goalreminderbeta.sa.goalreminderbeta.all.science.ReadBookActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
  import java.text.ParseException;
@@ -30,6 +34,8 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo;
     private int currentWeight = 0, goalWeight = 0;
     private Date dateFrom, dateTo;
+    private Dialog dialog;
+    private String goalDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,44 +112,27 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             }
         });
     }
-    private void pickDate(final TextView view,final boolean from){
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        final Date[] finalDate = {new Date()};
-
-        DatePickerDialog dialog = new DatePickerDialog(WeightCorrectionActivity.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                String stringDate = day+"/"+month+"/"+year;
-                Date date = null;
-                try {
-                    date = formatter.parse(stringDate);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                view.setText(formatter.format(date));
-                finalDate[0] = date;
-                if (from){
-                    dateFrom = finalDate[0];
-                }
-                else {
-                    dateTo = finalDate[0];
-                }
-            }
-        }, year, month, day);
-        dialog.show();
-    }
     public void pickDateFrom(View view) throws ParseException {
         CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateFrom);
     }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateTo);
     }
+
+    public void editDescription(View view) {
+        dialog = new Dialog(WeightCorrectionActivity.this);
+        dialog.setContentView(R.layout.description_goal);
+        dialog.show();
+    }
+
+    public void saveDescription(View view) {
+        EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        goalDescription = descriptionGoal.getText().toString();
+        ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
+        imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
+        dialog.dismiss();
+    }
+
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
@@ -159,5 +148,22 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
+    }
+
+    public void showWarning(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(WeightCorrectionActivity.this);
+        dialog.setContentView(R.layout.warning);
+
+        Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        closeWarning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+                showWarningId.setVisibility(View.INVISIBLE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }
