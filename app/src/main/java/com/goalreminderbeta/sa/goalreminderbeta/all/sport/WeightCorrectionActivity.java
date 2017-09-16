@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+ import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
@@ -137,13 +138,16 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         }, year, month, day);
         dialog.show();
     }
-    public void pickDateFrom(View view) {
-        pickDate(sportDateFrom, true);
+    public void pickDateFrom(View view) throws ParseException {
+        CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateFrom);
     }
     public void pickDateTo(View view) {
-        pickDate(sportDateTo, false);
+        CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateTo);
     }
-    public void saveGoal(View view) {
+    public void saveGoal(View view) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
         int currentWeight = this.currentWeight;
         int goalWeight = this.goalWeight;
