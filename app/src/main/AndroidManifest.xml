@@ -23,14 +23,18 @@
         <activity android:name=".all.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".all.AllSectionTheme"></activity>
-        <activity android:name=".all.sport.WeightCorrectionActivity"></activity>
-        <activity android:name=".all.sport.AllSubThemesSport"></activity>
-        <activity android:name=".all.science.AllSubThemesScience"></activity>
-        <activity android:name=".all.science.ReadBookActivity"></activity>
+        <activity android:name=".all.AllSectionTheme" />
+        <activity android:name=".all.sport.WeightCorrectionActivity" />
+        <activity android:name=".all.sport.AllSubThemesSport" />
+        <activity android:name=".all.science.AllSubThemesScience" />
+        <activity android:name=".all.science.ReadBookActivity" />
+        <activity android:name=".all.RecordsActivity" />
+        <activity android:name=".all.Options" />
+        <activity android:name=".all.Records"></activity>
     </application>
 
 </manifest>

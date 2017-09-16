@@ -65,14 +65,24 @@ public class StartActivity extends AppCompatActivity {
             children.add(goal);
             groups.add(children);
         }
-
-
         ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
         allGoalsList.setAdapter(adapter);
     }
 
     public void openGoalChooser(View view) {
         Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void openRecords(View view) {
+        Intent intent = new Intent(StartActivity.this, Records.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void openOptions(View view) {
+        Intent intent = new Intent(StartActivity.this, Options.class);
         startActivity(intent);
         this.finish();
     }
