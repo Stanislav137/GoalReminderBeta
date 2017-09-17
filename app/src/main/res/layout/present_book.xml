@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SAVE"
-        android:onClick="saveGoalBtn"
+        android:onClick="savePresentBook"
         android:id="@+id/saveGoal"
         android:layout_marginTop="5sp"
         android:background="@color/colorOrange"

@@ -138,7 +138,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        int currentWeight = this.currentWeight;
+        int currentWeight = this.currentWeight; // $HELP зачем так делать?
         int goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
