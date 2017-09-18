@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.ReadBookActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
@@ -103,14 +104,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_test, null);
+            convertView = inflater.inflate(R.layout.child_section_sport, null);
             convertView.setMinimumHeight(1500);
         }
 
-        Goal goal = mGroups.get(groupPosition).get(childPosition); // TODO если тебе надо убери комент
-        TextView textChild = (TextView) convertView.findViewById(R.id.textChild);
-        textChild.setText(goal.toString());
-        textChild.setTextColor(Color.BLACK);
+       // Goal goal = mGroups.get(groupPosition).get(childPosition);
 
         return convertView;
     }

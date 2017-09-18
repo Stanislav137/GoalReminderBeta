@@ -4,6 +4,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.goals;
 import com.orm.SugarRecord;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class ReadBookGoal extends SugarRecord implements Goal {
 
@@ -11,6 +12,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private Date currentDate;
     private Date goalDate;
     private String nameBook, nameAuthor;
+    private int differenceInDays;
 
     public ReadBookGoal() {
     }
@@ -21,6 +23,18 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.goalDate = goalDate;
         this.nameBook = nameBook;
         this.nameAuthor = nameAuthor;
+        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
+            long milliseconds = goalDate.getTime() - currentDate.getTime();
+            this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    public int getDifferenceInDays() {
+        return differenceInDays;
+    }
+
+    public void setDifferenceInDays(int differenceInDays) {
+        this.differenceInDays = differenceInDays;
     }
 
     public int getPages() {
@@ -71,6 +85,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
                 ", goalDate=" + goalDate +
                 ", nameBook='" + nameBook + '\'' +
                 ", nameAuthor='" + nameAuthor + '\'' +
+                ", differenceInDays=" + differenceInDays +
                 '}';
     }
 }
