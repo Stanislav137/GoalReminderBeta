@@ -2,11 +2,14 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -15,6 +18,8 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
+
+import static java.security.AccessController.getContext;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
@@ -70,6 +75,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.section_theme, null);
+
+            int currentProgress = 35; //TODO к примеру, удалишь если что
+            checkProgress(currentProgress, convertView);
         }
 
         if (isExpanded){
@@ -110,5 +118,29 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    private void checkProgress(int currentProgress, View convertView) {
+        ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.circleProgress);
+        TextView textCircleProgress = (TextView) convertView.findViewById(R.id.textCircleProgress);
+
+        progressBar.setProgress(currentProgress);
+
+        if(currentProgress <= 30) {
+            progressBar.getProgressDrawable().setColorFilter(mContext.
+                    getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
+            textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+        }
+        if(currentProgress > 30 && currentProgress <= 60) {
+            progressBar.getProgressDrawable().setColorFilter(mContext.
+                    getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
+            textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+        }
+        if(currentProgress > 60 && currentProgress <= 100) {
+            progressBar.getProgressDrawable().setColorFilter(mContext.
+                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+            textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+        }
+        textCircleProgress.setText(currentProgress + "%");
     }
 }
