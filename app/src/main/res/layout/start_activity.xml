@@ -108,16 +108,17 @@
         android:groupIndicator="@color/colorPrimary"
         android:transcriptMode="alwaysScroll" />
 
-    <Button
-        android:id="@+id/startAddGoal"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:onClick="openGoalChooser"
-        android:layout_margin="20sp"
-        android:textSize="20sp"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/btn_green"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:text="Add Goal" />
+        <Button
+            android:id="@+id/startAddGoal"
+            android:layout_width="110sp"
+            android:layout_height="110sp"
+            android:onClick="openGoalChooser"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20sp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_green"
+            android:text="Новая цель" />
+
 </RelativeLayout>

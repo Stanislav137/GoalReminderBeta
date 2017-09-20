@@ -3,12 +3,15 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.all.science.ReadBookActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
@@ -20,6 +23,7 @@ public class StartActivity extends AppCompatActivity {
 
     private Button startAddGoal;
     private ExpandableListView allGoalsList;
+    private List<Goal> allGoals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,9 @@ public class StartActivity extends AppCompatActivity {
 
         startAddGoal = (Button) findViewById(R.id.startAddGoal);
         allGoalsList = (ExpandableListView) findViewById(R.id.allGoalsList);
+
+        allGoals = new ArrayList<>();
+
         setListeners();
         printAllGoals();
     }
@@ -36,7 +43,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
 
-                WeightCorrectionGoal goal = (WeightCorrectionGoal) expandableListView.getExpandableListAdapter().getChild(i, i1);
+                Goal goal = (Goal) expandableListView.getExpandableListAdapter().getChild(i, i1);
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
@@ -60,12 +67,18 @@ public class StartActivity extends AppCompatActivity {
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
+            allGoals.add(goal);
         }
         for (WeightCorrectionGoal goal : allWeightCorrectionGoals  ){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
+            allGoals.add(goal);
         }
+        if (allGoals.size() == 0) {
+            changeStartBtn();
+        }
+
         ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
         allGoalsList.setAdapter(adapter);
     }
@@ -86,5 +99,26 @@ public class StartActivity extends AppCompatActivity {
         Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
         startActivity(intent);
         this.finish();
+    }
+
+    public void changeStartBtn() {
+        RelativeLayout.LayoutParams changeBtnParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        int width = metrics.widthPixels;
+        initStartGoal(width,changeBtnParams);
+    }
+
+    public void initStartGoal(int width, RelativeLayout.LayoutParams changeBtnParams) {
+        changeBtnParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        changeBtnParams.addRule(RelativeLayout.CENTER_VERTICAL);
+        changeBtnParams.width = width / 2;
+        changeBtnParams.height = width / 2;
+        showStartGoal(changeBtnParams);
+    }
+
+    public void showStartGoal(RelativeLayout.LayoutParams changeBtnParams) {
+        startAddGoal.setLayoutParams(changeBtnParams);
+        startAddGoal.setTextSize(20);
     }
 }

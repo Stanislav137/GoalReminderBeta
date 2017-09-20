@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -86,7 +87,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             arrowDownUp = (ImageView) convertView.findViewById(R.id.arrowDownUp);
             arrowDownUp.setRotation(180);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
-
         }
         else{
             //Изменяем что-нибудь, если текущая Group скрыта
