@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private ImageView arrowDownUp;
 
-    public ExpListAdapter (Context context,ArrayList<ArrayList<Goal>> groups){
+    public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups){
         mContext = context;
         mGroups = groups;
     }
@@ -73,7 +74,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView,
                              ViewGroup parent) {
 
-
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.section_theme, null);
@@ -94,21 +94,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             arrowDownUp.setRotation(0);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
-
         return convertView;
-
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
+
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_section_sport, null);
             convertView.setMinimumHeight(1500);
         }
-
-       // Goal goal = mGroups.get(groupPosition).get(childPosition);
 
         return convertView;
     }

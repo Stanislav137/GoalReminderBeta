@@ -151,7 +151,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="OTHERS"/>
+                android:text="ДРУГОЕ"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,60 +160,7 @@
                 android:layout_below="@+id/themeElementsTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to learn a new skill."/>
-
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llHabits"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:text="Button"
-        android:background="@color/colorWhite"
-        android:orientation="horizontal" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/imThemeHabits"
-                android:background="@color/colorBlack"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/themeHabitsTitle"
-                android:textSize="35sp"
-                android:layout_marginTop="5sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="HABITS"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
-                android:layout_below="@+id/themeHabitsTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to quit Smoking or to drink alcohol."/>
+                android:text="Здесь вы можете создать свою тему."/>
 
         </RelativeLayout>
     </LinearLayout>

@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -37,7 +35,9 @@ public class StartActivity extends AppCompatActivity {
 
         setListeners();
         printAllGoals();
+        setListenersOnTitle();
     }
+
     private void setListeners(){
         allGoalsList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -50,13 +50,34 @@ public class StartActivity extends AppCompatActivity {
                     goal.delete();
                 }
                 printAllGoals(); // обновляем наш лейаут после удаления
+
+                if (allGoals.size() == 0) {
+                    startAddGoal.setVisibility(View.VISIBLE);
+                    changeStartBtn();
+                } else {
+                    startAddGoal.setVisibility(View.VISIBLE);
+                }
+                return false;
+            }
+        });
+    }
+
+    private void setListenersOnTitle() {
+        allGoalsList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                if(startAddGoal.getVisibility() == View.VISIBLE) {
+                    startAddGoal.setVisibility(View.INVISIBLE);
+                } else {
+                    startAddGoal.setVisibility(View.VISIBLE);
+                }
                 return false;
             }
         });
     }
 
     private void printAllGoals(){
-
+        allGoals.clear();
         ArrayList<ArrayList<Goal>> groups = new ArrayList<>();
 
         List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
