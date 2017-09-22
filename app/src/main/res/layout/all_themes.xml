@@ -2,61 +2,67 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/llMainAllSections"
     android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/llThemeSport"
+    <LinearLayout
+        android:id="@+id/llThemeSport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/colorWhite"
+        android:onClick="startSportTheme"
+        android:orientation="horizontal"
+        android:text="Button">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Button"
-            android:onClick="startSportTheme"
-            android:background="@color/colorWhite"
-            android:orientation="horizontal" >
+            android:layout_weight="2">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="2">
+            <ImageView
+                android:id="@+id/imThemeSport"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/run" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/imThemeSport"
-                    android:background="@color/colorBlack"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="5sp"/>
+        </RelativeLayout>
 
-            </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <TextView
+                android:id="@+id/themeSportTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5sp"
+                android:layout_toRightOf="@+id/imThemeChoose"
+                android:text="SPORT"
+                android:textColor="@color/colorOrange"
+                android:textSize="35sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/themeSportTitle"
-                    android:textSize="35sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/colorOrange"
-                    android:layout_toRightOf="@+id/imThemeChoose"
-                    android:text="SPORT"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/themeSportTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="15sp"
+                android:text="This theme allows you to choose if you want to gain weight or lose weight."
+                android:textColor="@color/colorOrange" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorOrange"
-                    android:layout_below="@+id/themeSportTitle"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="15sp"
-                    android:text="This theme allows you to choose if you want to gain weight or lose weight."/>
+        </RelativeLayout>
+    </LinearLayout>
 
-            </RelativeLayout>
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey">
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llThemeScience"
@@ -74,13 +80,12 @@
             android:layout_weight="2">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:id="@+id/imThemeScience"
-                android:background="@color/colorBlack"
+                android:background="@drawable/run"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 
@@ -113,6 +118,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey">
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/llElements"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -127,13 +138,12 @@
             android:layout_weight="2">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/imThemeElements"
-                android:background="@color/colorBlack"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:id="@+id/imThemeOthers"
+                android:background="@drawable/run"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 

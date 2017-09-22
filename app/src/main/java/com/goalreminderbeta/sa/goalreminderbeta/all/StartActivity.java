@@ -10,6 +10,7 @@ import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
@@ -22,6 +23,7 @@ public class StartActivity extends AppCompatActivity {
     private Button startAddGoal;
     private ExpandableListView allGoalsList;
     private List<Goal> allGoals;
+    private BootStrap bootStrap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class StartActivity extends AppCompatActivity {
         allGoalsList = (ExpandableListView) findViewById(R.id.allGoalsList);
 
         allGoals = new ArrayList<>();
+        bootStrap = new BootStrap();
 
         setListeners();
         printAllGoals();
@@ -53,7 +56,7 @@ public class StartActivity extends AppCompatActivity {
 
                 if (allGoals.size() == 0) {
                     startAddGoal.setVisibility(View.VISIBLE);
-                    changeStartBtn();
+                    bootStrapBtnGoal2();
                 } else {
                     startAddGoal.setVisibility(View.VISIBLE);
                 }
@@ -97,7 +100,7 @@ public class StartActivity extends AppCompatActivity {
             allGoals.add(goal);
         }
         if (allGoals.size() == 0) {
-            changeStartBtn();
+            bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal);
         }
 
         ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
@@ -122,24 +125,8 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
 
-    public void changeStartBtn() {
-        RelativeLayout.LayoutParams changeBtnParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
-        int width = metrics.widthPixels;
-        initStartGoal(width,changeBtnParams);
-    }
-
-    public void initStartGoal(int width, RelativeLayout.LayoutParams changeBtnParams) {
-        changeBtnParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        changeBtnParams.addRule(RelativeLayout.CENTER_VERTICAL);
-        changeBtnParams.width = width / 2;
-        changeBtnParams.height = width / 2;
-        showStartGoal(changeBtnParams);
-    }
-
-    public void showStartGoal(RelativeLayout.LayoutParams changeBtnParams) {
-        startAddGoal.setLayoutParams(changeBtnParams);
+    public void bootStrapBtnGoal2() {
         startAddGoal.setTextSize(20);
+        bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal);
     }
 }

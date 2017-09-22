@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="Button"
-        android:onClick="createBookCorrectionGoal"
         android:background="@color/colorWhite"
-        android:orientation="horizontal" >
+        android:onClick="createBookCorrectionGoal"
+        android:orientation="horizontal"
+        android:text="Button">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,12 +20,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorBlack"
-                android:layout_centerVertical="true"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:id="@+id/imThemeBook"
                 android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:layout_centerVertical="true"
+                android:layout_margin="5sp"
+                android:background="@drawable/run" />
 
         </RelativeLayout>
 
@@ -35,26 +36,32 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/themeSportTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/themeSportTitle"
-                android:textSize="35sp"
-                android:layout_marginTop="5sp"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
+                android:layout_marginTop="5sp"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="КНИГА"/>
+                android:text="КНИГА"
+                android:textColor="@color/colorOrange"
+                android:textSize="35sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
                 android:layout_below="@+id/themeSportTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="Данная тема поможет прочитать книгу которую вы хотите."/>
+                android:text="Данная тема поможет прочитать книгу которую вы хотите."
+                android:textColor="@color/colorOrange" />
 
         </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey">
     </LinearLayout>
 
     <LinearLayout
@@ -72,13 +79,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/imThemeScience"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/imThemeLanguage"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_margin="5sp"
-                android:background="@color/colorBlack" />
+                android:background="@drawable/run" />
 
         </RelativeLayout>
 
