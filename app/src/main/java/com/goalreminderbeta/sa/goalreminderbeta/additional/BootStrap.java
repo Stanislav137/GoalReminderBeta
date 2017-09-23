@@ -32,19 +32,33 @@ public class BootStrap {
         }
     }
 
-    public void bootStrapBtnGoal(Activity activity, Button startGoal) {
+    public void bootStrapBtnGoal(Activity activity, Button startGoal, Boolean logicAddGoal) {
         RelativeLayout.LayoutParams changeBtnParams = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
-        realizationAndFinishStartGoal(width, changeBtnParams, startGoal);
+        if(!logicAddGoal) {
+            realizationAndFinisStartGoalCenter(width, changeBtnParams, startGoal);
+        } else {
+            realizationAndFinisStartGoalDown(width, changeBtnParams, startGoal);
+        }
     }
 
-    public void realizationAndFinishStartGoal(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
+    public void realizationAndFinisStartGoalCenter(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
         changeBtnParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         changeBtnParams.addRule(RelativeLayout.CENTER_VERTICAL);
         changeBtnParams.width = (width / 2) + 30;
         changeBtnParams.height = (width / 2) + 30;
+        startGoal.setLayoutParams(changeBtnParams);
+    }
+
+    public void realizationAndFinisStartGoalDown(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
+        changeBtnParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        changeBtnParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        changeBtnParams.rightMargin = 30;
+        changeBtnParams.bottomMargin = 30;
+        changeBtnParams.width = (width / 3) - 30;
+        changeBtnParams.height = (width / 3) - 30;
         startGoal.setLayoutParams(changeBtnParams);
     }
 }

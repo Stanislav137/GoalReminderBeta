@@ -21,6 +21,7 @@ public class StartActivity extends AppCompatActivity {
     private ExpandableListView allGoalsList;
     private List<Goal> allGoals;
     private BootStrap bootStrap;
+    private boolean logicAddGoal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +54,10 @@ public class StartActivity extends AppCompatActivity {
 
                 if (allGoals.size() == 0) {
                     startAddGoal.setVisibility(View.VISIBLE);
-                    startBootStrapAddGoalBtn();
+                    bootStrapAddGoalCenter();
                 } else {
                     startAddGoal.setVisibility(View.VISIBLE);
+                    bootStrapAddGoalDown();
                 }
                 return false;
             }
@@ -97,7 +99,9 @@ public class StartActivity extends AppCompatActivity {
             allGoals.add(goal);
         }
         if (allGoals.size() == 0) {
-            bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal);
+            bootStrapAddGoalCenter();
+        } else {
+            bootStrapAddGoalDown();
         }
 
         ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
@@ -122,8 +126,15 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
 
-    public void startBootStrapAddGoalBtn() {
+    public void bootStrapAddGoalCenter() {
+        logicAddGoal = false;
         startAddGoal.setTextSize(20);
-        bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal);
+        bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
+    }
+
+    public void bootStrapAddGoalDown() {
+        logicAddGoal = true;
+        startAddGoal.setTextSize(16);
+        bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
     }
 }
