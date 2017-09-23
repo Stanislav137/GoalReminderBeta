@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -22,6 +24,7 @@ public class StartActivity extends AppCompatActivity {
     private List<Goal> allGoals;
     private BootStrap bootStrap;
     private boolean logicAddGoal;
+    private Animation anim = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class StartActivity extends AppCompatActivity {
         setListeners();
         printAllGoals();
         setListenersOnTitle();
+        startAnimAddGoal();
     }
 
     private void setListeners(){
@@ -59,6 +63,7 @@ public class StartActivity extends AppCompatActivity {
                     startAddGoal.setVisibility(View.VISIBLE);
                     bootStrapAddGoalDown();
                 }
+                startAnimAddGoal();
                 return false;
             }
         });
@@ -69,8 +74,10 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
                 if(startAddGoal.getVisibility() == View.VISIBLE) {
+                    stopAnimAddGoal();
                     startAddGoal.setVisibility(View.INVISIBLE);
                 } else {
+                    startAnimAddGoal();
                     startAddGoal.setVisibility(View.VISIBLE);
                 }
                 return false;
@@ -136,5 +143,14 @@ public class StartActivity extends AppCompatActivity {
         logicAddGoal = true;
         startAddGoal.setTextSize(16);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
+    }
+
+    public void startAnimAddGoal() {
+        anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
+        startAddGoal.startAnimation(anim);
+    }
+
+    public void stopAnimAddGoal() {
+        startAddGoal.clearAnimation();
     }
 }
