@@ -3,12 +3,9 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.RelativeLayout;
-
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
@@ -56,7 +53,7 @@ public class StartActivity extends AppCompatActivity {
 
                 if (allGoals.size() == 0) {
                     startAddGoal.setVisibility(View.VISIBLE);
-                    bootStrapBtnGoal2();
+                    startBootStrapAddGoalBtn();
                 } else {
                     startAddGoal.setVisibility(View.VISIBLE);
                 }
@@ -125,7 +122,7 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
 
-    public void bootStrapBtnGoal2() {
+    public void startBootStrapAddGoalBtn() {
         startAddGoal.setTextSize(20);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal);
     }

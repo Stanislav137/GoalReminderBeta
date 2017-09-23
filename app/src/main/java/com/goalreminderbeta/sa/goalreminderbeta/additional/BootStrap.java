@@ -37,10 +37,10 @@ public class BootStrap {
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
         int width = metrics.widthPixels;
-        initStartGoal(width, changeBtnParams, startGoal);
+        realizationAndFinishStartGoal(width, changeBtnParams, startGoal);
     }
 
-    public void initStartGoal(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
+    public void realizationAndFinishStartGoal(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
         changeBtnParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         changeBtnParams.addRule(RelativeLayout.CENTER_VERTICAL);
         changeBtnParams.width = (width / 2) + 30;
