@@ -13,11 +13,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RunCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class BookCorrectionActivity extends AppCompatActivity {
@@ -35,6 +38,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_theme);
 
+        findAllBtnsBootStrap(); // using for BootStrap!
         findAllButtons();
         setListenersOnButtons();
     }
@@ -157,5 +161,19 @@ public class BookCorrectionActivity extends AppCompatActivity {
         Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private void findAllBtnsBootStrap() {
+        ArrayList<Button> allBtnsRun = new ArrayList<>();
+        Button scienceGoalPage = (Button) findViewById(R.id.scienceGoalPage);
+        Button editBook = (Button) findViewById(R.id.editBook);
+        allBtnsRun.add(scienceGoalPage);
+        allBtnsRun.add(editBook);
+        startBootStrap(allBtnsRun);
+    }
+
+    private void startBootStrap(ArrayList<Button> allBtnsRun) {
+        BootStrap bootStrap = new BootStrap();
+        bootStrap.bootStrapResultsBtns(BookCorrectionActivity.this, allBtnsRun);
     }
 }

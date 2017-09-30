@@ -14,12 +14,14 @@ import android.widget.Button;
  import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+ import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
  import java.text.ParseException;
 import java.text.SimpleDateFormat;
+ import java.util.ArrayList;
  import java.util.Date;
 
 public class WeightCorrectionActivity extends AppCompatActivity {
@@ -38,6 +40,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weight_theme);
 
+        findAllBtnsBootStrap(); // using for BootStrap!
         findAllButtons();
         setListenersOnButtons();
     }
@@ -167,5 +170,19 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private void findAllBtnsBootStrap() {
+        ArrayList<Button> allBtnsRun = new ArrayList<>();
+        Button sportCurrentWeight = (Button) findViewById(R.id.sportCurrentWeight);
+        Button sportGoalWeight = (Button) findViewById(R.id.sportGoalWeight);
+        allBtnsRun.add(sportCurrentWeight);
+        allBtnsRun.add(sportGoalWeight);
+        startBootStrap(allBtnsRun);
+    }
+
+    private void startBootStrap(ArrayList<Button> allBtnsRun) {
+        BootStrap bootStrap = new BootStrap();
+        bootStrap.bootStrapResultsBtns(WeightCorrectionActivity.this, allBtnsRun);
     }
 }

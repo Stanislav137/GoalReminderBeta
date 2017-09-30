@@ -357,7 +357,7 @@
         android:background="@color/colorOrange"
         android:text="@string/save_goal"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:onClick="saveGoal"
         />
 

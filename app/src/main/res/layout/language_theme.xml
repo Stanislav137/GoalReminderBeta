@@ -125,7 +125,7 @@
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_orange"
-                android:text="back" />
+                android:text="BACK" />
 
             <Button
                 android:id="@+id/nextLvlCurrent"
@@ -135,7 +135,7 @@
                 android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/prevLvlCurrent"
                 android:background="@drawable/btn_orange"
-                android:text="next"
+                android:text="NEXT"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp" />
 
@@ -202,7 +202,7 @@
                 android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_orange"
-                android:text="back" />
+                android:text="BACK" />
 
             <Button
                 android:id="@+id/nextLvlGoal"
@@ -212,7 +212,7 @@
                 android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/prevLvlGoal"
                 android:background="@drawable/btn_orange"
-                android:text="next"
+                android:text="NEXT"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp" />
         </RelativeLayout>
@@ -317,7 +317,7 @@
         android:layout_height="wrap_content"
         android:padding="15sp"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:background="@color/colorOrange"
         android:text="@string/save_goal"/>
 

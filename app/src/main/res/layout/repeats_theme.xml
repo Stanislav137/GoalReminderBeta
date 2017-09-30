@@ -53,7 +53,7 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ОПИСАНИЕ ЦЕЛИ:"
+                android:text="ОПИСАНИЕ УПРАЖНЕНИЯ:"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:layout_marginLeft="10sp"
@@ -165,7 +165,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/sportCurrentRepeat"
+                android:id="@+id/currentRepeats"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:layout_centerVertical="true"
@@ -260,7 +260,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/sportCurrentWeight"
+                android:id="@+id/goalRepeats"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:layout_centerVertical="true"
@@ -353,8 +353,8 @@
         android:layout_height="wrap_content"
         android:padding="15sp"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:background="@color/colorOrange"
-        android:text="SAVE GOAL"/>
+        android:text="@string/save_goal"/>
 
 </LinearLayout>

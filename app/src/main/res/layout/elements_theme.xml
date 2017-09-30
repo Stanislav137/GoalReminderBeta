@@ -53,7 +53,7 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ОПИСАНИЕ ЦЕЛИ:"
+                android:text="ОПИСАНИЕ ЭЛЕМЕНТА:"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:layout_marginLeft="10sp"
@@ -305,7 +305,7 @@
         android:layout_height="wrap_content"
         android:padding="15sp"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:background="@color/colorOrange"
         android:text="@string/save_goal"/>
 

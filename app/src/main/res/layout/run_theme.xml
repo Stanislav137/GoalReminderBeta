@@ -155,7 +155,7 @@
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_orange"
-                    android:text="КМ"
+                    android:text="+100"
                     android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
 
@@ -168,15 +168,26 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/sportDistance"
+                android:id="@+id/runDistance"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
-                android:text="0.0"
+                android:text="0"
                 android:textColor="@color/colorWhite"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:text="M"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_red"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10sp"/>
 
         </RelativeLayout>
 
@@ -199,14 +210,14 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
                 android:text="ТЕКУЩЕЕ ВРЕМЯ:"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp"
-                android:layout_marginTop="10sp"
-                android:layout_marginLeft="10sp"
-                android:id="@+id/textView2"/>
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/position2"
@@ -230,21 +241,22 @@
                 android:id="@+id/sportPlusTime"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/sportMinusTime"
                 android:background="@drawable/btn_orange"
                 android:text="+"
                 android:textColor="@color/colorWhite"
-                android:textSize="25sp"
-                android:layout_below="@+id/position2"
-                android:layout_marginLeft="8sp"
-                android:layout_toRightOf="@+id/sportMinusTime" />
+                android:textSize="25sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15sp"
                 android:layout_alignBottom="@+id/sportPlusTime"
                 android:layout_alignTop="@+id/sportPlusTime"
+                android:layout_marginLeft="15sp"
                 android:layout_toRightOf="@+id/sportPlusTime">
+
                 <Button
                     android:id="@+id/nextTime"
                     android:layout_width="40sp"
@@ -263,11 +275,11 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/sportTime"
+                android:id="@+id/runTime"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:background="@drawable/btn_green"
-                android:text="0.0"
+                android:text="0"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"
@@ -361,7 +373,7 @@
         android:background="@color/colorOrange"
         android:text="@string/save_goal"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:onClick="saveGoal"
         />
 

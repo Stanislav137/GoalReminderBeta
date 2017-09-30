@@ -9,24 +9,24 @@ import java.util.ArrayList;
 
 public class BootStrap {
 
-    public void bootStrapAllSection(Activity currentView,  ArrayList<ImageView> allImages) {
+    public void bootStrapAllSection(Activity activity,  ArrayList<ImageView> allImages) {
         RelativeLayout.LayoutParams bootStrapSection = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         int width;
-        DisplayMetrics metrics = currentView.getResources().getDisplayMetrics();
+        DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
         width = metrics.widthPixels;
-        realizationBootStrap(width, bootStrapSection, allImages);
+        realizationBootStrapSections(width, bootStrapSection, allImages);
     }
 
-    public void realizationBootStrap(int width, RelativeLayout.LayoutParams bootStrapSection,  ArrayList<ImageView> allImages) {
+    private void realizationBootStrapSections(int width, RelativeLayout.LayoutParams bootStrapSection,  ArrayList<ImageView> allImages) {
         bootStrapSection.addRule(RelativeLayout.CENTER_HORIZONTAL);
         bootStrapSection.addRule(RelativeLayout.CENTER_VERTICAL);
-        bootStrapSection.width = (width / 3) - 20;
-        bootStrapSection.height = (width / 3) - 20;
-        finishBootStrap(allImages, bootStrapSection);
+        bootStrapSection.width = (width / 4) + 15;
+        bootStrapSection.height = (width / 4) + 15;
+        finishBootStrapSection(allImages, bootStrapSection);
     }
 
-    public void finishBootStrap(ArrayList<ImageView> allImages, RelativeLayout.LayoutParams bootStrapSection) {
+    private void finishBootStrapSection(ArrayList<ImageView> allImages, RelativeLayout.LayoutParams bootStrapSection) {
         for(ImageView actualImg : allImages) {
             actualImg.setLayoutParams(bootStrapSection);
         }
@@ -44,7 +44,29 @@ public class BootStrap {
         }
     }
 
-    public void realizationAndFinisStartGoalCenter(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
+    public void bootStrapResultsBtns(Activity activity,  ArrayList<Button> allButtons) {
+        RelativeLayout.LayoutParams bootStrapResultsBtn = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        int width;
+        DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
+        width = metrics.widthPixels;
+        realizationBootStrapResultsBtns(width, bootStrapResultsBtn, allButtons);
+    }
+
+    private void realizationBootStrapResultsBtns(int width,  RelativeLayout.LayoutParams bootStrapResultsBtn, ArrayList<Button> allButtons) {
+        bootStrapResultsBtn.addRule(RelativeLayout.CENTER_VERTICAL);
+        bootStrapResultsBtn.width = (width / 4);
+        bootStrapResultsBtn.height = (width / 4);
+        finishBootStrapResultsBtns(bootStrapResultsBtn, allButtons);
+    }
+
+    private void finishBootStrapResultsBtns(RelativeLayout.LayoutParams bootStrapResultsBtn, ArrayList<Button> allButtons) {
+        for(Button actualBtn : allButtons) {
+            actualBtn.setLayoutParams(bootStrapResultsBtn);
+        }
+    }
+
+    private void realizationAndFinisStartGoalCenter(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
         changeBtnParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         changeBtnParams.addRule(RelativeLayout.CENTER_VERTICAL);
         changeBtnParams.width = (width / 2) + 30;
@@ -52,7 +74,7 @@ public class BootStrap {
         startGoal.setLayoutParams(changeBtnParams);
     }
 
-    public void realizationAndFinisStartGoalDown(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
+    private void realizationAndFinisStartGoalDown(int width, RelativeLayout.LayoutParams changeBtnParams, Button startGoal) {
         changeBtnParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         changeBtnParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         changeBtnParams.rightMargin = 30;
