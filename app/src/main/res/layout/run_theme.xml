@@ -24,7 +24,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КНИГА"
+            android:text="КАТЕГОРИЯ БЕГ"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
@@ -40,78 +40,60 @@
             android:textSize="15sp" />
     </RelativeLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/llChooseGenre"-->
-        <!--android:layout_weight="1">-->
-
-        <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_above="@+id/position1"-->
-                <!--android:layout_marginBottom="10sp"-->
-                <!--android:layout_marginLeft="20sp"-->
-                <!--android:text="CHOOSE GENRE:"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:textSize="20sp" />-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/position1"-->
-                <!--android:layout_width="1sp"-->
-                <!--android:layout_height="1sp"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_marginLeft="20sp" />-->
-
-            <!--<Button-->
-                <!--android:id="@+id/prevGenre"-->
-                <!--android:layout_width="50sp"-->
-                <!--android:layout_height="50sp"-->
-                <!--android:layout_below="@+id/position1"-->
-                <!--android:layout_marginLeft="20sp"-->
-                <!--android:layout_marginTop="10sp"-->
-                <!--android:background="@drawable/btn_orange"-->
-                <!--android:text="BACK" />-->
-
-            <!--<Button-->
-                <!--android:layout_width="50sp"-->
-                <!--android:layout_height="50sp"-->
-                <!--android:layout_below="@+id/position1"-->
-                <!--android:layout_marginLeft="10sp"-->
-                <!--android:layout_marginTop="10sp"-->
-                <!--android:layout_toRightOf="@+id/prevGenre"-->
-                <!--android:background="@drawable/btn_orange"-->
-                <!--android:text="NEXT" />-->
-
-        <!--</RelativeLayout>-->
-
-        <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="2">-->
-
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/currentGenre"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:text="GENRE"-->
-                <!--android:layout_marginTop="10sp"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:textSize="30sp" />-->
-        <!--</RelativeLayout>-->
-
-    <!--</LinearLayout>-->
-
     <LinearLayout
-        android:id="@+id/llNumberPages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="editDescription">
+
+            <TextView
+                android:id="@+id/descriptionGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ОПИСАНИЕ ЦЕЛИ:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_marginLeft="10sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:id="@+id/imgReadyDescription"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignBottom="@+id/descriptionGoal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/descriptionGoal"
+                android:background="@drawable/empty" />
+
+            <ImageView
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="showWarning"
+                android:id="@+id/showWarningId"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10sp"
+                android:background="@drawable/warning" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llCurrentWeight"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -122,64 +104,158 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/position2"
-                android:layout_marginBottom="10sp"
-                android:layout_marginLeft="20sp"
-                android:text="КОЛ-ВО СТРАНИЦ ДЛЯ ПРОЧТЕНИЯ:"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
+                android:text="ДИСТАНЦИЯ:"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/textView" />
+
+            <ImageView
+                android:id="@+id/position1"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp" />
+
+            <Button
+                android:id="@+id/sportMinusDistance"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:textSize="25sp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_orange"
+                android:text="-"
+                android:layout_alignTop="@+id/position1"
+                android:layout_alignLeft="@+id/position1"
+                android:layout_alignStart="@+id/position1" />
+
+            <Button
+                android:id="@+id/sportPlusDistance"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/btn_orange"
+                android:text="+"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:layout_alignBaseline="@+id/sportMinusDistance"
+                android:layout_alignBottom="@+id/sportMinusDistance"
+                android:layout_alignRight="@+id/textView"
+                android:layout_alignEnd="@+id/textView" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15sp"
+                android:layout_alignBottom="@+id/sportPlusDistance"
+                android:layout_alignTop="@+id/sportPlusDistance"
+                android:layout_toRightOf="@+id/sportPlusDistance">
+                <Button
+                    android:id="@+id/unitDistance"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/btn_orange"
+                    android:text="КМ"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:id="@+id/sportDistance"
+                android:layout_width="90sp"
+                android:layout_height="90sp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/btn_green"
+                android:text="0.0"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llGoalWeight"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ТЕКУЩЕЕ ВРЕМЯ:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
+                android:id="@+id/textView2"/>
 
             <ImageView
                 android:id="@+id/position2"
                 android:layout_width="1sp"
                 android:layout_height="1sp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20sp" />
+                android:layout_marginLeft="10sp" />
 
             <Button
-                android:id="@+id/minusPage"
+                android:id="@+id/sportMinusTime"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
-                android:layout_marginLeft="20sp"
-                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_orange"
                 android:text="-"
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <Button
-                android:id="@+id/addPage"
+                android:id="@+id/sportPlusTime"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
-                android:layout_marginLeft="10sp"
-                android:layout_marginTop="10sp"
-                android:layout_toRightOf="@+id/minusPage"
                 android:background="@drawable/btn_orange"
                 android:text="+"
                 android:textColor="@color/colorWhite"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/sportMinusTime" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15sp"
-                android:layout_alignBottom="@+id/addPage"
-                android:layout_alignTop="@+id/addPage"
-                android:layout_toRightOf="@+id/addPage">
+                android:layout_alignBottom="@+id/sportPlusTime"
+                android:layout_alignTop="@+id/sportPlusTime"
+                android:layout_toRightOf="@+id/sportPlusTime">
                 <Button
-                    android:id="@+id/addX20"
+                    android:id="@+id/nextTime"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_orange"
-                    android:text="+20"
+                    android:text="ОК"
                     android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
-
             </RelativeLayout>
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -188,15 +264,17 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/scienceGoalPage"
+                android:id="@+id/sportTime"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
-                android:text="0"
+                android:text="0.0"
                 android:textColor="@color/colorWhite"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -204,74 +282,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:background="@color/colorGrey"></LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/llNameBook"
-        android:layout_weight="1">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/presentBook"
-                android:layout_above="@+id/position3"
-                android:layout_marginBottom="10sp"
-                android:layout_marginLeft="20sp"
-                android:text="ДАННАЯ КНИГА:"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/position3"
-                android:layout_width="1sp"
-                android:layout_height="1sp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20sp" />
-
-            <CheckBox
-                android:id="@+id/cbWithoutThis"
-                android:onClick="cbOnClick"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_below="@+id/position3"
-                android:layout_marginLeft="20sp"
-                android:layout_marginTop="10sp"
-                android:text="БЕЗ НАЗВАНИЯ" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
-
-            <Button
-                android:layout_width="90sp"
-                android:layout_height="90sp"
-                android:id="@+id/editBook"
-                android:onClick="editPresentBook"
-                android:layout_centerVertical="true"
-                android:background="@drawable/btn_red"
-                android:text="EDIT"
-                android:layout_marginTop="10sp"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
-        </RelativeLayout>
-
+        android:background="@color/colorGrey">
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorGrey"></LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -285,7 +297,7 @@
             android:text="ДАТА ЦЕЛИ:"
             android:layout_marginTop="10sp"
             android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/fromId"
@@ -311,7 +323,7 @@
             android:layout_alignStart="@+id/sportDateTo" />
 
         <ImageView
-            android:id="@+id/position4"
+            android:id="@+id/position3"
             android:layout_width="1sp"
             android:layout_height="1sp"
             android:layout_centerVertical="true"
@@ -321,7 +333,7 @@
             android:id="@+id/toId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/position4"
+            android:layout_below="@+id/position3"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="20sp"
             android:text="ДО"
@@ -331,7 +343,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/position4"
+            android:layout_below="@+id/position3"
             android:layout_marginLeft="30sp"
             android:layout_toRightOf="@+id/fromId"
             android:text="00.00.0000"
@@ -341,31 +353,17 @@
             android:id="@+id/sportDateTo"
             android:onClick="pickDateTo"/>
 
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_marginLeft="20sp"-->
-        <!--android:layout_alignTop="@+id/sportDateFrom"-->
-        <!--android:layout_alignBottom="@+id/sportDateTo"-->
-        <!--android:layout_toRightOf="@+id/sportDateTo">-->
-
-        <!--<ImageView-->
-        <!--android:layout_width="50sp"-->
-        <!--android:layout_height="50sp"-->
-        <!--android:id="@+id/checkDate"-->
-        <!--android:layout_centerVertical="true" />-->
-        <!--</RelativeLayout>-->
-
     </RelativeLayout>
 
     <Button
+        android:id="@+id/sportSaveGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
         android:background="@color/colorOrange"
+        android:text="SAVE GOAL"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
         android:onClick="saveGoal"
-        android:text="SAVE GOAL"/>
+        />
 
 </LinearLayout>

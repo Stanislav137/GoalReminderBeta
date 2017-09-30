@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.all.other.OtherCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
 import java.util.ArrayList;
@@ -34,6 +35,12 @@ public class AllSectionTheme extends AppCompatActivity {
 
     public void startScienceTheme(View view) {
         Intent intent = new Intent(AllSectionTheme.this, AllSubThemesScience.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void createOtherThemeGoal(View view) {
+        Intent intent = new Intent(AllSectionTheme.this, OtherCorrectionActivity.class);
         startActivity(intent);
         this.finish();
     }

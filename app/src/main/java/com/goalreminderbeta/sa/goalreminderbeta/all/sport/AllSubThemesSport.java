@@ -30,6 +30,24 @@ public class AllSubThemesSport extends AppCompatActivity {
         this.finish();
     }
 
+    public void createRunCorrectionGoal(View view) {
+        Intent intent = new Intent(AllSubThemesSport.this, RunCorrectionActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void createElementCorrectionGoal(View view) {
+        Intent intent = new Intent(AllSubThemesSport.this, ElementCorrectionActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void createRepeatsCorrectionGoal(View view) {
+        Intent intent = new Intent(AllSubThemesSport.this, RepeatsCorrectionActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
     public void findImagesBanners() {
         ArrayList<ImageView> allImages = new ArrayList<>();
         ImageView imgSport = (ImageView) findViewById(R.id.imThemeWeight);

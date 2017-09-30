@@ -12,18 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ReadBookActivity extends AppCompatActivity {
+public class BookCorrectionActivity extends AppCompatActivity {
 
     private TextView sportDateFrom, sportDateTo;
     private Button scienceGoalPage, minusPage, addPage, addX20;
@@ -99,10 +96,10 @@ public class ReadBookActivity extends AppCompatActivity {
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(ReadBookActivity.this, sportDateFrom);
+        CustomDatePicker.pickDate(BookCorrectionActivity.this, sportDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(ReadBookActivity.this, sportDateTo);
+        CustomDatePicker.pickDate(BookCorrectionActivity.this, sportDateTo);
     }
 
     public void cbOnClick(View view){
@@ -129,7 +126,7 @@ public class ReadBookActivity extends AppCompatActivity {
     }
 
     private void showPresentBook(){
-        dialog = new Dialog(ReadBookActivity.this);
+        dialog = new Dialog(BookCorrectionActivity.this);
         dialog.setContentView(R.layout.present_book);
         dialog.show();
     }
@@ -151,7 +148,13 @@ public class ReadBookActivity extends AppCompatActivity {
         Date dateTo = this.dateTo;
         ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo);
         readBook.save();
-        Intent intent = new Intent(ReadBookActivity.this, StartActivity.class);
+        Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void backToHome(View view) {
+        Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }

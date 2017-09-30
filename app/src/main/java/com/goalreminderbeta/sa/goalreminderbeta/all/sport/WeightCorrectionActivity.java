@@ -1,7 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
 
- import android.app.DatePickerDialog;
  import android.app.Dialog;
  import android.content.Intent;
  import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
  import android.widget.EditText;
  import android.widget.ImageView;
  import android.widget.TextView;
@@ -18,13 +16,11 @@ import android.widget.DatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
- import com.goalreminderbeta.sa.goalreminderbeta.all.science.ReadBookActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
  import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+ import java.util.Date;
 
 public class WeightCorrectionActivity extends AppCompatActivity {
 
@@ -40,7 +36,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sport_theme);
+        setContentView(R.layout.weight_theme);
 
         findAllButtons();
         setListenersOnButtons();
@@ -165,5 +161,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    public void backToHome(View view) {
+        Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }

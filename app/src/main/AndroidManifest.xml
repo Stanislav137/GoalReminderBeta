@@ -29,9 +29,14 @@
         </activity>
         <activity android:name=".all.AllSectionTheme" />
         <activity android:name=".all.sport.WeightCorrectionActivity" />
+        <activity android:name=".all.sport.RunCorrectionActivity" />
+        <activity android:name=".all.sport.ElementCorrectionActivity" />
+        <activity android:name=".all.sport.RepeatsCorrectionActivity" />
         <activity android:name=".all.sport.AllSubThemesSport" />
         <activity android:name=".all.science.AllSubThemesScience" />
-        <activity android:name=".all.science.ReadBookActivity" />
+        <activity android:name=".all.science.BookCorrectionActivity" />
+        <activity android:name=".all.science.LanguageCorrectionActivity" />
+        <activity android:name=".all.other.OtherCorrectionActivity" />
         <activity android:name=".all.RecordsActivity" />
         <activity android:name=".all.OptionsActivity" />
         <activity android:name=".all.RecordsActivity"></activity>

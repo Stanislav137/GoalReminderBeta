@@ -24,7 +24,13 @@ public class AllSubThemesScience extends AppCompatActivity {
     }
 
     public void createBookCorrectionGoal(View view) {
-        Intent intent = new Intent(AllSubThemesScience.this, ReadBookActivity.class);
+        Intent intent = new Intent(AllSubThemesScience.this, BookCorrectionActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void createLanguageCorrectionGoal(View view) {
+        Intent intent = new Intent(AllSubThemesScience.this, LanguageCorrectionActivity.class);
         startActivity(intent);
         this.finish();
     }

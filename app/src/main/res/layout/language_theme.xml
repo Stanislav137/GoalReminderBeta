@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/colorOrange">
+
+        <ImageView
+            android:id="@+id/arrowBack"
+            android:layout_width="25sp"
+            android:layout_height="15sp"
+            android:layout_centerVertical="true"
+            android:layout_margin="10sp"
+            android:background="@drawable/arrow_goalwhite"
+            android:rotation="90" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ngTitle"
+            android:text="КАТЕГОРИЯ ЯЗЫКИ"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:layout_alignBottom="@+id/arrowBack"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:onClick="backToHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MENU"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="editDescription">
+
+            <TextView
+                android:id="@+id/descriptionGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="НАЗВАНИЕ ЯЗЫКА:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_marginLeft="10sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:id="@+id/imgReadyDescription"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignBottom="@+id/descriptionGoal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/descriptionGoal"
+                android:background="@drawable/empty" />
+
+            <ImageView
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="showWarning"
+                android:id="@+id/showWarningId"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10sp"
+                android:background="@drawable/warning" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llCurrentRepeats"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
+                android:text="ВАШ УРОВЕНЬ ЯЗЫКА:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/position1"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp" />
+
+            <Button
+                android:id="@+id/prevLvlCurrent"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/btn_orange"
+                android:text="back" />
+
+            <Button
+                android:id="@+id/nextLvlCurrent"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/prevLvlCurrent"
+                android:background="@drawable/btn_orange"
+                android:text="next"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:id="@+id/lvlLanguageCurrent"
+                android:layout_width="90sp"
+                android:layout_height="90sp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/btn_green"
+                android:text="A2"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llGoalRepeats"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="10sp"
+                android:text="ЖЕЛАЕМЫЙ РЕЗУЛЬТАТ:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/position2"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp" />
+
+            <Button
+                android:id="@+id/prevLvlGoal"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/btn_orange"
+                android:text="back" />
+
+            <Button
+                android:id="@+id/nextLvlGoal"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position2"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/prevLvlGoal"
+                android:background="@drawable/btn_orange"
+                android:text="next"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:id="@+id/lvlLanguageGoal"
+                android:layout_width="90sp"
+                android:layout_height="90sp"
+                android:background="@drawable/btn_green"
+                android:text="B2"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="ДАТА ЦЕЛИ:"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/fromId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_centerVertical="true"
+            android:text="ОТ"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/sportDateFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00.00.0000"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:onClick="pickDateFrom"
+            android:layout_alignBaseline="@+id/fromId"
+            android:layout_alignBottom="@+id/fromId"
+            android:layout_alignLeft="@+id/sportDateTo"
+            android:layout_alignStart="@+id/sportDateTo" />
+
+        <ImageView
+            android:id="@+id/position3"
+            android:layout_width="1sp"
+            android:layout_height="1sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10sp" />
+
+        <TextView
+            android:id="@+id/toId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/position3"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="20sp"
+            android:text="ДО"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/position3"
+            android:layout_marginLeft="30sp"
+            android:layout_toRightOf="@+id/fromId"
+            android:text="00.00.0000"
+            android:layout_marginTop="20sp"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:id="@+id/sportDateTo"
+            android:onClick="pickDateTo"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:background="@color/colorOrange"
+        android:text="SAVE GOAL"/>
+
+</LinearLayout>
