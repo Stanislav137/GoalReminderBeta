@@ -4,4 +4,5 @@
     <string name="menu_myrecords">RECORDS</string>
     <string name="menu_myoptions">OPTIONS</string>
     <string name="circle_add_goal">ADD GOAL</string>
+    <string name="save_goal">СОХРАНИТЬ ЦЕЛЬ</string>
 </resources>

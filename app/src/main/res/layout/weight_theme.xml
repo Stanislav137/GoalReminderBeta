@@ -355,9 +355,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorOrange"
-        android:text="SAVE GOAL"
+        android:text="@string/save_goal"
         android:textColor="@color/colorWhite"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:onClick="saveGoal"
         />
 

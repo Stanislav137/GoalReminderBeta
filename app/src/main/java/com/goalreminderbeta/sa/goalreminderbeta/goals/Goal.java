@@ -4,5 +4,5 @@ public interface Goal {
 
    boolean delete();
    Long getId();
-
+   int getDifferenceInDays();
 }

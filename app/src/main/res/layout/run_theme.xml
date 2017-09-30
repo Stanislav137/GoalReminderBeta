@@ -138,10 +138,9 @@
                 android:text="+"
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp"
-                android:layout_alignBaseline="@+id/sportMinusDistance"
-                android:layout_alignBottom="@+id/sportMinusDistance"
-                android:layout_alignRight="@+id/textView"
-                android:layout_alignEnd="@+id/textView" />
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/sportMinusDistance"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -360,9 +359,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorOrange"
-        android:text="SAVE GOAL"
+        android:text="@string/save_goal"
         android:textColor="@color/colorWhite"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:onClick="saveGoal"
         />
 

@@ -75,7 +75,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            Integer progress = new Integer(String.valueOf(goal.getId()));
+            Integer progress = new Integer(String.valueOf(goal.getDifferenceInDays()));
             int currentProgress = progress; //sample progress
             checkProgress(currentProgress, convertView);
         }

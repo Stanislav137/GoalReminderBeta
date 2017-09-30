@@ -307,6 +307,6 @@
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:background="@color/colorOrange"
-        android:text="SAVE GOAL"/>
+        android:text="@string/save_goal"/>
 
 </LinearLayout>
