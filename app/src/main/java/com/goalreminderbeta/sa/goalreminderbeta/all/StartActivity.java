@@ -15,7 +15,10 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -37,13 +40,13 @@ public class StartActivity extends AppCompatActivity {
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
 
-        setListeners();
+        setListenersOnChild();
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
     }
 
-    private void setListeners(){
+    private void setListenersOnChild(){
         allGoalsList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
@@ -111,7 +114,13 @@ public class StartActivity extends AppCompatActivity {
             bootStrapAddGoalDown();
         }
 
-        ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups);
+        Map<Long,Goal> allGoalsMap = new HashMap<>();
+
+        for (long i = 0; i < allGoals.size(); i++){
+            allGoalsMap.put(i,allGoals.get((int)i));
+        }
+
+        ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups, allGoalsMap);
         allGoalsList.setAdapter(adapter);
     }
 
