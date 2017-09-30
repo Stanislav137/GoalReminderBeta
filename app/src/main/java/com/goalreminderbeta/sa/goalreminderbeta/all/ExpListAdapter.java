@@ -21,6 +21,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import static java.security.AccessController.getContext;
 
@@ -29,10 +30,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ArrayList<ArrayList<Goal>> mGroups;
     private Context mContext;
     private ImageView arrowDownUp;
+    private Map<Long,Goal> allGoalsMap;
 
-    public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups){
+    public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
         mContext = context;
         mGroups = groups;
+        this.allGoalsMap = allGoalsMap;
     }
 
     @Override
@@ -78,7 +81,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.section_theme, null);
 
-            int currentProgress = 35; //TODO к примеру, удалишь если что
+            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+            Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
+            Integer progress = new Integer(String.valueOf(goal.getId()));
+            int currentProgress = progress; //sample progress
             checkProgress(currentProgress, convertView);
         }
 
