@@ -13,20 +13,33 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private Date goalDate;
     private String nameBook, nameAuthor;
     private int differenceInDays;
+    private String nameGoal;
+    private String themeCategory;
 
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate) {
+    public ReadBookGoal(int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
         this.pages = pages;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameBook = nameBook;
         this.nameAuthor = nameAuthor;
+        this.nameGoal = nameGoal;
+        this.themeCategory = themeCategory;
         if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
+    }
+
+    @Override
+    public String getThemeCategory() {
+        return themeCategory;
+    }
+
+    public void setThemeCategory(String themeCategory) {
+        this.themeCategory = themeCategory;
     }
 
     public int getDifferenceInDays() {
@@ -35,6 +48,15 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public void setDifferenceInDays(int differenceInDays) {
         this.differenceInDays = differenceInDays;
+    }
+
+    @Override
+    public String getNameGoal() {
+        return nameGoal;
+    }
+
+    public void setNameGoal(String nameGoal) {
+        this.nameGoal = nameGoal;
     }
 
     public int getPages() {
@@ -86,6 +108,8 @@ public class ReadBookGoal extends SugarRecord implements Goal {
                 ", nameBook='" + nameBook + '\'' +
                 ", nameAuthor='" + nameAuthor + '\'' +
                 ", differenceInDays=" + differenceInDays +
+                ", nameGoal='" + nameGoal + '\'' +
+                ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }
 }

@@ -33,7 +33,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     private int currentWeight = 0, goalWeight = 0;
     private Date dateFrom, dateTo;
     private Dialog dialog;
-    private String goalDescription;
+    private String goalDescription, goalName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +126,9 @@ public class WeightCorrectionActivity extends AppCompatActivity {
 
     public void saveDescription(View view) {
         EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
+        goalName = nameGoal.getText().toString();
         ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
         imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
         dialog.dismiss();
@@ -137,11 +139,12 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        int currentWeight = this.currentWeight; // $HELP зачем так делать?
+        String themeCategory = "ВЕС";
+        int currentWeight = this.currentWeight;
         int goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo);
+        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, themeCategory);
         goal.save();
 
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);

@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -32,6 +33,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private boolean boolNameBook = true;
     private Dialog dialog;
     private Date dateFrom, dateTo;
+    private String goalName, goalDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,14 +145,31 @@ public class BookCorrectionActivity extends AppCompatActivity {
         dialog.dismiss();
     }
 
+    public void editDescription(View view) {
+        dialog = new Dialog(BookCorrectionActivity.this);
+        dialog.setContentView(R.layout.description_goal);
+        dialog.show();
+    }
+
+    public void saveDescription(View view) {
+        EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
+        goalDescription = descriptionGoal.getText().toString();
+        goalName = nameGoal.getText().toString();
+        ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
+        imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
+        dialog.dismiss();
+    }
+
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
+        String themeCategory = "КНИГА";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo);
+        ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, themeCategory);
         readBook.save();
         Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
@@ -175,5 +194,22 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private void startBootStrap(ArrayList<Button> allBtnsRun) {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapResultsBtns(BookCorrectionActivity.this, allBtnsRun);
+    }
+
+    public void showWarning(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(BookCorrectionActivity.this);
+        dialog.setContentView(R.layout.warning);
+
+        Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        closeWarning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+                showWarningId.setVisibility(View.INVISIBLE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }

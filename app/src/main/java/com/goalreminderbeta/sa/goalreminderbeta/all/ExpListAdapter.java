@@ -77,9 +77,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            Integer progress = new Integer(String.valueOf(goal.getDifferenceInDays()));
-            int currentProgress = progress; //sample progress
-            checkProgress(currentProgress, convertView);
+            showDataSection(goal, convertView);
         }
 
         if (isExpanded){
@@ -113,6 +111,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    private void showDataSection(Goal goal, View convertView) {
+        TextView nameGoal = (TextView) convertView.findViewById(R.id.nameGoal);
+        nameGoal.setText(goal.getNameGoal());
+        TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
+        themeCategory.setText(goal.getThemeCategory());
+
+        Integer progress = new Integer(String.valueOf(goal.getDifferenceInDays()));
+        int currentProgress = progress; //sample progress
+        checkProgress(currentProgress, convertView);
     }
 
     private void checkProgress(int currentProgress, View convertView) {

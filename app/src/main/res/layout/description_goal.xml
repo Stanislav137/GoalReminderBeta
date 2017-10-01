@@ -6,6 +6,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/nameGoal"
+        android:hint="Название цели или ключевое слово"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/descriptionGoal"
         android:hint="Напишите ради чего вы это делаете"/>
 

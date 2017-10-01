@@ -13,19 +13,40 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private Date currentDate;
     private Date goalDate;
     private int differenceInDays;
+    private String nameGoal;
+    private String themeCategory;
 
     public WeightCorrectionGoal() {
     }
 
-    public WeightCorrectionGoal(int currentWeight, int goalWeight, Date currentDate, Date goalDate) {
+    public WeightCorrectionGoal(int currentWeight, int goalWeight, Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
         this.currentWeight = currentWeight;
         this.goalWeight = goalWeight;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
+        this.nameGoal = nameGoal;
+        this.themeCategory = themeCategory;
         if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
+    }
+
+    public String getThemeCategory() {
+        return themeCategory;
+    }
+
+    public void setThemeCategory(String themeCategory) {
+        this.themeCategory = themeCategory;
+    }
+
+    @Override
+    public String getNameGoal() {
+        return nameGoal;
+    }
+
+    public void setNameGoal(String nameGoal) {
+        this.nameGoal = nameGoal;
     }
 
     public int getCurrentWeight() {
@@ -76,6 +97,8 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
                 ", currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
                 ", differenceInDays=" + differenceInDays +
+                ", nameGoal='" + nameGoal + '\'' +
+                ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }
 }
