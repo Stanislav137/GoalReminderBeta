@@ -42,7 +42,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5sp"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="SPORT"
+                android:text="СПОРТ"
                 android:textColor="@color/colorOrange"
                 android:textSize="35sp" />
 
@@ -52,7 +52,7 @@
                 android:layout_below="@+id/themeSportTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to gain weight or lose weight."
+                android:text="Данная тема поможет вам добиться желаемых целей в сфере спорт."
                 android:textColor="@color/colorOrange" />
 
         </RelativeLayout>
@@ -103,7 +103,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
                 android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="SCIENCE"/>
+                android:text="НАУКА"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                 android:layout_below="@+id/themeScienceTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
-                android:text="This theme allows you to choose if you want to learn a new language or read a book."/>
+                android:text="Эта тема поможет вам прочитать книгу либо выучить новый иностранный язык."/>
 
         </RelativeLayout>
     </LinearLayout>
