@@ -1,10 +1,13 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -20,6 +23,8 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
 
     private Date dateFrom, dateTo;
     private TextView sportDateFrom, sportDateTo;
+    private Dialog dialog;
+    private String goalDescription, goalName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,22 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private void findAllButtons() {
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+    }
+
+    public void editDescription(View view) {
+        dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.setContentView(R.layout.description_goal);
+        dialog.show();
+    }
+
+    public void saveDescription(View view) {
+        EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
+        goalDescription = descriptionGoal.getText().toString();
+        goalName = nameGoal.getText().toString();
+        ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
+        imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
+        dialog.dismiss();
     }
 
     public void pickDateFrom(View view) throws ParseException {
@@ -60,5 +81,22 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private void startBootStrap(ArrayList<Button> allBtnsRun) {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapResultsBtns(RepeatsCorrectionActivity.this, allBtnsRun);
+    }
+
+    public void showWarning(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.setContentView(R.layout.warning);
+
+        Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        closeWarning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+                showWarningId.setVisibility(View.INVISIBLE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }
