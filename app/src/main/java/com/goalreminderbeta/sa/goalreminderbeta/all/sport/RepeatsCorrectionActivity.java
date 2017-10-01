@@ -14,8 +14,10 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -61,6 +63,21 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(RepeatsCorrectionActivity.this, sportDateTo);
+    }
+
+    public void saveGoal(View view) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
+
+        String themeCategory = "ПОВТОРЕНИЯ";
+        Date dateFrom = this.dateFrom;
+        Date dateTo = this.dateTo;
+        RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(dateFrom, dateTo, goalName, themeCategory);
+        runCorrectionGoal.save();
+        Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
     public void backToHome(View view) {

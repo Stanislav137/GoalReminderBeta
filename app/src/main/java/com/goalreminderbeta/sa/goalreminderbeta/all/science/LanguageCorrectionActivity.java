@@ -16,8 +16,10 @@ import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.ElementCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RunCorrectionActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -63,6 +65,21 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(LanguageCorrectionActivity.this, sportDateTo);
+    }
+
+    public void saveGoal(View view) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
+
+        String themeCategory = "ЯЗЫКИ";
+        Date dateFrom = this.dateFrom;
+        Date dateTo = this.dateTo;
+        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(dateFrom, dateTo, goalName, themeCategory);
+        languageCorrectionGoal.save();
+        Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 
     public void backToHome(View view) {

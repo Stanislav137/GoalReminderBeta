@@ -10,8 +10,12 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
@@ -94,6 +98,10 @@ public class StartActivity extends AppCompatActivity {
 
         List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
         List<WeightCorrectionGoal> allWeightCorrectionGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
+        List<RunCorrectionGoal> allRunCorrectionGoal = RunCorrectionGoal.listAll(RunCorrectionGoal.class);
+        List<RepeatsCorrectionGoal> allRepeatsCorrectionGoal = RepeatsCorrectionGoal.listAll(RepeatsCorrectionGoal.class);
+        List<ElementCorrectionGoal> allElementsCorrectionGoal = ElementCorrectionGoal.listAll(ElementCorrectionGoal.class);
+        List<LanguageCorrectionGoal> allLanguageCorrectionGoal = LanguageCorrectionGoal.listAll(LanguageCorrectionGoal.class);
         //Находим все записи в базе
 
         for (ReadBookGoal goal : allReadBookGoals){ // Итерация по кажной записи в базе и добавления их в експандер
@@ -103,6 +111,24 @@ public class StartActivity extends AppCompatActivity {
             allGoals.add(goal);
         }
         for (WeightCorrectionGoal goal : allWeightCorrectionGoals  ){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
+            children.add(goal);
+            groups.add(children);
+            allGoals.add(goal);
+        }
+        for (RunCorrectionGoal goal : allRunCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
+            children.add(goal);
+            groups.add(children);
+            allGoals.add(goal);
+        }
+        for (RepeatsCorrectionGoal goal : allRepeatsCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
+            children.add(goal);
+            groups.add(children);
+            allGoals.add(goal);
+        }
+        for (LanguageCorrectionGoal goal : allLanguageCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
