@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Map;
 

@@ -104,179 +104,575 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/llRecordsSport"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="110sp"
-                android:layout_height="110sp"
-                android:id="@+id/imgChampSport"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/champ"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </RelativeLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ТЕМА СПОРТ"
+                    android:textSize="20sp"
+                    android:enabled="false"
+                    android:background="@color/colorBlack"
+                    android:textColor="@color/colorWhite"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ ВЕС"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SPORT RECORDS"
-                android:layout_above="@+id/pos1"
-                android:textColor="@color/colorBlack"
-                android:layout_marginRight="10sp"
-                android:textSize="20sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-            <ImageView
-                android:layout_width="1sp"
-                android:layout_height="1sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10sp"
-                android:id="@+id/pos1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="МАКСИМАЛЬНЫЙ ВЕС:"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorBlack"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/pos1"
-                android:background="@drawable/arrow_goal"/>
+                    </RelativeLayout>
 
-        </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="80 кг"/>
 
-    </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorGrey"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/llRecordsScience"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imgChampScience"
-                android:layout_width="110sp"
-                android:layout_height="110sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/champ"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="МИНИМАЛЬНЫЙ ВЕС:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
 
-        </RelativeLayout>
+                    </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SCIENCE RECORDS"
-                android:layout_above="@+id/pos2"
-                android:layout_marginRight="10sp"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="70 кг"/>
 
+                    </RelativeLayout>
+                </LinearLayout>
 
-            <ImageView
-                android:layout_width="1sp"
-                android:layout_height="1sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10sp"
-                android:id="@+id/pos2"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ БЕГ"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/pos2"
-                android:background="@drawable/arrow_goal"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
 
-        </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-    </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ДАЛЬНЯЯ ДИСТНАЦИЯ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorGrey"></LinearLayout>
+                    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/llRecordsOthers"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="3 км"/>
 
-            <ImageView
-                android:id="@+id/imgChampOthers"
-                android:layout_width="110sp"
-                android:layout_height="110sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/champ"/>
+                    </RelativeLayout>
+                </LinearLayout>
 
-        </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OTHERS RECORDS"
-                android:layout_marginRight="10sp"
-                android:layout_above="@+id/pos3"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ЛУЧШАЯ СКОРОСТЬ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
 
-            <ImageView
-                android:layout_width="1sp"
-                android:layout_height="1sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10sp"
-                android:id="@+id/pos3"/>
+                    </RelativeLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/pos3"
-                android:background="@drawable/arrow_goal"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
 
-        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="10 сек"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ ЭЛЕМЕНТЫ"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="БЫСТРОЕ ИЗУЧЕНИЕ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Выход на две руки"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ДЛИТЕЛЬНОСТЬ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="10 дней"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ ПОВТОРЕНИЯ"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="МАКС. КОЛ-ВО ПОВТОРЕНИЙ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="40 раз"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="УПРАЖНЕНИЕ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Отжимания"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ТЕМА НАУКА"
+                    android:textSize="20sp"
+                    android:enabled="false"
+                    android:background="@color/colorBlack"
+                    android:textColor="@color/colorWhite"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ КНИГА"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="САМОЕ БЫСТРОЕ ПРОЧТЕНИЕ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Правило 10Х"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="СУМА ПРОЧИТАНЫХ СТРАНИЦ.:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="100 страниц"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="КАТЕГОРИЯ ЯЗЫКИ"
+                    android:layout_margin="5sp"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="МАКС. КОЛ-ВО СЛОВ ЗА ДЕНЬ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="10 слов"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="СУМА ИЗУЧЕННЫХ СЛОВ:"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="100 слов"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
