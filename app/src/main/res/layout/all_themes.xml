@@ -44,7 +44,7 @@
                 android:layout_toRightOf="@+id/imThemeChoose"
                 android:text="СПОРТ"
                 android:textColor="@color/colorOrange"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
                 android:text="Данная тема поможет вам добиться желаемых целей в сфере спорт."
-                android:textColor="@color/colorOrange" />
+                android:textColor="@color/colorOrange"
+                android:textSize="15sp" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -98,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/themeScienceTitle"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 android:layout_marginTop="5sp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
@@ -109,10 +110,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorOrange"
+                android:textSize="15sp"
+                android:text="Эта тема поможет вам прочитать книгу либо выучить новый иностранный язык."
+                android:layout_marginTop="15dp"
                 android:layout_below="@+id/themeScienceTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:text="Эта тема поможет вам прочитать книгу либо выучить новый иностранный язык."/>
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -157,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/themeElementsTitle"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 android:layout_marginTop="5sp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/colorOrange"
@@ -171,6 +173,7 @@
                 android:layout_below="@+id/themeElementsTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
+                android:textSize="15sp"
                 android:text="Здесь вы можете создать свою тему."/>
 
         </RelativeLayout>

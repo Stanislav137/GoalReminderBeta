@@ -9,6 +9,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
     private Date currentDate;
     private Date goalDate;
+    private int currentRepeats, goalRepeats;
     private int differenceInDays;
     private String nameGoal;
     private String themeCategory;
@@ -16,7 +17,9 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public RepeatsCorrectionGoal() {
     }
 
-    public RepeatsCorrectionGoal(Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
+    public RepeatsCorrectionGoal(int currentRepeats, int goalRepeats, Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
+        this.currentRepeats = currentRepeats;
+        this.goalRepeats = goalRepeats;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
@@ -25,6 +28,22 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
             this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
+    }
+
+    public int getCurrentRepeats() {
+        return currentRepeats;
+    }
+
+    public void setCurrentRepeats(int currentRepeats) {
+        this.currentRepeats = currentRepeats;
+    }
+
+    public int getGoalRepeats() {
+        return goalRepeats;
+    }
+
+    public void setGoalRepeats(int goalRepeats) {
+        this.goalRepeats = goalRepeats;
     }
 
     public Date getCurrentDate() {
@@ -69,9 +88,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
     @Override
     public String toString() {
-        return "RunCorrectionGoal{" +
+        return "RepeatsCorrectionGoal{" +
                 "currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
+                ", currentRepeats=" + currentRepeats +
+                ", goalRepeats=" + goalRepeats +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

@@ -3,7 +3,9 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,23 +25,104 @@ import java.util.Date;
 
 public class RunCorrectionActivity extends AppCompatActivity {
 
+    private Button sportMinusDistance;
+    private Button sportAddDistance;
+    private Button sportAddDistanceX100;
+    private Button runDistanceResult, runTimeResult;
+    private Button sportMinusTime, sportAddTime, nextTime;
     private Date dateFrom, dateTo;
     private TextView sportDateFrom, sportDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
+    private int distanceRunResult, currentRunTime, goalRunTime;
+    private boolean currentOrGoalTime = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.run_theme);
 
-        findAllBtnsBootStrap(); // using for BootStrap!
-        findAllButtons();
+        findAllWidgets();
+        addToList(); // using for BootStrap!
+        setListenersOnButtons();
     }
 
-    private void findAllButtons() {
+    private void findAllWidgets() {
+        /* Buttons for Distance */
+        sportMinusDistance = (Button) findViewById(R.id.sportMinusDistance);
+        sportAddDistance = (Button) findViewById(R.id.sportAddDistance);
+        sportAddDistanceX100 = (Button) findViewById(R.id.sportAddDistanceX100);
+        runDistanceResult = (Button) findViewById(R.id.runDistanceResult);
+        /* Buttons for Time */
+        runTimeResult = (Button) findViewById(R.id.runTimeResult);
+        sportMinusTime = (Button) findViewById(R.id.sportMinusTime);
+        sportAddTime = (Button) findViewById(R.id.sportAddTime);
+        nextTime = (Button) findViewById(R.id.nextTime);
+        /* TextView */
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+    }
+
+    private void setListenersOnButtons(){
+        /* Added data for Distance */
+        setTimeOnButton(sportMinusDistance, "-", true); // если будет дистанция
+        setTimeOnButton(sportAddDistance, "+", true);
+        setTimeOnButton(sportAddDistanceX100, "x100", true);
+        /* Added data for Time */
+        setTimeOnButton(sportMinusTime, "-", false); // если будет время
+        setTimeOnButton(sportAddTime, "+", false);
+        setTimeOnButton(nextTime, "ok", false);
+    }
+
+    private void setTimeOnButton(Button button, final String direction, final boolean current){
+        button.setOnTouchListener(new View.OnTouchListener() {
+            CountDownTimer timer = getTimer(direction, current);
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch(event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        timer.start();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        timer.cancel();
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private CountDownTimer getTimer(final String direction, final boolean current){
+
+        CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления страниц
+            @Override
+            public void onTick(long l) {
+                if (direction.equals("+") || direction.equals("x100")){
+                    if(current) {
+                        if(direction.equals("x100")) {
+                            distanceRunResult+=100;
+                        } else distanceRunResult++;
+                    } else currentRunTime++;
+                }
+                if (direction.equals("-")){
+                    if(current){
+                        if (distanceRunResult > 0)
+                            distanceRunResult--;
+                    }
+                    else {
+                        if(currentRunTime > 0)
+                            currentRunTime--;
+                    }
+                }
+                if(current){
+                    runDistanceResult.setText("" + distanceRunResult);
+                }else  runTimeResult.setText("" + currentRunTime);
+            }
+            @Override
+            public void onFinish() {
+            }
+        };
+        return timer;
     }
 
     public void pickDateFrom(View view) throws ParseException {
@@ -55,12 +138,10 @@ public class RunCorrectionActivity extends AppCompatActivity {
         this.finish();
     }
 
-    private void findAllBtnsBootStrap() {
+    private void addToList() {
         ArrayList<Button> allBtnsRun = new ArrayList<>();
-        Button runDistance = (Button) findViewById(R.id.runDistance);
-        Button runTime = (Button) findViewById(R.id.runTime);
-        allBtnsRun.add(runDistance);
-        allBtnsRun.add(runTime);
+        allBtnsRun.add(runDistanceResult);
+        allBtnsRun.add(runTimeResult);
         startBootStrap(allBtnsRun);
     }
 

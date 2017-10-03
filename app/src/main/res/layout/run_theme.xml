@@ -131,7 +131,7 @@
                 android:layout_alignStart="@+id/position1" />
 
             <Button
-                android:id="@+id/sportPlusDistance"
+                android:id="@+id/sportAddDistance"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:background="@drawable/btn_orange"
@@ -146,11 +146,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15sp"
-                android:layout_alignBottom="@+id/sportPlusDistance"
-                android:layout_alignTop="@+id/sportPlusDistance"
-                android:layout_toRightOf="@+id/sportPlusDistance">
+                android:layout_alignBottom="@+id/sportAddDistance"
+                android:layout_alignTop="@+id/sportAddDistance"
+                android:layout_toRightOf="@+id/sportAddDistance">
                 <Button
-                    android:id="@+id/unitDistance"
+                    android:id="@+id/sportAddDistanceX100"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
@@ -168,7 +168,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/runDistance"
+                android:id="@+id/runDistanceResult"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:background="@drawable/btn_green"
@@ -238,7 +238,7 @@
                 android:textSize="25sp" />
 
             <Button
-                android:id="@+id/sportPlusTime"
+                android:id="@+id/sportAddTime"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
@@ -252,10 +252,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignBottom="@+id/sportPlusTime"
-                android:layout_alignTop="@+id/sportPlusTime"
+                android:layout_alignBottom="@+id/sportAddTime"
+                android:layout_alignTop="@+id/sportAddTime"
                 android:layout_marginLeft="15sp"
-                android:layout_toRightOf="@+id/sportPlusTime">
+                android:layout_toRightOf="@+id/sportAddTime">
 
                 <Button
                     android:id="@+id/nextTime"
@@ -275,7 +275,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/runTime"
+                android:id="@+id/runTimeResult"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:background="@drawable/btn_green"

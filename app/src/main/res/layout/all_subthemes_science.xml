@@ -44,7 +44,7 @@
                 android:layout_toRightOf="@+id/imThemeChoose"
                 android:text="КНИГА"
                 android:textColor="@color/colorOrange"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,6 +52,7 @@
                 android:layout_below="@+id/themeSportTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
+                android:textSize="15sp"
                 android:text="Данная тема поможет прочитать книгу которую вы хотите."
                 android:textColor="@color/colorOrange" />
 
@@ -104,7 +105,7 @@
                 android:layout_toRightOf="@+id/imThemeChoose"
                 android:text="ЯЗЫКИ"
                 android:textColor="@color/colorOrange"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,6 +113,7 @@
                 android:layout_below="@+id/themeScienceTitle"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="15sp"
+                android:textSize="15sp"
                 android:text="Эта тема поможет вам выучить новый иностранный язык до определенного уровня."
                 android:textColor="@color/colorOrange" />
 

@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -101,7 +99,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section_sport, null);
+            convertView = inflater.inflate(R.layout.child_section, null);
             convertView.setMinimumHeight(1500);
         }
 

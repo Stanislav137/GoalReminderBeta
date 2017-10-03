@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorChildGoal">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +17,162 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="СТАТИСТИКА"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/colorGrey"
+            android:layout_alignParentBottom="true"></LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/goalDescription"
+            android:textColor="@color/colorRed"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Я ХОЧУ БЫТЬ ЛУЧШИМ В МИРЕ ПО СКОРОСТИ БЕГА"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"
+        android:layout_alignParentBottom="true"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/dataBook"
+            android:textColor="@color/colorBlack"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Правило 10х + Автор"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"
+        android:layout_alignParentBottom="true"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <TextView
+                    android:id="@+id/distanceRun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30sp"
+                    android:text="ДИСТАНЦИЯ:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/distanceRunUnits"
+                    android:text="1 км"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"
+        android:layout_alignParentBottom="true"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <TextView
+                    android:id="@+id/currentResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30sp"
+                    android:text="ТЕКУЩИЙ РЕЗУЛЬТАТ:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentResultUnits"
+                    android:text="80кг"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,6 +197,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/yourGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -57,21 +214,22 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/yourGoalUnits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="300стр."
+                    android:text="90кг"
+                    android:textSize="18sp"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18sp" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorGrey"></LinearLayout>
+            android:background="@color/colorGrey"
+            android:layout_alignParentBottom="true"></LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -90,11 +248,12 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/leftToGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30sp"
-                    android:text="ОСТАЛОСЬ СТРАНИЦ:"
+                    android:text="ОСТАЛОСЬ ДО ЦЕЛИ:"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 
@@ -106,9 +265,10 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/leftToGoalUnits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100стр."
+                    android:text="10кг"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"
                     android:layout_centerVertical="true"
@@ -145,6 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:text="ЗАДАЧА В ДЕНЬ:"
+                    android:id="@+id/taskOfDay"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
                     android:layout_centerVertical="true"
@@ -162,7 +323,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10стр."
+                    android:text="1кг"
+                    android:id="@+id/taskOfDayUnits"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"
                     android:layout_centerHorizontal="true"
@@ -194,6 +356,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/statusGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -210,6 +373,7 @@
                 android:layout_weight="2">
 
                 <ImageView
+                    android:id="@+id/statusGoalUnits"
                     android:layout_width="50sp"
                     android:layout_height="50sp"
                     android:layout_centerVertical="true"
@@ -242,6 +406,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/leftDaysGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -258,6 +423,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/leftDaysGoalUnits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
@@ -291,13 +457,14 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/fromGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30sp"
                     android:text="ОТ: 27.08.2017"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 
@@ -307,6 +474,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:id="@+id/toGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ДО: 20.09.2017"

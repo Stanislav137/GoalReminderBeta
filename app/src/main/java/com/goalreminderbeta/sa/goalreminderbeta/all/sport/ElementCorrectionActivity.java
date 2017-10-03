@@ -16,16 +16,21 @@ import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.BookCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
+import org.w3c.dom.Text;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ElementCorrectionActivity extends AppCompatActivity {
+public class ElementCorrectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Date dateFrom, dateTo;
     private TextView sportDateFrom, sportDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
+    private TextView currentLvlGoal;
+    private int levelCurrent = 0;
+    Button lvlOne, lvlTwo, lvlThree, lvlFour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,24 @@ public class ElementCorrectionActivity extends AppCompatActivity {
         setContentView(R.layout.elements_theme);
 
         findAllButtons();
+        setOnClick();
     }
 
     private void findAllButtons() {
+        lvlOne = (Button) findViewById(R.id.lvlOne);
+        lvlTwo = (Button) findViewById(R.id.lvlTwo);
+        lvlThree = (Button) findViewById(R.id.lvlThree);
+        lvlFour = (Button) findViewById(R.id.lvlFour);
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        currentLvlGoal = (TextView) findViewById(R.id.currentLvlGoal);
+    }
+
+    private void setOnClick() {
+        lvlOne.setOnClickListener(this);
+        lvlTwo.setOnClickListener(this);
+        lvlThree.setOnClickListener(this);
+        lvlFour.setOnClickListener(this);
     }
 
     public void editDescription(View view) {
@@ -63,6 +81,28 @@ public class ElementCorrectionActivity extends AppCompatActivity {
         CustomDatePicker.pickDate(ElementCorrectionActivity.this, sportDateTo);
     }
 
+    public void onClick(View v) {
+
+        switch(v.getId()){
+
+            case R.id.lvlOne:
+                levelCurrent = 1;
+                break;
+            case R.id.lvlTwo:
+                levelCurrent = 2;
+                break;
+            case R.id.lvlThree:
+                levelCurrent = 3;
+                break;
+            case R.id.lvlFour:
+                levelCurrent = 4;
+                break;
+            default:
+                break;
+        }
+        currentLvlGoal.setText(levelCurrent + "");
+    }
+
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
@@ -71,7 +111,7 @@ public class ElementCorrectionActivity extends AppCompatActivity {
         String themeCategory = "ЭЛЕМЕНТ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(dateFrom, dateTo, goalName, themeCategory);
+        ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, dateFrom, dateTo, goalName, themeCategory);
         elementCorrectionGoal.save();
         Intent intent = new Intent(ElementCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

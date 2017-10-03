@@ -165,7 +165,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/currentRepeats"
+                android:id="@+id/currentRepeatsResult"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:layout_centerVertical="true"
@@ -245,11 +245,13 @@
                     android:id="@+id/addX10GoalRepeat"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
-                    android:layout_centerVertical="true"
                     android:background="@drawable/btn_orange"
                     android:text="+10"
                     android:textColor="@color/colorWhite"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -260,7 +262,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/goalRepeats"
+                android:id="@+id/goalRepeatsResult"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:layout_centerVertical="true"

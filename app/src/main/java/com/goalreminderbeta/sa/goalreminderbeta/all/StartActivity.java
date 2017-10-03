@@ -122,6 +122,12 @@ public class StartActivity extends AppCompatActivity {
             groups.add(children);
             allGoals.add(goal);
         }
+        for (ElementCorrectionGoal goal : allElementsCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
+            ArrayList<Goal> children = new ArrayList<>();
+            children.add(goal);
+            groups.add(children);
+            allGoals.add(goal);
+        }
         for (RepeatsCorrectionGoal goal : allRepeatsCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
