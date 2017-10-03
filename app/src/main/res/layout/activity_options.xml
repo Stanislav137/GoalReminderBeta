@@ -116,6 +116,7 @@
                 android:layout_weight="2">
 
                 <TextView
+                    android:onClick="testNotification"
                     android:id="@+id/currentWeightChild"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
