@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:onClick="createWeightCorrectionGoal"
         android:background="@color/colorWhite"
         android:orientation="horizontal" >
 
@@ -18,14 +17,17 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createWeightCorrectionGoal"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:background="@drawable/run"
                 android:id="@+id/imThemeWeight"
+                android:text="GO"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:background="@drawable/btn_red"/>
 
         </RelativeLayout>
 
@@ -34,27 +36,37 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/themeSportTitle"
-                android:textSize="30sp"
-                android:layout_marginTop="5sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="ВЕС"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
-                android:layout_below="@+id/themeSportTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:textSize="15sp"
-                android:text="Это тема позволит помочь вам достичь желаемого веса."/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/themeSportTitle"
+                        android:textSize="30sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/colorOrange"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="ВЕС"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorOrange"
+                        android:layout_below="@+id/themeSportTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10sp"
+                        android:textSize="15sp"
+                        android:text="Это тема позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вам достичь желаемого веса."/>
+
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -69,7 +81,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:onClick="createRunCorrectionGoal"
         android:background="@color/colorWhite"
         android:orientation="horizontal"
         android:text="Button">
@@ -79,14 +90,17 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createRunCorrectionGoal"
                 android:id="@+id/imThemeRun"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:layout_alignParentLeft="true"
+                android:text="GO"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="5sp"
-                android:background="@drawable/run" />
+                android:background="@drawable/btn_red"/>
 
         </RelativeLayout>
 
@@ -95,27 +109,37 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/themeScienceTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5sp"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="БЕГ"
-                android:textColor="@color/colorOrange"
-                android:textSize="30sp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/themeScienceTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:textSize="15sp"
-                android:text="Это тема позволит вам достичь желаемых результатов в беге на время на короткие дистанции либо на длинные."
-                android:textColor="@color/colorOrange" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/themeScienceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="БЕГ"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_margin="10sp"
+                        android:text="Это темаа позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вам позволит вам достичь желаемых результатов в беге на время на короткие дистанции либо на длинные."
+                        android:textColor="@color/colorOrange"
+                        android:layout_below="@+id/themeScienceTitle"
+                        android:layout_centerHorizontal="true" />
+
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -130,7 +154,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:onClick="createElementCorrectionGoal"
         android:text="Button"
         android:background="@color/colorWhite"
         android:orientation="horizontal" >
@@ -140,14 +163,17 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createElementCorrectionGoal"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeElements"
-                android:background="@drawable/run"
+                android:text="GO"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:background="@drawable/btn_red"/>
 
         </RelativeLayout>
 
@@ -156,27 +182,37 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/themeElementsTitle"
-                android:textSize="30sp"
-                android:layout_marginTop="5sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="ЕЛЕМЕНТЫ"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
-                android:layout_below="@+id/themeElementsTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:textSize="15sp"
-                android:text="Данная тема поможет вам в выполнении любого елемента."/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/themeElementsTitle"
+                        android:textSize="30sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/colorOrange"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="ЕЛЕМЕНТЫ"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="15sp"
+                        android:text="Данная тема а позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вампоможет вам в выполнении любого елемента."
+                        android:layout_margin="10dp"
+                        android:layout_below="@+id/themeElementsTitle"
+                        android:layout_centerHorizontal="true" />
+
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -191,7 +227,6 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:text="Button"
-        android:onClick="createRepeatsCorrectionGoal"
         android:background="@color/colorWhite"
         android:orientation="horizontal" >
 
@@ -200,43 +235,57 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createRepeatsCorrectionGoal"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeRepeats"
-                android:background="@drawable/run"
+                android:text="GO"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_margin="5sp"/>
+                android:background="@drawable/btn_red"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10sp"
             android:layout_weight="1">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/themeHabitsTitle"
-                android:textSize="30sp"
-                android:layout_marginTop="5sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="ПОВТОРЕНИЯ"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
-                android:textSize="15sp"
-                android:layout_below="@+id/themeHabitsTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:text="Тема поможет вам набрать желаемого количества повторений на упражнении."/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/themeHabitsTitle"
+                        android:textSize="30sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/colorOrange"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="ПОВТОРЕНИЯ"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="15sp"
+                        android:layout_below="@+id/themeHabitsTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10sp"
+                        android:text="Тема поможет вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вам набрать желаемого количества повторений на упражнении."/>
+
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 

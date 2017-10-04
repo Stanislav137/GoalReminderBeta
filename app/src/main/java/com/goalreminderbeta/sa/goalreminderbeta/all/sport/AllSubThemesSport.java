@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -49,20 +50,20 @@ public class AllSubThemesSport extends AppCompatActivity {
     }
 
     public void findImagesBanners() {
-        ArrayList<ImageView> allImages = new ArrayList<>();
-        ImageView imgSport = (ImageView) findViewById(R.id.imThemeWeight);
-        ImageView imThemeRun = (ImageView) findViewById(R.id.imThemeRun);
-        ImageView imThemeElements = (ImageView) findViewById(R.id.imThemeElements);
-        ImageView imThemeRepeats = (ImageView) findViewById(R.id.imThemeRepeats);
-        allImages.add(imgSport);
-        allImages.add(imThemeRun);
-        allImages.add(imThemeElements);
-        allImages.add(imThemeRepeats);
-        startBootStrap(allImages);
+        ArrayList<Button> allBtns = new ArrayList<>();
+        Button imgSport = (Button) findViewById(R.id.imThemeWeight);
+        Button imThemeRun = (Button) findViewById(R.id.imThemeRun);
+        Button imThemeElements = (Button) findViewById(R.id.imThemeElements);
+        Button imThemeRepeats = (Button) findViewById(R.id.imThemeRepeats);
+        allBtns.add(imgSport);
+        allBtns.add(imThemeRun);
+        allBtns.add(imThemeElements);
+        allBtns.add(imThemeRepeats);
+        startBootStrap(allBtns);
     }
 
-    public void startBootStrap(ArrayList<ImageView> allImages) {
+    public void startBootStrap(ArrayList<Button> allBtns) {
         BootStrap bootStrap = new BootStrap();
-        bootStrap.bootStrapAllSection(AllSubThemesSport.this, allImages);
+        bootStrap.bootStrapAllSection(AllSubThemesSport.this, allBtns);
     }
 }

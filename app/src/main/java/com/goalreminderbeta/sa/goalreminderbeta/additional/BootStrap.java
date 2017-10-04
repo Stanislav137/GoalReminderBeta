@@ -9,25 +9,25 @@ import java.util.ArrayList;
 
 public class BootStrap {
 
-    public void bootStrapAllSection(Activity activity,  ArrayList<ImageView> allImages) {
+    public void bootStrapAllSection(Activity activity,  ArrayList<Button> allBtns) {
         RelativeLayout.LayoutParams bootStrapSection = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         int width;
         DisplayMetrics metrics = activity.getResources().getDisplayMetrics();
         width = metrics.widthPixels;
-        realizationBootStrapSections(width, bootStrapSection, allImages);
+        realizationBootStrapSections(width, bootStrapSection, allBtns);
     }
 
-    private void realizationBootStrapSections(int width, RelativeLayout.LayoutParams bootStrapSection,  ArrayList<ImageView> allImages) {
+    private void realizationBootStrapSections(int width, RelativeLayout.LayoutParams bootStrapSection,  ArrayList<Button> allBtns) {
         bootStrapSection.addRule(RelativeLayout.CENTER_HORIZONTAL);
         bootStrapSection.addRule(RelativeLayout.CENTER_VERTICAL);
         bootStrapSection.width = (width / 4) + 15;
         bootStrapSection.height = (width / 4) + 15;
-        finishBootStrapSection(allImages, bootStrapSection);
+        finishBootStrapSection(allBtns, bootStrapSection);
     }
 
-    private void finishBootStrapSection(ArrayList<ImageView> allImages, RelativeLayout.LayoutParams bootStrapSection) {
-        for(ImageView actualImg : allImages) {
+    private void finishBootStrapSection(ArrayList<Button> allBtns, RelativeLayout.LayoutParams bootStrapSection) {
+        for(Button actualImg : allBtns) {
             actualImg.setLayoutParams(bootStrapSection);
         }
     }

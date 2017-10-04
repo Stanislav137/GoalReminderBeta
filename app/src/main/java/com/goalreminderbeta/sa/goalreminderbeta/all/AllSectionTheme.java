@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -46,18 +47,18 @@ public class AllSectionTheme extends AppCompatActivity {
     }
 
     public void findImagesBanners() {
-        ArrayList<ImageView> allImages = new ArrayList<>();
-        ImageView imgSport = (ImageView) findViewById(R.id.imThemeSport);
-        ImageView imThemeScience = (ImageView) findViewById(R.id.imThemeScience);
-        ImageView imThemeOthers = (ImageView) findViewById(R.id.imThemeOthers);
-        allImages.add(imgSport);
-        allImages.add(imThemeScience);
-        allImages.add(imThemeOthers);
-        startBootStrap(allImages);
+        ArrayList<Button> allBtns = new ArrayList<>();
+        Button imgSport = (Button) findViewById(R.id.imThemeSport);
+        Button imThemeScience = (Button) findViewById(R.id.imThemeScience);
+        Button imThemeOthers = (Button) findViewById(R.id.imThemeOthers);
+        allBtns.add(imgSport);
+        allBtns.add(imThemeScience);
+        allBtns.add(imThemeOthers);
+        startBootStrap(allBtns);
     }
 
-    public void startBootStrap(ArrayList<ImageView> allImages) {
+    public void startBootStrap(ArrayList<Button> allBtns) {
         BootStrap bootStrap = new BootStrap();
-        bootStrap.bootStrapAllSection(AllSectionTheme.this, allImages);
+        bootStrap.bootStrapAllSection(AllSectionTheme.this, allBtns);
     }
 }

@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:background="@color/colorWhite"
-        android:onClick="createBookCorrectionGoal"
         android:orientation="horizontal"
         android:text="Button">
 
@@ -19,14 +18,17 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createBookCorrectionGoal"
+                android:id="@+id/imThemeBook"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:id="@+id/imThemeBook"
-                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="5sp"
-                android:background="@drawable/run" />
+                android:background="@drawable/btn_red"
+                android:text="GO"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
 
         </RelativeLayout>
 
@@ -35,26 +37,37 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/themeSportTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5sp"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="КНИГА"
-                android:textColor="@color/colorOrange"
-                android:textSize="30sp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/themeSportTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:textSize="15sp"
-                android:text="Данная тема поможет прочитать книгу которую вы хотите."
-                android:textColor="@color/colorOrange" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/themeSportTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="КНИГА"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/themeSportTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10sp"
+                        android:text="ДанДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоная тема поможет прочитать книгу которую вы хотите."
+                        android:textColor="@color/colorOrange"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+            </ScrollView>
 
         </RelativeLayout>
     </LinearLayout>
@@ -79,43 +92,58 @@
             android:layout_height="match_parent"
             android:layout_weight="2">
 
-            <ImageView
+            <Button
+                android:onClick="createLanguageCorrectionGoal"
                 android:id="@+id/imThemeLanguage"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="5sp"
-                android:background="@drawable/run" />
+                android:background="@drawable/btn_red"
+                android:text="GO"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10sp"
             android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/themeScienceTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5sp"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="ЯЗЫКИ"
-                android:textColor="@color/colorOrange"
-                android:textSize="30sp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/themeScienceTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="15sp"
-                android:textSize="15sp"
-                android:text="Эта тема поможет вам выучить новый иностранный язык до определенного уровня."
-                android:textColor="@color/colorOrange" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/themeScienceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="ЯЗЫКИ"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/themeScienceTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10dp"
+                        android:text="Эта тема поможЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйет вам выучить новый иностранный язык до определенного уровня."
+                        android:textColor="@color/colorOrange"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+            </ScrollView>
         </RelativeLayout>
     </LinearLayout>
 

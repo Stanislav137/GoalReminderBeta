@@ -12,6 +12,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -50,15 +51,15 @@ public class AllSubThemesScience extends AppCompatActivity {
     }
 
     public void findImagesBanners() {
-        ArrayList<ImageView> allImages = new ArrayList<>();
-        ImageView imThemeBook = (ImageView) findViewById(R.id.imThemeBook);
-        ImageView imThemeLanguage = (ImageView) findViewById(R.id.imThemeLanguage);
-        allImages.add(imThemeBook);
-        allImages.add(imThemeLanguage);
-        startBootStrap(allImages);
+        ArrayList<Button> allBtns = new ArrayList<>();
+        Button imThemeBook = (Button) findViewById(R.id.imThemeBook);
+        Button imThemeLanguage = (Button) findViewById(R.id.imThemeLanguage);
+        allBtns.add(imThemeBook);
+        allBtns.add(imThemeLanguage);
+        startBootStrap(allBtns);
     }
 
-    public void startBootStrap(ArrayList<ImageView> allImages) {
+    public void startBootStrap(ArrayList<Button> allImages) {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapAllSection(AllSubThemesScience.this, allImages);
     }
