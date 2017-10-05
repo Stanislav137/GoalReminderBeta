@@ -19,6 +19,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
+ import java.text.DecimalFormat;
  import java.text.ParseException;
 import java.text.SimpleDateFormat;
  import java.util.ArrayList;
@@ -28,9 +29,9 @@ public class WeightCorrectionActivity extends AppCompatActivity {
 
     private Button sportMinusWeightCurrent, sportPlusWeightCurrent,
             sportCurrentWeight, sportMinusWeightGoal, sportPlusWeightGoal, sportGoalWeight,
-            sportSaveGoal;
+            sportSaveGoal, changeCurrentWeight, changeGoalWeight;
     private TextView sportDateFrom, sportDateTo;
-    private int currentWeight = 0, goalWeight = 0;
+    private double currentWeight = 0, goalWeight = 0;
     private Date dateFrom, dateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
@@ -52,40 +53,55 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         sportPlusWeightGoal = (Button) findViewById(R.id.sportPlusWeightGoal);
         sportGoalWeight = (Button) findViewById(R.id.sportGoalWeight);
         sportSaveGoal = (Button) findViewById(R.id.sportSaveGoal);
+        changeCurrentWeight = (Button) findViewById(R.id.changeCurrentWeight);
+        changeGoalWeight = (Button) findViewById(R.id.changeGoalWeight);
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
     }
     private void setListenersOnButtons(){
-        setTimerOnButton(sportMinusWeightCurrent, "-", true); // true это текуший вес
-        setTimerOnButton(sportPlusWeightCurrent, "+", true);
-        setTimerOnButton(sportMinusWeightGoal, "-", false); // false это конечный вес
-        setTimerOnButton(sportPlusWeightGoal, "+", false);
+        setTimerOnButton(sportMinusWeightCurrent, "-", true, 1); // true это текуший вес
+        setTimerOnButton(sportPlusWeightCurrent, "+", true, 1);
+        setTimerOnButton(sportMinusWeightGoal, "-", false, 1); // false это конечный вес
+        setTimerOnButton(sportPlusWeightGoal, "+", false, 1);
+        changeCurrentWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchWeight(changeCurrentWeight);
+            }
+        });
+        changeGoalWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchWeight(changeGoalWeight);
+            }
+        });
     }
-    private CountDownTimer getTimer(final String direction, final boolean current){
+    private CountDownTimer getTimer(final String direction, final boolean current, final double increasing){
 
+        final DecimalFormat df = new DecimalFormat("#.##");
         CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления веса
             @Override
             public void onTick(long l) {
                 if (direction.equals("+")){
                     if (current){
-                        currentWeight++;
+                        currentWeight+=increasing;
                     }
                     else goalWeight++;
                 }
                 if (direction.equals("-")){
                     if (current){
                         if (currentWeight > 0)
-                        currentWeight--;
+                        currentWeight-=increasing;
                     }
                     else {
                         if (goalWeight > 0)
-                        goalWeight--;
+                        goalWeight-=increasing;
                     }
                 }
                 if (current){
-                    sportCurrentWeight.setText("" + currentWeight);
+                    sportCurrentWeight.setText("" + df.format(currentWeight));
                 }else {
-                    sportGoalWeight.setText("" + goalWeight);
+                    sportGoalWeight.setText("" + df.format(goalWeight));
                 }
             }
             @Override
@@ -94,9 +110,9 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         };
         return timer;
     }
-    private void setTimerOnButton(Button button, final String direction, final boolean current){
+    private void setTimerOnButton(Button button, final String direction, final boolean current, final double increasing){
         button.setOnTouchListener(new View.OnTouchListener() {
-            CountDownTimer timer = getTimer(direction, current);
+            CountDownTimer timer = getTimer(direction, current, increasing);
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch(event.getAction()) {
@@ -117,13 +133,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateTo);
     }
-
     public void editDescription(View view) {
         dialog = new Dialog(WeightCorrectionActivity.this);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
-
     public void saveDescription(View view) {
         EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
@@ -133,15 +147,14 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
         dialog.dismiss();
     }
-
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
         String themeCategory = "ВЕС";
-        int currentWeight = this.currentWeight;
-        int goalWeight = this.goalWeight;
+        double currentWeight = this.currentWeight;
+        double goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
         WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, themeCategory);
@@ -151,7 +164,6 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         startActivity(intent);
         this.finish();
     }
-
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(WeightCorrectionActivity.this);
@@ -168,13 +180,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-
     public void backToHome(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
-
     private void findAllBtnsBootStrap() {
         ArrayList<Button> allBtnsRun = new ArrayList<>();
         Button sportCurrentWeight = (Button) findViewById(R.id.sportCurrentWeight);
@@ -183,9 +193,24 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         allBtnsRun.add(sportGoalWeight);
         startBootStrap(allBtnsRun);
     }
-
     private void startBootStrap(ArrayList<Button> allBtnsRun) {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapResultsBtns(WeightCorrectionActivity.this, allBtnsRun);
     }
+    private void switchWeight(Button button){
+        if (button.getId()==R.id.changeCurrentWeight){
+            sportMinusWeightCurrent.setOnClickListener(null);
+            sportPlusWeightCurrent.setOnClickListener(null);
+            if (button.getText().equals("ГР")){
+                setTimerOnButton(sportMinusWeightCurrent, "-", true, 1);
+                setTimerOnButton(sportPlusWeightCurrent, "+", true, 1);
+                button.setText("КГ");
+            }else {
+                setTimerOnButton(sportMinusWeightCurrent, "-", true, 0.1);
+                setTimerOnButton(sportPlusWeightCurrent, "+", true, 0.1);
+                button.setText("ГР");
+            }
+        }
+    }
+
 }
