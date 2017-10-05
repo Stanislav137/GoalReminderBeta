@@ -86,7 +86,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
                     if (current){
                         currentWeight+=increasing;
                     }
-                    else goalWeight++;
+                    else goalWeight+=increasing;
                 }
                 if (direction.equals("-")){
                     if (current){
@@ -208,6 +208,19 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             }else {
                 setTimerOnButton(sportMinusWeightCurrent, "-", true, 0.1);
                 setTimerOnButton(sportPlusWeightCurrent, "+", true, 0.1);
+                button.setText("ГР");
+            }
+        }
+        if(button.getId()==R.id.changeGoalWeight) {
+            sportMinusWeightGoal.setOnClickListener(null);
+            sportPlusWeightGoal.setOnClickListener(null);
+            if (button.getText().equals("ГР")){
+                setTimerOnButton(sportMinusWeightGoal, "-", false, 1);
+                setTimerOnButton(sportPlusWeightGoal, "+", false, 1);
+                button.setText("КГ");
+            }else {
+                setTimerOnButton(sportMinusWeightGoal, "-", false, 0.1);
+                setTimerOnButton(sportPlusWeightGoal, "+", false, 0.1);
                 button.setText("ГР");
             }
         }
