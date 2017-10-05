@@ -145,13 +145,14 @@
                 android:layout_alignBottom="@+id/sportPlusWeightCurrent"
                 android:layout_alignTop="@+id/sportPlusWeightCurrent"
                 android:layout_toRightOf="@+id/sportPlusWeightCurrent">
+
                 <Button
-                    android:id="@+id/unitCurrentWeight"
+                    android:id="@+id/changeCurrentWeight"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_orange"
-                    android:text="ГР"
+                    android:text="КГ"
                     android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
 
@@ -241,13 +242,14 @@
                 android:layout_alignBottom="@+id/sportPlusWeightGoal"
                 android:layout_alignTop="@+id/sportPlusWeightGoal"
                 android:layout_toRightOf="@+id/sportPlusWeightGoal">
+
                 <Button
-                    android:id="@+id/unitGoalWeight"
+                    android:id="@+id/changeGoalWeight"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_orange"
-                    android:text="ГР"
+                    android:text="КГ"
                     android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
             </RelativeLayout>

@@ -10,7 +10,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private Date currentDate;
     private Date goalDate;
     private int currentRepeats, goalRepeats;
-    private int differenceInDays;
+    private double differenceInDays;
     private String nameGoal;
     private String themeCategory;
 
@@ -25,7 +25,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.nameGoal = nameGoal;
         this.themeCategory = themeCategory;if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
-            this.differenceInDays = (int) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
+            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
     }
@@ -62,11 +62,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.goalDate = goalDate;
     }
 
-    public int getDifferenceInDays() {
+    public double getDifferenceInDays() {
         return differenceInDays;
     }
 
-    public void setDifferenceInDays(int differenceInDays) {
+    public void setDifferenceInDays(double differenceInDays) {
         this.differenceInDays = differenceInDays;
     }
 

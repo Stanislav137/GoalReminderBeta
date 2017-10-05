@@ -117,16 +117,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
         themeCategory.setText(goal.getThemeCategory());
 
-        Integer progress = new Integer(String.valueOf(goal.getDifferenceInDays()));
-        int currentProgress = progress; //sample progress
+        Double progress = new Double(String.valueOf(goal.getDifferenceInDays()));
+        double currentProgress = progress; //sample progress
         checkProgress(currentProgress, convertView);
     }
 
-    private void checkProgress(int currentProgress, View convertView) {
+    private void checkProgress(double currentProgress, View convertView) {
         ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.circleProgress);
         TextView textCircleProgress = (TextView) convertView.findViewById(R.id.textCircleProgress);
 
-        progressBar.setProgress(currentProgress);
+        progressBar.setProgress((int) currentProgress);
 
         if(currentProgress <= 30) {
             progressBar.getProgressDrawable().setColorFilter(mContext.
