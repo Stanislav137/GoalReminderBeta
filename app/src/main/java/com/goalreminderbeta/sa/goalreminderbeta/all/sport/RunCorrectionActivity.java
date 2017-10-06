@@ -197,7 +197,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
         String themeCategory = "БЕГ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(dateFrom, dateTo, goalName, themeCategory);
+        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(dateFrom, dateTo, goalName, goalDescription, themeCategory);
         runCorrectionGoal.save();
         Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

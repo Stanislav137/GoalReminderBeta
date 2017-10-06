@@ -11,13 +11,14 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     private Date goalDate;
     private double differenceInDays;
     private int levelCurrent;
-    private String nameGoal;
+    private String nameGoal, descriptionGoal;
     private String themeCategory;
 
     public ElementCorrectionGoal() {
     }
 
-    public ElementCorrectionGoal(int levelCurrent, Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
+    public ElementCorrectionGoal(int levelCurrent, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+        this.descriptionGoal = descriptionGoal;
         this.levelCurrent = levelCurrent;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
@@ -27,6 +28,15 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
+    }
+
+    @Override
+    public String getDescriptionGoal() {
+        return descriptionGoal;
+    }
+
+    public void setDescriptionGoal(String descriptionGoal) {
+        this.descriptionGoal = descriptionGoal;
     }
 
     public int getLevelCurrent() {
@@ -85,6 +95,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
                 ", differenceInDays=" + differenceInDays +
                 ", levelCurrent=" + levelCurrent +
                 ", nameGoal='" + nameGoal + '\'' +
+                ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }

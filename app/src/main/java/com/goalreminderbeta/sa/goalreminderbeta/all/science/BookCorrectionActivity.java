@@ -170,7 +170,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
         String themeCategory = "КНИГА";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, themeCategory);
+        ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription, themeCategory);
         readBook.save();
         Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

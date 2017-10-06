@@ -10,13 +10,14 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
     private Date currentDate;
     private Date goalDate;
     private double differenceInDays;
-    private String nameGoal;
+    private String nameGoal, descriptionGoal;
     private String themeCategory;
 
     public LanguageCorrectionGoal() {
     }
 
-    public LanguageCorrectionGoal(Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
+    public LanguageCorrectionGoal(Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+        this.descriptionGoal = descriptionGoal;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
@@ -25,6 +26,15 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
+    }
+
+    @Override
+    public String getDescriptionGoal() {
+        return descriptionGoal;
+    }
+
+    public void setDescriptionGoal(String descriptionGoal) {
+        this.descriptionGoal = descriptionGoal;
     }
 
     public Date getCurrentDate() {
@@ -69,11 +79,12 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
 
     @Override
     public String toString() {
-        return "RunCorrectionGoal{" +
+        return "LanguageCorrectionGoal{" +
                 "currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
+                ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }

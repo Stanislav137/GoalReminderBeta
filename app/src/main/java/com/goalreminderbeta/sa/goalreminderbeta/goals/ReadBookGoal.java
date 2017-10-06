@@ -13,13 +13,14 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private Date goalDate;
     private String nameBook, nameAuthor;
     private double differenceInDays;
-    private String nameGoal;
+    private String nameGoal, descriptionGoal;
     private String themeCategory;
 
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String themeCategory) {
+    public ReadBookGoal(int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+        this.descriptionGoal = descriptionGoal;
         this.pages = pages;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
@@ -31,6 +32,15 @@ public class ReadBookGoal extends SugarRecord implements Goal {
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
+    }
+
+    @Override
+    public String getDescriptionGoal() {
+        return descriptionGoal;
+    }
+
+    public void setDescriptionGoal(String descriptionGoal) {
+        this.descriptionGoal = descriptionGoal;
     }
 
     @Override
@@ -109,6 +119,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
                 ", nameAuthor='" + nameAuthor + '\'' +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
+                ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }

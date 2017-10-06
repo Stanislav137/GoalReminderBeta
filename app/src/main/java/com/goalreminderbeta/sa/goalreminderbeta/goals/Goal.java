@@ -7,4 +7,5 @@ public interface Goal {
     double getDifferenceInDays();
     String getNameGoal();
     String getThemeCategory();
+    String getDescriptionGoal();
 }

@@ -152,7 +152,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         String themeCategory = "ПОВТОРЕНИЯ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, themeCategory);
+        RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription, themeCategory);
         runCorrectionGoal.save();
         Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

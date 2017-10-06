@@ -101,6 +101,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_section, null);
             convertView.setMinimumHeight(1500);
+
+            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+            Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
+            TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
+            goalDescription.setText(goal.getDescriptionGoal() + "");
         }
 
         return convertView;

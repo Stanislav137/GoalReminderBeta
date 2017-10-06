@@ -76,7 +76,7 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
         String themeCategory = "ЯЗЫКИ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(dateFrom, dateTo, goalName, themeCategory);
+        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(dateFrom, dateTo, goalName, goalDescription, themeCategory);
         languageCorrectionGoal.save();
         Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

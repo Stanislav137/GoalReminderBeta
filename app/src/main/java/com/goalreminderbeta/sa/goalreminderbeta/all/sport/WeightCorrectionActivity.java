@@ -157,7 +157,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         double goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, themeCategory);
+        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription, themeCategory);
         goal.save();
 
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
