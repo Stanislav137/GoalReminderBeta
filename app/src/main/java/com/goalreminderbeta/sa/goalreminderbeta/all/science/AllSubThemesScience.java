@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
@@ -62,5 +63,11 @@ public class AllSubThemesScience extends AppCompatActivity {
     public void startBootStrap(ArrayList<Button> allImages) {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapAllSection(AllSubThemesScience.this, allImages);
+    }
+
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(AllSubThemesScience.this, AllSectionTheme.class);
+        startActivity(intent);
+        this.finish();
     }
 }

@@ -61,4 +61,10 @@ public class AllSectionTheme extends AppCompatActivity {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapAllSection(AllSectionTheme.this, allBtns);
     }
+
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(AllSectionTheme.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
 }
