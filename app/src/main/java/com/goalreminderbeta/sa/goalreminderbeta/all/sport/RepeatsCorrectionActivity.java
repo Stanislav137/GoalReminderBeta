@@ -165,6 +165,12 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         this.finish();
     }
 
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(RepeatsCorrectionActivity.this, AllSubThemesSport.class);
+        startActivity(intent);
+        this.finish();
+    }
+
     private void addToList() {
         ArrayList<Button> allBtnsRun = new ArrayList<>();
         allBtnsRun.add(currentRepeatsResult);

@@ -124,6 +124,12 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         this.finish();
     }
 
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(ElementCorrectionActivity.this, AllSubThemesSport.class);
+        startActivity(intent);
+        this.finish();
+    }
+
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(ElementCorrectionActivity.this);

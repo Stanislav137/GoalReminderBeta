@@ -14,6 +14,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.ElementCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RunCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
@@ -84,6 +85,12 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
 
     public void backToHome(View view) {
         Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(LanguageCorrectionActivity.this, AllSubThemesScience.class);
         startActivity(intent);
         this.finish();
     }

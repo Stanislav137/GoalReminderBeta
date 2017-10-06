@@ -180,11 +180,19 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         });
         dialog.show();
     }
+
     public void backToHome(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
+
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(WeightCorrectionActivity.this, AllSubThemesSport.class);
+        startActivity(intent);
+        this.finish();
+    }
+
     private void findAllBtnsBootStrap() {
         ArrayList<Button> allBtnsRun = new ArrayList<>();
         Button sportCurrentWeight = (Button) findViewById(R.id.sportCurrentWeight);
@@ -225,5 +233,4 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             }
         }
     }
-
 }

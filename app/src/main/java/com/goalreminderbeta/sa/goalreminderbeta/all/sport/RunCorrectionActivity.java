@@ -130,9 +130,9 @@ public class RunCorrectionActivity extends AppCompatActivity {
                 if (current.equals("none")) {
                     runDistanceResult.setText("" + distanceRunResult);
                 } else if (current.equals("true")) {
-                    runTimeResult.setText("CUR " + currentRunTime);
+                    runTimeResult.setText("" + currentRunTime);
                 } else if (current.equals("false")) {
-                    runTimeResult.setText("GOAL " + goalRunTime);
+                    runTimeResult.setText("" + goalRunTime);
                 }
             }
             @Override
@@ -151,6 +151,12 @@ public class RunCorrectionActivity extends AppCompatActivity {
 
     public void backToHome(View view) {
         Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    public void backToPrevActivity(View view) {
+        Intent intent = new Intent(RunCorrectionActivity.this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
     }
