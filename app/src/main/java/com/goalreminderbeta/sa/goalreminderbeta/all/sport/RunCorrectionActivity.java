@@ -31,7 +31,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
     private Button runDistanceResult, runTimeResult;
     private Button sportMinusTime, sportAddTime, nextTime;
     private Date dateFrom, dateTo;
-    private TextView sportDateFrom, sportDateTo;
+    private TextView sportDateFrom, sportDateTo, changeTxtTime;
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distanceRunResult, currentRunTime, goalRunTime;
@@ -61,22 +61,28 @@ public class RunCorrectionActivity extends AppCompatActivity {
         /* TextView */
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
         sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        changeTxtTime = (TextView) findViewById(R.id.changeTxtTime);
     }
 
     private void setListenersOnButtons(){
         /* Added data for Distance */
-        setTimeOnButton(sportMinusDistance, "-", true); // если будет дистанция
-        setTimeOnButton(sportAddDistance, "+", true);
-        setTimeOnButton(sportAddDistanceX100, "x100", true);
+        setTimerOnButton(sportMinusDistance, "-", "none", 1); // если будет дистанция
+        setTimerOnButton(sportAddDistance, "+", "none", 1);
+        setTimerOnButton(sportAddDistanceX100, "x100", "none", 1);
         /* Added data for Time */
-        setTimeOnButton(sportMinusTime, "-", false); // если будет время
-        setTimeOnButton(sportAddTime, "+", false);
-        setTimeOnButton(nextTime, "ok", false);
+        setTimerOnButton(sportMinusTime, "-", "true", 1); // если будет время
+        setTimerOnButton(sportAddTime, "+", "true", 1);
+        nextTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchWeight(nextTime);
+            }
+        });
     }
 
-    private void setTimeOnButton(Button button, final String direction, final boolean current){
+    private void setTimerOnButton(Button button, final String direction, final String current, final double increasing){
         button.setOnTouchListener(new View.OnTouchListener() {
-            CountDownTimer timer = getTimer(direction, current);
+            CountDownTimer timer = getTimer(direction, current, increasing);
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch(event.getAction()) {
@@ -92,31 +98,42 @@ public class RunCorrectionActivity extends AppCompatActivity {
         });
     }
 
-    private CountDownTimer getTimer(final String direction, final boolean current){
+    private CountDownTimer getTimer(final String direction, final String current, final double increasing){
 
         CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления страниц
             @Override
             public void onTick(long l) {
-                if (direction.equals("+") || direction.equals("x100")){
-                    if(current) {
-                        if(direction.equals("x100")) {
-                            distanceRunResult+=100;
-                        } else distanceRunResult++;
-                    } else currentRunTime++;
-                }
-                if (direction.equals("-")){
-                    if(current){
+                if (current.equals("none")) {
+                    if (direction.equals("+") || direction.equals("x100")) {
+                        if (direction.equals("x100")) {
+                            distanceRunResult += 100;
+                        } else distanceRunResult += increasing;
+                    }
+                    if (direction.equals("-")) {
                         if (distanceRunResult > 0)
-                            distanceRunResult--;
-                    }
-                    else {
-                        if(currentRunTime > 0)
-                            currentRunTime--;
+                            distanceRunResult -= increasing;
                     }
                 }
-                if(current){
+                if (current.equals("true")) {
+                    if (direction.equals("+")) {
+                        currentRunTime += increasing;
+                    } else if (currentRunTime > 0) {
+                        currentRunTime -= increasing;
+                    }
+                } else if (current.equals("false")) {
+                    if (direction.equals("+")) {
+                        goalRunTime += increasing;
+                    } else if (goalRunTime > 0) {
+                        goalRunTime -= increasing;
+                    }
+                }
+                if (current.equals("none")) {
                     runDistanceResult.setText("" + distanceRunResult);
-                }else  runTimeResult.setText("" + currentRunTime);
+                } else if (current.equals("true")) {
+                    runTimeResult.setText("CUR " + currentRunTime);
+                } else if (current.equals("false")) {
+                    runTimeResult.setText("GOAL " + goalRunTime);
+                }
             }
             @Override
             public void onFinish() {
@@ -196,5 +213,19 @@ public class RunCorrectionActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    private void switchWeight(Button button){
+        sportAddTime.setOnClickListener(null);
+        sportMinusTime.setOnClickListener(null);
+        if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")){
+            setTimerOnButton(sportMinusTime, "-", "false", 1);
+            setTimerOnButton(sportAddTime, "+", "false", 1);
+            changeTxtTime.setText("ЖЕЛАЕМАЯ ЦЕЛЬ:");
+        }else {
+            setTimerOnButton(sportMinusTime, "-", "true", 1);
+            setTimerOnButton(sportAddTime, "+", "true", 1);
+            changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
+        }
     }
 }
