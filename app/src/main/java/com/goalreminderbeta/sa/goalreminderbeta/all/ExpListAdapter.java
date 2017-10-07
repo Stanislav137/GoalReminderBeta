@@ -10,6 +10,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
@@ -97,7 +98,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
 
-        if (convertView == null) {
+        //If all is fucked up check here !!!!111адын!11!
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_section, null);
             convertView.setMinimumHeight(1500);
@@ -105,7 +106,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
             showDataChild(goal, convertView);
-        }
+            Toast toast = Toast.makeText(mContext,
+                    goal.getDescriptionGoal(), Toast.LENGTH_SHORT);
+            toast.show();
+
 
         return convertView;
     }

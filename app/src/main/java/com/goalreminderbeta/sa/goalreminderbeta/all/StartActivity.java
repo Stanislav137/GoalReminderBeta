@@ -32,6 +32,7 @@ public class StartActivity extends AppCompatActivity {
     private BootStrap bootStrap;
     private boolean logicAddGoal;
     private Animation anim = null;
+    private ExpListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +54,11 @@ public class StartActivity extends AppCompatActivity {
     private void setListenersOnChild(){
         allGoalsList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
 
-                Goal goal = (Goal) expandableListView.getExpandableListAdapter().getChild(i, i1);
+
+                Goal goal = (Goal) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
@@ -75,11 +78,11 @@ public class StartActivity extends AppCompatActivity {
             }
         });
     }
-
     private void setListenersOnTitle() {
         allGoalsList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+
                 if(startAddGoal.getVisibility() == View.VISIBLE) {
                     stopAnimAddGoal();
                     startAddGoal.setVisibility(View.INVISIBLE);
@@ -91,7 +94,6 @@ public class StartActivity extends AppCompatActivity {
             }
         });
     }
-
     private void printAllGoals(){
         allGoals.clear();
         ArrayList<ArrayList<Goal>> groups = new ArrayList<>();
@@ -152,45 +154,38 @@ public class StartActivity extends AppCompatActivity {
             allGoalsMap.put(i,allGoals.get((int)i));
         }
 
-        ExpListAdapter adapter = new ExpListAdapter(getApplicationContext(), groups, allGoalsMap);
+        adapter = new ExpListAdapter(getApplicationContext(), groups, allGoalsMap);
         allGoalsList.setAdapter(adapter);
     }
-
     public void openGoalChooser(View view) {
         Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }
-
     public void openRecords(View view) {
         Intent intent = new Intent(StartActivity.this, RecordsActivity.class);
         startActivity(intent);
         this.finish();
     }
-
     public void openOptions(View view) {
         Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
         startActivity(intent);
         this.finish();
     }
-
     public void bootStrapAddGoalCenter() {
         logicAddGoal = false;
         startAddGoal.setTextSize(20);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
     }
-
     public void bootStrapAddGoalDown() {
         logicAddGoal = true;
         startAddGoal.setTextSize(16);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
     }
-
     public void startAnimAddGoal() {
         anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
         startAddGoal.startAnimation(anim);
     }
-
     public void stopAnimAddGoal() {
         startAddGoal.clearAnimation();
     }
