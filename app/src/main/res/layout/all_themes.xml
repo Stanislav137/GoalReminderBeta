@@ -50,8 +50,8 @@
                 android:id="@+id/imThemeSport"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_red"
                 android:layout_centerVertical="true"
@@ -81,7 +81,7 @@
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="СПОРТ"
                         android:textColor="@color/colorOrange"
-                        android:textSize="30sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -89,10 +89,9 @@
                         android:layout_below="@+id/themeSportTitle"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
-                        android:text="Данная тема поможема поможет вам добиться желаемыема поможет вам добиться желаемыема поможет вам добиться желаемыема поможет вам добиться желаемыема поможет вам добиться желаемыема поможет вам добиться желаемыема поможет вам добиться желаемыет вам добиться желаемых целей в сфере спорт."
+                        android:text="@string/description_theme_sport"
                         android:textColor="@color/colorOrange"
                         android:textSize="15sp" />
-
                 </RelativeLayout>
             </ScrollView>
 
@@ -124,8 +123,8 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeScience"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_blue"
                 android:layout_centerVertical="true"
@@ -155,12 +154,12 @@
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="НАУКА"
                         android:textColor="@color/colorOrange"
-                        android:textSize="30sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Эта тема Эта тема поможет вам прочитать книгу либо выуЭта тема поможет вам прочитать книгу либо выуЭта тема поможет вам прочитать книгу либо выуЭта тема поможет вам прочитать книгу либо выуЭта тема поможет вам прочитать книгу либо выупоможет вам прочитать книгу либо выучить новый иностранный язык."
+                        android:text="@string/description_theme_science"
                         android:textColor="@color/colorOrange"
                         android:textSize="15sp"
                         android:layout_margin="10dp"
@@ -183,9 +182,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="Button"
         android:background="@color/colorWhite"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:text="Button">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -193,16 +192,16 @@
             android:layout_weight="2">
 
             <Button
-                android:onClick="createOtherThemeGoal"
+                android:id="@+id/imThemeOthers"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:id="@+id/imThemeOthers"
-                android:text="GO"
-                android:textSize="30sp"
-                android:textColor="@color/colorWhite"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/btn_green"/>
+                android:background="@drawable/btn_green"
+                android:onClick="createOtherThemeGoal"
+                android:text="@string/chosen"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -220,26 +219,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/themeElementsTitle"
-                android:textSize="30sp"
-                android:layout_marginTop="5sp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/colorOrange"
-                android:layout_toRightOf="@+id/imThemeChoose"
-                android:text="ДРУГОЕ"/>
+                    <TextView
+                        android:id="@+id/themeElementsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5sp"
+                        android:layout_toRightOf="@+id/imThemeChoose"
+                        android:text="ДРУГОЕ"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="28sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorOrange"
-                android:layout_below="@+id/themeElementsTitle"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10sp"
-                android:textSize="15sp"
-                android:text="Здесь вы можетесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою теесь вы можете создать свою тее создать свою тему."/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/themeElementsTitle"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="10sp"
+                        android:text="@string/description_theme_other"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="15sp" />
 
                 </RelativeLayout>
             </ScrollView>

@@ -8,4 +8,5 @@ public interface Goal {
     String getNameGoal();
     String getThemeCategory();
     String getDescriptionGoal();
+    double getCurrentResult();
 }

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class ReadBookGoal extends SugarRecord implements Goal {
 
     private int pages;
+    private double currentResult;
     private Date currentDate;
     private Date goalDate;
     private String nameBook, nameAuthor;
@@ -19,7 +20,8 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+        this.currentResult = currentPages;
         this.descriptionGoal = descriptionGoal;
         this.pages = pages;
         this.currentDate = currentDate;
@@ -32,6 +34,15 @@ public class ReadBookGoal extends SugarRecord implements Goal {
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
+    }
+
+    @Override
+    public double getCurrentResult() {
+        return currentResult;
+    }
+
+    public void setCurrentResult(double currentResult) {
+        this.currentResult = currentResult;
     }
 
     @Override
@@ -113,6 +124,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public String toString() {
         return "ReadBookGoal{" +
                 "pages=" + pages +
+                ", currentResult=" + currentResult +
                 ", currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
                 ", nameBook='" + nameBook + '\'' +

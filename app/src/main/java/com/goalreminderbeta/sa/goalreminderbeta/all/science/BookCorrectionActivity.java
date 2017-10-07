@@ -30,6 +30,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo;
     private Button scienceGoalPage, minusPage, addPage, addX20;
     private int goalPage;
+    private double currentPages = 100;
     private String nameBook, nameAuthor;
     private boolean boolNameBook = true;
     private Dialog dialog;
@@ -170,7 +171,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
         String themeCategory = "КНИГА";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        ReadBookGoal readBook = new ReadBookGoal(goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription, themeCategory);
         readBook.save();
         Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

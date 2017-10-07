@@ -104,8 +104,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
-            goalDescription.setText(goal.getDescriptionGoal() + "");
+            showDataChild(goal, convertView);
         }
 
         return convertView;
@@ -125,6 +124,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         Double progress = new Double(String.valueOf(goal.getDifferenceInDays()));
         double currentProgress = progress; //sample progress
         checkProgress(currentProgress, convertView);
+    }
+
+    private void showDataChild(Goal goal, View convertView) {
+        TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
+        TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
+
+        goalDescription.setText(goal.getDescriptionGoal() + "");
     }
 
     private void checkProgress(double currentProgress, View convertView) {

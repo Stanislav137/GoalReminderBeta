@@ -30,6 +30,7 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
+    private double currentLangLvl = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,7 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
         String themeCategory = "ЯЗЫКИ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(currentLangLvl, dateFrom, dateTo, goalName, goalDescription, themeCategory);
         languageCorrectionGoal.save();
         Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

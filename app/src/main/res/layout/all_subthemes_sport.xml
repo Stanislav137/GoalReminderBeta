@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВАБЕРИТЕ ПОД-ТЕМУ"
+            android:text="ВАБЕРИТЕ КАТЕГОРИЮ"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </RelativeLayout>
@@ -48,8 +48,8 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeWeight"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/themeSportTitle"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         android:layout_marginTop="5sp"
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/colorOrange"
@@ -89,7 +89,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
                         android:textSize="15sp"
-                        android:text="Это тема позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вама позволит помочь вам достичь желаемого веса."/>
+                        android:text="@string/description_category_weight"/>
 
                 </RelativeLayout>
             </ScrollView>
@@ -121,8 +121,8 @@
                 android:id="@+id/imThemeRun"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -152,7 +152,7 @@
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="БЕГ"
                         android:textColor="@color/colorOrange"
-                        android:textSize="30sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -194,8 +194,8 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeElements"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -220,12 +220,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/themeElementsTitle"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         android:layout_marginTop="5sp"
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/colorOrange"
                         android:layout_toRightOf="@+id/imThemeChoose"
-                        android:text="ЕЛЕМЕНТЫ"/>
+                        android:text="ЭЛЕМЕНТЫ"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -266,8 +266,8 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:id="@+id/imThemeRepeats"
-                android:text="GO"
-                android:textSize="30sp"
+                android:text="@string/chosen"
+                android:textSize="18sp"
                 android:textColor="@color/colorWhite"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -293,7 +293,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/themeHabitsTitle"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         android:layout_marginTop="5sp"
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/colorOrange"

@@ -9,7 +9,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
     private Date currentDate;
     private Date goalDate;
-    private int currentRepeats, goalRepeats;
+    private double currentResult, goalRepeats;
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
@@ -17,9 +17,9 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public RepeatsCorrectionGoal() {
     }
 
-    public RepeatsCorrectionGoal(int currentRepeats, int goalRepeats, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
         this.descriptionGoal = descriptionGoal;
-        this.currentRepeats = currentRepeats;
+        this.currentResult = currentRepeats;
         this.goalRepeats = goalRepeats;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
@@ -40,15 +40,15 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.descriptionGoal = descriptionGoal;
     }
 
-    public int getCurrentRepeats() {
-        return currentRepeats;
+    public double getCurrentResult() {
+        return currentResult;
     }
 
-    public void setCurrentRepeats(int currentRepeats) {
-        this.currentRepeats = currentRepeats;
+    public void setCurrentResult(int currentRepeats) {
+        this.currentResult = currentRepeats;
     }
 
-    public int getGoalRepeats() {
+    public double getGoalRepeats() {
         return goalRepeats;
     }
 
@@ -101,7 +101,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         return "RepeatsCorrectionGoal{" +
                 "currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
-                ", currentRepeats=" + currentRepeats +
+                ", currentResult=" + currentResult +
                 ", goalRepeats=" + goalRepeats +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +

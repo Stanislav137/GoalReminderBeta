@@ -12,11 +12,13 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
+    private double currentResult;
 
     public RunCorrectionGoal() {
     }
 
-    public RunCorrectionGoal(Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public RunCorrectionGoal(double currentRun, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+        this.currentResult = currentRun;
         this.descriptionGoal = descriptionGoal;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
@@ -26,6 +28,15 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
+    }
+
+    @Override
+    public double getCurrentResult() {
+        return currentResult;
+    }
+
+    public void setCurrentResult(double currentResult) {
+        this.currentResult = currentResult;
     }
 
     @Override
@@ -86,6 +97,7 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
+                ", currentResult=" + currentResult +
                 '}';
     }
 }

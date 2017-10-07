@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WeightCorrectionGoal extends SugarRecord implements Goal {
 
-    private double currentWeight;
+    private double currentResult;
     private double goalWeight;
     private Date currentDate;
     private Date goalDate;
@@ -21,7 +21,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
 
     public WeightCorrectionGoal(double currentWeight, double goalWeight, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
         this.descriptionGoal = descriptionGoal;
-        this.currentWeight = currentWeight;
+        this.currentResult = currentWeight;
         this.goalWeight = goalWeight;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
@@ -41,12 +41,12 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         this.descriptionGoal = descriptionGoal;
     }
 
-    public double getCurrentWeight() {
-        return currentWeight;
+    public double getCurrentResult() {
+        return currentResult;
     }
 
-    public void setCurrentWeight(double currentWeight) {
-        this.currentWeight = currentWeight;
+    public void setCurrentResult(double currentWeight) {
+        this.currentResult = currentWeight;
     }
 
     public double getGoalWeight() {
@@ -103,7 +103,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     @Override
     public String toString() {
         return "WeightCorrectionGoal{" +
-                "currentWeight=" + currentWeight +
+                "currentResult=" + currentResult +
                 ", goalWeight=" + goalWeight +
                 ", currentDate=" + currentDate +
                 ", goalDate=" + goalDate +
