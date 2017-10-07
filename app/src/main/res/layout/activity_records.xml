@@ -127,7 +127,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ ВЕС"
+                    android:text="КАТЕГОРИЯ МАССА"
                     android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
@@ -148,7 +148,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="МАКСИМАЛЬНЫЙ ВЕС:"
+                        android:text="МАКСИМАЛЬНЫЙ МАССА:"
                         android:textSize="15sp"
                         android:textColor="@color/colorBlack"/>
 
@@ -189,7 +189,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="МИНИМАЛЬНЫЙ ВЕС:"
+                            android:text="МИНИМАЛЬНЫЙ МАССА:"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -214,7 +214,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ БЕГ"
+                    android:text="КАТЕГОРИЯ КАРДИО"
                     android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"

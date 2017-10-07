@@ -6,8 +6,16 @@
     <string name="circle_add_goal">ADD GOAL</string>
     <string name="save_goal">СОХРАНИТЬ ЦЕЛЬ</string>
     <string name="description_theme_sport">Данная тема поможет достичь желаемого результата в сфере спорт и предоставит на выбор 4 категории.</string>
-    <string name="description_theme_science">Дання тема поможет достичь желаемого резулятата в сфере изучения и предоставит на выбор 2 категории.</string>
+    <string name="description_theme_science">Данная тема поможет достичь желаемого резулятата в сфере изучения и предоставит на выбор 2 категории.</string>
     <string name="description_theme_other">Если ваша цель касается чего-то особенного и не подходит к двум предыдущим - то данная тема вам подойдет.</string>
     <string name="chosen">ВЫБРАТЬ</string>
-    <string name="description_category_weight">Данная категория поможет набрать мышечную массу или избавиться от лишнего веса.</string>
+    <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса.</string>
+    <string name="description_category_run">Данная категория поможет добиться желаемого результата в скорости или выносливости, например в беге,
+        езды на велосипеде и т.д.</string>
+    <string name="description_category_element">Данная категория поможет улучшить навыки любого элемента до определенного уровня, например шпагат, планку, выход на турнике и т.д.</string>
+    <string name="description_category_repeats">Данная категория поможет поставить новый рекорд в упражнении например отжимания, приседания и т.д., а
+        также создать еще более мощное тело.</string>
+    <string name="description_category_book">Если вы хотели прочитать книгу то эта категория не даст вам забросить эту цель
+        и вы прочитаете её до конца.</string>
+    <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который вы хотите выучить.</string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -128,46 +129,36 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
-        Toast toast;
+        TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
+        TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
+        RelativeLayout bookPresent = (RelativeLayout) convertView.findViewById(R.id.bookPresent);
+        RelativeLayout runDistance = (RelativeLayout) convertView.findViewById(R.id.runDistance);
+
+        goalDescription.setText(goal.getDescriptionGoal() + "");
+
         switch (themeCategory){
-            case "ВЕС":
-                toast = Toast.makeText(mContext,
-                        "ВЕС", Toast.LENGTH_SHORT);
-                toast.show();
+            case "МАССА":
+                currentResultUnits.setText(goal.getCurrentResult() + " кг");
                 break;
-            case "БЕГ":
-                toast = Toast.makeText(mContext,
-                        "БЕГ", Toast.LENGTH_SHORT);
-                toast.show();
+            case "КАРДИО":
+                currentResultUnits.setText(goal.getCurrentResult() + " сек");
+                runDistance.setVisibility(View.VISIBLE);
                 break;
             case "ЭЛЕМЕНТЫ":
-                toast = Toast.makeText(mContext,
-                        "ЭЛЕМЕНТЫ", Toast.LENGTH_SHORT);
-                toast.show();
+                currentResultUnits.setText(goal.getCurrentResult() + " уровень");
                 break;
             case "ПОВТОРЕНИЯ":
-                toast = Toast.makeText(mContext,
-                        "ПОВТОРЕНИЯ", Toast.LENGTH_SHORT);
-                toast.show();
+                currentResultUnits.setText(goal.getCurrentResult() + " повторений");
                 break;
             case "КНИГА":
-                toast = Toast.makeText(mContext,
-                        "КНИГА", Toast.LENGTH_SHORT);
-                toast.show();
+                currentResultUnits.setText(goal.getCurrentResult() + " стр.");
+                bookPresent.setVisibility(View.VISIBLE);
                 break;
             case "ЯЗЫКИ":
-                toast = Toast.makeText(mContext,
-                        "ЯЗЫКИ", Toast.LENGTH_SHORT);
-                toast.show();
+                currentResultUnits.setText(goal.getCurrentResult() + " уровень");
                 break;
 
         }
-
-        TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
-        TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
-
-        goalDescription.setText(goal.getDescriptionGoal() + "");
-        currentResultUnits.setText(goal.getCurrentResult() + "");
     }
 
     private void checkProgress(double currentProgress, View convertView) {

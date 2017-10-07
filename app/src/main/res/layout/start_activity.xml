@@ -9,7 +9,7 @@
         android:id="@+id/llMenu">
 
         <RelativeLayout
-            android:background="@color/colorOrange"
+            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -33,14 +33,14 @@
                     android:layout_height="3sp"
                     android:id="@+id/llSlide"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGreen"
+                    android:background="@color/clr3"
                     android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
+            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -70,7 +70,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
+            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -113,7 +113,7 @@
             android:layout_width="110sp"
             android:layout_height="110sp"
             android:onClick="openGoalChooser"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="20sp"

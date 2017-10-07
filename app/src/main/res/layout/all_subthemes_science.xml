@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВЫБЕРИТЕ ПОД-ТЕМУ"
+            android:text="ВЫБЕРИТЕ КАТЕГОРИЮ"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </RelativeLayout>
@@ -52,9 +52,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_red"
-                android:text="GO"
+                android:text="@string/chosen"
                 android:textColor="@color/colorWhite"
-                android:textSize="30sp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -80,7 +80,7 @@
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="КНИГА"
                         android:textColor="@color/colorOrange"
-                        android:textSize="30sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
                         android:layout_below="@+id/themeSportTitle"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
-                        android:text="ДанДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоДанная тема поможет прочитать книгу которую вы хоная тема поможет прочитать книгу которую вы хотите."
+                        android:text="@string/description_category_book"
                         android:textColor="@color/colorOrange"
                         android:textSize="15sp" />
 
@@ -126,9 +126,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/btn_red"
-                android:text="GO"
+                android:text="@string/chosen"
                 android:textColor="@color/colorWhite"
-                android:textSize="30sp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -155,7 +155,7 @@
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="ЯЗЫКИ"
                         android:textColor="@color/colorOrange"
-                        android:textSize="30sp" />
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                         android:layout_below="@+id/themeScienceTitle"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10dp"
-                        android:text="Эта тема поможЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйЭта тема поможет вам выучить новыйет вам выучить новый иностранный язык до определенного уровня."
+                        android:text="@string/description_category_language"
                         android:textColor="@color/colorOrange"
                         android:textSize="15sp" />
 
