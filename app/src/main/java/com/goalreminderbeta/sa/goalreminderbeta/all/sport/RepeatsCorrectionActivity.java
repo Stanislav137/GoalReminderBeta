@@ -32,7 +32,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private double repeatsCurrent, repeatsGoal;
+    private int repeatsCurrent, repeatsGoal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

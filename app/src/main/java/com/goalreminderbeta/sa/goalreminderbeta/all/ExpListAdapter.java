@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -162,7 +163,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         currentNumber = goal.getCurrentResult();
 
         if(themeCategory.equals("МАССА")) {
-            currentResultUnits.setText(currentNumber + " " + currentUnits);
+            DecimalFormat precision = new DecimalFormat("0.0");
+            currentResultUnits.setText(precision.format(currentNumber) + " " + currentUnits);
         } else currentResultUnits.setText((int)currentNumber + " " + currentUnits);
 
         goalDescription.setText(goal.getDescriptionGoal() + "");
@@ -189,6 +191,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
             textCircleProgress.setTextColor(Color.argb(255,66,255,63));
         }
-        textCircleProgress.setText(currentProgress + "%");
+        textCircleProgress.setText((int)currentProgress + "%");
     }
 }
