@@ -17,14 +17,15 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public RepeatsCorrectionGoal() {
     }
 
-    public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = currentRepeats;
         this.goalRepeats = goalRepeats;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
-        this.themeCategory = themeCategory;if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
+        this.themeCategory = "ПОВТОРЕНИЯ";
+        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }

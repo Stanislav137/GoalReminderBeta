@@ -74,10 +74,9 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        String themeCategory = "ЯЗЫКИ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(currentLangLvl, dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(currentLangLvl, dateFrom, dateTo, goalName, goalDescription);
         languageCorrectionGoal.save();
         Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

@@ -20,7 +20,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentPages;
         this.descriptionGoal = descriptionGoal;
         this.pages = pages;
@@ -29,7 +29,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.nameBook = nameBook;
         this.nameAuthor = nameAuthor;
         this.nameGoal = nameGoal;
-        this.themeCategory = themeCategory;
+        this.themeCategory = "КНИГА";
         if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);

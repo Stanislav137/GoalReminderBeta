@@ -168,10 +168,9 @@ public class BookCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        String themeCategory = "КНИГА";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription);
         readBook.save();
         Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

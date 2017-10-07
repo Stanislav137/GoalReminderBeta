@@ -17,13 +17,14 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
     public LanguageCorrectionGoal() {
     }
 
-    public LanguageCorrectionGoal(double currentLevel, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public LanguageCorrectionGoal(double currentLevel, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentLevel;
         this.descriptionGoal = descriptionGoal;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
-        this.themeCategory = themeCategory;if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
+        this.themeCategory = "ЯЗЫКИ";
+        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }

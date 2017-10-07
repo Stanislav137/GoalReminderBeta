@@ -19,10 +19,12 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
+ import java.text.DateFormat;
  import java.text.DecimalFormat;
  import java.text.ParseException;
 import java.text.SimpleDateFormat;
  import java.util.ArrayList;
+ import java.util.Calendar;
  import java.util.Date;
 
 public class WeightCorrectionActivity extends AppCompatActivity {
@@ -44,6 +46,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         findAllBtnsBootStrap(); // using for BootStrap!
         findAllButtons();
         setListenersOnButtons();
+        initializeUX();
     }
     private void findAllButtons(){
         sportMinusWeightCurrent = (Button) findViewById(R.id.sportMinusWeightCurrent);
@@ -152,12 +155,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        String themeCategory = "ВЕС";
         double currentWeight = this.currentWeight;
         double goalWeight = this.goalWeight;
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription);
         goal.save();
 
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
@@ -180,19 +182,16 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-
     public void backToHome(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
-
     public void backToPrevActivity(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
     }
-
     private void findAllBtnsBootStrap() {
         ArrayList<Button> allBtnsRun = new ArrayList<>();
         Button sportCurrentWeight = (Button) findViewById(R.id.sportCurrentWeight);
@@ -232,5 +231,14 @@ public class WeightCorrectionActivity extends AppCompatActivity {
                 button.setText("ГР");
             }
         }
+    }
+    private void initializeUX(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = Calendar.getInstance().getTime();
+        dateFrom = today;
+        String reportDate = df.format(today);
+        sportDateFrom.setText(reportDate);
+        currentWeight = 50.0;
+        sportCurrentWeight.setText(String.valueOf(currentWeight));
     }
 }

@@ -105,11 +105,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            showDataChild(goal, convertView);
-            Toast toast = Toast.makeText(mContext,
-                    goal.getDescriptionGoal(), Toast.LENGTH_SHORT);
-            toast.show();
-
+            showDataChild(goal, convertView, goal.getThemeCategory());
 
         return convertView;
     }
@@ -130,11 +126,48 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         checkProgress(currentProgress, convertView);
     }
 
-    private void showDataChild(Goal goal, View convertView) {
+    private void showDataChild(Goal goal, View convertView, String themeCategory) {
+
+        Toast toast;
+        switch (themeCategory){
+            case "ВЕС":
+                toast = Toast.makeText(mContext,
+                        "ВЕС", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case "БЕГ":
+                toast = Toast.makeText(mContext,
+                        "БЕГ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case "ЭЛЕМЕНТЫ":
+                toast = Toast.makeText(mContext,
+                        "ЭЛЕМЕНТЫ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case "ПОВТОРЕНИЯ":
+                toast = Toast.makeText(mContext,
+                        "ПОВТОРЕНИЯ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case "КНИГА":
+                toast = Toast.makeText(mContext,
+                        "КНИГА", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case "ЯЗЫКИ":
+                toast = Toast.makeText(mContext,
+                        "ЯЗЫКИ", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+
+        }
+
         TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
         TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
 
         goalDescription.setText(goal.getDescriptionGoal() + "");
+        currentResultUnits.setText(goal.getCurrentResult() + "");
     }
 
     private void checkProgress(double currentProgress, View convertView) {

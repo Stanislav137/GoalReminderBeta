@@ -194,10 +194,9 @@ public class RunCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        String themeCategory = "БЕГ";
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, dateFrom, dateTo, goalName, goalDescription, themeCategory);
+        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, dateFrom, dateTo, goalName, goalDescription);
         runCorrectionGoal.save();
         Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

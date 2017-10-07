@@ -19,14 +19,14 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     public WeightCorrectionGoal() {
     }
 
-    public WeightCorrectionGoal(double currentWeight, double goalWeight, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public WeightCorrectionGoal(double currentWeight, double goalWeight, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = currentWeight;
         this.goalWeight = goalWeight;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
-        this.themeCategory = themeCategory;
+        this.themeCategory = "ВЕС";
         if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);

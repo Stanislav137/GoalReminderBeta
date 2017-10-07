@@ -17,13 +17,14 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     public RunCorrectionGoal() {
     }
 
-    public RunCorrectionGoal(double currentRun, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal, String themeCategory) {
+    public RunCorrectionGoal(double currentRun, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentRun;
         this.descriptionGoal = descriptionGoal;
         this.currentDate = currentDate;
         this.goalDate = goalDate;
         this.nameGoal = nameGoal;
-        this.themeCategory = themeCategory;if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
+        this.themeCategory = "БЕГ";
+        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
             long milliseconds = goalDate.getTime() - currentDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
