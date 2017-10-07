@@ -12,12 +12,12 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
-    private double currentResult;
+    private int currentResult;
 
     public RunCorrectionGoal() {
     }
 
-    public RunCorrectionGoal(double currentRun, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
+    public RunCorrectionGoal(int currentRun, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentRun;
         this.descriptionGoal = descriptionGoal;
         this.currentDate = currentDate;
@@ -36,7 +36,7 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
         return currentResult;
     }
 
-    public void setCurrentResult(double currentResult) {
+    public void setCurrentResult(int currentResult) {
         this.currentResult = currentResult;
     }
 

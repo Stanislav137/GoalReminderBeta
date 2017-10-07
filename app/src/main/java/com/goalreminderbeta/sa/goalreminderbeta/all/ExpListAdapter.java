@@ -129,36 +129,43 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
+        String currentUnits = "";
+        double currentNumber = 0;
         TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
         TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
         RelativeLayout bookPresent = (RelativeLayout) convertView.findViewById(R.id.bookPresent);
         RelativeLayout runDistance = (RelativeLayout) convertView.findViewById(R.id.runDistance);
 
-        goalDescription.setText(goal.getDescriptionGoal() + "");
-
         switch (themeCategory){
             case "МАССА":
-                currentResultUnits.setText(goal.getCurrentResult() + " кг");
+                currentUnits = "кг";
                 break;
             case "КАРДИО":
-                currentResultUnits.setText(goal.getCurrentResult() + " сек");
+                currentUnits = "сек";
                 runDistance.setVisibility(View.VISIBLE);
                 break;
             case "ЭЛЕМЕНТЫ":
-                currentResultUnits.setText(goal.getCurrentResult() + " уровень");
+                currentUnits = "уровень";
                 break;
             case "ПОВТОРЕНИЯ":
-                currentResultUnits.setText(goal.getCurrentResult() + " повторений");
+                currentUnits = "повторений";
                 break;
             case "КНИГА":
-                currentResultUnits.setText(goal.getCurrentResult() + " стр.");
+                currentUnits = "страниц";
                 bookPresent.setVisibility(View.VISIBLE);
                 break;
             case "ЯЗЫКИ":
-                currentResultUnits.setText(goal.getCurrentResult() + " уровень");
+                currentUnits = "уровень";
                 break;
 
         }
+        currentNumber = goal.getCurrentResult();
+
+        if(themeCategory.equals("МАССА")) {
+            currentResultUnits.setText(currentNumber + " " + currentUnits);
+        } else currentResultUnits.setText((int)currentNumber + " " + currentUnits);
+
+        goalDescription.setText(goal.getDescriptionGoal() + "");
     }
 
     private void checkProgress(double currentProgress, View convertView) {
