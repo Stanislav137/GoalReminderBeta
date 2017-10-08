@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
-    private Date currentDate;
-    private Date goalDate;
+    private Date fromDate;
+    private Date toDate;
     private double currentResult, goalRepeats;
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
@@ -17,16 +17,16 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public RepeatsCorrectionGoal() {
     }
 
-    public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
+    public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = currentRepeats;
         this.goalRepeats = goalRepeats;
-        this.currentDate = currentDate;
-        this.goalDate = goalDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "ПОВТОРЕНИЯ";
-        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
-            long milliseconds = goalDate.getTime() - currentDate.getTime();
+        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
+            long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
@@ -57,20 +57,20 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.goalRepeats = goalRepeats;
     }
 
-    public Date getCurrentDate() {
-        return currentDate;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
+    public void setFromDate(Date currentDate) {
+        this.fromDate = currentDate;
     }
 
-    public Date getGoalDate() {
-        return goalDate;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setGoalDate(Date goalDate) {
-        this.goalDate = goalDate;
+    public void setToDate(Date goalDate) {
+        this.toDate = goalDate;
     }
 
     public double getDifferenceInDays() {
@@ -100,8 +100,8 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public String toString() {
         return "RepeatsCorrectionGoal{" +
-                "currentDate=" + currentDate +
-                ", goalDate=" + goalDate +
+                "fromDate=" + fromDate +
+                ", toDate=" + toDate +
                 ", currentResult=" + currentResult +
                 ", goalRepeats=" + goalRepeats +
                 ", differenceInDays=" + differenceInDays +

@@ -10,8 +10,8 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     private int pages;
     private double currentResult;
-    private Date currentDate;
-    private Date goalDate;
+    private Date fromDate;
+    private Date toDate;
     private String nameBook, nameAuthor;
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
@@ -20,18 +20,18 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
+    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentPages;
         this.descriptionGoal = descriptionGoal;
         this.pages = pages;
-        this.currentDate = currentDate;
-        this.goalDate = goalDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.nameBook = nameBook;
         this.nameAuthor = nameAuthor;
         this.nameGoal = nameGoal;
         this.themeCategory = "КНИГА";
-        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
-            long milliseconds = goalDate.getTime() - currentDate.getTime();
+        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
+            long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
     }
@@ -88,20 +88,20 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.pages = pages;
     }
 
-    public Date getCurrentDate() {
-        return currentDate;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
+    public void setFromDate(Date currentDate) {
+        this.fromDate = currentDate;
     }
 
-    public Date getGoalDate() {
-        return goalDate;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setGoalDate(Date goalDate) {
-        this.goalDate = goalDate;
+    public void setToDate(Date goalDate) {
+        this.toDate = goalDate;
     }
 
     public String getNameBook() {
@@ -125,8 +125,8 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         return "ReadBookGoal{" +
                 "pages=" + pages +
                 ", currentResult=" + currentResult +
-                ", currentDate=" + currentDate +
-                ", goalDate=" + goalDate +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
                 ", nameBook='" + nameBook + '\'' +
                 ", nameAuthor='" + nameAuthor + '\'' +
                 ", differenceInDays=" + differenceInDays +

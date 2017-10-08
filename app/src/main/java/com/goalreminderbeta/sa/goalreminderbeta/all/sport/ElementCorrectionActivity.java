@@ -108,9 +108,9 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
-        Date dateFrom = this.dateFrom;
-        Date dateTo = this.dateTo;
-        ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, dateFrom, dateTo, goalName, goalDescription);
+        Date fromDate = this.dateFrom;
+        Date toDate = this.dateTo;
+        ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, fromDate, toDate, goalName, goalDescription);
         elementCorrectionGoal.save();
         Intent intent = new Intent(ElementCorrectionActivity.this, StartActivity.class);
         startActivity(intent);

@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ElementCorrectionGoal extends SugarRecord implements Goal{
 
-    private Date currentDate;
-    private Date goalDate;
+    private Date fromDate;
+    private Date toDate;
     private double differenceInDays;
     private double currentResult;
     private String nameGoal, descriptionGoal;
@@ -17,18 +17,63 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     public ElementCorrectionGoal() {
     }
 
-    public ElementCorrectionGoal(int levelCurrent, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
+    public ElementCorrectionGoal(int levelCurrent, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = levelCurrent;
-        this.currentDate = currentDate;
-        this.goalDate = goalDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "ЭЛЕМЕНТЫ";
-        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
-            long milliseconds = goalDate.getTime() - currentDate.getTime();
+        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
+            long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
+    }
+
+    @Override
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    @Override
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    @Override
+    public double getDifferenceInDays() {
+        return differenceInDays;
+    }
+
+    public void setDifferenceInDays(double differenceInDays) {
+        this.differenceInDays = differenceInDays;
+    }
+
+    @Override
+    public double getCurrentResult() {
+        return currentResult;
+    }
+
+    public void setCurrentResult(double currentResult) {
+        this.currentResult = currentResult;
+    }
+
+    @Override
+    public String getNameGoal() {
+        return nameGoal;
+    }
+
+    public void setNameGoal(String nameGoal) {
+        this.nameGoal = nameGoal;
     }
 
     @Override
@@ -40,46 +85,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         this.descriptionGoal = descriptionGoal;
     }
 
-    public double getCurrentResult() {
-        return currentResult;
-    }
-
-    public void setCurrentResult(int levelCurrent) {
-        this.currentResult = levelCurrent;
-    }
-
-    public Date getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
-    }
-
-    public Date getGoalDate() {
-        return goalDate;
-    }
-
-    public void setGoalDate(Date goalDate) {
-        this.goalDate = goalDate;
-    }
-
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
-    }
-
-    public String getNameGoal() {
-        return nameGoal;
-    }
-
-    public void setNameGoal(String nameGoal) {
-        this.nameGoal = nameGoal;
-    }
-
+    @Override
     public String getThemeCategory() {
         return themeCategory;
     }
@@ -91,10 +97,10 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public String toString() {
         return "ElementCorrectionGoal{" +
-                "currentDate=" + currentDate +
-                ", goalDate=" + goalDate +
+                "fromDate=" + fromDate +
+                ", toDate=" + toDate +
                 ", differenceInDays=" + differenceInDays +
-                ", CurrentResult=" + currentResult +
+                ", currentResult=" + currentResult +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

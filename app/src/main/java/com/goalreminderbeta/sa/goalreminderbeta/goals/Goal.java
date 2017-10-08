@@ -1,5 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import java.util.Date;
+
 public interface Goal {
 
     boolean delete();
@@ -9,4 +11,6 @@ public interface Goal {
     String getThemeCategory();
     String getDescriptionGoal();
     double getCurrentResult();
+    Date getFromDate();
+    Date getToDate();
 }

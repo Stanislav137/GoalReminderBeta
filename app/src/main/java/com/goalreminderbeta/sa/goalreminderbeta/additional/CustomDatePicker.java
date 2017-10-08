@@ -24,7 +24,7 @@ public class CustomDatePicker {
             public void onDateSet(android.widget.DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                String stringDate = day+"/"+month+"/"+year;
+                    String stringDate = day+"/"+month+"/"+year;
                 Date date = null;
                 try {
                     date = formatter.parse(stringDate);

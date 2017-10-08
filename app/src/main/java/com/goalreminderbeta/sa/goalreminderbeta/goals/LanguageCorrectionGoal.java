@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 public class LanguageCorrectionGoal extends SugarRecord implements Goal{
 
-    private Date currentDate;
-    private Date goalDate;
+    private Date fromDate;
+    private Date toDate;
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
@@ -17,15 +17,15 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
     public LanguageCorrectionGoal() {
     }
 
-    public LanguageCorrectionGoal(double currentLevel, Date currentDate, Date goalDate, String nameGoal, String descriptionGoal) {
+    public LanguageCorrectionGoal(double currentLevel, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentLevel;
         this.descriptionGoal = descriptionGoal;
-        this.currentDate = currentDate;
-        this.goalDate = goalDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "ЯЗЫКИ";
-        if (currentDate!=null && goalDate!=null && (goalDate.getTime() - currentDate.getTime()) > 0){
-            long milliseconds = goalDate.getTime() - currentDate.getTime();
+        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
+            long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
 
@@ -49,20 +49,20 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
         this.descriptionGoal = descriptionGoal;
     }
 
-    public Date getCurrentDate() {
-        return currentDate;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
+    public void setFromDate(Date currentDate) {
+        this.fromDate = currentDate;
     }
 
-    public Date getGoalDate() {
-        return goalDate;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setGoalDate(Date goalDate) {
-        this.goalDate = goalDate;
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 
     public double getDifferenceInDays() {
@@ -92,8 +92,8 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public String toString() {
         return "LanguageCorrectionGoal{" +
-                "currentDate=" + currentDate +
-                ", goalDate=" + goalDate +
+                "fromDate=" + fromDate +
+                ", toDate=" + toDate +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +

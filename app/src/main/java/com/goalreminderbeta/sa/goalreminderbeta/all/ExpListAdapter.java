@@ -17,7 +17,9 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
@@ -26,6 +28,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private ImageView arrowDownUp;
     private Map<Long,Goal> allGoalsMap;
+
+    private TextView fromGoal, toGoal, goalDescription, currentResultUnits;
+    private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
         mContext = context;
@@ -130,12 +135,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String currentUnits = "";
         double currentNumber = 0;
-        TextView goalDescription = (TextView) convertView.findViewById(R.id.goalDescription);
-        TextView currentResultUnits = (TextView) convertView.findViewById(R.id.currentResultUnits);
-        RelativeLayout bookPresent = (RelativeLayout) convertView.findViewById(R.id.bookPresent);
-        RelativeLayout runDistance = (RelativeLayout) convertView.findViewById(R.id.runDistance);
+
+        findWidgetsChild(convertView);
 
         switch (themeCategory){
             case "МАССА":
@@ -168,6 +172,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else currentResultUnits.setText((int)currentNumber + " " + currentUnits);
 
         goalDescription.setText(goal.getDescriptionGoal() + "");
+
+        String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
+        String toDate = String.valueOf(formatter.format(goal.getToDate()));
+
+        fromGoal.setText("ОТ " + fromDate);
+        toGoal.setText("ДО " + toDate);
     }
 
     private void checkProgress(double currentProgress, View convertView) {
@@ -192,5 +202,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             textCircleProgress.setTextColor(Color.argb(255,66,255,63));
         }
         textCircleProgress.setText((int)currentProgress + "%");
+    }
+
+    private void findWidgetsChild(View view) {
+        fromGoal = (TextView) view.findViewById(R.id.fromGoal);
+        toGoal = (TextView) view.findViewById(R.id.toGoal);
+        goalDescription = (TextView) view.findViewById(R.id.goalDescription);
+        currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
+        bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
+        runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
     }
 }
