@@ -331,8 +331,8 @@
             android:onClick="pickDateFrom"
             android:layout_alignBaseline="@+id/fromId"
             android:layout_alignBottom="@+id/fromId"
-            android:layout_alignLeft="@+id/sportDateTo"
-            android:layout_alignStart="@+id/sportDateTo" />
+            android:layout_alignLeft="@+id/repeatsDateTo"
+            android:layout_alignStart="@+id/repeatsDateTo" />
 
         <ImageView
             android:id="@+id/position3"
@@ -362,7 +362,7 @@
             android:layout_marginTop="20sp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:id="@+id/sportDateTo"
+            android:id="@+id/repeatsDateTo"
             android:onClick="pickDateTo"/>
 
     </RelativeLayout>

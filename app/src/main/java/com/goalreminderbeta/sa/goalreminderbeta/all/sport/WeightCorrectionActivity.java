@@ -59,7 +59,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         changeCurrentWeight = (Button) findViewById(R.id.changeCurrentWeight);
         changeGoalWeight = (Button) findViewById(R.id.changeGoalWeight);
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        sportDateTo = (TextView) findViewById(R.id.repeatsDateTo);
     }
     private void setListenersOnButtons(){
         setTimerOnButton(sportMinusWeightCurrent, "-", true, 1); // true это текуший вес

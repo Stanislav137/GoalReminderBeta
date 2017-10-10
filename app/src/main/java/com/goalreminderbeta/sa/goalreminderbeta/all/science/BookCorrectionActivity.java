@@ -17,17 +17,18 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RunCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
+
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class BookCorrectionActivity extends AppCompatActivity {
 
-    private TextView sportDateFrom, sportDateTo;
+    private TextView bookDateFrom, bookDateTo;
     private Button scienceGoalPage, minusPage, addPage, addX20;
     private int goalPage;
     private double currentPages = 100;
@@ -45,11 +46,12 @@ public class BookCorrectionActivity extends AppCompatActivity {
         findAllBtnsBootStrap(); // using for BootStrap!
         findAllButtons();
         setListenersOnButtons();
+        initializeUX();
     }
 
     private void findAllButtons(){
-        sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        bookDateFrom = (TextView) findViewById(R.id.bookDateFrom);
+        bookDateTo = (TextView) findViewById(R.id.repeatsDateTo);
         scienceGoalPage = (Button) findViewById(R.id.scienceGoalPage);
         minusPage = (Button) findViewById(R.id.minusPage);
         addPage = (Button) findViewById(R.id.addPage);
@@ -104,10 +106,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(BookCorrectionActivity.this, sportDateFrom);
+        CustomDatePicker.pickDate(BookCorrectionActivity.this, bookDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(BookCorrectionActivity.this, sportDateTo);
+        CustomDatePicker.pickDate(BookCorrectionActivity.this, bookDateTo);
     }
 
     public void cbOnClick(View view){
@@ -165,8 +167,8 @@ public class BookCorrectionActivity extends AppCompatActivity {
 
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
-        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
+        dateFrom = formatter.parse(String.valueOf(bookDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(bookDateTo.getText()));
 
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
@@ -218,5 +220,13 @@ public class BookCorrectionActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    private void initializeUX(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = Calendar.getInstance().getTime();
+        dateFrom = today;
+        String reportDate = df.format(today);
+        bookDateFrom.setText(reportDate);
     }
 }

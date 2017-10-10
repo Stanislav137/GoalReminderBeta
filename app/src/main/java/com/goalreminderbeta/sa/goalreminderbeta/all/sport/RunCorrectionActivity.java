@@ -60,7 +60,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
         nextTime = (Button) findViewById(R.id.nextTime);
         /* TextView */
         sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        sportDateTo = (TextView) findViewById(R.id.repeatsDateTo);
         changeTxtTime = (TextView) findViewById(R.id.changeTxtTime);
     }
 

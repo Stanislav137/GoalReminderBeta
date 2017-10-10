@@ -14,20 +14,19 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.ElementCorrectionActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RunCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class LanguageCorrectionActivity extends AppCompatActivity {
 
     private Date dateFrom, dateTo;
-    private TextView sportDateFrom, sportDateTo;
+    private TextView languageDateFrom, languageDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
     private double currentLangLvl = 300;
@@ -39,6 +38,7 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
 
         findAllBtnsBootStrap(); // using for BootStrap!
         findAllButtons();
+        initializeUX();
     }
 
     public void editDescription(View view) {
@@ -58,21 +58,21 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     }
 
     private void findAllButtons() {
-        sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        languageDateFrom = (TextView) findViewById(R.id.sportDateFrom);
+        languageDateTo = (TextView) findViewById(R.id.repeatsDateTo);
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, sportDateFrom);
+        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, languageDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, sportDateTo);
+        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, languageDateTo);
     }
 
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
-        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
+        dateFrom = formatter.parse(String.valueOf(languageDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(languageDateTo.getText()));
 
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
@@ -124,5 +124,12 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+    private void initializeUX(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = Calendar.getInstance().getTime();
+        dateFrom = today;
+        String reportDate = df.format(today);
+        languageDateFrom.setText(reportDate);
     }
 }

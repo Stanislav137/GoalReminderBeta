@@ -13,19 +13,18 @@ import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.science.BookCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
-import org.w3c.dom.Text;
-
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class ElementCorrectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Date dateFrom, dateTo;
-    private TextView sportDateFrom, sportDateTo;
+    private TextView elementsDateFrom, elementsDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
     private TextView currentLvlGoal;
@@ -39,6 +38,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
 
         findAllButtons();
         setOnClick();
+        initializeUX();
     }
 
     private void findAllButtons() {
@@ -46,8 +46,8 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         lvlTwo = (Button) findViewById(R.id.lvlTwo);
         lvlThree = (Button) findViewById(R.id.lvlThree);
         lvlFour = (Button) findViewById(R.id.lvlFour);
-        sportDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        sportDateTo = (TextView) findViewById(R.id.sportDateTo);
+        elementsDateFrom = (TextView) findViewById(R.id.elementsDateFrom);
+        elementsDateTo = (TextView) findViewById(R.id.repeatsDateTo);
         currentLvlGoal = (TextView) findViewById(R.id.currentLvlGoal);
     }
 
@@ -75,10 +75,10 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(ElementCorrectionActivity.this, sportDateFrom);
+        CustomDatePicker.pickDate(ElementCorrectionActivity.this, elementsDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(ElementCorrectionActivity.this, sportDateTo);
+        CustomDatePicker.pickDate(ElementCorrectionActivity.this, elementsDateTo);
     }
 
     public void onClick(View v) {
@@ -105,8 +105,8 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
 
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
-        dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
+        dateFrom = formatter.parse(String.valueOf(elementsDateFrom.getText()));
+        dateTo = formatter.parse(String.valueOf(elementsDateTo.getText()));
 
         Date fromDate = this.dateFrom;
         Date toDate = this.dateTo;
@@ -144,5 +144,12 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             }
         });
         dialog.show();
+    }
+    private void initializeUX(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = Calendar.getInstance().getTime();
+        dateFrom = today;
+        String reportDate = df.format(today);
+        elementsDateFrom.setText(reportDate);
     }
 }

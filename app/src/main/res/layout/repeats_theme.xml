@@ -307,17 +307,17 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/sportDateFrom"
+            android:id="@+id/repeatsDateFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00.00.0000"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:onClick="pickDateFrom"
             android:layout_alignBaseline="@+id/fromId"
             android:layout_alignBottom="@+id/fromId"
-            android:layout_alignLeft="@+id/sportDateTo"
-            android:layout_alignStart="@+id/sportDateTo" />
+            android:layout_alignLeft="@+id/repeatsDateTo"
+            android:layout_alignStart="@+id/repeatsDateTo"
+            android:onClick="pickDateFrom"
+            android:text="00.00.0000"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/position3"
@@ -347,7 +347,7 @@
             android:layout_marginTop="20sp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:id="@+id/sportDateTo"
+            android:id="@+id/repeatsDateTo"
             android:onClick="pickDateTo"/>
     </RelativeLayout>
 
