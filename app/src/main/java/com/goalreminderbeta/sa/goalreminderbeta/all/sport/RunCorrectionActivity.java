@@ -18,9 +18,11 @@ import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class RunCorrectionActivity extends AppCompatActivity {
@@ -45,6 +47,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
         findAllWidgets();
         addToList(); // using for BootStrap!
         setListenersOnButtons();
+        initializeUX();
     }
 
     private void findAllWidgets() {
@@ -232,5 +235,12 @@ public class RunCorrectionActivity extends AppCompatActivity {
             setTimerOnButton(sportAddTime, "+", "true", 1);
             changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
         }
+    }
+    private void initializeUX(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = Calendar.getInstance().getTime();
+        dateFrom = today;
+        String reportDate = df.format(today);
+        sportDateFrom.setText(reportDate);
     }
 }

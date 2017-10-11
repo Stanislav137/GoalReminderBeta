@@ -274,8 +274,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/fromId"
             android:layout_alignBottom="@+id/fromId"
-            android:layout_alignLeft="@+id/repeatsDateTo"
-            android:layout_alignStart="@+id/repeatsDateTo"
+            android:layout_alignLeft="@+id/languageDateTo"
+            android:layout_alignStart="@+id/languageDateTo"
             android:onClick="pickDateFrom"
             android:text="00.00.0000"
             android:textColor="@color/colorBlack"
@@ -309,7 +309,7 @@
             android:layout_marginTop="20sp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:id="@+id/repeatsDateTo"
+            android:id="@+id/languageDateTo"
             android:onClick="pickDateTo"/>
     </RelativeLayout>
 

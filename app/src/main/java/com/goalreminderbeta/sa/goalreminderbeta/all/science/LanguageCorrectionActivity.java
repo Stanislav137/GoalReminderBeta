@@ -58,8 +58,8 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     }
 
     private void findAllButtons() {
-        languageDateFrom = (TextView) findViewById(R.id.sportDateFrom);
-        languageDateTo = (TextView) findViewById(R.id.repeatsDateTo);
+        languageDateFrom = (TextView) findViewById(R.id.languageDateFrom);
+        languageDateTo = (TextView) findViewById(R.id.languageDateTo);
     }
 
     public void pickDateFrom(View view) throws ParseException {
