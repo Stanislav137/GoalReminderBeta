@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorOrange"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBackground"
         android:textSize="18sp"
         android:text="ОЧЕНЬ ВАЖНО!"/>
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/closeWarning"
         android:background="@color/colorOrange"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBackground"
         android:textSize="18sp"
         android:text="ХОРОШО"/>
 

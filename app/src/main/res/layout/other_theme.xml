@@ -25,7 +25,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="КАТЕГОРИЯ ДРУГЯ ТЕМА"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_centerVertical="true"
             android:layout_margin="10sp"
             android:text="MENU"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBackground"
             android:textSize="15sp" />
     </RelativeLayout>
 
@@ -47,7 +47,7 @@
         android:background="@color/colorOrange"
         android:layout_alignParentBottom="true"
         android:text="СОХРАНИТЬ ЦЕЛЬ"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBackground"
         android:textSize="18sp"
         android:onClick="saveGoal"
         />

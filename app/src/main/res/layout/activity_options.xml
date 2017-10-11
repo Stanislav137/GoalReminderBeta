@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorBackground">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/clr_science"
         android:id="@+id/llMenu">
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -23,7 +23,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -34,14 +34,13 @@
                     android:layout_height="3sp"
                     android:id="@+id/llSlide"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGrey"
+                    android:background="@color/colorSlide"
                     android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -55,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -65,13 +64,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGrey">
+                    android:background="@color/colorSlide">
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -84,7 +82,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -93,7 +91,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
-                    android:background="@color/colorGreen"
+                    android:background="@color/clr_sport"
                     android:layout_alignParentBottom="true">
                 </LinearLayout>
             </RelativeLayout>
@@ -187,7 +185,7 @@
                     android:id="@+id/switch1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/datepicker"
+                    android:theme="@style/optionsstyle"
                     android:checked="true"
                     android:scaleX="1.5"
                     android:scaleY="1.5"
@@ -239,7 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:theme="@style/datepicker"
+                    android:theme="@style/optionsstyle"
                     android:scaleX="1.5"
                     android:scaleY="1.5"
                     android:layout_centerHorizontal="true"
@@ -288,7 +286,7 @@
                     android:layout_height="45sp"
                     android:text="В"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/circle_day"/>
@@ -305,7 +303,7 @@
                     android:layout_height="45sp"
                     android:text="П"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:background="@drawable/circle_day"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true" />
@@ -322,7 +320,7 @@
                     android:layout_height="45sp"
                     android:text="В"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/circle_day"/>
@@ -339,7 +337,7 @@
                     android:layout_height="45sp"
                     android:text="С"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/circle_day"/>
@@ -356,7 +354,7 @@
                     android:layout_height="45sp"
                     android:text="Ч"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/circle_day"/>
@@ -373,10 +371,10 @@
                     android:layout_height="45sp"
                     android:text="П"
                     android:textSize="20sp"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorWhite"/>
+                    android:background="@drawable/circle_day_unchecked"/>
 
             </RelativeLayout>
 
@@ -392,7 +390,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/circle_day"
                     android:text="С"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorBackground"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -441,12 +439,12 @@
                     android:id="@+id/switch3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/datepicker"
+                    android:theme="@style/optionsstyle"
                     android:checked="true"
                     android:scaleX="1.5"
                     android:scaleY="1.5"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true" />
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
 
         </LinearLayout>

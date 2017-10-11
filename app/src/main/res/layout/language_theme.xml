@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/ngTitle"
             android:text="КАТЕГОРИЯ ЯЗЫКИ"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBackground"
             android:textSize="18sp"
             android:layout_alignBottom="@+id/arrowBack"
             android:layout_centerHorizontal="true" />
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MENU"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBackground"
             android:textSize="15sp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
@@ -123,7 +123,7 @@
                 android:layout_height="50sp"
                 android:layout_below="@+id/position1"
                 android:textSize="15sp"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_orange"
                 android:text="BACK" />
@@ -137,7 +137,7 @@
                 android:layout_toRightOf="@+id/prevLvlCurrent"
                 android:background="@drawable/btn_orange"
                 android:text="NEXT"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:textSize="15sp" />
 
         </RelativeLayout>
@@ -155,7 +155,7 @@
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:text="A2"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:textSize="30sp" />
 
         </RelativeLayout>
@@ -200,7 +200,7 @@
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
                 android:textSize="15sp"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_orange"
                 android:text="BACK" />
@@ -214,7 +214,7 @@
                 android:layout_toRightOf="@+id/prevLvlGoal"
                 android:background="@drawable/btn_orange"
                 android:text="NEXT"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:textSize="15sp" />
         </RelativeLayout>
 
@@ -229,7 +229,7 @@
                 android:layout_height="90sp"
                 android:background="@drawable/btn_green"
                 android:text="B2"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBackground"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
@@ -318,7 +318,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15sp"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBackground"
         android:textSize="18sp"
         android:background="@color/colorOrange"
         android:text="@string/save_goal"/>

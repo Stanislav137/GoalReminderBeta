@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/colorOrange">
+        android:background="@color/colorBlack">
 
         <ImageView
             android:id="@+id/arrowBack"
@@ -27,7 +27,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="ВЫБЕРИТЕ ТЕМУ"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBackground"
             android:textSize="18sp" />
     </RelativeLayout>
 
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:background="@color/colorWhite"
+        android:background="@color/colorBackground"
         android:orientation="horizontal"
         android:text="Button">
 
@@ -51,8 +51,8 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:text="@string/chosen"
-                android:textSize="18sp"
-                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textColor="@color/colorBackground"
                 android:background="@drawable/btn_red"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -80,7 +80,7 @@
                         android:layout_marginTop="5sp"
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="СПОРТ"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
 
                     <TextView
@@ -90,7 +90,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
                         android:text="@string/description_theme_sport"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="15sp" />
                 </RelativeLayout>
             </ScrollView>
@@ -110,7 +110,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:text="Button"
-        android:background="@color/colorWhite"
+        android:background="@color/colorBackground"
         android:orientation="horizontal" >
 
         <RelativeLayout
@@ -124,8 +124,8 @@
                 android:layout_height="100sp"
                 android:id="@+id/imThemeScience"
                 android:text="@string/chosen"
-                android:textSize="18sp"
-                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                android:textColor="@color/colorBackground"
                 android:background="@drawable/btn_blue"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -153,14 +153,14 @@
                         android:layout_marginTop="5sp"
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="НАУКА"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/description_theme_science"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="15sp"
                         android:layout_margin="10dp"
                         android:layout_below="@+id/themeScienceTitle"
@@ -182,7 +182,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:background="@color/colorWhite"
+        android:background="@color/colorBackground"
         android:orientation="horizontal"
         android:text="Button">
 
@@ -200,8 +200,8 @@
                 android:background="@drawable/btn_green"
                 android:onClick="createOtherThemeGoal"
                 android:text="@string/chosen"
-                android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textColor="@color/colorBackground"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -227,7 +227,7 @@
                         android:layout_marginTop="5sp"
                         android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="ДРУГОЕ"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
 
                     <TextView
@@ -237,7 +237,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
                         android:text="@string/description_theme_other"
-                        android:textColor="@color/colorOrange"
+                        android:textColor="@color/colorBlack"
                         android:textSize="15sp" />
 
                 </RelativeLayout>

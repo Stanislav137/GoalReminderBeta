@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/clr_science"
         android:id="@+id/llMenu">
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp"
@@ -24,7 +24,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -35,14 +35,13 @@
                     android:layout_height="3sp"
                     android:id="@+id/llSlide"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGrey"
+                    android:background="@color/colorSlide"
                     android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -55,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -65,13 +64,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGreen">
+                    android:background="@color/clr_sport">
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/colorOrange"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -80,12 +78,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rlOptionsBtn"
-                android:onClick="openOptions">
+                android:onClick="openOptions"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -94,7 +95,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
-                    android:background="@color/colorGrey"
+                    android:background="@color/colorSlide"
                     android:layout_alignParentBottom="true">
                 </LinearLayout>
             </RelativeLayout>
@@ -120,19 +121,24 @@
                     android:layout_height="match_parent"
                     android:text="ТЕМА СПОРТ"
                     android:textSize="20sp"
+                    android:layout_marginTop="5sp"
                     android:enabled="false"
-                    android:background="@color/colorBlack"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_sport"
+                    android:textColor="@color/colorBackground"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorSlide"></LinearLayout>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ МАССА"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_sport"
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,11 +221,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ КАРДИО"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_sport"
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -305,11 +310,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ ЭЛЕМЕНТЫ"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_sport"
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -395,11 +399,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ ПОВТОРЕНИЯ"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_sport"
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -462,7 +465,6 @@
                             android:text="УПРАЖНЕНИЕ:"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
-
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -477,7 +479,6 @@
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
                             android:text="Отжимания"/>
-
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -487,18 +488,22 @@
                     android:text="ТЕМА НАУКА"
                     android:textSize="20sp"
                     android:enabled="false"
-                    android:background="@color/colorBlack"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_science"
+                    android:textColor="@color/colorBackground"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ КНИГА"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
-                    android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:background="@color/clr_science"
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -576,7 +581,6 @@
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
                             android:text="100 страниц"/>
-
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -584,11 +588,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="КАТЕГОРИЯ ЯЗЫКИ"
-                    android:layout_margin="5sp"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/colorPrimary"
-                    android:textColor="@color/colorWhite"/>
+                    android:textColor="@color/colorBackground"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -669,6 +672,11 @@
 
                     </RelativeLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
 
             </LinearLayout>
 

@@ -20,7 +20,7 @@
         android:text="ГОТОВО"
         android:onClick="saveDescription"
         android:background="@color/colorOrange"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBackground"
         android:textSize="18sp"/>
 
 </LinearLayout>

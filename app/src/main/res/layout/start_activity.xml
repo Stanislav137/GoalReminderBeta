@@ -6,10 +6,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/clr_science"
         android:id="@+id/llMenu">
 
         <RelativeLayout
-            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -22,7 +22,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -33,14 +33,13 @@
                     android:layout_height="3sp"
                     android:id="@+id/llSlide"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/clr3"
+                    android:background="@color/clr_sport"
                     android:orientation="horizontal"></LinearLayout>
 
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -54,7 +53,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -64,13 +63,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/colorGrey">
+                    android:background="@color/colorSlide">
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:background="@color/clr1"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp">
@@ -84,7 +82,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorBackground"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -93,7 +91,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="3sp"
-                    android:background="@color/colorGrey"
+                    android:background="@color/colorSlide"
                     android:layout_alignParentBottom="true">
                 </LinearLayout>
             </RelativeLayout>
@@ -101,6 +99,7 @@
     </LinearLayout>
 
     <ExpandableListView
+        android:background="@color/colorBackground"
         android:id="@+id/allGoalsList"
         android:layout_below="@+id/llMenu"
         android:layout_width="match_parent"
@@ -113,12 +112,12 @@
             android:layout_width="110sp"
             android:layout_height="110sp"
             android:onClick="openGoalChooser"
-            android:textSize="13sp"
+            android:textSize="11sp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="20sp"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/btn_green"
+            android:textColor="@color/colorBackground"
+            android:background="@drawable/btn_red"
             android:text="Новая цель" />
 
 </RelativeLayout>

@@ -21,8 +21,8 @@ public class BootStrap {
     private void realizationBootStrapSections(int width, RelativeLayout.LayoutParams bootStrapSection,  ArrayList<Button> allBtns) {
         bootStrapSection.addRule(RelativeLayout.CENTER_HORIZONTAL);
         bootStrapSection.addRule(RelativeLayout.CENTER_VERTICAL);
-        bootStrapSection.width = (width / 4) + 15;
-        bootStrapSection.height = (width / 4) + 15;
+        bootStrapSection.width = (width / 4) + 5;
+        bootStrapSection.height = (width / 4) + 5;
         finishBootStrapSection(allBtns, bootStrapSection);
     }
 

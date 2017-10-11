@@ -179,7 +179,7 @@ public class StartActivity extends AppCompatActivity {
     }
     public void bootStrapAddGoalDown() {
         logicAddGoal = true;
-        startAddGoal.setTextSize(16);
+        startAddGoal.setTextSize(13);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
     }
     public void startAnimAddGoal() {

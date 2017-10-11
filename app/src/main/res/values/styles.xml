@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/colorOrange</item>
+        <item name="colorAccent">@color/clr_main</item>
+    </style>
+    <style name="optionsstyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/clr_science</item>
     </style>
 </resources>
