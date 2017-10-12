@@ -1,10 +1,12 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -38,6 +40,7 @@ public class StartActivity extends AppCompatActivity {
     private Animation anim = null;
     private ExpListAdapter adapter;
     private boolean switchQuote;
+    private GestureDetectorCompat gestureObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +52,18 @@ public class StartActivity extends AppCompatActivity {
 
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
+        gestureObject = new GestureDetectorCompat(this, new GestureStart());
 
         setListenersOnChild();
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     private void setListenersOnChild(){
@@ -218,5 +228,25 @@ public class StartActivity extends AppCompatActivity {
             rlQuote.setVisibility(View.VISIBLE);
             dataQuote();
         } else rlQuote.setVisibility(View.INVISIBLE);
+    }
+    class GestureStart extends GestureDetector.SimpleOnGestureListener{
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+
+            if (event2.getX() > event1.getX()){
+                Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
+                finish();
+                startActivity(intent);
+
+            }
+            else
+            if (event2.getX() < event1.getX()){
+                Intent intent = new Intent(StartActivity.this, RecordsActivity.class);
+                finish();
+                startActivity(intent);
+            }
+
+            return true;
+        }
     }
 }
