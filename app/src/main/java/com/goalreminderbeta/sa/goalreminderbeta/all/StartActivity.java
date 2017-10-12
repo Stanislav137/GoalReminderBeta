@@ -37,9 +37,7 @@ public class StartActivity extends AppCompatActivity {
     private boolean logicAddGoal;
     private Animation anim = null;
     private ExpListAdapter adapter;
-    private RelativeLayout rlQuote;
     private boolean switchQuote;
-    private Typeface face = null, faceBold = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,6 +201,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void dataQuote() {
+        Typeface face = null, faceBold = null;
         TextView quote = (TextView) findViewById(R.id.quote);
         TextView quoteAuthor = (TextView) findViewById(R.id.quoteAuthor);
         face = Typeface.createFromAsset(getAssets(), "fonts/font.otf");
@@ -212,6 +211,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void funcSwitchQuote(Boolean current) {
+        RelativeLayout rlQuote;
         rlQuote = (RelativeLayout) findViewById(R.id.rlQuote);
         if(current) {
             rlQuote.setVisibility(View.VISIBLE);
