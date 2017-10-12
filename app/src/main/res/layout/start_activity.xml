@@ -112,12 +112,12 @@
             android:layout_width="110sp"
             android:layout_height="110sp"
             android:onClick="openGoalChooser"
-            android:textSize="11sp"
+            android:textSize="13sp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="20sp"
             android:textColor="@color/colorBackground"
-            android:background="@drawable/btn_red"
+            android:background="@drawable/start_add_goal"
             android:text="Новая цель" />
 
         <RelativeLayout
@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/quote"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:textColor="@color/colorBlack"
                 android:text="@string/quote"/>
             <TextView

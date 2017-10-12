@@ -54,7 +54,6 @@ public class StartActivity extends AppCompatActivity {
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
-        //showQuote();
     }
 
     private void setListenersOnChild(){
@@ -180,7 +179,7 @@ public class StartActivity extends AppCompatActivity {
     }
     public void bootStrapAddGoalCenter() {
         logicAddGoal = false;
-        startAddGoal.setTextSize(20);
+        startAddGoal.setTextSize(25);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
         switchQuote = true;
         funcSwitchQuote(switchQuote);
@@ -193,6 +192,9 @@ public class StartActivity extends AppCompatActivity {
         funcSwitchQuote(switchQuote);
     }
     public void startAnimAddGoal() {
+        Typeface faceBold = null;
+        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
+        startAddGoal.setTypeface(faceBold);
         anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
         startAddGoal.startAnimation(anim);
     }
@@ -201,13 +203,12 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void dataQuote() {
-        Typeface face = null, faceBold = null;
+        Typeface face = null;
         TextView quote = (TextView) findViewById(R.id.quote);
         TextView quoteAuthor = (TextView) findViewById(R.id.quoteAuthor);
         face = Typeface.createFromAsset(getAssets(), "fonts/font.otf");
-        faceBold = Typeface.createFromAsset(getAssets(), "fonts/font_bold.otf");
         quote.setTypeface(face);
-        quoteAuthor.setTypeface(faceBold);
+        quoteAuthor.setTypeface(face);
     }
 
     private void funcSwitchQuote(Boolean current) {
