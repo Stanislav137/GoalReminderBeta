@@ -120,4 +120,28 @@
             android:background="@drawable/btn_red"
             android:text="Новая цель" />
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:id="@+id/rlQuote"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quote"
+                android:textSize="15sp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/quote"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quote_author"
+                android:textSize="15sp"
+                android:id="@+id/quoteAuthor"
+                android:textColor="@color/colorBlack"
+                android:layout_below="@+id/quote"/>
+        </RelativeLayout>
+
 </RelativeLayout>

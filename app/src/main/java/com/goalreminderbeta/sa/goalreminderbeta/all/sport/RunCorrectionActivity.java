@@ -42,7 +42,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.run_theme);
+        setContentView(R.layout.cardio_theme);
 
         findAllWidgets();
         addToList(); // using for BootStrap!

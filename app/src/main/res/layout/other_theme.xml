@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/colorOrange">
+        android:background="@color/clr_main">
 
         <ImageView
             android:id="@+id/arrowBack"
@@ -28,23 +28,21 @@
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
-        <TextView
-            android:onClick="backToHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginRight="5sp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10sp"
-            android:text="MENU"
-            android:textColor="@color/colorBackground"
-            android:textSize="15sp" />
+            android:background="@drawable/menu_white"
+            android:onClick="backToHome" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/sportSaveGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorOrange"
+        android:background="@color/clr_main"
         android:layout_alignParentBottom="true"
         android:text="СОХРАНИТЬ ЦЕЛЬ"
         android:textColor="@color/colorBackground"

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/colorOrange">
+        android:background="@color/clr_sport">
 
         <ImageView
             android:id="@+id/arrowBack"
@@ -28,16 +29,14 @@
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
-        <TextView
-            android:onClick="backToHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MENU"
-            android:textColor="@color/colorBackground"
-            android:textSize="15sp"
-            android:layout_centerVertical="true"
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginRight="5sp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_centerVertical="true"
+            android:background="@drawable/menu_white"
+            android:onClick="backToHome" />
     </RelativeLayout>
 
     <LinearLayout
@@ -125,7 +124,7 @@
                 android:textSize="25sp"
                 android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_red"
                 android:text="-" />
 
             <Button
@@ -135,7 +134,7 @@
                 android:layout_below="@+id/position1"
                 android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/sportMinusRepeatCurrent"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_red"
                 android:text="+"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp" />
@@ -151,11 +150,13 @@
                     android:id="@+id/addX10CurrentRepeat"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/btn_orange"
+                    android:background="@drawable/btn_red"
                     android:text="+10"
                     android:textColor="@color/colorBackground"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -220,7 +221,7 @@
                 android:textSize="25sp"
                 android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_red"
                 android:text="-" />
 
             <Button
@@ -230,7 +231,7 @@
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/sportMinusRepeatGoal"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_red"
                 android:text="+"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp" />
@@ -246,7 +247,7 @@
                     android:id="@+id/addX10GoalRepeat"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
-                    android:background="@drawable/btn_orange"
+                    android:background="@drawable/btn_red"
                     android:text="+10"
                     android:textColor="@color/colorBackground"
                     android:textSize="15sp"
@@ -358,7 +359,7 @@
         android:padding="15sp"
         android:textColor="@color/colorBackground"
         android:textSize="18sp"
-        android:background="@color/colorOrange"
+        android:background="@color/clr_sport"
         android:text="@string/save_goal"/>
 
 </LinearLayout>

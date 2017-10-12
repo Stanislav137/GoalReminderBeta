@@ -1,6 +1,8 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
@@ -19,7 +24,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +37,7 @@ public class StartActivity extends AppCompatActivity {
     private boolean logicAddGoal;
     private Animation anim = null;
     private ExpListAdapter adapter;
+    private RelativeLayout rlQuote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,11 +181,13 @@ public class StartActivity extends AppCompatActivity {
         logicAddGoal = false;
         startAddGoal.setTextSize(20);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
+        showQuote();
     }
     public void bootStrapAddGoalDown() {
         logicAddGoal = true;
         startAddGoal.setTextSize(13);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
+        hiddenQuote();
     }
     public void startAnimAddGoal() {
         anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
@@ -188,5 +195,21 @@ public class StartActivity extends AppCompatActivity {
     }
     public void stopAnimAddGoal() {
         startAddGoal.clearAnimation();
+    }
+
+    private void showQuote() {
+        rlQuote.setVisibility(View.VISIBLE);
+        Typeface face = null, faceBold = null;
+        TextView quote = (TextView) findViewById(R.id.quote);
+        TextView quoteAuthor = (TextView) findViewById(R.id.quoteAuthor);
+        face = Typeface.createFromAsset(getAssets(), "fonts/font.otf");
+        faceBold = Typeface.createFromAsset(getAssets(), "fonts/font_bold.otf");
+        quote.setTypeface(face);
+        quoteAuthor.setTypeface(faceBold);
+    }
+
+    private void hiddenQuote() {
+        rlQuote = (RelativeLayout) findViewById(R.id.rlQuote);
+        rlQuote.setVisibility(View.GONE);
     }
 }

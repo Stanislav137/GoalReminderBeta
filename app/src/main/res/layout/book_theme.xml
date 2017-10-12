@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/colorOrange">
+        android:background="@color/clr_science">
 
         <ImageView
             android:id="@+id/arrowBack"
@@ -30,11 +30,12 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:layout_width="60sp"
-            android:layout_height="50sp"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginRight="5sp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/menu_bar"
+            android:background="@drawable/menu_white"
             android:onClick="backToHome" />
     </RelativeLayout>
 
@@ -122,7 +123,7 @@
                 android:layout_height="50sp"
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="10sp"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_blue"
                 android:text="-"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp" />
@@ -134,7 +135,7 @@
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/minusPage"
-                android:background="@drawable/btn_orange"
+                android:background="@drawable/btn_blue"
                 android:text="+"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp" />
@@ -152,7 +153,7 @@
                     android:layout_width="40sp"
                     android:layout_height="40sp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/btn_orange"
+                    android:background="@drawable/btn_blue"
                     android:text="+20"
                     android:textColor="@color/colorBackground"
                     android:textSize="15sp" />
@@ -189,6 +190,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/llNameBook"
+        android:background="@color/colorBackground"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -238,7 +240,7 @@
                 android:id="@+id/editBook"
                 android:onClick="editPresentBook"
                 android:layout_centerVertical="true"
-                android:background="@drawable/btn_red"
+                android:background="@drawable/btn_blue"
                 android:text="EDIT"
                 android:layout_marginTop="10sp"
                 android:textColor="@color/colorBackground"
@@ -323,13 +325,14 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp"
-        android:textColor="@color/colorBackground"
-        android:textSize="18sp"
-        android:background="@color/colorOrange"
+        android:background="@color/clr_science"
         android:onClick="saveGoal"
-        android:text="@string/save_goal"/>
+        android:padding="15sp"
+        android:text="@string/save_goal"
+        android:textColor="@color/colorBackground"
+        android:textSize="18sp" />
 
 </LinearLayout>

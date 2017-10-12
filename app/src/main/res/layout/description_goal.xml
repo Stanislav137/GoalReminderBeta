@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="ГОТОВО"
         android:onClick="saveDescription"
-        android:background="@color/colorOrange"
+        android:background="@color/clr_main"
         android:textColor="@color/colorBackground"
         android:textSize="18sp"/>
 
