@@ -38,6 +38,8 @@ public class StartActivity extends AppCompatActivity {
     private Animation anim = null;
     private ExpListAdapter adapter;
     private RelativeLayout rlQuote;
+    private boolean switchQuote;
+    private Typeface face = null, faceBold = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class StartActivity extends AppCompatActivity {
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
+        //showQuote();
     }
 
     private void setListenersOnChild(){
@@ -181,13 +184,15 @@ public class StartActivity extends AppCompatActivity {
         logicAddGoal = false;
         startAddGoal.setTextSize(20);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
-        showQuote();
+        switchQuote = true;
+        funcSwitchQuote(switchQuote);
     }
     public void bootStrapAddGoalDown() {
         logicAddGoal = true;
         startAddGoal.setTextSize(13);
         bootStrap.bootStrapBtnGoal(StartActivity.this, startAddGoal, logicAddGoal);
-        hiddenQuote();
+        switchQuote = false;
+        funcSwitchQuote(switchQuote);
     }
     public void startAnimAddGoal() {
         anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
@@ -197,9 +202,7 @@ public class StartActivity extends AppCompatActivity {
         startAddGoal.clearAnimation();
     }
 
-    private void showQuote() {
-        rlQuote.setVisibility(View.VISIBLE);
-        Typeface face = null, faceBold = null;
+    private void dataQuote() {
         TextView quote = (TextView) findViewById(R.id.quote);
         TextView quoteAuthor = (TextView) findViewById(R.id.quoteAuthor);
         face = Typeface.createFromAsset(getAssets(), "fonts/font.otf");
@@ -208,8 +211,11 @@ public class StartActivity extends AppCompatActivity {
         quoteAuthor.setTypeface(faceBold);
     }
 
-    private void hiddenQuote() {
+    private void funcSwitchQuote(Boolean current) {
         rlQuote = (RelativeLayout) findViewById(R.id.rlQuote);
-        rlQuote.setVisibility(View.GONE);
+        if(current) {
+            rlQuote.setVisibility(View.VISIBLE);
+            dataQuote();
+        } else rlQuote.setVisibility(View.INVISIBLE);
     }
 }
