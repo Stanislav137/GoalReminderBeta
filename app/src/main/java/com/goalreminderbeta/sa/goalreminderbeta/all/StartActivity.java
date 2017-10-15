@@ -19,7 +19,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
@@ -118,7 +118,7 @@ public class StartActivity extends AppCompatActivity {
         List<RunCorrectionGoal> allRunCorrectionGoal = RunCorrectionGoal.listAll(RunCorrectionGoal.class);
         List<RepeatsCorrectionGoal> allRepeatsCorrectionGoal = RepeatsCorrectionGoal.listAll(RepeatsCorrectionGoal.class);
         List<ElementCorrectionGoal> allElementsCorrectionGoal = ElementCorrectionGoal.listAll(ElementCorrectionGoal.class);
-        List<LanguageCorrectionGoal> allLanguageCorrectionGoal = LanguageCorrectionGoal.listAll(LanguageCorrectionGoal.class);
+        List<LanguageLearningGoal> allLanguageLearningGoal = LanguageLearningGoal.listAll(LanguageLearningGoal.class);
         //Находим все записи в базе
 
         for (ReadBookGoal goal : allReadBookGoals){ // Итерация по кажной записи в базе и добавления их в експандер
@@ -151,7 +151,7 @@ public class StartActivity extends AppCompatActivity {
             groups.add(children);
             allGoals.add(goal);
         }
-        for (LanguageCorrectionGoal goal : allLanguageCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
+        for (LanguageLearningGoal goal : allLanguageLearningGoal){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);

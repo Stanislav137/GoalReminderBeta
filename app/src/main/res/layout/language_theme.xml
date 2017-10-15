@@ -125,7 +125,8 @@
                 android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_blue"
-                android:text="BACK" />
+                android:text="PREV"
+                android:onClick="currentLevelPrev"/>
 
             <Button
                 android:id="@+id/nextLvlCurrent"
@@ -137,7 +138,8 @@
                 android:background="@drawable/btn_blue"
                 android:text="NEXT"
                 android:textColor="@color/colorBackground"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="currentLevelNext"/>
 
         </RelativeLayout>
 
@@ -153,7 +155,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
-                android:text="A2"
                 android:textColor="@color/colorBackground"
                 android:textSize="30sp" />
 
@@ -202,7 +203,8 @@
                 android:textColor="@color/colorBackground"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_blue"
-                android:text="BACK" />
+                android:text="PREV"
+                android:onClick="goalLevelPrev"/>
 
             <Button
                 android:id="@+id/nextLvlGoal"
@@ -214,7 +216,8 @@
                 android:background="@drawable/btn_blue"
                 android:text="NEXT"
                 android:textColor="@color/colorBackground"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:onClick="goalLevelNext"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -227,7 +230,6 @@
                 android:layout_width="90sp"
                 android:layout_height="90sp"
                 android:background="@drawable/btn_green"
-                android:text="B2"
                 android:textColor="@color/colorBackground"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"

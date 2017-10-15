@@ -1,62 +1,49 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class LanguageCorrectionGoal extends SugarRecord implements Goal{
+public class LanguageLearningGoal extends SugarRecord implements Goal{
 
     private Date fromDate;
     private Date toDate;
     private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
-    private double currentResult;
+    private LanguageLevels currentLanguageLevel;
+    private LanguageLevels goalLanguageLevel;
 
-    public LanguageCorrectionGoal() {
+    public LanguageLearningGoal() {
     }
 
-    public LanguageCorrectionGoal(double currentLevel, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
-        this.currentResult = currentLevel;
-        this.descriptionGoal = descriptionGoal;
+    public LanguageLearningGoal(Date fromDate, Date toDate, String nameGoal, String descriptionGoal,
+                                LanguageLevels currentLanguageLevel, LanguageLevels goalLanguageLevel) {
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
+        this.descriptionGoal = descriptionGoal;
+        this.currentLanguageLevel = currentLanguageLevel;
+        this.goalLanguageLevel = goalLanguageLevel;
         this.themeCategory = "ЯЗЫКИ";
         if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
             long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
         }
-
     }
 
     @Override
-    public double getCurrentResult() {
-        return currentResult;
-    }
-
-    public void setCurrentResult(double currentResult) {
-        this.currentResult = currentResult;
-    }
-
-    @Override
-    public String getDescriptionGoal() {
-        return descriptionGoal;
-    }
-
-    public void setDescriptionGoal(String descriptionGoal) {
-        this.descriptionGoal = descriptionGoal;
-    }
-
     public Date getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(Date currentDate) {
-        this.fromDate = currentDate;
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
     }
 
+    @Override
     public Date getToDate() {
         return toDate;
     }
@@ -65,6 +52,7 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
     }
 
+    @Override
     public double getDifferenceInDays() {
         return differenceInDays;
     }
@@ -73,6 +61,7 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
         this.differenceInDays = differenceInDays;
     }
 
+    @Override
     public String getNameGoal() {
         return nameGoal;
     }
@@ -81,6 +70,21 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
         this.nameGoal = nameGoal;
     }
 
+    @Override
+    public String getDescriptionGoal() {
+        return descriptionGoal;
+    }
+
+    @Override
+    public double getCurrentResult() {
+        return 0;
+    }
+
+    public void setDescriptionGoal(String descriptionGoal) {
+        this.descriptionGoal = descriptionGoal;
+    }
+
+    @Override
     public String getThemeCategory() {
         return themeCategory;
     }
@@ -89,16 +93,33 @@ public class LanguageCorrectionGoal extends SugarRecord implements Goal{
         this.themeCategory = themeCategory;
     }
 
+    public LanguageLevels getCurrentLanguageLevel() {
+        return currentLanguageLevel;
+    }
+
+    public void setCurrentLanguageLevel(LanguageLevels currentLanguageLevel) {
+        this.currentLanguageLevel = currentLanguageLevel;
+    }
+
+    public LanguageLevels getGoalLanguageLevel() {
+        return goalLanguageLevel;
+    }
+
+    public void setGoalLanguageLevel(LanguageLevels goalLanguageLevel) {
+        this.goalLanguageLevel = goalLanguageLevel;
+    }
+
     @Override
     public String toString() {
-        return "LanguageCorrectionGoal{" +
+        return "LanguageLearningGoal{" +
                 "fromDate=" + fromDate +
                 ", toDate=" + toDate +
                 ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
-                ", currentResult=" + currentResult +
+                ", currentLanguageLevel=" + currentLanguageLevel +
+                ", goalLanguageLevel=" + goalLanguageLevel +
                 '}';
     }
 }

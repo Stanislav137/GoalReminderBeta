@@ -1,4 +1,4 @@
-package com.goalreminderbeta.sa.goalreminderbeta.all.science;
+package com.goalreminderbeta.sa.goalreminderbeta.all.science.languages;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -14,7 +14,8 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -23,13 +24,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class LanguageCorrectionActivity extends AppCompatActivity {
+public class LanguageLearningActivity extends AppCompatActivity {
 
+    private Button lvlLanguageCurrent, lvlLanguageGoal;
     private Date dateFrom, dateTo;
     private TextView languageDateFrom, languageDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
     private double currentLangLvl = 300;
+
+    private int enumCounterCurrent = 0;
+    private int enumCounterGoal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +47,7 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     }
 
     public void editDescription(View view) {
-        dialog = new Dialog(LanguageCorrectionActivity.this);
+        dialog = new Dialog(LanguageLearningActivity.this);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -58,15 +63,17 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
     }
 
     private void findAllButtons() {
+        lvlLanguageCurrent = (Button) findViewById(R.id.lvlLanguageCurrent);
+        lvlLanguageGoal = (Button) findViewById(R.id.lvlLanguageGoal);
         languageDateFrom = (TextView) findViewById(R.id.languageDateFrom);
         languageDateTo = (TextView) findViewById(R.id.languageDateTo);
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, languageDateFrom);
+        CustomDatePicker.pickDate(LanguageLearningActivity.this, languageDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(LanguageCorrectionActivity.this, languageDateTo);
+        CustomDatePicker.pickDate(LanguageLearningActivity.this, languageDateTo);
     }
 
     public void saveGoal(View view) throws ParseException {
@@ -76,21 +83,23 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
 
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        LanguageCorrectionGoal languageCorrectionGoal = new LanguageCorrectionGoal(currentLangLvl, dateFrom, dateTo, goalName, goalDescription);
-        languageCorrectionGoal.save();
-        Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
+        LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
+                LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())),
+                LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
+        languageLearningGoal.save();
+        Intent intent = new Intent(LanguageLearningActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void backToHome(View view) {
-        Intent intent = new Intent(LanguageCorrectionActivity.this, StartActivity.class);
+        Intent intent = new Intent(LanguageLearningActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void backToPrevActivity(View view) {
-        Intent intent = new Intent(LanguageCorrectionActivity.this, AllSubThemesScience.class);
+        Intent intent = new Intent(LanguageLearningActivity.this, AllSubThemesScience.class);
         startActivity(intent);
         this.finish();
     }
@@ -106,12 +115,12 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
 
     private void startBootStrap(ArrayList<Button> allBtnsRun) {
         BootStrap bootStrap = new BootStrap();
-        bootStrap.bootStrapResultsBtns(LanguageCorrectionActivity.this, allBtnsRun);
+        bootStrap.bootStrapResultsBtns(LanguageLearningActivity.this, allBtnsRun);
     }
 
     public void showWarning(View view) {
         final Dialog dialog;
-        dialog = new Dialog(LanguageCorrectionActivity.this);
+        dialog = new Dialog(LanguageLearningActivity.this);
         dialog.setContentView(R.layout.warning);
 
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
@@ -131,5 +140,53 @@ public class LanguageCorrectionActivity extends AppCompatActivity {
         dateFrom = today;
         String reportDate = df.format(today);
         languageDateFrom.setText(reportDate);
+        lvlLanguageCurrent.setText(LanguageLevels.A1.toString());
+        lvlLanguageGoal.setText(LanguageLevels.C2.toString());
     }
+
+    public void currentLevelPrev(View view) {
+        LanguageLevels currentlevel =
+                getPrevLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())));
+        lvlLanguageCurrent.setText(currentlevel.toString());
+    }
+
+    public void currentLevelNext(View view) {
+        LanguageLevels currentlevel =
+                getNextLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())));
+        lvlLanguageCurrent.setText(currentlevel.toString());
+    }
+    public void goalLevelPrev(View view) {
+        LanguageLevels currentlevel =
+                getPrevLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
+        lvlLanguageGoal.setText(currentlevel.toString());
+    }
+
+    public void goalLevelNext(View view) {
+        LanguageLevels currentlevel =
+                getNextLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
+        lvlLanguageGoal.setText(currentlevel.toString());
+    }
+    private LanguageLevels getNextLanguageLevel(LanguageLevels e)
+    {
+        int index = e.ordinal();
+        if (index < 5) {
+            int nextIndex = index + 1;
+            LanguageLevels[] levels = LanguageLevels.values();
+            nextIndex %= levels.length;
+            return levels[nextIndex];
+        }
+        return LanguageLevels.C2;
+    }
+    private LanguageLevels getPrevLanguageLevel(LanguageLevels e)
+    {
+        int index = e.ordinal();
+        if (index > 0){
+            int nextIndex = index - 1;
+            LanguageLevels[] levels = LanguageLevels.values();
+            nextIndex %= levels.length;
+            return levels[nextIndex];
+        }
+        return LanguageLevels.A1;
+    }
+
 }
