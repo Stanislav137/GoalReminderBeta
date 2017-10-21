@@ -243,4 +243,42 @@ public class RunCorrectionActivity extends AppCompatActivity {
         String reportDate = df.format(today);
         sportDateFrom.setText(reportDate);
     }
+
+    public void setDistance(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runDistanceResult.setText(value.getText());
+                distanceRunResult = Integer.parseInt(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void setTime(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runTimeResult.setText(value.getText());
+                currentRunTime = Integer.parseInt(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
 }

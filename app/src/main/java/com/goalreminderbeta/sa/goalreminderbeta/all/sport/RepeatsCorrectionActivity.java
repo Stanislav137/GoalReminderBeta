@@ -208,4 +208,42 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         String reportDate = df.format(today);
         repeatsDateFrom.setText(reportDate);
     }
+
+    public void setCurrentRepeats(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentRepeatsResult.setText(value.getText());
+                repeatsCurrent = Integer.parseInt(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void setGoalRepeats(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goalRepeatsResult.setText(value.getText());
+                repeatsGoal = Integer.parseInt(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
 }

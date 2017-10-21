@@ -17,6 +17,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 
 import java.text.DateFormat;
@@ -228,5 +229,24 @@ public class BookCorrectionActivity extends AppCompatActivity {
         dateFrom = today;
         String reportDate = df.format(today);
         bookDateFrom.setText(reportDate);
+    }
+
+    public void setPages(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(BookCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scienceGoalPage.setText(value.getText());
+                goalPage = Integer.parseInt(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

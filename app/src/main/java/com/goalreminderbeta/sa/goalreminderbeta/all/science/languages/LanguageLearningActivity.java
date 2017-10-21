@@ -31,10 +31,6 @@ public class LanguageLearningActivity extends AppCompatActivity {
     private TextView languageDateFrom, languageDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private double currentLangLvl = 300;
-
-    private int enumCounterCurrent = 0;
-    private int enumCounterGoal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

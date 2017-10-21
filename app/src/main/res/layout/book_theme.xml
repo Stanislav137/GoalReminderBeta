@@ -176,7 +176,8 @@
                 android:background="@drawable/btn_green"
                 android:text="0"
                 android:textColor="@color/colorBackground"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:onClick="setPages"/>
         </RelativeLayout>
 
     </LinearLayout>

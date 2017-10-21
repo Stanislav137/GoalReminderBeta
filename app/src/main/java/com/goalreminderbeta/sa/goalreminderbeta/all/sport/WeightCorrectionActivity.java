@@ -78,6 +78,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
                 switchWeight(changeGoalWeight);
             }
         });
+
     }
     private CountDownTimer getTimer(final String direction, final boolean current, final double increasing){
 
@@ -166,22 +167,6 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         startActivity(intent);
         this.finish();
     }
-    public void showWarning(View view) {
-        final Dialog dialog;
-        dialog = new Dialog(WeightCorrectionActivity.this);
-        dialog.setContentView(R.layout.warning);
-
-        Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
-        closeWarning.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
-                showWarningId.setVisibility(View.INVISIBLE);
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
     public void backToHome(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
@@ -240,5 +225,42 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         sportDateFrom.setText(reportDate);
         currentWeight = 50.0;
         sportCurrentWeight.setText(String.valueOf(currentWeight));
+    }
+    public void setCurrentWeight(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(WeightCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sportCurrentWeight.setText(value.getText());
+                currentWeight = Double.parseDouble(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void setGoalWeight(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(WeightCorrectionActivity.this);
+        dialog.setContentView(R.layout.choose_value);
+        Button apply = (Button) dialog.findViewById(R.id.apply);
+        final EditText value = (EditText) dialog.findViewById(R.id.value);
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sportGoalWeight.setText(value.getText());
+                goalWeight = Double.parseDouble(value.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }
