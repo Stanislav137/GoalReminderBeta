@@ -10,6 +10,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     private int pages;
     private double currentResult;
+    private double goalResult;
     private Date fromDate;
     private Date toDate;
     private String nameBook, nameAuthor;
@@ -23,7 +24,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentPages;
         this.descriptionGoal = descriptionGoal;
-        this.pages = pages;
+        this.goalResult = pages;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameBook = nameBook;
@@ -36,6 +37,14 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         }
     }
 
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
     @Override
     public double getCurrentResult() {
         return currentResult;
@@ -43,6 +52,67 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public void setCurrentResult(double currentResult) {
         this.currentResult = currentResult;
+    }
+
+    @Override
+    public double getGoalResult() {
+        return goalResult;
+    }
+
+    public void setGoalResult(double goalResult) {
+        this.goalResult = goalResult;
+    }
+
+    @Override
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    @Override
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public String getNameBook() {
+        return nameBook;
+    }
+
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
+    }
+
+    public String getNameAuthor() {
+        return nameAuthor;
+    }
+
+    public void setNameAuthor(String nameAuthor) {
+        this.nameAuthor = nameAuthor;
+    }
+
+    @Override
+    public double getDifferenceInDays() {
+        return differenceInDays;
+    }
+
+    public void setDifferenceInDays(double differenceInDays) {
+        this.differenceInDays = differenceInDays;
+    }
+
+    @Override
+    public String getNameGoal() {
+        return nameGoal;
+    }
+
+    public void setNameGoal(String nameGoal) {
+        this.nameGoal = nameGoal;
     }
 
     @Override
@@ -63,68 +133,12 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.themeCategory = themeCategory;
     }
 
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
-    }
-
-    @Override
-    public String getNameGoal() {
-        return nameGoal;
-    }
-
-    public void setNameGoal(String nameGoal) {
-        this.nameGoal = nameGoal;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
-    public Date getFromDate() {
-        return fromDate;
-    }
-
-    public void setFromDate(Date currentDate) {
-        this.fromDate = currentDate;
-    }
-
-    public Date getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(Date goalDate) {
-        this.toDate = goalDate;
-    }
-
-    public String getNameBook() {
-        return nameBook;
-    }
-
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
-    }
-
-    public String getNameAuthor() {
-        return nameAuthor;
-    }
-
-    public void setNameAuthor(String nameAuthor) {
-        this.nameAuthor = nameAuthor;
-    }
-
     @Override
     public String toString() {
         return "ReadBookGoal{" +
                 "pages=" + pages +
                 ", currentResult=" + currentResult +
+                ", goalResult=" + goalResult +
                 ", fromDate=" + fromDate +
                 ", toDate=" + toDate +
                 ", nameBook='" + nameBook + '\'' +

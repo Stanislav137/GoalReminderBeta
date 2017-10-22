@@ -29,7 +29,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ImageView arrowDownUp;
     private Map<Long,Goal> allGoalsMap;
 
-    private TextView fromGoal, toGoal, goalDescription, currentResultUnits;
+    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -135,41 +135,58 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String currentUnits = "";
-        double currentNumber = 0;
+        String currentUnits = "", goalUnits = "";
+        double currentNumber = 0, goalNumber = 0;
 
         findWidgetsChild(convertView);
 
         switch (themeCategory){
             case "МАССА":
                 currentUnits = "кг";
+                goalUnits = "кг";
                 break;
             case "КАРДИО":
                 currentUnits = "сек";
+                goalUnits = "сек";
                 runDistance.setVisibility(View.VISIBLE);
                 break;
             case "ЭЛЕМЕНТЫ":
                 currentUnits = "уровень";
+                goalUnits = "уровень";
                 break;
             case "ПОВТОРЕНИЯ":
                 currentUnits = "повторений";
+                goalUnits = "повторений";
                 break;
             case "КНИГА":
                 currentUnits = "страниц";
+                goalUnits = "страниц";
                 bookPresent.setVisibility(View.VISIBLE);
                 break;
             case "ЯЗЫКИ":
                 currentUnits = "уровень";
+                goalUnits = "уровень";
                 break;
 
         }
         currentNumber = goal.getCurrentResult();
+        goalNumber = goal.getGoalResult();
+
+        showResultChild(themeCategory, goal, currentUnits, goalUnits, currentNumber, goalNumber);
+
+    }
+
+    private void showResultChild(String themeCategory, Goal goal, String currentUnits, String goalUnits, double currentNumber, double goalNumber) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         if(themeCategory.equals("МАССА")) {
             DecimalFormat precision = new DecimalFormat("0.0");
             currentResultUnits.setText(precision.format(currentNumber) + " " + currentUnits);
-        } else currentResultUnits.setText((int)currentNumber + " " + currentUnits);
+            goalResultUnits.setText(precision.format(goalNumber) + " " + goalUnits);
+        } else {
+            currentResultUnits.setText((int)currentNumber + " " + currentUnits);
+            goalResultUnits.setText((int)goalNumber + " " + goalUnits);
+        }
 
         goalDescription.setText(goal.getDescriptionGoal() + "");
 
@@ -178,6 +195,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         fromGoal.setText("ОТ " + fromDate);
         toGoal.setText("ДО " + toDate);
+    }
+
+    private void findWidgetsChild(View view) {
+        fromGoal = (TextView) view.findViewById(R.id.fromGoal);
+        toGoal = (TextView) view.findViewById(R.id.toGoal);
+        goalDescription = (TextView) view.findViewById(R.id.goalDescription);
+        currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
+        goalResultUnits = (TextView) view.findViewById(R.id.yourGoalUnits);
+        bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
+        runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
     }
 
     private void checkProgress(double currentProgress, View convertView) {
@@ -202,14 +229,5 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             textCircleProgress.setTextColor(Color.argb(255,66,255,63));
         }
         textCircleProgress.setText((int)currentProgress + "%");
-    }
-
-    private void findWidgetsChild(View view) {
-        fromGoal = (TextView) view.findViewById(R.id.fromGoal);
-        toGoal = (TextView) view.findViewById(R.id.toGoal);
-        goalDescription = (TextView) view.findViewById(R.id.goalDescription);
-        currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
-        bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
-        runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
     }
 }

@@ -80,6 +80,11 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return 0;
     }
 
+    @Override
+    public double getGoalResult() {
+        return 0;
+    }
+
     public void setDescriptionGoal(String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
     }
