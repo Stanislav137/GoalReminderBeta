@@ -321,7 +321,7 @@
         android:padding="15sp"
         android:textColor="@color/colorBackground"
         android:textSize="18sp"
-        android:background="@color/clr_science"
+        android:background="@drawable/science_save_goal"
         android:text="@string/save_goal"/>
 
 </LinearLayout>

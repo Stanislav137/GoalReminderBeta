@@ -309,7 +309,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ ЭЛЕМЕНТЫ"
+                    android:text="КАТЕГОРИЯ НАВЫКИ"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"

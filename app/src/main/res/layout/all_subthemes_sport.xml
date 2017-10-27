@@ -9,15 +9,20 @@
         android:layout_height="50sp"
         android:background="@color/clr_sport">
 
-        <ImageView
-            android:id="@+id/arrowBack"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="backToPrevActivity"
-            android:layout_width="25sp"
-            android:layout_height="15sp"
-            android:layout_centerVertical="true"
-            android:layout_margin="10sp"
-            android:background="@drawable/arrow_goalwhite"
-            android:rotation="90" />
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="25sp"
+                android:layout_height="15sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/arrow_goalwhite"
+                android:rotation="90" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/ngTitle"
@@ -36,7 +41,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:background="@color/colorBackground"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,16 +49,16 @@
             android:layout_weight="2">
 
             <Button
-                android:onClick="createWeightCorrectionGoal"
+                android:id="@+id/imThemeWeight"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:id="@+id/imThemeWeight"
-                android:text="@string/chosen"
-                android:textSize="16sp"
-                android:textColor="@color/colorBackground"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/btn_red"/>
+                android:background="@drawable/btn_red"
+                android:onClick="createWeightCorrectionGoal"
+                android:text="@string/chosen"
+                android:textColor="@color/colorBackground"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -71,25 +76,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/themeSportTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/themeSportTitle"
-                        android:textSize="28sp"
-                        android:layout_marginTop="5sp"
                         android:layout_centerHorizontal="true"
-                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="5sp"
                         android:layout_toRightOf="@+id/imThemeChoose"
-                        android:text="МАССА"/>
+                        android:text="МАССА"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
                         android:layout_below="@+id/themeSportTitle"
                         android:layout_centerHorizontal="true"
                         android:layout_margin="10sp"
-                        android:textSize="15sp"
-                        android:text="@string/description_category_weight"/>
+                        android:text="@string/description_category_weight"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp" />
 
                 </RelativeLayout>
             </ScrollView>
@@ -173,72 +178,6 @@
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/colorGrey">
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/subElements"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:text="Button"
-        android:background="@color/colorBackground"
-        android:orientation="horizontal" >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
-
-            <Button
-                android:onClick="createElementCorrectionGoal"
-                android:layout_width="100sp"
-                android:layout_height="100sp"
-                android:id="@+id/imThemeElements"
-                android:text="@string/chosen"
-                android:textSize="16sp"
-                android:textColor="@color/colorBackground"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/btn_red"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/themeElementsTitle"
-                        android:textSize="28sp"
-                        android:textColor="@color/colorBlack"
-                        android:text="ЭЛЕМЕНТЫ"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="15sp"
-                        android:text="@string/description_category_element"
-                        android:layout_margin="10dp"
-                        android:layout_below="@+id/themeElementsTitle"
-                        android:layout_centerHorizontal="true" />
-
-                </RelativeLayout>
-            </ScrollView>
-        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout

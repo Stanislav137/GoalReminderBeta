@@ -25,7 +25,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
-        this.themeCategory = "ЭЛЕМЕНТЫ";
+        this.themeCategory = "НАВЫКИ";
         if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
             long milliseconds = toDate.getTime() - fromDate.getTime();
             this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);

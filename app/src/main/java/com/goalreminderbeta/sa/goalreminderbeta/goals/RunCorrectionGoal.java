@@ -13,14 +13,14 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private int currentResult;
-    private int goalResult;
+    private double goalResult;
 
     public RunCorrectionGoal() {
     }
 
-    public RunCorrectionGoal(int currentRun, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
-        this.currentResult = currentRun;
-        this.goalResult = 111;
+    public RunCorrectionGoal(int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+        this.currentResult = currentRunDistance;
+        this.goalResult = runTime;
         this.descriptionGoal = descriptionGoal;
         this.fromDate = fromDate;
         this.toDate = toDate;

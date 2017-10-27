@@ -9,7 +9,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 
-public class OtherCorrectionActivity extends AppCompatActivity {
+public class MyGoalCorrectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,13 +18,13 @@ public class OtherCorrectionActivity extends AppCompatActivity {
     }
 
     public void backToHome(View view) {
-        Intent intent = new Intent(OtherCorrectionActivity.this, StartActivity.class);
+        Intent intent = new Intent(MyGoalCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void backToPrevActivity(View view) {
-        Intent intent = new Intent(OtherCorrectionActivity.this, AllSectionTheme.class);
+        Intent intent = new Intent(MyGoalCorrectionActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }

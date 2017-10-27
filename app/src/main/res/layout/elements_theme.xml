@@ -7,34 +7,40 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/clr_sport">
+        android:background="@color/colorGreen">
 
-        <ImageView
-            android:id="@+id/arrowBack"
-            android:onClick="backToPrevActivity"
-            android:layout_width="25sp"
-            android:layout_height="15sp"
-            android:layout_centerVertical="true"
-            android:layout_margin="10sp"
-            android:background="@drawable/arrow_goalwhite"
-            android:rotation="90" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="backToPrevActivity"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="25sp"
+                android:layout_height="15sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/arrow_goalwhite"
+                android:rotation="90" />
+
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/ngTitle"
-            android:text="КАТЕГОРИЯ ЭЛЕМЕНТЫ"
-            android:textColor="@color/colorBackground"
-            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:text="КАТЕГОРИЯ НАВЫКИ"
+            android:textColor="@color/colorBackground"
+            android:textSize="20sp" />
 
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginRight="5sp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="5sp"
             android:background="@drawable/menu_white"
             android:onClick="backToHome" />
     </RelativeLayout>
@@ -53,7 +59,7 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ОПИСАНИЕ ЭЛЕМЕНТА:"
+                android:text="ОПИСАНИЕ НАВЫКА:"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:layout_marginLeft="10sp"
@@ -307,7 +313,7 @@
         android:padding="15sp"
         android:textColor="@color/colorBackground"
         android:textSize="18sp"
-        android:background="@color/clr_sport"
+        android:background="@drawable/others_save_goal"
         android:text="@string/save_goal"/>
 
 </LinearLayout>

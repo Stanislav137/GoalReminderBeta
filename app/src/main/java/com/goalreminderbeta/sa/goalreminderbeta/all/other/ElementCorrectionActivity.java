@@ -1,4 +1,4 @@
-package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
+package com.goalreminderbeta.sa.goalreminderbeta.all.other;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
 import java.text.DateFormat;
@@ -124,7 +125,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     }
 
     public void backToPrevActivity(View view) {
-        Intent intent = new Intent(ElementCorrectionActivity.this, AllSubThemesSport.class);
+        Intent intent = new Intent(ElementCorrectionActivity.this, AllSubThemesOthers.class);
         startActivity(intent);
         this.finish();
     }

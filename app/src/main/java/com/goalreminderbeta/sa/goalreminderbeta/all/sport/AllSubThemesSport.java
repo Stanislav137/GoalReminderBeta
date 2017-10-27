@@ -38,12 +38,6 @@ public class AllSubThemesSport extends AppCompatActivity {
         this.finish();
     }
 
-    public void createElementCorrectionGoal(View view) {
-        Intent intent = new Intent(AllSubThemesSport.this, ElementCorrectionActivity.class);
-        startActivity(intent);
-        this.finish();
-    }
-
     public void createRepeatsCorrectionGoal(View view) {
         Intent intent = new Intent(AllSubThemesSport.this, RepeatsCorrectionActivity.class);
         startActivity(intent);
@@ -54,11 +48,9 @@ public class AllSubThemesSport extends AppCompatActivity {
         ArrayList<Button> allBtns = new ArrayList<>();
         Button imgSport = (Button) findViewById(R.id.imThemeWeight);
         Button imThemeRun = (Button) findViewById(R.id.imThemeRun);
-        Button imThemeElements = (Button) findViewById(R.id.imThemeElements);
         Button imThemeRepeats = (Button) findViewById(R.id.imThemeRepeats);
         allBtns.add(imgSport);
         allBtns.add(imThemeRun);
-        allBtns.add(imThemeElements);
         allBtns.add(imThemeRepeats);
         startBootStrap(allBtns);
     }

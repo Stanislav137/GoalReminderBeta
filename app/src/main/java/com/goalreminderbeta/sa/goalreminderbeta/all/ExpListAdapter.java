@@ -150,7 +150,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 goalUnits = "сек";
                 runDistance.setVisibility(View.VISIBLE);
                 break;
-            case "ЭЛЕМЕНТЫ":
+            case "НАВЫКИ":
                 currentUnits = "уровень";
                 goalUnits = "уровень";
                 break;

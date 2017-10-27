@@ -9,15 +9,20 @@
         android:layout_height="50sp"
         android:background="@color/clr_sport">
 
-        <ImageView
-            android:id="@+id/arrowBack"
-            android:onClick="backToPrevActivity"
-            android:layout_width="25sp"
-            android:layout_height="15sp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_margin="10sp"
-            android:background="@drawable/arrow_goalwhite"
-            android:rotation="90" />
+            android:onClick="backToPrevActivity">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="25sp"
+                android:layout_height="15sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/arrow_goalwhite"
+                android:rotation="90" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -362,7 +367,7 @@
         android:padding="15sp"
         android:textColor="@color/colorBackground"
         android:textSize="18sp"
-        android:background="@color/clr_sport"
+        android:background="@drawable/sport_save_goal"
         android:text="@string/save_goal"/>
 
 </LinearLayout>

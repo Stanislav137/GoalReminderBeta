@@ -199,7 +199,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
 
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
-        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, dateFrom, dateTo, goalName, goalDescription);
+        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
         runCorrectionGoal.save();
         Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
