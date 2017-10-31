@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class RunCorrectionActivity extends AppCompatActivity {
+public class CardioActivity extends AppCompatActivity {
 
     private Button sportMinusDistance;
     private Button sportAddDistance;
@@ -146,20 +146,20 @@ public class RunCorrectionActivity extends AppCompatActivity {
     }
 
     public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(RunCorrectionActivity.this, sportDateFrom);
+        CustomDatePicker.pickDate(CardioActivity.this, sportDateFrom);
     }
     public void pickDateTo(View view) {
-        CustomDatePicker.pickDate(RunCorrectionActivity.this, sportDateTo);
+        CustomDatePicker.pickDate(CardioActivity.this, sportDateTo);
     }
 
     public void backToHome(View view) {
-        Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
+        Intent intent = new Intent(CardioActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void backToPrevActivity(View view) {
-        Intent intent = new Intent(RunCorrectionActivity.this, AllSubThemesSport.class);
+        Intent intent = new Intent(CardioActivity.this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
     }
@@ -173,11 +173,11 @@ public class RunCorrectionActivity extends AppCompatActivity {
 
     private void startBootStrap(ArrayList<Button> allBtnsRun) {
         BootStrap bootStrap = new BootStrap();
-        bootStrap.bootStrapResultsBtns(RunCorrectionActivity.this, allBtnsRun);
+        bootStrap.bootStrapResultsBtns(CardioActivity.this, allBtnsRun);
     }
 
     public void editDescription(View view) {
-        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog = new Dialog(CardioActivity.this);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -201,14 +201,14 @@ public class RunCorrectionActivity extends AppCompatActivity {
         Date dateTo = this.dateTo;
         RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
         runCorrectionGoal.save();
-        Intent intent = new Intent(RunCorrectionActivity.this, StartActivity.class);
+        Intent intent = new Intent(CardioActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
     }
 
     public void showWarning(View view) {
         final Dialog dialog;
-        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog = new Dialog(CardioActivity.this);
         dialog.setContentView(R.layout.warning);
 
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
@@ -246,7 +246,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
 
     public void setDistance(View view) {
         final Dialog dialog;
-        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog = new Dialog(CardioActivity.this);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
@@ -265,7 +265,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
 
     public void setTime(View view) {
         final Dialog dialog;
-        dialog = new Dialog(RunCorrectionActivity.this);
+        dialog = new Dialog(CardioActivity.this);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);

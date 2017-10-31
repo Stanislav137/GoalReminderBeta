@@ -5,8 +5,10 @@ import android.content.res.Configuration;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
+import com.orm.SchemaGenerator;
 import com.orm.SugarApp;
 import com.orm.SugarContext;
+import com.orm.SugarDb;
 
 public class SugarInitialization extends SugarApp {
 
@@ -19,9 +21,8 @@ public class SugarInitialization extends SugarApp {
     public void onCreate() {
         super.onCreate();
         SugarContext.init(getApplicationContext());
-        WeightCorrectionGoal.findById(WeightCorrectionGoal.class, (long) 1);
-        ReadBookGoal.findById(ReadBookGoal.class, (long) 1);
-        LanguageLearningGoal.findById(LanguageLearningGoal.class, (long) 1);
+        SchemaGenerator schemaGenerator = new SchemaGenerator(this);
+        schemaGenerator.createDatabase(new SugarDb(this).getDB());
     }
 
     @Override

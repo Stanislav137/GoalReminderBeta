@@ -19,6 +19,7 @@
             android:name="QUERY_LOG"
             android:value="true" />
         <uses-permission android:name="android.permission.VIBRATE"/>
+        <receiver android:name=".additional.notification.NotificationPublisher" />
 
         <activity android:name=".all.StartActivity">
             <intent-filter>
@@ -29,7 +30,7 @@
         </activity>
         <activity android:name=".all.AllSectionTheme" />
         <activity android:name=".all.sport.WeightCorrectionActivity" />
-        <activity android:name=".all.sport.RunCorrectionActivity" />
+        <activity android:name=".all.sport.CardioActivity" />
         <activity android:name=".all.other.ElementCorrectionActivity" />
         <activity android:name=".all.sport.RepeatsCorrectionActivity" />
         <activity android:name=".all.sport.AllSubThemesSport" />
@@ -40,6 +41,7 @@
         <activity android:name=".all.other.MyGoalCorrectionActivity" />
         <activity android:name=".all.RecordsActivity" />
         <activity android:name=".all.OptionsActivity" />
+        <activity android:name=".additional.notification.NotificationTest" />
         <activity android:name=".all.RecordsActivity"></activity>
     </application>
 

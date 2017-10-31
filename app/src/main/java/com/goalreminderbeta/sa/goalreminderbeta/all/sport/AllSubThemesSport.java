@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
@@ -33,7 +32,7 @@ public class AllSubThemesSport extends AppCompatActivity {
     }
 
     public void createRunCorrectionGoal(View view) {
-        Intent intent = new Intent(AllSubThemesSport.this, RunCorrectionActivity.class);
+        Intent intent = new Intent(AllSubThemesSport.this, CardioActivity.class);
         startActivity(intent);
         this.finish();
     }
