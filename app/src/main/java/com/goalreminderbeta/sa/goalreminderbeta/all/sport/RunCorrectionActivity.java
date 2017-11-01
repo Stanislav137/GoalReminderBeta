@@ -78,7 +78,7 @@ public class RunCorrectionActivity extends AppCompatActivity {
         nextTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchWeight(nextTime);
+                switchWeight();
             }
         });
     }
@@ -223,17 +223,19 @@ public class RunCorrectionActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void switchWeight(Button button){
+    private void switchWeight(){
         sportAddTime.setOnClickListener(null);
         sportMinusTime.setOnClickListener(null);
         if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")){
             setTimerOnButton(sportMinusTime, "-", "false", 1);
             setTimerOnButton(sportAddTime, "+", "false", 1);
             changeTxtTime.setText("ЖЕЛАЕМАЯ ЦЕЛЬ:");
+            runTimeResult.setText("" + goalRunTime);
         }else {
             setTimerOnButton(sportMinusTime, "-", "true", 1);
             setTimerOnButton(sportAddTime, "+", "true", 1);
             changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
+            runTimeResult.setText("" + currentRunTime);
         }
     }
     private void initializeUX(){

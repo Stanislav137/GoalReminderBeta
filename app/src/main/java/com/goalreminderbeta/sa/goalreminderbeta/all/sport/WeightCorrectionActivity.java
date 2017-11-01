@@ -93,12 +93,18 @@ public class WeightCorrectionActivity extends AppCompatActivity {
                     else goalWeight+=increasing;
                 }
                 if (direction.equals("-")){
+                    if(currentWeight < 1 || goalWeight < 1) {
+                        if (currentWeight >0){
+                        currentWeight = 0;}
+                         if (goalWeight > 1) {
+                        goalWeight = 0;}
+                    }
                     if (current){
-                        if (currentWeight > 0)
+                        if (currentWeight > 1)
                         currentWeight-=increasing;
                     }
                     else {
-                        if (goalWeight > 0)
+                        if (goalWeight > 1)
                         goalWeight-=increasing;
                     }
                 }
@@ -224,7 +230,9 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         String reportDate = df.format(today);
         sportDateFrom.setText(reportDate);
         currentWeight = 50.0;
+        goalWeight = 50.0;
         sportCurrentWeight.setText(String.valueOf(currentWeight));
+        sportGoalWeight.setText(String.valueOf(currentWeight));
     }
     public void setCurrentWeight(View view) {
         final Dialog dialog;

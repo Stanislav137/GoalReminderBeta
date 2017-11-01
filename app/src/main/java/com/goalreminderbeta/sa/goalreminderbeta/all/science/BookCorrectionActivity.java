@@ -127,7 +127,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             llNameBook.setBackgroundColor(Color.argb(255,193,193,193));
             editBook.setVisibility(View.INVISIBLE);
         } else {
-            llNameBook.setBackgroundColor(Color.WHITE);
+            llNameBook.setBackgroundColor(Color.argb(255, 228, 228, 228));
             editBook.setVisibility(View.VISIBLE);
         }
     }
