@@ -155,9 +155,14 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
         goalName = nameGoal.getText().toString();
-        ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
-        imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
-        dialog.dismiss();
+        if(!goalName.equals("") || !goalDescription.equals("")) {
+            ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
+            imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
+            dialog.dismiss();
+        } else {
+            goalName = null;
+            dialog.dismiss();
+        }
     }
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -166,11 +171,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         //NotificationTest notificationTest = new NotificationTest();
         //notificationTest.scheduleNotification(notificationTest.getNotification("5 second delay"), 5000);
 
-        if(dateFrom == null || dateTo.equals(dateFrom)) {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
-            toast.show();
-        } else {
+        if(goalName != null && currentWeight != 0 && goalWeight != 0 && !dateTo.equals(dateFrom)) {
             double currentWeight = this.currentWeight;
             double goalWeight = this.goalWeight;
             Date dateFrom = this.dateFrom;
@@ -182,6 +183,16 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
             startActivity(intent);
             this.finish();
+        } else {
+            Toast toast;
+            if(dateTo.equals(dateFrom)) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            } else if(goalName == null) {
+                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else {
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            }
+            toast.show();
         }
     }
     public void backToHome(View view) {
@@ -235,17 +246,13 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         }
     }
     private void initializeUX(){
-        Calendar now = Calendar.getInstance();
-        now.set(Calendar.HOUR, 0);
-        now.set(Calendar.MINUTE, 0);
-        now.set(Calendar.SECOND, 0);
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
         dateTo = today;
         String reportDate = df.format(today);
         sportDateFrom.setText(reportDate);
-        sportDateTo.setText(df.format(now.getTime()));
+        sportDateTo.setText(reportDate);
         currentWeight = 50.0;
         goalWeight = 50.0;
         sportCurrentWeight.setText(String.valueOf(currentWeight));
@@ -257,7 +264,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
-
+        value.setText(currentWeight + "");
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -287,13 +294,5 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         });
 
         dialog.show();
-    }
-
-    private void validation() {
-        if(dateFrom == null || dateTo == null) {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
-            toast.show();
-        }
     }
 }
