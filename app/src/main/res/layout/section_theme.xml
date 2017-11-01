@@ -18,7 +18,7 @@
         android:layout_marginLeft="10sp"
         android:layout_margin="1sp"
         android:layout_centerVertical="true"
-        android:background="@color/clr_main"
+        android:src="@drawable/logo"
         android:layout_alignParentLeft="true"/>
 
     <TextView
@@ -51,6 +51,13 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/rlCircle"/>
 
+    <ImageView
+        android:layout_width="0.5sp"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrey"
+        android:id="@+id/line_v"
+        android:layout_toStartOf="@+id/rlCircle"/>
+
     <RelativeLayout
         android:layout_width="80sp"
         android:layout_height="80sp"
@@ -58,13 +65,6 @@
         android:layout_alignTop="@+id/imTheme"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
-
-        <ImageView
-            android:layout_width="0.5sp"
-            android:layout_height="match_parent"
-            android:background="@color/colorGrey"
-            android:id="@+id/line_v"
-            android:layout_toStartOf="@+id/rlCircle"/>
 
         <ProgressBar
             android:id="@+id/circleProgress"

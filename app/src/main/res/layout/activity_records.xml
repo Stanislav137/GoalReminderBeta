@@ -14,12 +14,8 @@
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp"
-            android:onClick="openGoals">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rlGoalBtn">
+            android:onClick="openGoals"
+            android:id="@+id/rlGoalBtn">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -38,18 +34,13 @@
                     android:background="@color/colorSlide"
                     android:orientation="horizontal"></LinearLayout>
 
-            </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_weight="3"
-            android:layout_height="50sp">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rlRecordsBtn">
+            android:layout_height="50sp"
+            android:id="@+id/rlRecordsBtn">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,22 +57,14 @@
                     android:layout_alignParentBottom="true"
                     android:background="@color/clr_sport">
                 </LinearLayout>
-            </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_weight="3"
-            android:layout_height="50sp">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rlOptionsBtn"
-                android:onClick="openOptions"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+            android:layout_height="50sp"
+            android:id="@+id/rlOptionsBtn"
+            android:onClick="openOptions">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,7 +82,6 @@
                     android:layout_alignParentBottom="true">
                 </LinearLayout>
             </RelativeLayout>
-        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -119,7 +101,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="ТЕМА СПОРТ"
+                    android:text="@string/theme_of_sport"
                     android:textSize="20sp"
                     android:layout_marginTop="5sp"
                     android:enabled="false"
@@ -134,7 +116,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ МАССА"
+                    android:text="@string/category_weight"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
@@ -154,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="МАКСИМАЛЬНЫЙ МАССА:"
+                        android:text="@string/maximum_weight"
                         android:textSize="15sp"
                         android:textColor="@color/colorBlack"/>
 
@@ -171,7 +153,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="80 кг"/>
+                            android:text="@string/min_kg"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -195,7 +177,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="МИНИМАЛЬНЫЙ МАССА:"
+                            android:text="@string/minimum_weight"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -212,7 +194,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="70 кг"/>
+                            android:text="@string/min_kg"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -220,7 +202,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ КАРДИО"
+                    android:text="@string/category_cardio"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
@@ -240,7 +222,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ДАЛЬНЯЯ ДИСТНАЦИЯ:"
+                            android:text="@string/far_distance"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -260,7 +242,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="3 км"/>
+                            android:text="@string/far_distance_km"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -284,7 +266,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ЛУЧШАЯ СКОРОСТЬ:"
+                            android:text="@string/best_speed"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -301,7 +283,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="10 сек"/>
+                            android:text="@string/best_speed_sec"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -309,7 +291,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ НАВЫКИ"
+                    android:text="@string/cetegory_skills"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
@@ -329,7 +311,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="БЫСТРОЕ ИЗУЧЕНИЕ:"
+                            android:text="@string/learn_fast"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -349,7 +331,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="Выход на две руки"/>
+                            android:text="@string/yield_on_two_hands"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -373,7 +355,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ДЛИТЕЛЬНОСТЬ:"
+                            android:text="@string/duration"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -390,7 +372,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="10 дней"/>
+                            android:text="@string/duration_days"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -398,7 +380,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ ПОВТОРЕНИЯ"
+                    android:text="@string/category_repetition"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
@@ -418,7 +400,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="МАКС. КОЛ-ВО ПОВТОРЕНИЙ:"
+                            android:text="@string/maximum_number_repetitions"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -438,7 +420,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="40 раз"/>
+                            android:text="@string/maximum_number_repetitions_times"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -462,7 +444,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="УПРАЖНЕНИЕ:"
+                            android:text="@string/exercise"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
                     </RelativeLayout>
@@ -478,7 +460,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="Отжимания"/>
+                            android:text="@string/Pushups"/>
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -499,7 +481,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ КНИГА"
+                    android:text="@string/category_books"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_science"
@@ -519,7 +501,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="САМОЕ БЫСТРОЕ ПРОЧТЕНИЕ:"
+                            android:text="@string/quick_read"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -539,7 +521,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="Правило 10Х"/>
+                            android:text="@string/X_rule"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -563,7 +545,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="СУМА ПРОЧИТАНЫХ СТРАНИЦ.:"
+                            android:text="@string/SUM_READ_PAPERS"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -580,14 +562,14 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="100 страниц"/>
+                            android:text="@string/pages100"/>
                     </RelativeLayout>
                 </LinearLayout>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="КАТЕГОРИЯ ЯЗЫКИ"
+                    android:text="@string/category_language"
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/colorPrimary"
@@ -607,7 +589,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="МАКС. КОЛ-ВО СЛОВ ЗА ДЕНЬ:"
+                            android:text="@string/words_per_day"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -627,7 +609,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="10 слов"/>
+                            android:text="@string/words_per_day_words"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -651,7 +633,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="СУМА ИЗУЧЕННЫХ СЛОВ:"
+                            android:text="@string/sum_learned_words"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -668,7 +650,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="100 слов"/>
+                            android:text="@string/sum_learned_words_100_word"/>
 
                     </RelativeLayout>
                 </LinearLayout>

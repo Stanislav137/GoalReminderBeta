@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationTest;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -183,7 +184,7 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
     public void openOptions(View view) {
-        Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
+        Intent intent = new Intent(StartActivity.this, NotificationTest.class);
         startActivity(intent);
         this.finish();
     }
@@ -237,7 +238,6 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
                 finish();
                 startActivity(intent);
-
             }
             else
             if (event2.getX() < event1.getX()){

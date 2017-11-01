@@ -21,4 +21,42 @@
     <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который вы хотите выучить.</string>
     <string name="quote">Я во всем ищу вдохновение для себя… Если кто-либо преследует свою мечту, то это вдохновляет меня.</string>
     <string name="quote_author">Конор МакГрегор</string>
+
+    <!-- ACTIVITY RECORDS -->
+
+    <string name="theme_of_sport">ТЕМА СПОРТ</string>
+    <string name="category_weight">КАТЕГОРИЯ МАССА</string>
+    <string name="maximum_weight">МАКСИМАЛЬНЫЙ ВЕС:</string>
+    <string name="min_kg">кг</string>
+    <string name="minimum_weight">МИНИМАЛЬНЫЙ ВЕС:</string>
+    <string name="max_kg">кг</string>
+    <string name="category_cardio">КАТЕГОРИЯ КАРДИО</string>
+    <string name="far_distance">ДАЛЬНЯЯ ДИСТНАЦИЯ:</string>
+    <string name="far_distance_km">км</string>
+    <string name="best_speed">ЛУЧШАЯ СКОРОСТЬ:</string>
+    <string name="best_speed_sec">сек</string>
+    <string name="cetegory_skills">КАТЕГОРИЯ НАВЫКИ</string>
+    <string name="learn_fast">БЫСТРОЕ ИЗУЧЕНИЕ:</string>
+    <string name="yield_on_two_hands">Выход на две руки</string>
+    <string name="duration">ДЛИТЕЛЬНОСТЬ:</string>
+    <string name="duration_days">дней</string>
+    <string name="category_repetition">КАТЕГОРИЯ ПОВТОРЕНИЯ</string>
+    <string name="maximum_number_repetitions">МАКС. КОЛ-ВО ПОВТОРЕНИЙ:</string>
+    <string name="maximum_number_repetitions_times">раз</string>
+    <string name="exercise">УПРАЖНЕНИЕ:</string>
+    <string name="Pushups">Отжимания</string>
+    <string name="theme_science">ТЕМА НАУКА</string>
+    <string name="category_books">КАТЕГОРИЯ КНИГА</string>
+    <string name="quick_read">САМОЕ БЫСТРОЕ ПРОЧТЕНИЕ:</string>
+    <string name="X_rule">Правило 10Х</string>
+    <string name="SUM_READ_PAPERS">СУМА ПРОЧИТАНЫХ СТРАНИЦ.:</string>
+    <string name="pages100">100 страниц</string>
+    <string name="category_language">КАТЕГОРИЯ ЯЗЫКИ</string>
+    <string name="words_per_day">МАКС. КОЛ-ВО СЛОВ ЗА ДЕНЬ:</string>
+    <string name="words_per_day_words">слов</string>
+    <string name="sum_learned_words">СУМА ИЗУЧЕННЫХ СЛОВ:</string>
+    <string name="sum_learned_words_100_word">100 слов</string>
+
+
+
 </resources>
