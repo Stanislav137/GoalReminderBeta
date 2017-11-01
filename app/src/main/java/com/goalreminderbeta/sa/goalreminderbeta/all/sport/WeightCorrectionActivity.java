@@ -12,8 +12,9 @@ import android.widget.Button;
  import android.widget.EditText;
  import android.widget.ImageView;
  import android.widget.TextView;
+ import android.widget.Toast;
 
-import com.goalreminderbeta.sa.goalreminderbeta.R;
+ import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationTest;
@@ -94,11 +95,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
                     else goalWeight+=increasing;
                 }
                 if (direction.equals("-")){
-                    if(currentWeight < 1 || goalWeight < 1) {
-                        if (currentWeight >0){
-                        currentWeight = 0;}
-                         if (goalWeight > 1) {
-                        goalWeight = 0;}
+                    if(currentWeight < 1) {
+                        currentWeight = 0;
+                    }
+                    if(goalWeight < 1) {
+                        goalWeight = 0;
                     }
                     if (current){
                         if (currentWeight > 1)
@@ -165,17 +166,23 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         //NotificationTest notificationTest = new NotificationTest();
         //notificationTest.scheduleNotification(notificationTest.getNotification("5 second delay"), 5000);
 
+        if(dateFrom == null || dateTo.equals(dateFrom)) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            double currentWeight = this.currentWeight;
+            double goalWeight = this.goalWeight;
+            Date dateFrom = this.dateFrom;
+            Date dateTo = this.dateTo;
 
-        double currentWeight = this.currentWeight;
-        double goalWeight = this.goalWeight;
-        Date dateFrom = this.dateFrom;
-        Date dateTo = this.dateTo;
-        WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription);
-        goal.save();
+            WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription);
+            goal.save();
 
-        Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+            Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
+            startActivity(intent);
+            this.finish();
+        }
     }
     public void backToHome(View view) {
         Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
@@ -228,11 +235,17 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         }
     }
     private void initializeUX(){
+        Calendar now = Calendar.getInstance();
+        now.set(Calendar.HOUR, 0);
+        now.set(Calendar.MINUTE, 0);
+        now.set(Calendar.SECOND, 0);
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         sportDateFrom.setText(reportDate);
+        sportDateTo.setText(df.format(now.getTime()));
         currentWeight = 50.0;
         goalWeight = 50.0;
         sportCurrentWeight.setText(String.valueOf(currentWeight));
@@ -274,5 +287,13 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    private void validation() {
+        if(dateFrom == null || dateTo == null) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
