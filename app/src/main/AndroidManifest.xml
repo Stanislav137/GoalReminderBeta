@@ -41,7 +41,6 @@
         <activity android:name=".all.other.MyGoalCorrectionActivity" />
         <activity android:name=".all.RecordsActivity" />
         <activity android:name=".all.OptionsActivity" />
-        <activity android:name=".additional.notification.NotificationTest" />
         <activity android:name=".all.RecordsActivity"></activity>
     </application>
 
