@@ -5,7 +5,7 @@
     <application
         android:name=".SugarInitialization"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -41,8 +41,7 @@
         <activity android:name=".all.other.MyGoalCorrectionActivity" />
         <activity android:name=".all.RecordsActivity" />
         <activity android:name=".all.OptionsActivity" />
-        <activity android:name=".additional.notification.NotificationTest" />
-        <activity android:name=".all.RecordsActivity"></activity>
+        <activity android:name=".additional.notification.NotificationTest"/>
     </application>
 
 </manifest>

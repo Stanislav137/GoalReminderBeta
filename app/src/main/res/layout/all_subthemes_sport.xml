@@ -81,7 +81,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="МАССА"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
@@ -154,7 +153,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="КАРДИО"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
@@ -235,7 +233,6 @@
                         android:layout_marginTop="5sp"
                         android:layout_centerHorizontal="true"
                         android:textColor="@color/colorBlack"
-                        android:layout_toRightOf="@+id/imThemeChoose"
                         android:text="ПОВТОРЕНИЯ"/>
 
                     <TextView
