@@ -16,8 +16,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notifications.NotificationConfig;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationTest;
 
 public class OptionsActivity extends AppCompatActivity {
 
@@ -63,10 +63,7 @@ public class OptionsActivity extends AppCompatActivity {
                 .setContentText("Text");
 
         Notification notification = builder.build();
-        long[] vibrate = NotificationConfig.vibrationArray;
-        Uri ring = NotificationConfig.ringURI;
-        notification.sound = ring;
-        notification.vibrate = vibrate;
+
 
         NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
