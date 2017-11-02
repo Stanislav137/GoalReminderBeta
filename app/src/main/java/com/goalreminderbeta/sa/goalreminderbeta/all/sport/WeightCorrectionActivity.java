@@ -150,6 +150,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
+
     public void saveDescription(View view) {
         EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
@@ -164,6 +165,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             dialog.dismiss();
         }
     }
+
     public void saveGoal(View view) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));

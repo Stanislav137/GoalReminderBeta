@@ -187,9 +187,14 @@ public class CardioActivity extends AppCompatActivity {
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
         goalName = nameGoal.getText().toString();
-        ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
-        imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
-        dialog.dismiss();
+        if(!goalName.equals("") || !goalDescription.equals("")) {
+            ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
+            imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
+            dialog.dismiss();
+        } else {
+            goalName = null;
+            dialog.dismiss();
+        }
     }
 
     public void saveGoal(View view) throws ParseException {
