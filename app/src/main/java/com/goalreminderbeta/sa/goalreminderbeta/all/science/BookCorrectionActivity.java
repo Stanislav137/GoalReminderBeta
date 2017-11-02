@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
@@ -175,14 +177,25 @@ public class BookCorrectionActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(bookDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(bookDateTo.getText()));
-
-        Date dateFrom = this.dateFrom;
-        Date dateTo = this.dateTo;
-        ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription);
-        readBook.save();
-        Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+        if (goalName != null  && currentPages != 0 && goalPage != 0 && !dateTo.equals(dateFrom)) {
+            Date dateFrom = this.dateFrom;
+            Date dateTo = this.dateTo;
+            ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription);
+            readBook.save();
+            Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
+            startActivity(intent);
+            this.finish();
+        } else {
+            Toast toast;
+            if (dateTo.equals(dateFrom)) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            } else if (goalName == null) {
+                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else {
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            }
+            toast.show();
+        }
     }
 
     public void backToHome(View view) {
@@ -232,8 +245,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         bookDateFrom.setText(reportDate);
+        bookDateTo.setText(reportDate);
     }
 
     public void setPages(View view) {

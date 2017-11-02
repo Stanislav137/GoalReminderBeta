@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
@@ -53,7 +54,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
         goalName = nameGoal.getText().toString();
-        if(!goalName.equals("") || !goalDescription.equals("")) {
+        if (!goalName.equals("") || !goalDescription.equals("")) {
             ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
             imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
             dialog.dismiss();
@@ -81,7 +82,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(languageDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(languageDateTo.getText()));
-
+        if (goalName != null && !dateTo.equals(dateFrom)) {
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
         LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
@@ -91,6 +92,17 @@ public class LanguageLearningActivity extends AppCompatActivity {
         Intent intent = new Intent(LanguageLearningActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
+        } else {
+        Toast toast;
+        if (dateTo.equals(dateFrom)) {
+            toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+        } else if (goalName == null) {
+            toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+        } else {
+            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+        }
+        toast.show();
+        }
     }
 
     public void backToHome(View view) {
@@ -139,8 +151,10 @@ public class LanguageLearningActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         languageDateFrom.setText(reportDate);
+        languageDateTo.setText(reportDate);
         lvlLanguageCurrent.setText(LanguageLevels.A1.toString());
         lvlLanguageGoal.setText(LanguageLevels.C2.toString());
     }

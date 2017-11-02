@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
@@ -67,7 +68,7 @@ public class CardioActivity extends AppCompatActivity {
         changeTxtTime = (TextView) findViewById(R.id.changeTxtTime);
     }
 
-    private void setListenersOnButtons(){
+    private void setListenersOnButtons() {
         /* Added data for Distance */
         setTimerOnButton(sportMinusDistance, "-", "none", 1); // если будет дистанция
         setTimerOnButton(sportAddDistance, "+", "none", 1);
@@ -83,12 +84,13 @@ public class CardioActivity extends AppCompatActivity {
         });
     }
 
-    private void setTimerOnButton(Button button, final String direction, final String current, final double increasing){
+    private void setTimerOnButton(Button button, final String direction, final String current, final double increasing) {
         button.setOnTouchListener(new View.OnTouchListener() {
             CountDownTimer timer = getTimer(direction, current, increasing);
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
+                switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         timer.start();
                         return true;
@@ -101,7 +103,7 @@ public class CardioActivity extends AppCompatActivity {
         });
     }
 
-    private CountDownTimer getTimer(final String direction, final String current, final double increasing){
+    private CountDownTimer getTimer(final String direction, final String current, final double increasing) {
 
         CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления страниц
             @Override
@@ -138,6 +140,7 @@ public class CardioActivity extends AppCompatActivity {
                     runTimeResult.setText("" + goalRunTime);
                 }
             }
+
             @Override
             public void onFinish() {
             }
@@ -148,6 +151,7 @@ public class CardioActivity extends AppCompatActivity {
     public void pickDateFrom(View view) throws ParseException {
         CustomDatePicker.pickDate(CardioActivity.this, sportDateFrom);
     }
+
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(CardioActivity.this, sportDateTo);
     }
@@ -187,7 +191,7 @@ public class CardioActivity extends AppCompatActivity {
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
         goalName = nameGoal.getText().toString();
-        if(!goalName.equals("") || !goalDescription.equals("")) {
+        if (!goalName.equals("") || !goalDescription.equals("")) {
             ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
             imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
             dialog.dismiss();
@@ -201,14 +205,25 @@ public class CardioActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
-
-        Date dateFrom = this.dateFrom;
-        Date dateTo = this.dateTo;
-        RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
-        runCorrectionGoal.save();
-        Intent intent = new Intent(CardioActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom)) {
+            Date dateFrom = this.dateFrom;
+            Date dateTo = this.dateTo;
+            RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
+            runCorrectionGoal.save();
+            Intent intent = new Intent(CardioActivity.this, StartActivity.class);
+            startActivity(intent);
+            this.finish();
+        } else {
+            Toast toast;
+            if (dateTo.equals(dateFrom)) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            } else if (goalName == null) {
+                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else {
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            }
+            toast.show();
+        }
     }
 
     public void showWarning(View view) {
@@ -247,8 +262,10 @@ public class CardioActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         sportDateFrom.setText(reportDate);
+        sportDateTo.setText(reportDate);
     }
 
     public void setDistance(View view) {

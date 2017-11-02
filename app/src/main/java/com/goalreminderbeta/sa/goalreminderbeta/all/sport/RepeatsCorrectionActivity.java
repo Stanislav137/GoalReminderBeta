@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
@@ -71,7 +72,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
         goalDescription = descriptionGoal.getText().toString();
         goalName = nameGoal.getText().toString();
-        if(!goalName.equals("") || !goalDescription.equals("")) {
+        if (!goalName.equals("") || !goalDescription.equals("")) {
             ImageView imgReadyDescription = (ImageView) findViewById(R.id.imgReadyDescription);
             imgReadyDescription.setBackground(getResources().getDrawable(R.drawable.ready));
             dialog.dismiss();
@@ -157,15 +158,26 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(repeatsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(repeatsDateTo.getText()));
 
-        Date dateFrom = this.dateFrom;
-        Date dateTo = this.dateTo;
-        RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
-        runCorrectionGoal.save();
-        Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom)) {
+            Date dateFrom = this.dateFrom;
+            Date dateTo = this.dateTo;
+            RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
+            runCorrectionGoal.save();
+            Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
+            startActivity(intent);
+            this.finish();
+        } else {
+            Toast toast;
+            if(dateTo.equals(dateFrom)) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            } else if(goalName == null) {
+                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else {
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            }
+            toast.show();
+        }
     }
-
     public void backToHome(View view) {
         Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
@@ -210,8 +222,10 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         repeatsDateFrom.setText(reportDate);
+        repeatsDateTo.setText(reportDate);
     }
 
     public void setCurrentRepeats(View view) {

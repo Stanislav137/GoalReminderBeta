@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
@@ -113,7 +114,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(elementsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(elementsDateTo.getText()));
-
+        if (goalName != null && levelCurrent != 0 && !dateTo.equals(dateFrom)) {
         Date fromDate = this.dateFrom;
         Date toDate = this.dateTo;
         ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, fromDate, toDate, goalName, goalDescription);
@@ -121,6 +122,17 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         Intent intent = new Intent(ElementCorrectionActivity.this, StartActivity.class);
         startActivity(intent);
         this.finish();
+        } else {
+        Toast toast;
+        if (dateTo.equals(dateFrom)) {
+            toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+        } else if (goalName == null) {
+            toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+        } else {
+            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+        }
+        toast.show();
+      }
     }
 
     public void backToHome(View view) {
@@ -155,7 +167,9 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         dateFrom = today;
+        dateTo = today;
         String reportDate = df.format(today);
         elementsDateFrom.setText(reportDate);
+        elementsDateTo.setText(reportDate);
     }
 }
