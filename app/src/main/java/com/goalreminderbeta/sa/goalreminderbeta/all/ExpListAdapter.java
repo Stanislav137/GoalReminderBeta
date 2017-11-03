@@ -29,7 +29,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ImageView arrowDownUp;
     private Map<Long,Goal> allGoalsMap;
 
-    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits;
+    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -137,6 +137,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         String currentUnits = "", goalUnits = "";
         double currentNumber = 0, goalNumber = 0;
+        int distance = 0;
 
         findWidgetsChild(convertView);
 
@@ -186,6 +187,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else {
             currentResultUnits.setText((int)currentNumber + " " + currentUnits);
             goalResultUnits.setText((int)goalNumber + " " + goalUnits);
+            distanceRunUnits.setText("" + goal.getDistance());
         }
 
         goalDescription.setText(goal.getDescriptionGoal() + "");
@@ -200,6 +202,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private void findWidgetsChild(View view) {
         fromGoal = (TextView) view.findViewById(R.id.fromGoal);
         toGoal = (TextView) view.findViewById(R.id.toGoal);
+        distanceRunUnits = (TextView) view.findViewById(R.id.distanceRunUnits);
         goalDescription = (TextView) view.findViewById(R.id.goalDescription);
         currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
         goalResultUnits = (TextView) view.findViewById(R.id.yourGoalUnits);

@@ -40,11 +40,6 @@ public class CardioGoal extends SugarRecord implements Goal{
         return toDate;
     }
 
-    @Override
-    public int getDistance() {
-        return 0;
-    }
-
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
@@ -99,8 +94,8 @@ public class CardioGoal extends SugarRecord implements Goal{
         return currentResult;
     }
 
-    public void setCurrentResult(int currentResult) {
-        this.currentResult = currentResult;
+    public void setCurrentResult(double currentResult) {
+        this.currentResult = (int) currentResult;
     }
 
     @Override
@@ -108,8 +103,17 @@ public class CardioGoal extends SugarRecord implements Goal{
         return goalResult;
     }
 
-    public void setGoalResult(int goalResult) {
+    public void setGoalResult(double goalResult) {
         this.goalResult = goalResult;
+    }
+
+    @Override
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 
     @Override
@@ -123,6 +127,7 @@ public class CardioGoal extends SugarRecord implements Goal{
                 ", themeCategory='" + themeCategory + '\'' +
                 ", currentResult=" + currentResult +
                 ", goalResult=" + goalResult +
+                ", distance=" + distance +
                 '}';
     }
 }
