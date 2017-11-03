@@ -48,6 +48,11 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return toDate;
     }
 
+    @Override
+    public int getDistance() {
+        return 0;
+    }
+
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }

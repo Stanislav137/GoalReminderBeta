@@ -18,7 +18,7 @@
         android:layout_marginLeft="10sp"
         android:layout_margin="1sp"
         android:layout_centerVertical="true"
-        android:src="@drawable/logo"
+        android:background="@drawable/logo"
         android:layout_alignParentLeft="true"/>
 
     <TextView

@@ -69,6 +69,11 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         return toDate;
     }
 
+    @Override
+    public int getDistance() {
+        return 0;
+    }
+
     public void setToDate(Date goalDate) {
         this.toDate = goalDate;
     }

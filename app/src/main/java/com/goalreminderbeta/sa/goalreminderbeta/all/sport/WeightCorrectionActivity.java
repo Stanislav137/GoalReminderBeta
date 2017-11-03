@@ -17,7 +17,6 @@ import android.widget.Button;
  import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
- import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationTest;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
@@ -170,8 +169,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
-        //NotificationTest notificationTest = new NotificationTest();
-        //notificationTest.scheduleNotification(notificationTest.getNotification("5 second delay"), 5000);
+
 
         if(goalName != null && currentWeight != 0 && goalWeight != 0 && !dateTo.equals(dateFrom)) {
             double currentWeight = this.currentWeight;
@@ -267,11 +265,12 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
         value.setText(currentWeight + "");
+        value.isShown();
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sportCurrentWeight.setText(value.getText());
-                currentWeight = Double.parseDouble(value.getText().toString());
+
                 dialog.dismiss();
             }
         });
@@ -285,7 +284,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
-
+        value.setText(goalWeight + "");
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

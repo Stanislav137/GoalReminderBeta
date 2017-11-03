@@ -5,7 +5,7 @@ import com.orm.SugarRecord;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class RunCorrectionGoal extends SugarRecord implements Goal{
+public class CardioGoal extends SugarRecord implements Goal{
 
     private Date toDate;
     private Date fromDate;
@@ -14,11 +14,13 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     private String themeCategory;
     private int currentResult;
     private double goalResult;
+    private int distance;
 
-    public RunCorrectionGoal() {
+    public CardioGoal() {
     }
 
-    public RunCorrectionGoal(int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+    public CardioGoal(int distance, int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+        this.distance = distance;
         this.currentResult = currentRunDistance;
         this.goalResult = runTime;
         this.descriptionGoal = descriptionGoal;
@@ -36,6 +38,11 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public Date getToDate() {
         return toDate;
+    }
+
+    @Override
+    public int getDistance() {
+        return 0;
     }
 
     public void setToDate(Date toDate) {
@@ -107,7 +114,7 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
 
     @Override
     public String toString() {
-        return "RunCorrectionGoal{" +
+        return "CardioGoal{" +
                 "toDate=" + toDate +
                 ", fromDate=" + fromDate +
                 ", differenceInDays=" + differenceInDays +

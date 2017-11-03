@@ -17,13 +17,13 @@ import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationTest;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.CustomNotificationService;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.util.ArrayList;
@@ -116,7 +116,7 @@ public class StartActivity extends AppCompatActivity {
 
         List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
         List<WeightCorrectionGoal> allWeightCorrectionGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
-        List<RunCorrectionGoal> allRunCorrectionGoal = RunCorrectionGoal.listAll(RunCorrectionGoal.class);
+        List<CardioGoal> allCardioGoal = CardioGoal.listAll(CardioGoal.class);
         List<RepeatsCorrectionGoal> allRepeatsCorrectionGoal = RepeatsCorrectionGoal.listAll(RepeatsCorrectionGoal.class);
         List<ElementCorrectionGoal> allElementsCorrectionGoal = ElementCorrectionGoal.listAll(ElementCorrectionGoal.class);
         List<LanguageLearningGoal> allLanguageLearningGoal = LanguageLearningGoal.listAll(LanguageLearningGoal.class);
@@ -134,7 +134,7 @@ public class StartActivity extends AppCompatActivity {
             groups.add(children);
             allGoals.add(goal);
         }
-        for (RunCorrectionGoal goal : allRunCorrectionGoal  ){ // Итерация по кажной записи в базе и добавления их в експандер
+        for (CardioGoal goal : allCardioGoal){ // Итерация по кажной записи в базе и добавления их в експандер
             ArrayList<Goal> children = new ArrayList<>();
             children.add(goal);
             groups.add(children);
@@ -174,6 +174,15 @@ public class StartActivity extends AppCompatActivity {
         allGoalsList.setAdapter(adapter);
     }
     public void openGoalChooser(View view) {
+        CustomNotificationService.scheduleNotification(
+                CustomNotificationService.createNotification(
+                        "Hello",
+                        "Title",
+                        getApplicationContext()
+                ),
+                5000,
+                getApplicationContext()
+        );
         Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
@@ -184,7 +193,7 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
     public void openOptions(View view) {
-        Intent intent = new Intent(StartActivity.this, NotificationTest.class);
+        Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
         startActivity(intent);
         this.finish();
     }

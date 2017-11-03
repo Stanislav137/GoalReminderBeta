@@ -14,4 +14,5 @@ public interface Goal {
     double getGoalResult();
     Date getFromDate();
     Date getToDate();
+    int getDistance();
 }
