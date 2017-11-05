@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -9,7 +10,6 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
 
     private Date fromDate;
     private Date toDate;
-    private double differenceInDays;
     private double currentResult;
     private double goalResult;
     private String nameGoal, descriptionGoal;
@@ -26,11 +26,6 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "НАВЫКИ";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
-
     }
 
     @Override
@@ -52,17 +47,18 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         return 0;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    @Override
+    public LanguageLevels getCurrentLanguageLevel() {
+        return null;
     }
 
     @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
+    public LanguageLevels getGoalLanguageLevel() {
+        return null;
     }
 
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 
     @Override
@@ -115,7 +111,6 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         return "ElementCorrectionGoal{" +
                 "fromDate=" + fromDate +
                 ", toDate=" + toDate +
-                ", differenceInDays=" + differenceInDays +
                 ", currentResult=" + currentResult +
                 ", goalResult=" + goalResult +
                 ", nameGoal='" + nameGoal + '\'' +

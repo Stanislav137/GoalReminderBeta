@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -9,7 +10,6 @@ public class CardioGoal extends SugarRecord implements Goal{
 
     private Date toDate;
     private Date fromDate;
-    private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private int currentResult;
@@ -28,11 +28,6 @@ public class CardioGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "КАРДИО";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
-
     }
 
     @Override
@@ -51,15 +46,6 @@ public class CardioGoal extends SugarRecord implements Goal{
 
     public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
-    }
-
-    @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
     }
 
     @Override
@@ -112,6 +98,16 @@ public class CardioGoal extends SugarRecord implements Goal{
         return distance;
     }
 
+    @Override
+    public LanguageLevels getCurrentLanguageLevel() {
+        return null;
+    }
+
+    @Override
+    public LanguageLevels getGoalLanguageLevel() {
+        return null;
+    }
+
     public void setDistance(int distance) {
         this.distance = distance;
     }
@@ -121,7 +117,6 @@ public class CardioGoal extends SugarRecord implements Goal{
         return "CardioGoal{" +
                 "toDate=" + toDate +
                 ", fromDate=" + fromDate +
-                ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

@@ -14,13 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
@@ -29,7 +32,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ImageView arrowDownUp;
     private Map<Long,Goal> allGoalsMap;
 
-    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits;
+    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
+    private TextView leftToGoalUnits;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -128,7 +132,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
         themeCategory.setText(goal.getThemeCategory());
 
-        Double progress = new Double(String.valueOf(goal.getDifferenceInDays()));
+        Double progress = new Double(getDifferenceInDays(goal.getFromDate(), goal.getToDate()));
         double currentProgress = progress; //sample progress
         checkProgress(currentProgress, convertView);
     }
@@ -184,19 +188,22 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             DecimalFormat precision = new DecimalFormat("0.0");
             currentResultUnits.setText(precision.format(currentNumber) + " " + currentUnits);
             goalResultUnits.setText(precision.format(goalNumber) + " " + goalUnits);
+        } else if(themeCategory.equals("ЯЗЫКИ")) {
+            currentResultUnits.setText(goal.getCurrentLanguageLevel() + "");
+            goalResultUnits.setText(goal.getGoalLanguageLevel() + "");
         } else {
             currentResultUnits.setText((int)currentNumber + " " + currentUnits);
             goalResultUnits.setText((int)goalNumber + " " + goalUnits);
             distanceRunUnits.setText("" + goal.getDistance());
         }
-
         goalDescription.setText(goal.getDescriptionGoal() + "");
 
+        leftToGoalUnits.setText((int) (goal.getGoalResult() - goal.getCurrentResult()) + "");
         String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
         String toDate = String.valueOf(formatter.format(goal.getToDate()));
-
         fromGoal.setText("ОТ " + fromDate);
         toGoal.setText("ДО " + toDate);
+        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");
     }
 
     private void findWidgetsChild(View view) {
@@ -208,6 +215,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         goalResultUnits = (TextView) view.findViewById(R.id.yourGoalUnits);
         bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
         runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
+        leftDaysGoal = (TextView) view.findViewById(R.id.leftDaysGoal);
+        leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
     }
 
     private void checkProgress(double currentProgress, View convertView) {
@@ -232,5 +241,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             textCircleProgress.setTextColor(Color.argb(255,66,255,63));
         }
         textCircleProgress.setText((int)currentProgress + "%");
+    }
+
+    private int getDifferenceInDays(Date from, Date to) {
+        long milliseconds = to.getTime() - from.getTime();
+        return 1 + (int) (milliseconds = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS))));
     }
 }

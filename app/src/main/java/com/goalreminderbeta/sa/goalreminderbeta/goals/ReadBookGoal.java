@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -14,7 +15,6 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private Date fromDate;
     private Date toDate;
     private String nameBook, nameAuthor;
-    private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
 
@@ -31,10 +31,6 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.nameAuthor = nameAuthor;
         this.nameGoal = nameGoal;
         this.themeCategory = "КНИГА";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
     }
 
     public int getPages() {
@@ -82,6 +78,16 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         return 0;
     }
 
+    @Override
+    public LanguageLevels getCurrentLanguageLevel() {
+        return null;
+    }
+
+    @Override
+    public LanguageLevels getGoalLanguageLevel() {
+        return null;
+    }
+
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
@@ -100,15 +106,6 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public void setNameAuthor(String nameAuthor) {
         this.nameAuthor = nameAuthor;
-    }
-
-    @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
     }
 
     @Override
@@ -148,7 +145,6 @@ public class ReadBookGoal extends SugarRecord implements Goal {
                 ", toDate=" + toDate +
                 ", nameBook='" + nameBook + '\'' +
                 ", nameAuthor='" + nameAuthor + '\'' +
-                ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

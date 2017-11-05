@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -10,7 +11,6 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private Date fromDate;
     private Date toDate;
     private double currentResult, goalResult;
-    private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
 
@@ -25,11 +25,6 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "ПОВТОРЕНИЯ";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
-
     }
 
     @Override
@@ -49,6 +44,16 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public int getDistance() {
         return 0;
+    }
+
+    @Override
+    public LanguageLevels getCurrentLanguageLevel() {
+        return null;
+    }
+
+    @Override
+    public LanguageLevels getGoalLanguageLevel() {
+        return null;
     }
 
     public void setToDate(Date toDate) {
@@ -71,15 +76,6 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
     public void setGoalResult(double goalResult) {
         this.goalResult = goalResult;
-    }
-
-    @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
     }
 
     @Override
@@ -116,7 +112,6 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
                 ", toDate=" + toDate +
                 ", currentResult=" + currentResult +
                 ", goalResult=" + goalResult +
-                ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
