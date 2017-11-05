@@ -5,7 +5,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLe
 import com.orm.SugarRecord;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class ReadBookGoal extends SugarRecord implements Goal {
 
@@ -14,21 +13,20 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private double goalResult;
     private Date fromDate;
     private Date toDate;
-    private String nameBook, nameAuthor;
+    private String dataBook;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
 
     public ReadBookGoal() {
     }
 
-    public ReadBookGoal(double currentPages, int pages, String nameBook, String nameAuthor, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
+    public ReadBookGoal(double currentPages, int pages, String dataBook, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.currentResult = currentPages;
         this.descriptionGoal = descriptionGoal;
         this.goalResult = pages;
         this.fromDate = fromDate;
         this.toDate = toDate;
-        this.nameBook = nameBook;
-        this.nameAuthor = nameAuthor;
+        this.dataBook = dataBook;
         this.nameGoal = nameGoal;
         this.themeCategory = "КНИГА";
     }
@@ -92,20 +90,12 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.toDate = toDate;
     }
 
-    public String getNameBook() {
-        return nameBook;
+    public String getDataBook() {
+        return dataBook;
     }
 
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
-    }
-
-    public String getNameAuthor() {
-        return nameAuthor;
-    }
-
-    public void setNameAuthor(String nameAuthor) {
-        this.nameAuthor = nameAuthor;
+    public void setDataBook(String dataBook) {
+        this.dataBook = dataBook;
     }
 
     @Override
@@ -143,8 +133,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
                 ", goalResult=" + goalResult +
                 ", fromDate=" + fromDate +
                 ", toDate=" + toDate +
-                ", nameBook='" + nameBook + '\'' +
-                ", nameAuthor='" + nameAuthor + '\'' +
+                ", dataBook='" + dataBook + '\'' +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

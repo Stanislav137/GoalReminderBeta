@@ -19,7 +19,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.WeightCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 
 import java.text.DateFormat;
@@ -34,12 +33,12 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private TextView bookDateFrom, bookDateTo;
     private Button scienceGoalPage, minusPage, addPage, addX20;
     private int goalPage;
-    private double currentPages = 100;
+    private double currentPages = 0;
     private String nameBook, nameAuthor;
     private boolean boolNameBook = true;
     private Dialog dialog;
     private Date dateFrom, dateTo;
-    private String goalName, goalDescription;
+    private String goalName, goalDescription, dataBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +148,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
         EditText enterNameAuthor = (EditText) dialog.findViewById(R.id.enterNameAuthor);
         nameBook = enterNameBook.getText().toString();
         nameAuthor = enterNameAuthor.getText().toString();
+        dataBook = nameBook + " " + nameAuthor;
         dialog.dismiss();
     }
 
@@ -177,10 +177,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(bookDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(bookDateTo.getText()));
-        if (goalName != null  && currentPages != 0 && goalPage != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null && goalPage != 0 && !dateTo.equals(dateFrom)) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
-            ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, nameBook, nameAuthor, dateFrom, dateTo, goalName, goalDescription);
+            ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, dataBook, dateFrom, dateTo, goalName, goalDescription);
             readBook.save();
             Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
             startActivity(intent);

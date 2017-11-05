@@ -33,7 +33,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Map<Long,Goal> allGoalsMap;
 
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
-    private TextView leftToGoalUnits;
+    private TextView leftToGoalUnits, dataBook;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -139,7 +139,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
-        String currentUnits = "", goalUnits = "";
+        String units = "";
         double currentNumber = 0, goalNumber = 0;
         int distance = 0;
 
@@ -147,63 +147,62 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         switch (themeCategory){
             case "МАССА":
-                currentUnits = "кг";
-                goalUnits = "кг";
+                units = "кг";
                 break;
             case "КАРДИО":
-                currentUnits = "сек";
-                goalUnits = "сек";
+                units = "сек";
                 runDistance.setVisibility(View.VISIBLE);
                 break;
             case "НАВЫКИ":
-                currentUnits = "уровень";
-                goalUnits = "уровень";
+                units = "уровень";
                 break;
             case "ПОВТОРЕНИЯ":
-                currentUnits = "повторений";
-                goalUnits = "повторений";
+                units = "повторений";
                 break;
             case "КНИГА":
-                currentUnits = "страниц";
-                goalUnits = "страниц";
+                units = "страниц";
                 bookPresent.setVisibility(View.VISIBLE);
                 break;
             case "ЯЗЫКИ":
-                currentUnits = "уровень";
-                goalUnits = "уровень";
+                units = "уровень";
                 break;
 
         }
         currentNumber = goal.getCurrentResult();
         goalNumber = goal.getGoalResult();
 
-        showResultChild(themeCategory, goal, currentUnits, goalUnits, currentNumber, goalNumber);
+        showResultChild(themeCategory, goal, units, currentNumber, goalNumber);
 
     }
 
-    private void showResultChild(String themeCategory, Goal goal, String currentUnits, String goalUnits, double currentNumber, double goalNumber) {
+    private void showResultChild(String themeCategory, Goal goal, String units, double currentNumber, double goalNumber) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
+        String toDate = String.valueOf(formatter.format(goal.getToDate()));
 
         if(themeCategory.equals("МАССА")) {
             DecimalFormat precision = new DecimalFormat("0.0");
-            currentResultUnits.setText(precision.format(currentNumber) + " " + currentUnits);
-            goalResultUnits.setText(precision.format(goalNumber) + " " + goalUnits);
+            currentResultUnits.setText(precision.format(currentNumber) + " " + units);
+            goalResultUnits.setText(precision.format(goalNumber) + " " + units);
         } else if(themeCategory.equals("ЯЗЫКИ")) {
             currentResultUnits.setText(goal.getCurrentLanguageLevel() + "");
             goalResultUnits.setText(goal.getGoalLanguageLevel() + "");
         } else {
-            currentResultUnits.setText((int)currentNumber + " " + currentUnits);
-            goalResultUnits.setText((int)goalNumber + " " + goalUnits);
+            currentResultUnits.setText((int)currentNumber + " " + units);
+            goalResultUnits.setText((int)goalNumber + " " + units);
             distanceRunUnits.setText("" + goal.getDistance());
+            dataBook.setText(goal.getDataBook());
         }
-        goalDescription.setText(goal.getDescriptionGoal() + "");
 
-        leftToGoalUnits.setText((int) (goal.getGoalResult() - goal.getCurrentResult()) + "");
-        String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
-        String toDate = String.valueOf(formatter.format(goal.getToDate()));
+        /* FOR ALL GOALS */
+
+        goalDescription.setText(goal.getDescriptionGoal() + "");
+        leftToGoalUnits.setText((int) (goal.getGoalResult() - goal.getCurrentResult()) + " " + units);
+
+        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");
+
         fromGoal.setText("ОТ " + fromDate);
         toGoal.setText("ДО " + toDate);
-        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");
     }
 
     private void findWidgetsChild(View view) {
@@ -217,6 +216,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
         leftDaysGoal = (TextView) view.findViewById(R.id.leftDaysGoal);
         leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
+        dataBook = (TextView) view.findViewById(R.id.dataBook);
     }
 
     private void checkProgress(double currentProgress, View convertView) {

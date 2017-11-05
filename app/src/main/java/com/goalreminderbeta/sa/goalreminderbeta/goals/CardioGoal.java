@@ -99,6 +99,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public String getDataBook() {
+        return null;
+    }
+
+    @Override
     public LanguageLevels getCurrentLanguageLevel() {
         return null;
     }

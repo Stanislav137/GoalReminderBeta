@@ -16,6 +16,7 @@ public interface Goal {
     Date getFromDate();
     Date getToDate();
     int getDistance();
+    String getDataBook();
     LanguageLevels getCurrentLanguageLevel();
     LanguageLevels getGoalLanguageLevel();
 }
