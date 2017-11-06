@@ -108,7 +108,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
-        boolean test = false;
         //If all is fucked up check here !!!!111адын!11!
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
