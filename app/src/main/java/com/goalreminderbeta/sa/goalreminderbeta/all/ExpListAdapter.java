@@ -108,15 +108,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
-
+        boolean test = false;
         //If all is fucked up check here !!!!111адын!11!
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section, null);
-            convertView.setMinimumHeight(1500);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-            Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            showDataChild(goal, convertView, goal.getThemeCategory());
+        convertView = inflater.inflate(R.layout.child_section, null);
+        convertView.setMinimumHeight(1500);
+
+        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+        Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
+        showDataChild(goal, convertView, goal.getThemeCategory());
 
         return convertView;
     }
@@ -172,7 +173,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         goalNumber = goal.getGoalResult();
 
         showResultChild(themeCategory, goal, units, currentNumber, goalNumber);
-
     }
 
     private void showResultChild(String themeCategory, Goal goal, String units, double currentNumber, double goalNumber) {
@@ -246,5 +246,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private int getDifferenceInDays(Date from, Date to) {
         long milliseconds = to.getTime() - from.getTime();
         return 1 + (int) (milliseconds = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS))));
+    }
+
+    private void setAdditionalParam() {
+
     }
 }
