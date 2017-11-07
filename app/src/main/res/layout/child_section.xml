@@ -509,7 +509,5 @@
             android:textColor="@color/colorBackground"
             android:layout_centerVertical="true"
             android:text="ВЫПОЛНЕНО" />
-
-
     </RelativeLayout>
 </LinearLayout>

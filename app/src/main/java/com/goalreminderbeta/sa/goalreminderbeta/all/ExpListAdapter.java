@@ -141,7 +141,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         String units = "";
         double currentNumber = 0, goalNumber = 0;
-        int distance = 0;
 
         findWidgetsChild(convertView);
 
