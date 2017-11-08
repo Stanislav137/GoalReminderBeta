@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="50sp"
-            android:id="@+id/rlGoalBtn">
+            android:id="@+id/rlGoalBtn" >
 
                 <TextView
                     android:layout_width="wrap_content"

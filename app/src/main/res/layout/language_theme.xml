@@ -156,7 +156,7 @@
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:textColor="@color/colorBackground"
-                android:textSize="30sp" />
+                android:textSize="30sp"/>
 
         </RelativeLayout>
 

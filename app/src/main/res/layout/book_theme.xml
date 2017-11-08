@@ -250,7 +250,7 @@
                 android:onClick="editPresentBook"
                 android:text="@string/book_change"
                 android:textColor="@color/colorBackground"
-                android:textSize="14sp" />
+                android:textSize="14sp"  />
         </RelativeLayout>
 
     </LinearLayout>
