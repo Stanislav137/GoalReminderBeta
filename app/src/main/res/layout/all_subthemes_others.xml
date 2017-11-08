@@ -126,13 +126,13 @@
                 android:id="@+id/btnCreateMyGoal"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:background="@drawable/btn_green"
-                android:onClick="createSkillsGoal"
+                android:onClick="createMyGoal"
                 android:text="@string/chosen"
                 android:textColor="@color/colorBackground"
-                android:textSize="16sp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -158,14 +158,14 @@
                         android:layout_marginTop="5sp"
                         android:text="МОЯ ЦЕЛЬ"
                         android:textColor="@color/colorBlack"
-                        android:textSize="28sp"/>
+                        android:textSize="28sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10sp"
                         android:layout_below="@+id/themeScienceTitle"
                         android:layout_centerHorizontal="true"
+                        android:layout_margin="10sp"
                         android:text="@string/description_theme_other"
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp" />

@@ -13,7 +13,7 @@ public class MyGoalCorrectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.other_theme);
+        setContentView(R.layout.my_goal_theme);
 
     }
 
@@ -25,6 +25,13 @@ public class MyGoalCorrectionActivity extends AppCompatActivity {
 
     public void backToPrevActivity(View view) {
         Intent intent = new Intent(MyGoalCorrectionActivity.this, AllSectionTheme.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AllSubThemesOthers.class);
         startActivity(intent);
         this.finish();
     }

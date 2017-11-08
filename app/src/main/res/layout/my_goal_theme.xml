@@ -6,7 +6,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:background="@color/clr_main">
+        android:background="@color/colorGreen"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/arrowBack"
@@ -24,7 +27,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ ДРУГЯ ТЕМА"
+            android:text="КАТЕГОРИЯ МОЯ ЦЕЛЬ"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
@@ -42,7 +45,7 @@
         android:id="@+id/sportSaveGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/clr_main"
+        android:background="@color/colorGreen"
         android:layout_alignParentBottom="true"
         android:text="СОХРАНИТЬ ЦЕЛЬ"
         android:textColor="@color/colorBackground"

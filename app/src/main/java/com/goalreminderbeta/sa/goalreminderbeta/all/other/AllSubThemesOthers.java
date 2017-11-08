@@ -28,7 +28,7 @@ public class AllSubThemesOthers extends AppCompatActivity {
         setContentView(R.layout.all_subthemes_others);
 
 //        notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-//        subWeight = (LinearLayout) findViewById(R.id.subWeight);
+//        subWeight = (LinearLayout) findViewById(R.id.subWeight); // ToDo what is it?
         findImagesBanners();
     }
 
@@ -38,11 +38,11 @@ public class AllSubThemesOthers extends AppCompatActivity {
         this.finish();
     }
 
-//    public void createSkillsGoal(View view) {
-//        Intent intent = new Intent(AllSubThemesOthers.this, ElementCorrectionActivity.class);
-//        startActivity(intent);
-//        this.finish();
-//    }
+    public void createMyGoal(View view) {
+        Intent intent = new Intent(AllSubThemesOthers.this, MyGoalCorrectionActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();

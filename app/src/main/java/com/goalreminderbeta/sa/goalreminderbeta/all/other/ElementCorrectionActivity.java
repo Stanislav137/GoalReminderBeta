@@ -15,8 +15,6 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
 import java.text.DateFormat;
@@ -38,7 +36,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.elements_theme);
+        setContentView(R.layout.skills_theme);
 
         findAllButtons();
         setOnClick();
