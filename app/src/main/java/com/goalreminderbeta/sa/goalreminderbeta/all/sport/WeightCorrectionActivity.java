@@ -219,6 +219,23 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         BootStrap bootStrap = new BootStrap();
         bootStrap.bootStrapResultsBtns(WeightCorrectionActivity.this, allBtnsRun);
     }
+    public void showWarning(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(WeightCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.warning);
+
+        Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        closeWarning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+                showWarningId.setVisibility(View.INVISIBLE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
     private void switchWeight(Button button){
         if (button.getId()==R.id.changeCurrentWeight){
             sportMinusWeightCurrent.setOnClickListener(null);

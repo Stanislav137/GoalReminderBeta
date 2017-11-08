@@ -10,15 +10,20 @@
         android:layout_height="50sp"
         android:background="@color/colorGreen">
 
-        <ImageView
-            android:id="@+id/arrowBack"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="backToPrevActivity"
-            android:layout_width="25sp"
-            android:layout_height="15sp"
-            android:layout_centerVertical="true"
-            android:layout_margin="10sp"
-            android:background="@drawable/arrow_goalwhite"
-            android:rotation="90" />
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="25sp"
+                android:layout_height="15sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/arrow_goalwhite"
+                android:rotation="90" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/ngTitle"
