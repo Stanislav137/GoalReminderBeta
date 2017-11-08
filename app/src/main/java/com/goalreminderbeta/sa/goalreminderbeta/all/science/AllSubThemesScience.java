@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
+import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLearningActivity;
 
 import java.util.ArrayList;
@@ -58,6 +59,12 @@ public class AllSubThemesScience extends AppCompatActivity {
 
     public void backToPrevActivity(View view) {
         Intent intent = new Intent(AllSubThemesScience.this, AllSectionTheme.class);
+        startActivity(intent);
+        this.finish();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }

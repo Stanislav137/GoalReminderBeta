@@ -15,6 +15,7 @@ public class CustomNotificationService {
         Notification.Builder builder = new Notification.Builder(context);
         builder.setContentTitle(title);
         builder.setContentText(content);
+        builder.setTicker("This is ticker");
         builder.setSmallIcon(R.drawable.arrow_goal);
         return builder.build();
     }

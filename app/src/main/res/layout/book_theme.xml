@@ -58,7 +58,7 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ОПИСАНИЕ ЦЕЛИ:"
+                android:text="@string/book_description_purpose"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:layout_marginLeft="10sp"
@@ -111,7 +111,7 @@
                 android:layout_above="@+id/position2"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="10sp"
-                android:text="КОЛ-ВО СТРАНИЦ ДЛЯ ПРОЧТЕНИЯ:"
+                android:text="@string/book_number_page_read"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp" />
 
@@ -211,7 +211,7 @@
                 android:layout_above="@+id/position3"
                 android:layout_marginBottom="10sp"
                 android:layout_marginLeft="10sp"
-                android:text="ДАННАЯ КНИГА:"
+                android:text="@string/book_this_book"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp" />
 
@@ -231,7 +231,7 @@
                 android:layout_below="@+id/position3"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:text="БЕЗ НАЗВАНИЯ" />
+                android:text="@string/book_untitled" />
 
         </RelativeLayout>
 
@@ -248,7 +248,7 @@
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_blue"
                 android:onClick="editPresentBook"
-                android:text="ИЗМЕНИТЬ"
+                android:text="@string/book_change"
                 android:textColor="@color/colorBackground"
                 android:textSize="14sp" />
         </RelativeLayout>
@@ -269,7 +269,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
-            android:text="ДАТА ЦЕЛИ:"
+            android:text="@string/book_goal_date"
             android:layout_marginTop="10sp"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
@@ -280,7 +280,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_centerVertical="true"
-            android:text="ОТ"
+            android:text="@string/book_goal_date_from"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -311,7 +311,7 @@
             android:layout_below="@+id/position4"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="20sp"
-            android:text="ДО"
+            android:text="@string/book_goal_date_before"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 

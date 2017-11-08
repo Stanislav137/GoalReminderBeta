@@ -407,7 +407,7 @@
                 android:layout_weight="2">
 
                 <TextView
-                    android:id="@+id/leftDaysGoal"
+                    android:id="@+id/leftDaysGoalTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -424,7 +424,7 @@
                 android:layout_weight="2">
 
                 <TextView
-                    android:id="@+id/leftDaysGoalUnits"
+                    android:id="@+id/leftDaysGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
@@ -494,4 +494,20 @@
             android:layout_alignParentBottom="true"></LinearLayout>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_main"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:textColor="@color/colorBackground"
+            android:layout_centerVertical="true"
+            android:text="ВЫПОЛНЕНО" />
+    </RelativeLayout>
 </LinearLayout>

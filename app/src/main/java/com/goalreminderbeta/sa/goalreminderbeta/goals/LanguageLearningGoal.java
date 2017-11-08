@@ -10,7 +10,6 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
 
     private Date fromDate;
     private Date toDate;
-    private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private LanguageLevels currentLanguageLevel;
@@ -28,10 +27,6 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         this.currentLanguageLevel = currentLanguageLevel;
         this.goalLanguageLevel = goalLanguageLevel;
         this.themeCategory = "ЯЗЫКИ";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
     }
 
     @Override
@@ -48,17 +43,18 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return toDate;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    @Override
+    public int getDistance() {
+        return 0;
     }
 
     @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
+    public String getDataBook() {
+        return null;
     }
 
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
     }
 
     @Override
@@ -119,7 +115,6 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return "LanguageLearningGoal{" +
                 "fromDate=" + fromDate +
                 ", toDate=" + toDate +
-                ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +

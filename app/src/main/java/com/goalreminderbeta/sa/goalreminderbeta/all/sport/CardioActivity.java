@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,8 +17,9 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.RunCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -37,7 +39,7 @@ public class CardioActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo, changeTxtTime;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private int distanceRunResult, currentRunTime, goalRunTime;
+    private int distance, currentRunTime, goalRunTime;
     private boolean currentOrGoalTime = false;
 
     @Override
@@ -68,7 +70,7 @@ public class CardioActivity extends AppCompatActivity {
         changeTxtTime = (TextView) findViewById(R.id.changeTxtTime);
     }
 
-    private void setListenersOnButtons() {
+    private void setListenersOnButtons(){
         /* Added data for Distance */
         setTimerOnButton(sportMinusDistance, "-", "none", 1); // если будет дистанция
         setTimerOnButton(sportAddDistance, "+", "none", 1);
@@ -84,13 +86,12 @@ public class CardioActivity extends AppCompatActivity {
         });
     }
 
-    private void setTimerOnButton(Button button, final String direction, final String current, final double increasing) {
+    private void setTimerOnButton(Button button, final String direction, final String current, final double increasing){
         button.setOnTouchListener(new View.OnTouchListener() {
             CountDownTimer timer = getTimer(direction, current, increasing);
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
+                switch(event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         timer.start();
                         return true;
@@ -103,7 +104,7 @@ public class CardioActivity extends AppCompatActivity {
         });
     }
 
-    private CountDownTimer getTimer(final String direction, final String current, final double increasing) {
+    private CountDownTimer getTimer(final String direction, final String current, final double increasing){
 
         CountDownTimer timer = new CountDownTimer(30000, 100) { // скорость и интервал добавления страниц
             @Override
@@ -111,12 +112,12 @@ public class CardioActivity extends AppCompatActivity {
                 if (current.equals("none")) {
                     if (direction.equals("+") || direction.equals("x100")) {
                         if (direction.equals("x100")) {
-                            distanceRunResult += 100;
-                        } else distanceRunResult += increasing;
+                            distance += 100;
+                        } else distance += increasing;
                     }
                     if (direction.equals("-")) {
-                        if (distanceRunResult > 0)
-                            distanceRunResult -= increasing;
+                        if (distance > 0)
+                            distance -= increasing;
                     }
                 }
                 if (current.equals("true")) {
@@ -133,14 +134,13 @@ public class CardioActivity extends AppCompatActivity {
                     }
                 }
                 if (current.equals("none")) {
-                    runDistanceResult.setText("" + distanceRunResult);
+                    runDistanceResult.setText("" + distance);
                 } else if (current.equals("true")) {
                     runTimeResult.setText("" + currentRunTime);
                 } else if (current.equals("false")) {
                     runTimeResult.setText("" + goalRunTime);
                 }
             }
-
             @Override
             public void onFinish() {
             }
@@ -151,7 +151,6 @@ public class CardioActivity extends AppCompatActivity {
     public void pickDateFrom(View view) throws ParseException {
         CustomDatePicker.pickDate(CardioActivity.this, sportDateFrom);
     }
-
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(CardioActivity.this, sportDateTo);
     }
@@ -182,6 +181,7 @@ public class CardioActivity extends AppCompatActivity {
 
     public void editDescription(View view) {
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -208,7 +208,7 @@ public class CardioActivity extends AppCompatActivity {
         if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom)) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
-            RunCorrectionGoal runCorrectionGoal = new RunCorrectionGoal(currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
+            CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
             runCorrectionGoal.save();
             Intent intent = new Intent(CardioActivity.this, StartActivity.class);
             startActivity(intent);
@@ -271,6 +271,7 @@ public class CardioActivity extends AppCompatActivity {
     public void setDistance(View view) {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
@@ -279,7 +280,7 @@ public class CardioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 runDistanceResult.setText(value.getText());
-                distanceRunResult = Integer.parseInt(value.getText().toString());
+                distance = Integer.parseInt(value.getText().toString());
                 dialog.dismiss();
             }
         });
@@ -290,6 +291,7 @@ public class CardioActivity extends AppCompatActivity {
     public void setTime(View view) {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
@@ -304,5 +306,12 @@ public class CardioActivity extends AppCompatActivity {
         });
 
         dialog.show();
+
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, AllSubThemesSport.class);
+        startActivity(intent);
+        this.finish();
     }
 }

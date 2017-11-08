@@ -14,13 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
@@ -29,7 +32,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private ImageView arrowDownUp;
     private Map<Long,Goal> allGoalsMap;
 
-    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits;
+    private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
+    private TextView leftToGoalUnits, dataBook;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -104,15 +108,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
-
         //If all is fucked up check here !!!!111адын!11!
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_section, null);
-            convertView.setMinimumHeight(1500);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-            Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
-            showDataChild(goal, convertView, goal.getThemeCategory());
+        convertView = inflater.inflate(R.layout.child_section, null);
+        convertView.setMinimumHeight(1500);
+
+        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+        Goal goal = allGoalsMap.get(groupPos); //Fckng actual goal
+        showDataChild(goal, convertView, goal.getThemeCategory());
 
         return convertView;
     }
@@ -128,70 +132,72 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
         themeCategory.setText(goal.getThemeCategory());
 
-        Double progress = new Double(String.valueOf(goal.getDifferenceInDays()));
+        Double progress = new Double(getDifferenceInDays(goal.getFromDate(), goal.getToDate()));
         double currentProgress = progress; //sample progress
         checkProgress(currentProgress, convertView);
     }
 
     private void showDataChild(Goal goal, View convertView, String themeCategory) {
 
-        String currentUnits = "", goalUnits = "";
+        String units = "";
         double currentNumber = 0, goalNumber = 0;
 
         findWidgetsChild(convertView);
 
         switch (themeCategory){
             case "МАССА":
-                currentUnits = "кг";
-                goalUnits = "кг";
+                units = "кг";
                 break;
             case "КАРДИО":
-                currentUnits = "сек";
-                goalUnits = "сек";
+                units = "сек";
                 runDistance.setVisibility(View.VISIBLE);
                 break;
             case "НАВЫКИ":
-                currentUnits = "уровень";
-                goalUnits = "уровень";
+                units = "уровень";
                 break;
             case "ПОВТОРЕНИЯ":
-                currentUnits = "повторений";
-                goalUnits = "повторений";
+                units = "повторений";
                 break;
             case "КНИГА":
-                currentUnits = "страниц";
-                goalUnits = "страниц";
+                units = "страниц";
                 bookPresent.setVisibility(View.VISIBLE);
                 break;
             case "ЯЗЫКИ":
-                currentUnits = "уровень";
-                goalUnits = "уровень";
+                units = "уровень";
                 break;
 
         }
         currentNumber = goal.getCurrentResult();
         goalNumber = goal.getGoalResult();
 
-        showResultChild(themeCategory, goal, currentUnits, goalUnits, currentNumber, goalNumber);
-
+        showResultChild(themeCategory, goal, units, currentNumber, goalNumber);
     }
 
-    private void showResultChild(String themeCategory, Goal goal, String currentUnits, String goalUnits, double currentNumber, double goalNumber) {
+    private void showResultChild(String themeCategory, Goal goal, String units, double currentNumber, double goalNumber) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
+        String toDate = String.valueOf(formatter.format(goal.getToDate()));
 
         if(themeCategory.equals("МАССА")) {
             DecimalFormat precision = new DecimalFormat("0.0");
-            currentResultUnits.setText(precision.format(currentNumber) + " " + currentUnits);
-            goalResultUnits.setText(precision.format(goalNumber) + " " + goalUnits);
+            currentResultUnits.setText(precision.format(currentNumber) + " " + units);
+            goalResultUnits.setText(precision.format(goalNumber) + " " + units);
+        } else if(themeCategory.equals("ЯЗЫКИ")) {
+            currentResultUnits.setText(goal.getCurrentLanguageLevel() + "");
+            goalResultUnits.setText(goal.getGoalLanguageLevel() + "");
         } else {
-            currentResultUnits.setText((int)currentNumber + " " + currentUnits);
-            goalResultUnits.setText((int)goalNumber + " " + goalUnits);
+            currentResultUnits.setText((int)currentNumber + " " + units);
+            goalResultUnits.setText((int)goalNumber + " " + units);
+            distanceRunUnits.setText("" + goal.getDistance());
+            dataBook.setText(goal.getDataBook());
         }
 
-        goalDescription.setText(goal.getDescriptionGoal() + "");
+        /* FOR ALL GOALS */
 
-        String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
-        String toDate = String.valueOf(formatter.format(goal.getToDate()));
+        goalDescription.setText(goal.getDescriptionGoal() + "");
+        leftToGoalUnits.setText((int) (goal.getGoalResult() - goal.getCurrentResult()) + " " + units);
+
+        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");
 
         fromGoal.setText("ОТ " + fromDate);
         toGoal.setText("ДО " + toDate);
@@ -200,11 +206,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private void findWidgetsChild(View view) {
         fromGoal = (TextView) view.findViewById(R.id.fromGoal);
         toGoal = (TextView) view.findViewById(R.id.toGoal);
+        distanceRunUnits = (TextView) view.findViewById(R.id.distanceRunUnits);
         goalDescription = (TextView) view.findViewById(R.id.goalDescription);
         currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
         goalResultUnits = (TextView) view.findViewById(R.id.yourGoalUnits);
         bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
         runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
+        leftDaysGoal = (TextView) view.findViewById(R.id.leftDaysGoal);
+        leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
+        dataBook = (TextView) view.findViewById(R.id.dataBook);
     }
 
     private void checkProgress(double currentProgress, View convertView) {
@@ -229,5 +239,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             textCircleProgress.setTextColor(Color.argb(255,66,255,63));
         }
         textCircleProgress.setText((int)currentProgress + "%");
+    }
+
+    private int getDifferenceInDays(Date from, Date to) {
+        long milliseconds = to.getTime() - from.getTime();
+        return 1 + (int) (milliseconds = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS))));
+    }
+
+    private void setAdditionalParam() {
+
     }
 }

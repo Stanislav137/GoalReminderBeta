@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
 
 import java.util.ArrayList;
 
@@ -59,5 +60,11 @@ public class RecordsActivity extends AppCompatActivity {
 
             return true;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
     }
 }

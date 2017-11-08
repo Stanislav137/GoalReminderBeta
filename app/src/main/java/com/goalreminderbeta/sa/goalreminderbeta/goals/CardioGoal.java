@@ -1,24 +1,26 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class RunCorrectionGoal extends SugarRecord implements Goal{
+public class CardioGoal extends SugarRecord implements Goal{
 
     private Date toDate;
     private Date fromDate;
-    private double differenceInDays;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private int currentResult;
     private double goalResult;
+    private int distance;
 
-    public RunCorrectionGoal() {
+    public CardioGoal() {
     }
 
-    public RunCorrectionGoal(int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+    public CardioGoal(int distance, int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+        this.distance = distance;
         this.currentResult = currentRunDistance;
         this.goalResult = runTime;
         this.descriptionGoal = descriptionGoal;
@@ -26,11 +28,6 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "КАРДИО";
-        if (fromDate!=null && toDate!=null && (toDate.getTime() - fromDate.getTime()) > 0){
-            long milliseconds = toDate.getTime() - fromDate.getTime();
-            this.differenceInDays = (double) TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS);
-        }
-
     }
 
     @Override
@@ -49,15 +46,6 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
 
     public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
-    }
-
-    @Override
-    public double getDifferenceInDays() {
-        return differenceInDays;
-    }
-
-    public void setDifferenceInDays(double differenceInDays) {
-        this.differenceInDays = differenceInDays;
     }
 
     @Override
@@ -92,8 +80,8 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
         return currentResult;
     }
 
-    public void setCurrentResult(int currentResult) {
-        this.currentResult = currentResult;
+    public void setCurrentResult(double currentResult) {
+        this.currentResult = (int) currentResult;
     }
 
     @Override
@@ -101,21 +89,45 @@ public class RunCorrectionGoal extends SugarRecord implements Goal{
         return goalResult;
     }
 
-    public void setGoalResult(int goalResult) {
+    public void setGoalResult(double goalResult) {
         this.goalResult = goalResult;
     }
 
     @Override
+    public int getDistance() {
+        return distance;
+    }
+
+    @Override
+    public String getDataBook() {
+        return null;
+    }
+
+    @Override
+    public LanguageLevels getCurrentLanguageLevel() {
+        return null;
+    }
+
+    @Override
+    public LanguageLevels getGoalLanguageLevel() {
+        return null;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    @Override
     public String toString() {
-        return "RunCorrectionGoal{" +
+        return "CardioGoal{" +
                 "toDate=" + toDate +
                 ", fromDate=" + fromDate +
-                ", differenceInDays=" + differenceInDays +
                 ", nameGoal='" + nameGoal + '\'' +
                 ", descriptionGoal='" + descriptionGoal + '\'' +
                 ", themeCategory='" + themeCategory + '\'' +
                 ", currentResult=" + currentResult +
                 ", goalResult=" + goalResult +
+                ", distance=" + distance +
                 '}';
     }
 }

@@ -31,6 +31,7 @@ public class CustomDatePicker {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
                 view.setText(formatter.format(date));
             }
         }, year, month, day);

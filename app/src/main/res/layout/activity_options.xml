@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30sp"
-                    android:text="ИНТЕРВАЛ НАПОМИНАНИЯ:"
+                    android:text="@string/reminder_interval"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 
@@ -119,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1ч30мин"
+                    android:text="@string/reminder_interval_hour"
                     android:textSize="18sp"
                     android:textColor="@color/colorBlack"
                     android:layout_centerHorizontal="true"
@@ -204,7 +204,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ВКЛ/ВЫКЛ ВИБРАЦИЮ:"
+                    android:text="@string/vibration_on_off"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
                     android:layout_marginLeft="30sp"
@@ -251,7 +251,7 @@
             android:layout_margin="5sp"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="ДНИ СЛЕЖЕНИЯ:"/>
+            android:text="@string/days_tracking"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -269,7 +269,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="В"
+                    android:text="@string/options_sunday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
@@ -286,7 +286,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="П"
+                    android:text="@string/options_monday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:background="@drawable/circle_day"
@@ -303,7 +303,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="В"
+                    android:text="@string/options_tuesday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
@@ -320,7 +320,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="С"
+                    android:text="@string/options_wednesday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
@@ -337,7 +337,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="Ч"
+                    android:text="@string/options_thursday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
@@ -354,7 +354,7 @@
                 <Button
                     android:layout_width="45sp"
                     android:layout_height="45sp"
-                    android:text="П"
+                    android:text="@string/options_friday"
                     android:textSize="20sp"
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
@@ -374,7 +374,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/circle_day"
-                    android:text="С"
+                    android:text="@string/options_saturday"
                     android:textColor="@color/colorBackground"
                     android:textSize="20sp" />
 
@@ -409,7 +409,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30sp"
-                    android:text="ВКЛ/ВЫКЛ УВЕДОМЛЕНИЯ:"
+                    android:text="@string/notifications_on_off"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 
