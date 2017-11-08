@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 
@@ -179,6 +181,7 @@ public class CardioActivity extends AppCompatActivity {
 
     public void editDescription(View view) {
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -268,6 +271,7 @@ public class CardioActivity extends AppCompatActivity {
     public void setDistance(View view) {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
@@ -287,6 +291,7 @@ public class CardioActivity extends AppCompatActivity {
     public void setTime(View view) {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
@@ -301,5 +306,12 @@ public class CardioActivity extends AppCompatActivity {
         });
 
         dialog.show();
+
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, AllSubThemesSport.class);
+        startActivity(intent);
+        this.finish();
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
 import com.goalreminderbeta.sa.goalreminderbeta.all.sport.AllSubThemesSport;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
@@ -62,6 +64,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
 
     public void editDescription(View view) {
         dialog = new Dialog(ElementCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -171,5 +174,11 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         String reportDate = df.format(today);
         elementsDateFrom.setText(reportDate);
         elementsDateTo.setText(reportDate);
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AllSubThemesOthers.class);
+        startActivity(intent);
+        this.finish();
     }
 }

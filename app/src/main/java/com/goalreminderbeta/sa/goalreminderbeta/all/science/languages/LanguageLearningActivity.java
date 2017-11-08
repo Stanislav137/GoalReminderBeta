@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,6 +46,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
 
     public void editDescription(View view) {
         dialog = new Dialog(LanguageLearningActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.description_goal);
         dialog.show();
     }
@@ -203,5 +205,10 @@ public class LanguageLearningActivity extends AppCompatActivity {
         }
         return LanguageLevels.A1;
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AllSubThemesScience.class);
+        startActivity(intent);
+        this.finish();
+    }
 }

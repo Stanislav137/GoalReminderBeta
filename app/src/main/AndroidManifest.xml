@@ -21,26 +21,27 @@
         <uses-permission android:name="android.permission.VIBRATE"/>
         <receiver android:name=".additional.notification.NotificationPublisher" />
 
-        <activity android:name=".all.StartActivity">
+        <activity android:name=".all.StartActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".all.AllSectionTheme" />
-        <activity android:name=".all.sport.WeightCorrectionActivity" />
-        <activity android:name=".all.sport.CardioActivity" />
-        <activity android:name=".all.other.ElementCorrectionActivity" />
-        <activity android:name=".all.sport.RepeatsCorrectionActivity" />
-        <activity android:name=".all.sport.AllSubThemesSport" />
-        <activity android:name=".all.science.AllSubThemesScience" />
-        <activity android:name=".all.other.AllSubThemesOthers" />
-        <activity android:name=".all.science.BookCorrectionActivity" />
-        <activity android:name=".all.science.languages.LanguageLearningActivity" />
-        <activity android:name=".all.other.MyGoalCorrectionActivity" />
-        <activity android:name=".all.RecordsActivity" />
-        <activity android:name=".all.OptionsActivity" />
+        <activity android:name=".all.AllSectionTheme"                               android:screenOrientation="portrait"/>
+        <activity android:name=".all.sport.WeightCorrectionActivity"                android:screenOrientation="portrait"/>
+        <activity android:name=".all.sport.CardioActivity"                          android:screenOrientation="portrait"/>
+        <activity android:name=".all.other.ElementCorrectionActivity"               android:screenOrientation="portrait"/>
+        <activity android:name=".all.sport.RepeatsCorrectionActivity"               android:screenOrientation="portrait"/>
+        <activity android:name=".all.sport.AllSubThemesSport"                       android:screenOrientation="portrait"/>
+        <activity android:name=".all.science.AllSubThemesScience"                   android:screenOrientation="portrait"/>
+        <activity android:name=".all.other.AllSubThemesOthers"                      android:screenOrientation="portrait"/>
+        <activity android:name=".all.science.BookCorrectionActivity"                android:screenOrientation="portrait"/>
+        <activity android:name=".all.science.languages.LanguageLearningActivity"    android:screenOrientation="portrait"/>
+        <activity android:name=".all.other.MyGoalCorrectionActivity"                android:screenOrientation="portrait"/>
+        <activity android:name=".all.RecordsActivity"                               android:screenOrientation="portrait"/>
+        <activity android:name=".all.OptionsActivity"                               android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

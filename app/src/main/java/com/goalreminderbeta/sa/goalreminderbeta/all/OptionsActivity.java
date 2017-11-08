@@ -94,4 +94,9 @@ public class OptionsActivity extends AppCompatActivity {
             return true;
         }
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
 }

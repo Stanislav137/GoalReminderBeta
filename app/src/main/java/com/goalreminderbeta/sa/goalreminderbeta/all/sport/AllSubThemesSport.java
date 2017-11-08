@@ -64,4 +64,10 @@ public class AllSubThemesSport extends AppCompatActivity {
         startActivity(intent);
         this.finish();
     }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, AllSectionTheme.class);
+        startActivity(intent);
+        this.finish();
+    }
 }
