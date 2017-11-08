@@ -59,6 +59,7 @@ public class StartActivity extends AppCompatActivity {
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
+        startNotification();
     }
 
     @Override
@@ -66,7 +67,6 @@ public class StartActivity extends AppCompatActivity {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
-
     private void setListenersOnChild(){
         allGoalsList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -174,15 +174,6 @@ public class StartActivity extends AppCompatActivity {
         allGoalsList.setAdapter(adapter);
     }
     public void openGoalChooser(View view) {
-        CustomNotificationService.scheduleNotification(
-                CustomNotificationService.createNotification(
-                        "Hello",
-                        "Title",
-                        getApplicationContext()
-                ),
-                5000,
-                getApplicationContext()
-        );
         Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
@@ -221,6 +212,29 @@ public class StartActivity extends AppCompatActivity {
     public void stopAnimAddGoal() {
         startAddGoal.clearAnimation();
     }
+    public void startNotification(){
+        if(allGoals.isEmpty()){
+            CustomNotificationService.scheduleNotification(
+                    CustomNotificationService.createNotification(
+                            "You have no goals!",
+                            "Add some goal to start!",
+                            getApplicationContext()
+                    ),
+                    5000,
+                    getApplicationContext()
+            );
+        }else {
+            CustomNotificationService.scheduleNotification(
+                    CustomNotificationService.createNotification(
+                            "You goals are ready!",
+                            "Keep it up!",
+                            getApplicationContext()
+                    ),
+                    5000,
+                    getApplicationContext()
+            );
+        }
+    }
 
     private void dataQuote() {
         Typeface face = null;
@@ -230,7 +244,6 @@ public class StartActivity extends AppCompatActivity {
         quote.setTypeface(face);
         quoteAuthor.setTypeface(face);
     }
-
     private void funcSwitchQuote(Boolean current) {
         RelativeLayout rlQuote;
         rlQuote = (RelativeLayout) findViewById(R.id.rlQuote);
