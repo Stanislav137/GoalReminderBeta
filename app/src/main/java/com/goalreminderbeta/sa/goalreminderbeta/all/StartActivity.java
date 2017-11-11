@@ -78,7 +78,7 @@ public class StartActivity extends AppCompatActivity {
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
-                    goal.delete();
+               //     goal.delete();
                 }
                 printAllGoals(); // обновляем наш лейаут после удаления
 
