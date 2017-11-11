@@ -320,7 +320,6 @@
                 android:text="00.00.0000"
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp"
-                android:onClick="pickDateFrom"
                 android:layout_alignBaseline="@+id/fromId"
                 android:layout_alignBottom="@+id/fromId"
                 android:layout_alignLeft="@+id/repeatsDateTo"

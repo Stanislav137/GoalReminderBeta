@@ -203,7 +203,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
             nextIndex %= levels.length;
             return levels[nextIndex];
         }
-        return LanguageLevels.A1;
+        return LanguageLevels.Begin;
     }
     @Override
     public void onBackPressed() {

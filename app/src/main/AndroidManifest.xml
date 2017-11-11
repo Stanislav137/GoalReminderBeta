@@ -41,7 +41,7 @@
         <activity android:name=".all.science.languages.LanguageLearningActivity"    android:screenOrientation="portrait"/>
         <activity android:name=".all.other.MyGoalCorrectionActivity"                android:screenOrientation="portrait"/>
         <activity android:name=".all.RecordsActivity"                               android:screenOrientation="portrait"/>
-        <activity android:name=".all.OptionsActivity"                               android:screenOrientation="portrait"/>
+        <activity android:name=".options.OptionsActivity"                               android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

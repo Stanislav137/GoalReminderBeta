@@ -2,9 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta;
 
 import android.content.res.Configuration;
 
-import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 import com.orm.SchemaGenerator;
 import com.orm.SugarApp;
 import com.orm.SugarContext;

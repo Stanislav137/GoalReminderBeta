@@ -139,9 +139,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             }
         });
     }
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateFrom);
-    }
+
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(WeightCorrectionActivity.this, sportDateTo);
     }

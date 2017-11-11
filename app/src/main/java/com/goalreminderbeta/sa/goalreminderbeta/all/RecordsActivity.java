@@ -7,13 +7,9 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
-import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
-
-import java.util.ArrayList;
+import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 public class RecordsActivity extends AppCompatActivity {
 

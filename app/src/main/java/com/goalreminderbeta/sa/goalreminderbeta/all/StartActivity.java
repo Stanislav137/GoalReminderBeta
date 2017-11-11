@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Intent;
+import android.graphics.Path;
 import android.graphics.Typeface;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,8 +56,6 @@ public class StartActivity extends AppCompatActivity {
 
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
-        gestureObject = new GestureDetectorCompat(this, new GestureStart());
-
         setListenersOnChild();
         printAllGoals();
         setListenersOnTitle();
@@ -67,6 +68,7 @@ public class StartActivity extends AppCompatActivity {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
+
     private void setListenersOnChild(){
         allGoalsList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -213,12 +215,14 @@ public class StartActivity extends AppCompatActivity {
         startAddGoal.clearAnimation();
     }
     public void startNotification(){
+        OptionsDTO optionsDTO = new OptionsDTO();
         if(allGoals.isEmpty()){
             CustomNotificationService.scheduleNotification(
                     CustomNotificationService.createNotification(
                             "You have no goals!",
                             "Add some goal to start!",
-                            getApplicationContext()
+                            getApplicationContext(),
+                            optionsDTO.isCorrect()
                     ),
                     5000,
                     getApplicationContext()
@@ -228,7 +232,8 @@ public class StartActivity extends AppCompatActivity {
                     CustomNotificationService.createNotification(
                             "You goals are ready!",
                             "Keep it up!",
-                            getApplicationContext()
+                            getApplicationContext(),
+                            optionsDTO.isCorrect()
                     ),
                     5000,
                     getApplicationContext()
@@ -251,24 +256,5 @@ public class StartActivity extends AppCompatActivity {
             rlQuote.setVisibility(View.VISIBLE);
             dataQuote();
         } else rlQuote.setVisibility(View.INVISIBLE);
-    }
-    class GestureStart extends GestureDetector.SimpleOnGestureListener{
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
-
-            if (event2.getX() > event1.getX()){
-                Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
-                finish();
-                startActivity(intent);
-            }
-            else
-            if (event2.getX() < event1.getX()){
-                Intent intent = new Intent(StartActivity.this, RecordsActivity.class);
-                finish();
-                startActivity(intent);
-            }
-
-            return true;
-        }
     }
 }
