@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.view.GestureDetectorCompat;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -74,11 +76,37 @@ public class StartActivity extends AppCompatActivity {
                                         int groupPosition, int childPosition, long id) {
 
 
-                Goal goal = (Goal) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
+                final Goal goal = (Goal) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
-                    goal.delete();
+                    final boolean[] vefiryDeletion = new boolean[1];
+                    final Dialog dialog;
+                    dialog = new Dialog(StartActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.confirm_deletion);
+                    dialog.show();
+                    Button delete = (Button) dialog.findViewById(R.id.delete);
+                    Button back = (Button) dialog.findViewById(R.id.back);
+
+                    delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            goal.delete();
+                            dialog.dismiss();
+                            printAllGoals();
+                        }
+                    });
+                    back.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    if (vefiryDeletion[0]==true){
+                        goal.delete();
+                    }
+                    System.out.print(vefiryDeletion);
                 }
                 printAllGoals(); // обновляем наш лейаут после удаления
 
