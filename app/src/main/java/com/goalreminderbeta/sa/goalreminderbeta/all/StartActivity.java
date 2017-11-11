@@ -1,12 +1,10 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Intent;
-import android.graphics.Path;
 import android.graphics.Typeface;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -215,14 +213,14 @@ public class StartActivity extends AppCompatActivity {
         startAddGoal.clearAnimation();
     }
     public void startNotification(){
-        OptionsDTO optionsDTO = new OptionsDTO();
+        OptionsDTO optionsDTO = OptionsDTO.findById(OptionsDTO.class, 1);
         if(allGoals.isEmpty()){
             CustomNotificationService.scheduleNotification(
                     CustomNotificationService.createNotification(
                             "You have no goals!",
                             "Add some goal to start!",
                             getApplicationContext(),
-                            optionsDTO.isCorrect()
+                            optionsDTO.getSoundConfig()
                     ),
                     5000,
                     getApplicationContext()
@@ -233,7 +231,7 @@ public class StartActivity extends AppCompatActivity {
                             "You goals are ready!",
                             "Keep it up!",
                             getApplicationContext(),
-                            optionsDTO.isCorrect()
+                            optionsDTO.getSoundConfig()
                     ),
                     5000,
                     getApplicationContext()

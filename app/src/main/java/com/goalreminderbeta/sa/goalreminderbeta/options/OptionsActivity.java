@@ -21,7 +21,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_options);
 
         OptionsDTO optionsDTO = new OptionsDTO();
-        correct = optionsDTO.isCorrect();
+        correct = optionsDTO.getSoundConfig();
 
         switchSound = (Switch) findViewById(R.id.switchSound);
         switchSound.setOnClickListener(this);

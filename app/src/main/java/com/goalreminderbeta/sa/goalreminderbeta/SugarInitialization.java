@@ -2,6 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta;
 
 import android.content.res.Configuration;
 
+import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 import com.orm.SchemaGenerator;
 import com.orm.SugarApp;
@@ -21,6 +22,10 @@ public class SugarInitialization extends SugarApp {
         SugarContext.init(getApplicationContext());
         SchemaGenerator schemaGenerator = new SchemaGenerator(this);
         schemaGenerator.createDatabase(new SugarDb(this).getDB());
+        OptionsDTO options = new OptionsDTO();
+        options.setSoundConfig(true);
+        options.setId((long) 1);
+        options.save();
     }
 
     @Override
