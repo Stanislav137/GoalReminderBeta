@@ -2,7 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.options;
 
 import com.orm.SugarRecord;
 
-public class OptionsDTO extends SugarRecord {
+public class OptionsDTO extends SugarRecord  {
 
     private boolean soundConfig = true; // по умолчанию звук вкл
 

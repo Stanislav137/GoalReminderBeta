@@ -13,7 +13,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 public class OptionsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Switch switchSound;
-    private static boolean correct;
+    private boolean correct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,8 @@ public class OptionsActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void saveOptions() {
-        OptionsDTO optionsDTO = new OptionsDTO(correct);
-        optionsDTO.save();
+        OptionsDTO options = OptionsDTO.findById(OptionsDTO.class, 1);
+        options.setSoundConfig(correct);
+        options.save();
     }
 }
