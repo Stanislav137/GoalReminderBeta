@@ -80,7 +80,7 @@ public class StartActivity extends AppCompatActivity {
                 //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
 
                 if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
-                    final boolean[] vefiryDeletion = new boolean[1];
+
                     final Dialog dialog;
                     dialog = new Dialog(StartActivity.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -103,10 +103,6 @@ public class StartActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-                    if (vefiryDeletion[0]==true){
-                        goal.delete();
-                    }
-                    System.out.print(vefiryDeletion);
                 }
                 printAllGoals(); // обновляем наш лейаут после удаления
 
