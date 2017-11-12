@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 
@@ -143,7 +144,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     }
 
     public void backToPrevActivity(View view) {
-        Intent intent = new Intent(ElementCorrectionActivity.this, AllSubThemesOthers.class);
+        Intent intent = new Intent(ElementCorrectionActivity.this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }
@@ -175,7 +176,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, AllSubThemesOthers.class);
+        Intent intent = new Intent(this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
     }
