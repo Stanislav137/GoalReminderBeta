@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
 import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
@@ -209,7 +210,8 @@ public class CardioActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
-            runCorrectionGoal.save();
+            DialogFactory.createCardioDialog(CardioActivity.this,runCorrectionGoal);
+            //runCorrectionGoal.save();
             Intent intent = new Intent(CardioActivity.this, StartActivity.class);
             startActivity(intent);
             this.finish();

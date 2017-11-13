@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 
@@ -164,7 +165,8 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
-            runCorrectionGoal.save();
+           // runCorrectionGoal.save();
+            DialogFactory.createRepeatsDialog(RepeatsCorrectionActivity.this,runCorrectionGoal);
             Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
             startActivity(intent);
             this.finish();
