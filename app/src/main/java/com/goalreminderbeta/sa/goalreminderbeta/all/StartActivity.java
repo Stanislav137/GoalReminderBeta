@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
@@ -56,7 +57,9 @@ public class StartActivity extends AppCompatActivity {
 
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
+        //setLongListenersOnChild();
         setListenersOnChild();
+        setListenerOnGroup();
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
@@ -115,6 +118,109 @@ public class StartActivity extends AppCompatActivity {
                 }
                 startAnimAddGoal();
                 return false;
+            }
+        });
+    }
+    private void setLongListenersOnChild(){
+        allGoalsList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
+                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+                    int childPosition = ExpandableListView.getPackedPositionChild(id);
+
+                    ArrayList<Goal> list = (ArrayList<Goal>) parent.getAdapter().getItem(childPosition);
+
+                    final Goal goal = list.get(0);
+
+
+                    if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
+
+                        final Dialog dialog;
+                        dialog = new Dialog(StartActivity.this);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setContentView(R.layout.confirm_deletion);
+                        dialog.show();
+                        Button delete = (Button) dialog.findViewById(R.id.delete);
+                        Button back = (Button) dialog.findViewById(R.id.back);
+
+                        delete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                goal.delete();
+                                dialog.dismiss();
+                                printAllGoals();
+                            }
+                        });
+                        back.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                    printAllGoals();
+
+                    return true;
+                }
+
+                return false;
+            }
+        });
+    }
+    private void setListenerOnGroup(){
+        allGoalsList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                int itemType = ExpandableListView.getPackedPositionType(id);
+
+
+                if (itemType == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
+                    int childPosition = ExpandableListView.getPackedPositionChild(id);
+                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+
+                    return true;
+
+                }else if(itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
+                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+
+                    ArrayList<Goal> list = (ArrayList<Goal>) parent.getAdapter().getItem(groupPosition);
+                    final Goal goal = list.get(0);
+
+                    if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
+
+                        final Dialog dialog;
+                        dialog = new Dialog(StartActivity.this);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setContentView(R.layout.confirm_deletion);
+                        dialog.show();
+                        Button delete = (Button) dialog.findViewById(R.id.delete);
+                        Button back = (Button) dialog.findViewById(R.id.back);
+
+                        delete.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                goal.delete();
+                                dialog.dismiss();
+                                printAllGoals();
+                            }
+                        });
+                        back.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                    printAllGoals();
+
+                    return true;
+
+                }else {
+
+                    return false;
+                }
             }
         });
     }
@@ -262,7 +368,6 @@ public class StartActivity extends AppCompatActivity {
             );
         }
     }
-
     private void dataQuote() {
         Typeface face = null;
         TextView quote = (TextView) findViewById(R.id.quote);

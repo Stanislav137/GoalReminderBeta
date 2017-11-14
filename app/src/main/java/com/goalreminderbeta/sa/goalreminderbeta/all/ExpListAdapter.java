@@ -275,4 +275,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
     }
+
+
 }
