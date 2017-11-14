@@ -36,10 +36,8 @@
         <activity android:name=".all.sport.RepeatsCorrectionActivity"               android:screenOrientation="portrait"/>
         <activity android:name=".all.sport.AllSubThemesSport"                       android:screenOrientation="portrait"/>
         <activity android:name=".all.science.AllSubThemesScience"                   android:screenOrientation="portrait"/>
-        <activity android:name=".all.other.AllSubThemesOthers"                      android:screenOrientation="portrait"/>
         <activity android:name=".all.science.BookCorrectionActivity"                android:screenOrientation="portrait"/>
         <activity android:name=".all.science.languages.LanguageLearningActivity"    android:screenOrientation="portrait"/>
-        <activity android:name=".all.other.MyGoalCorrectionActivity"                android:screenOrientation="portrait"/>
         <activity android:name=".all.RecordsActivity"                               android:screenOrientation="portrait"/>
         <activity android:name=".options.OptionsActivity"                               android:screenOrientation="portrait"/>
     </application>

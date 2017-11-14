@@ -12,12 +12,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -30,11 +27,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<Goal>> mGroups;
     private Context mContext;
-    private ImageView arrowDownUp;
+    private ImageView arrowDownUp, statusGoal;
     private Map<Long,Goal> allGoalsMap;
 
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
-    private TextView leftToGoalUnits, dataBook;
+    private TextView leftToGoalUnits, dataBook, taskOfDayUnits;
     private RelativeLayout bookPresent, runDistance;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
@@ -114,6 +111,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         leftDaysGoal = (TextView) view.findViewById(R.id.leftDaysGoal);
         leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
         dataBook = (TextView) view.findViewById(R.id.dataBook);
+        taskOfDayUnits = (TextView) view.findViewById(R.id.taskOfDayUnits);
+        statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
     }
 
     @Override
@@ -232,6 +231,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String fromDate = String.valueOf(formatter.format(goal.getFromDate()));
         String toDate = String.valueOf(formatter.format(goal.getToDate()));
+        double leftGoalUnits = goal.getGoalResult() - goal.getCurrentResult();
+        double dayTask = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
+        double currentStatus = leftGoalUnits / 100;
+        double goalStatus = currentStatus * 50;
+
+        /* ПОКАЗЫВАЕМ ТЕКУЩЕЕ КОЛ-ВО И ВАШУ ЦЕЛЬ */
 
         if(themeCategory.equals("МАССА")) {
             DecimalFormat precision = new DecimalFormat("0.0");
@@ -249,18 +254,27 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         /* FOR ALL GOALS */
 
-        goalDescription.setText(goal.getDescriptionGoal() + "");
-        leftToGoalUnits.setText((int) (goal.getGoalResult() - goal.getCurrentResult()) + " " + units);
+        verifyStatus(currentStatus, goalStatus); // СТАТУС
 
-        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");
-
-        fromGoal.setText("ОТ " + fromDate);
-        toGoal.setText("ДО " + toDate);
+        goalDescription.setText(goal.getDescriptionGoal() + ""); // ОПИСАНИЕ ЦЕЛИ
+        leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);   // СКОЛЬКО UNITS ОСТАЛОСЬ
+        taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);            // ЗАДАЧА В ДЕНЬ
+        leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");   // СКОЛЬКО ДНЕЙ ОСТАЛОСЬ
+        fromGoal.setText("ОТ " + fromDate); // ОТ ЧИСЛА
+        toGoal.setText("ДО " + toDate); // ДО ЧИСЛА
     }
 
     private int getDifferenceInDays(Date from, Date to) {
         long milliseconds = to.getTime() - from.getTime();
         return 1 + (int) (milliseconds = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS))));
+    }
+
+    private void verifyStatus(double currentStatus, double goalStatus) {
+        if(currentStatus > goalStatus) {
+            statusGoal.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.circle_status_green));
+        } else {
+            statusGoal.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.circle_status_red));
+        }
     }
 
     private void expandGoal(Boolean isExpanded, View convertView) {
