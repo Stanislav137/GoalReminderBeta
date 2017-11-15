@@ -52,7 +52,7 @@ public class DialogFactory {
             currentResult.setText("Сейчас вы преодолеваете:");
             goalName.setText(cardioGoal.getNameGoal());
             goalDescr.setText(cardioGoal.getDescriptionGoal());
-            distance.setText(cardioGoal.getDistance());
+            //distance.setText(cardioGoal.getDistance());
             currentRunTime.setText(String.valueOf(cardioGoal.getCurrentResult()));
             goalRunTime.setText(String.valueOf(cardioGoal.getGoalResult()));
             String date_from = sdf.format(cardioGoal.getFromDate());
@@ -77,9 +77,9 @@ public class DialogFactory {
         private void findElements(){
             goalName = (EditText)findViewById(R.id.goalName);
             goalDescr = (EditText)findViewById(R.id.goalDescr);
-            distance = (EditText) findViewById(R.id.distance);
-            currentRunTime = (EditText)findViewById(R.id.currentRunTime);
-            goalRunTime = (EditText)findViewById(R.id.goalRunTime);
+            //distance = (EditText) findViewById(R.id.distance);
+            //currentRunTime = (EditText)findViewById(R.id.currentRunTime);
+            //goalRunTime = (EditText)findViewById(R.id.goalRunTime);
             dateFrom = (EditText)findViewById(R.id.dateFrom);
             dateTo = (EditText) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);
@@ -132,9 +132,9 @@ public class DialogFactory {
         private void findElements(){
             goalName = (EditText)findViewById(R.id.goalName);
             goalDescr = (EditText)findViewById(R.id.goalDescr);
-            distance = (EditText) findViewById(R.id.distance);
-            currentRunTime = (EditText)findViewById(R.id.currentRunTime);
-            goalRunTime = (EditText)findViewById(R.id.goalRunTime);
+            //distance = (EditText) findViewById(R.id.distance);
+            //currentRunTime = (EditText)findViewById(R.id.currentRunTime);
+            //goalRunTime = (EditText)findViewById(R.id.goalRunTime);
             dateFrom = (EditText)findViewById(R.id.dateFrom);
             dateTo = (EditText) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);

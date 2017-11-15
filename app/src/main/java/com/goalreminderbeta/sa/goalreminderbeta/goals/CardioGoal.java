@@ -130,4 +130,6 @@ public class CardioGoal extends SugarRecord implements Goal{
                 ", distance=" + distance +
                 '}';
     }
+
+
 }

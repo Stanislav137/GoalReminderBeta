@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
+import com.orm.SugarRecord;
 
 import java.util.Date;
 
