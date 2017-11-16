@@ -256,7 +256,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         verifyStatus(currentStatus, goalStatus); // СТАТУС
 
-        goalDescription.setText(goal.getDescriptionGoal() + ""); // ОПИСАНИЕ ЦЕЛИ
+        if(goal.getDescriptionGoal().equals("")) {
+            goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
+        } else {
+            goalDescription.setText(goal.getDescriptionGoal() + ""); // ОПИСАНИЕ ЦЕЛИ
+        }
         leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);   // СКОЛЬКО UNITS ОСТАЛОСЬ
         taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);            // ЗАДАЧА В ДЕНЬ
         leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");   // СКОЛЬКО ДНЕЙ ОСТАЛОСЬ

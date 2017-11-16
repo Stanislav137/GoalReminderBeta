@@ -65,7 +65,7 @@
             android:textColor="@color/colorBlack"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Правило 10х + Автор"/>
+            android:text="Нужно читать много, а не многих авторов."/>
 
     </RelativeLayout>
 
