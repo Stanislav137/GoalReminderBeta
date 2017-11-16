@@ -192,9 +192,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             }
             bdb.createDialog(BookCorrectionActivity.this,readBook).show();
             //readBook.save();
-            Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
-            startActivity(intent);
-            this.finish();
+
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
@@ -293,11 +291,9 @@ public class BookCorrectionActivity extends AppCompatActivity {
         private static Dialog bookDialog;
 
         public BookDialogBuilder() {
-
-
         }
         @Override
-        public Dialog createDialog(Activity activity, Goal goal){
+        public Dialog createDialog(final Activity activity, Goal goal){
             bookDialog = super.createDialog(activity,goal);
 
             dataBookTV = new TextView(bookDialog.getContext());
@@ -320,6 +316,26 @@ public class BookCorrectionActivity extends AppCompatActivity {
             goalBookET = new EditText(bookDialog.getContext());
             goalBookET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalBookET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== ReadBookGoal.class){
+                        ((ReadBookGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
 
             return bookDialog;
         }

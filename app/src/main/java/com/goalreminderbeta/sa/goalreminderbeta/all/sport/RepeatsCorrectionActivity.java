@@ -175,9 +175,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             rdb.createDialog(RepeatsCorrectionActivity.this,runCorrectionGoal).show();
             // runCorrectionGoal.save();
             //DialogFactory.createRepeatsDialog(RepeatsCorrectionActivity.this,runCorrectionGoal);
-            Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
-            startActivity(intent);
-            this.finish();
+
         } else {
             Toast toast;
             if(dateTo.equals(dateFrom)) {
@@ -293,12 +291,15 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         private static Dialog repeatsDialog;
 
         public RepeatsDialogBuilder() {
-
-
         }
         @Override
-        public Dialog createDialog(Activity activity, Goal goal){
+        public Dialog createDialog(final Activity activity, Goal goal){
             repeatsDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
 
             currentRepeatsTV = new TextView(repeatsDialog.getContext());
             currentRepeatsTV.setText("Your repeats now is:");
@@ -313,6 +314,25 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             goalRepeatsET = new EditText(repeatsDialog.getContext());
             goalRepeatsET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalRepeatsET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== RepeatsCorrectionGoal.class){
+                        ((RepeatsCorrectionGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
 
             return repeatsDialog;
         }

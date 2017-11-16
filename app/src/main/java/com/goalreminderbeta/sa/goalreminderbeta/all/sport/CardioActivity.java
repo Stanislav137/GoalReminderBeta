@@ -50,8 +50,8 @@ public class CardioActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distance, currentRunTime, goalRunTime;
-    private boolean currentOrGoalTime = false;
-    private CardioDialogBuilder cdb;
+    private boolean currentOrGoalTime = false ;
+    public CardioDialogBuilder cdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,14 +220,13 @@ public class CardioActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
-            if(cdb==null){
-                cdb = new CardioDialogBuilder();
-            }
-            cdb.createDialog(CardioActivity.this,runCorrectionGoal).show();
+            if(cdb==null) cdb = new CardioDialogBuilder();
+            dialog = cdb.createDialog(CardioActivity.this,runCorrectionGoal);
+            dialog.show();
             //runCorrectionGoal.save();
-            Intent intent = new Intent(CardioActivity.this, StartActivity.class);
+            /*Intent intent = new Intent(CardioActivity.this, StartActivity.class);
             startActivity(intent);
-            this.finish();
+            this.finish();*/
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
@@ -340,8 +339,13 @@ public class CardioActivity extends AppCompatActivity {
 
         }
         @Override
-        public Dialog createDialog(Activity activity, Goal goal){
+        public Dialog createDialog(final Activity activity, Goal goal){
             cardioDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
 
             distanceTV = new TextView(cardioDialog.getContext());
             distanceTV.setText("Your distance is:");
@@ -363,6 +367,35 @@ public class CardioActivity extends AppCompatActivity {
             goalRunTimeET = new EditText(cardioDialog.getContext());
             goalRunTimeET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalRunTimeET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c == CardioGoal.class){
+                        ((CardioGoal)dialogBuilderGoal).save();
+                    }else if(c== ElementCorrectionGoal.class){
+                        ((ElementCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== RepeatsCorrectionGoal.class){
+                        ((RepeatsCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== WeightCorrectionGoal.class){
+                        ((WeightCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== LanguageLearningGoal.class){
+                        ((LanguageLearningGoal)dialogBuilderGoal).save();
+                    }else if(c== ReadBookGoal.class){
+                        ((ReadBookGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+            activity.startActivity(intent);
+            activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
 
             return cardioDialog;
 

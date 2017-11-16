@@ -97,11 +97,9 @@ public class LanguageLearningActivity extends AppCompatActivity {
             if(ldb==null){
                 ldb = new LanguageDialogBuilder();
             }
-            ldb.createDialog(LanguageLearningActivity.this,languageLearningGoal).show();;
+            ldb.createDialog(LanguageLearningActivity.this,languageLearningGoal).show();
         //languageLearningGoal.save();
-        Intent intent = new Intent(LanguageLearningActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
@@ -231,8 +229,13 @@ public class LanguageLearningActivity extends AppCompatActivity {
 
         }
         @Override
-        public Dialog createDialog(Activity activity, Goal goal){
+        public Dialog createDialog(final Activity activity, Goal goal){
             languageDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
 
             currentLanguageTV = new TextView(languageDialog.getContext());
             currentLanguageTV.setText("Your language level is:");
@@ -247,6 +250,25 @@ public class LanguageLearningActivity extends AppCompatActivity {
             goalLanguageET = new EditText(languageDialog.getContext());
             goalLanguageET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalLanguageET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== LanguageLearningGoal.class){
+                        ((LanguageLearningGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
 
             return languageDialog;
         }
