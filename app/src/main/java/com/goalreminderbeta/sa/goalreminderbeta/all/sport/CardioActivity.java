@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +12,24 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
 import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -40,7 +50,8 @@ public class CardioActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distance, currentRunTime, goalRunTime;
-    private boolean currentOrGoalTime = false;
+    private boolean currentOrGoalTime = false ;
+    public CardioDialogBuilder cdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,10 +220,13 @@ public class CardioActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
-            runCorrectionGoal.save();
-            Intent intent = new Intent(CardioActivity.this, StartActivity.class);
+            if(cdb==null) cdb = new CardioDialogBuilder();
+            dialog = cdb.createDialog(CardioActivity.this,runCorrectionGoal);
+            dialog.show();
+            //runCorrectionGoal.save();
+            /*Intent intent = new Intent(CardioActivity.this, StartActivity.class);
             startActivity(intent);
-            this.finish();
+            this.finish();*/
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
@@ -313,5 +327,79 @@ public class CardioActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private static class CardioDialogBuilder extends DialogBuilder {
+        private static EditText distanceET, currentRunTimeET, goalRunTimeET;
+        private static TextView distanceTV, currentRunTimeTV, goalRunTimeTV;
+
+        private static Dialog cardioDialog;
+
+        public CardioDialogBuilder() {
+
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            cardioDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            distanceTV = new TextView(cardioDialog.getContext());
+            distanceTV.setText("Your distance is:");
+            dialogLV.addView(distanceTV,lp);
+            distanceET = new EditText(cardioDialog.getContext());
+            distanceET.setText(String.valueOf(dialogBuilderGoal.getDistance()));
+            dialogLV.addView(distanceET,lp);
+
+            currentRunTimeTV = new TextView(cardioDialog.getContext());
+            currentRunTimeTV.setText("Your time now is:");
+            dialogLV.addView(currentRunTimeTV,lp);
+            currentRunTimeET = new EditText(cardioDialog.getContext());
+            currentRunTimeET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentRunTimeET,lp);
+
+            goalRunTimeTV = new TextView(cardioDialog.getContext());
+            goalRunTimeTV.setText("Goal time is:");
+            dialogLV.addView(goalRunTimeTV,lp);
+            goalRunTimeET = new EditText(cardioDialog.getContext());
+            goalRunTimeET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalRunTimeET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c == CardioGoal.class){
+                        ((CardioGoal)dialogBuilderGoal).save();
+                    }else if(c== ElementCorrectionGoal.class){
+                        ((ElementCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== RepeatsCorrectionGoal.class){
+                        ((RepeatsCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== WeightCorrectionGoal.class){
+                        ((WeightCorrectionGoal)dialogBuilderGoal).save();
+                    }else if(c== LanguageLearningGoal.class){
+                        ((LanguageLearningGoal)dialogBuilderGoal).save();
+                    }else if(c== ReadBookGoal.class){
+                        ((ReadBookGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+            activity.startActivity(intent);
+            activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+            return cardioDialog;
+
+        }
+
     }
 }

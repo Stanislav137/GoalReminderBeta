@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.science.languages;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +16,10 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.AllSubThemesScience;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 
 import java.text.DateFormat;
@@ -33,6 +36,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
     private TextView languageDateFrom, languageDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
+    private LanguageDialogBuilder ldb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +94,12 @@ public class LanguageLearningActivity extends AppCompatActivity {
         LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
                 LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())),
                 LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
-        languageLearningGoal.save();
-        Intent intent = new Intent(LanguageLearningActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+            if(ldb==null){
+                ldb = new LanguageDialogBuilder();
+            }
+            ldb.createDialog(LanguageLearningActivity.this,languageLearningGoal).show();
+        //languageLearningGoal.save();
+
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
@@ -210,5 +216,61 @@ public class LanguageLearningActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AllSubThemesScience.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private static class LanguageDialogBuilder extends DialogBuilder {
+        private static EditText currentLanguageET, goalLanguageET;
+        private static TextView currentLanguageTV, goalLanguageTV;
+
+        private static Dialog languageDialog;
+
+        public LanguageDialogBuilder() {
+
+
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            languageDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            currentLanguageTV = new TextView(languageDialog.getContext());
+            currentLanguageTV.setText("Your language level is:");
+            dialogLV.addView(currentLanguageTV,lp);
+            currentLanguageET = new EditText(languageDialog.getContext());
+            currentLanguageET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentLanguageET,lp);
+
+            goalLanguageTV = new TextView(languageDialog.getContext());
+            goalLanguageTV.setText("Goal language level is:");
+            dialogLV.addView(goalLanguageTV,lp);
+            goalLanguageET = new EditText(languageDialog.getContext());
+            goalLanguageET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalLanguageET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== LanguageLearningGoal.class){
+                        ((LanguageLearningGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+            return languageDialog;
+        }
     }
 }
