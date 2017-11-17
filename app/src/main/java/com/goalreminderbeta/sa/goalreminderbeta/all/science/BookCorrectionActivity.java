@@ -295,16 +295,21 @@ public class BookCorrectionActivity extends AppCompatActivity {
         @Override
         public Dialog createDialog(final Activity activity, Goal goal){
             bookDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
 
             dataBookTV = new TextView(bookDialog.getContext());
-            dataBookTV.setText("Name of the book");
+            dataBookTV.setText("НАЗВАНИЕ КНИГИ");
             dialogLV.addView(dataBookTV,lp);
             dataBookET = new EditText(bookDialog.getContext());
             dataBookET.setText(String.valueOf(dialogBuilderGoal.getDataBook()));
             dialogLV.addView(dataBookET,lp);
 
             currentBookTV = new TextView(bookDialog.getContext());
-            currentBookTV.setText("Your current pages:");
+            currentBookTV.setText("ВАША ТЕКУЩЯЯ СТРАНИЦА:");
             dialogLV.addView(currentBookTV,lp);
             currentBookET = new EditText(bookDialog.getContext());
             currentBookET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
