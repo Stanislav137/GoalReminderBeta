@@ -19,7 +19,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     public CardioGoal() {
     }
 
-    public CardioGoal(int distance, int currentRunDistance, double runTime, Date toDate, Date fromDate, String nameGoal, String descriptionGoal) {
+    public CardioGoal(int distance, int currentRunDistance, double runTime, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.distance = distance;
         this.currentResult = currentRunDistance;
         this.goalResult = runTime;

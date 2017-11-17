@@ -129,7 +129,6 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
                 edb = new ElementDialogBuilder();
             }
             edb.createDialog(ElementCorrectionActivity.this,elementCorrectionGoal).show();
-        this.finish();
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
