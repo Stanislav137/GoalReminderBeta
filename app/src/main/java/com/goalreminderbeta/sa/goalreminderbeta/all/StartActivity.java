@@ -195,8 +195,11 @@ public class StartActivity extends AppCompatActivity {
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         dialog.setContentView(R.layout.confirm_deletion);
                         dialog.show();
+                        Button confirmDelete = (Button) dialog.findViewById(R.id.confirmDelete);
                         Button delete = (Button) dialog.findViewById(R.id.delete);
                         Button back = (Button) dialog.findViewById(R.id.back);
+
+                        confirmDelete.setText("ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ - " + goal.getNameGoal());
 
                         delete.setOnClickListener(new View.OnClickListener() {
                             @Override
