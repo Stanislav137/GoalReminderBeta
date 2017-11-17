@@ -213,8 +213,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "повторений";
                 break;
             case "КНИГА":
-                units = "страниц";
                 bookPresent.setVisibility(View.VISIBLE);
+                units = "страниц";
                 break;
             case "ЯЗЫКИ":
                 units = "уровень";

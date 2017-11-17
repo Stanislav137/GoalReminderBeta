@@ -215,6 +215,15 @@ public class StartActivity extends AppCompatActivity {
                     }
                     printAllGoals();
 
+                    if (allGoals.size() == 0) {
+                        startAddGoal.setVisibility(View.VISIBLE);
+                        bootStrapAddGoalCenter();
+                    } else {
+                        startAddGoal.setVisibility(View.VISIBLE);
+                        bootStrapAddGoalDown();
+                    }
+                    startAnimAddGoal();
+
                     return true;
 
                 }else {

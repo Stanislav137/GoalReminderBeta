@@ -305,7 +305,11 @@ public class BookCorrectionActivity extends AppCompatActivity {
             dataBookTV.setText("НАЗВАНИЕ КНИГИ");
             dialogLV.addView(dataBookTV,lp);
             dataBookET = new EditText(bookDialog.getContext());
-            dataBookET.setText(String.valueOf(dialogBuilderGoal.getDataBook()));
+            if(dialogBuilderGoal.getDataBook() == null) {
+                dataBookET.setText("");
+            } else {
+                dataBookET.setText(String.valueOf(dialogBuilderGoal.getDataBook()));
+            }
             dialogLV.addView(dataBookET,lp);
 
             currentBookTV = new TextView(bookDialog.getContext());
