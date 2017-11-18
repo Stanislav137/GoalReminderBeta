@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.icu.text.SimpleDateFormat;
-import android.support.constraint.solver.Goal;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
-import com.goalreminderbeta.sa.goalreminderbeta.all.sport.RepeatsCorrectionActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 
@@ -46,7 +44,7 @@ public class DialogFactory {
             super(context);
             this.cardioGoal = goal;
             setTitle("Подтверждение");
-            setContentView(R.layout.cardio_confirm_dialog);
+            setContentView(R.layout.confirm_dialog);
             findElements();
             sdf = new SimpleDateFormat("dd/MM/yyyy");
             currentResult.setText("Сейчас вы преодолеваете:");
@@ -101,7 +99,7 @@ public class DialogFactory {
                 this.repeatsCorrectionGoal= goal;
                 AlertDialog.Builder adb = new AlertDialog.Builder(activity);
                 adb.setTitle("Подтверждение");
-                lv = (LinearLayout)activity.getLayoutInflater().inflate(R.layout.cardio_confirm_dialog,null);
+                lv = (LinearLayout)activity.getLayoutInflater().inflate(R.layout.confirm_dialog,null);
                 adb.setView(lv);
                 findElements();
                 currentResult.setText("Сейчас вы выполняете:");

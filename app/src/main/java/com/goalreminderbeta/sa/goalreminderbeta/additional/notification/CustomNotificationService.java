@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.SystemClock;
@@ -20,7 +21,9 @@ public class CustomNotificationService {
         builder.setContentTitle(title);
         builder.setContentText(content);
         builder.setTicker("This is ticker");
-        builder.setSmallIcon(R.drawable.arrow_goal);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
+                        R.mipmap.ic_launcher));
         //builder.setDefaults(Notification.DEFAULT_ALL);
         // setPriority(NotificationCompat.PRIORITY_LOW)
         return builder.build();

@@ -35,7 +35,7 @@ public abstract class DialogBuilder {
         dialogBuilderGoal = goal;
         dialog.setTitle("Confirmation");
 
-        dialog.setContentView(R.layout.cardio_confirm_dialog);
+        dialog.setContentView(R.layout.confirm_dialog);
         goalName = (EditText)dialog.findViewById(R.id.goalName);
         goalDescr = (EditText)dialog.findViewById(R.id.goalDescr);
         dateFrom = (EditText)dialog.findViewById(R.id.dateFrom);
