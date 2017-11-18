@@ -133,4 +133,46 @@
     <string name="skills_goal_date_from">ОТ</string>
     <string name="skills_goal_date_before">ДО</string>
 
+    <!--config-->
+    <string-array name="frequency">
+        <item>Each hour</item>
+        <item>Each 2 hours</item>
+        <item>Each 4 hours</item>
+        <item>Each day</item>
+    </string-array>
+
+    <string-array name="frequencyValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+
+    <string-array name="daysValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="selectedDays">
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

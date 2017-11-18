@@ -27,6 +27,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 
@@ -326,7 +327,7 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
     public void openOptions(View view) {
-        Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
+        Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
         startActivity(intent);
         this.finish();
     }
