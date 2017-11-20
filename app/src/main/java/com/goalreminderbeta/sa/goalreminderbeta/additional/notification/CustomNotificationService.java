@@ -21,9 +21,9 @@ public class CustomNotificationService {
         builder.setContentTitle(title);
         builder.setContentText(content);
         builder.setTicker("This is ticker");
-        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setSmallIcon(R.mipmap.logo);
         builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
-                        R.mipmap.ic_launcher));
+                        R.mipmap.logo));
         //builder.setDefaults(Notification.DEFAULT_ALL);
         // setPriority(NotificationCompat.PRIORITY_LOW)
         return builder.build();
