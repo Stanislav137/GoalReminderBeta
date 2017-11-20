@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,10 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 
 import java.text.DateFormat;
@@ -37,6 +41,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int repeatsCurrent, repeatsGoal;
+    private RepeatsDialogBuilder rdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,10 +166,13 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
-            runCorrectionGoal.save();
-            Intent intent = new Intent(RepeatsCorrectionActivity.this, StartActivity.class);
-            startActivity(intent);
-            this.finish();
+            if(rdb==null){
+                rdb = new RepeatsDialogBuilder();
+            }
+            rdb.createDialog(RepeatsCorrectionActivity.this,runCorrectionGoal).show();
+            // runCorrectionGoal.save();
+            //DialogFactory.createRepeatsDialog(RepeatsCorrectionActivity.this,runCorrectionGoal);
+
         } else {
             Toast toast;
             if(dateTo.equals(dateFrom)) {
@@ -273,5 +281,59 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private static class RepeatsDialogBuilder extends DialogBuilder {
+        private static EditText currentRepeatsET, goalRepeatsET;
+        private static TextView currentRepeatsTV, goalRepeatsTV;
+
+        private static Dialog repeatsDialog;
+
+        public RepeatsDialogBuilder() {
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            repeatsDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            currentRepeatsTV = new TextView(repeatsDialog.getContext());
+            currentRepeatsTV.setText("Your repeats now is:");
+            dialogLV.addView(currentRepeatsTV,lp);
+            currentRepeatsET = new EditText(repeatsDialog.getContext());
+            currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentRepeatsET,lp);
+
+            goalRepeatsTV = new TextView(repeatsDialog.getContext());
+            goalRepeatsTV.setText("Goal repeats is:");
+            dialogLV.addView(goalRepeatsTV,lp);
+            goalRepeatsET = new EditText(repeatsDialog.getContext());
+            goalRepeatsET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalRepeatsET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== RepeatsCorrectionGoal.class){
+                        ((RepeatsCorrectionGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+            return repeatsDialog;
+        }
     }
 }

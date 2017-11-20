@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.options.Config;
+import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 public class RecordsActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     public void openOptions(View view) {
-        Intent intent = new Intent(RecordsActivity.this, OptionsActivity.class);
+        Intent intent = new Intent(RecordsActivity.this, ConfigActivity.class);
         startActivity(intent);
         this.finish();
     }

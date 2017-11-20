@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.science;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,7 +20,9 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 
 import java.text.DateFormat;
@@ -40,6 +43,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private Dialog dialog;
     private Date dateFrom, dateTo;
     private String goalName, goalDescription, dataBook;
+    private BookDialogBuilder bdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,10 +184,12 @@ public class BookCorrectionActivity extends AppCompatActivity {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, dataBook, dateFrom, dateTo, goalName, goalDescription);
-            readBook.save();
-            Intent intent = new Intent(BookCorrectionActivity.this, StartActivity.class);
-            startActivity(intent);
-            this.finish();
+            if(bdb==null){
+                bdb = new BookDialogBuilder();
+            }
+            bdb.createDialog(BookCorrectionActivity.this,readBook).show();
+            //readBook.save();
+
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
@@ -274,4 +280,71 @@ public class BookCorrectionActivity extends AppCompatActivity {
         startActivity(intent);
         this.finish();
         }
+
+    private static class BookDialogBuilder extends DialogBuilder {
+        private static EditText dataBookET, currentBookET, goalBookET;
+        private static TextView dataBookTV, currentBookTV, goalBookTV;
+
+        private static Dialog bookDialog;
+
+        public BookDialogBuilder() {
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            bookDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            dataBookTV = new TextView(bookDialog.getContext());
+            dataBookTV.setText("НАЗВАНИЕ КНИГИ");
+            dialogLV.addView(dataBookTV,lp);
+            dataBookET = new EditText(bookDialog.getContext());
+            if(dialogBuilderGoal.getDataBook() == null) {
+                dataBookET.setText("");
+            } else {
+                dataBookET.setText(String.valueOf(dialogBuilderGoal.getDataBook()));
+            }
+            dialogLV.addView(dataBookET,lp);
+
+            currentBookTV = new TextView(bookDialog.getContext());
+            currentBookTV.setText("ВАША ТЕКУЩЯЯ СТРАНИЦА:");
+            dialogLV.addView(currentBookTV,lp);
+            currentBookET = new EditText(bookDialog.getContext());
+            currentBookET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentBookET,lp);
+
+            goalBookTV = new TextView(bookDialog.getContext());
+            goalBookTV.setText("Your goal pages:");
+            dialogLV.addView(goalBookTV,lp);
+            goalBookET = new EditText(bookDialog.getContext());
+            goalBookET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalBookET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== ReadBookGoal.class){
+                        ((ReadBookGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+
+            return bookDialog;
+        }
+    }
+        
     }

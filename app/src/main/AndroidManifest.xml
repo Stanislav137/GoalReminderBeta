@@ -18,10 +18,13 @@
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
-        <uses-permission android:name="android.permission.VIBRATE"/>
+
+        <uses-permission android:name="android.permission.VIBRATE" />
+
         <receiver android:name=".additional.notification.NotificationPublisher" />
 
-        <activity android:name=".all.StartActivity"
+        <activity
+            android:name=".all.StartActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,17 +32,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".all.AllSectionTheme"                               android:screenOrientation="portrait"/>
-        <activity android:name=".all.sport.WeightCorrectionActivity"                android:screenOrientation="portrait"/>
-        <activity android:name=".all.sport.CardioActivity"                          android:screenOrientation="portrait"/>
-        <activity android:name=".all.other.ElementCorrectionActivity"               android:screenOrientation="portrait"/>
-        <activity android:name=".all.sport.RepeatsCorrectionActivity"               android:screenOrientation="portrait"/>
-        <activity android:name=".all.sport.AllSubThemesSport"                       android:screenOrientation="portrait"/>
-        <activity android:name=".all.science.AllSubThemesScience"                   android:screenOrientation="portrait"/>
-        <activity android:name=".all.science.BookCorrectionActivity"                android:screenOrientation="portrait"/>
-        <activity android:name=".all.science.languages.LanguageLearningActivity"    android:screenOrientation="portrait"/>
-        <activity android:name=".all.RecordsActivity"                               android:screenOrientation="portrait"/>
-        <activity android:name=".options.OptionsActivity"                               android:screenOrientation="portrait"/>
+        <activity
+            android:name=".all.AllSectionTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.sport.WeightCorrectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.sport.CardioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.other.ElementCorrectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.sport.RepeatsCorrectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.sport.AllSubThemesSport"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.science.AllSubThemesScience"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.science.BookCorrectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.science.languages.LanguageLearningActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".all.RecordsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".options.OptionsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".options.ConfigActivity"></activity>
     </application>
 
 </manifest>

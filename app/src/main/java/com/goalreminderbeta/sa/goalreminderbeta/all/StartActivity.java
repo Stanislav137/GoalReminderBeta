@@ -27,6 +27,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 
@@ -195,8 +196,11 @@ public class StartActivity extends AppCompatActivity {
                         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         dialog.setContentView(R.layout.confirm_deletion);
                         dialog.show();
+                        Button confirmDelete = (Button) dialog.findViewById(R.id.confirmDelete);
                         Button delete = (Button) dialog.findViewById(R.id.delete);
                         Button back = (Button) dialog.findViewById(R.id.back);
+
+                        confirmDelete.setText("ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ - " + goal.getNameGoal());
 
                         delete.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -214,6 +218,15 @@ public class StartActivity extends AppCompatActivity {
                         });
                     }
                     printAllGoals();
+
+                    if (allGoals.size() == 0) {
+                        startAddGoal.setVisibility(View.VISIBLE);
+                        bootStrapAddGoalCenter();
+                    } else {
+                        startAddGoal.setVisibility(View.VISIBLE);
+                        bootStrapAddGoalDown();
+                    }
+                    startAnimAddGoal();
 
                     return true;
 
@@ -314,7 +327,7 @@ public class StartActivity extends AppCompatActivity {
         this.finish();
     }
     public void openOptions(View view) {
-        Intent intent = new Intent(StartActivity.this, OptionsActivity.class);
+        Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
         startActivity(intent);
         this.finish();
     }

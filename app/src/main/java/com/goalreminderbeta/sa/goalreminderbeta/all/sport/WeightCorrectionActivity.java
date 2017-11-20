@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
 
+ import android.app.Activity;
  import android.app.Dialog;
  import android.content.Intent;
  import android.os.Bundle;
@@ -18,7 +19,9 @@ import android.view.View;
  import com.goalreminderbeta.sa.goalreminderbeta.R;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
  import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+ import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
  import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
+ import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
  import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
  import java.text.DateFormat;
@@ -39,6 +42,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     private Date dateFrom, dateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
+    private WeightDialogBuilder wdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,11 +179,12 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             Date dateTo = this.dateTo;
 
             WeightCorrectionGoal goal = new WeightCorrectionGoal(currentWeight, goalWeight, dateFrom, dateTo, goalName, goalDescription);
-            goal.save();
+            if(wdb==null){
+                wdb = new WeightDialogBuilder();
+            }
+            wdb.createDialog(WeightCorrectionActivity.this,goal).show();
+            //goal.save();
 
-            Intent intent = new Intent(WeightCorrectionActivity.this, StartActivity.class);
-            startActivity(intent);
-            this.finish();
         } else {
             Toast toast;
             if(dateTo.equals(dateFrom)) {
@@ -317,5 +322,59 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AllSubThemesSport.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private static class WeightDialogBuilder extends DialogBuilder {
+        private static EditText currentWeightET, goalWeightET;
+        private static TextView currentWeightTV, goalWeightTV;
+
+        private static Dialog weightDialog;
+
+        public WeightDialogBuilder() {
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            weightDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            currentWeightTV = new TextView(weightDialog.getContext());
+            currentWeightTV.setText("Your weight now is:");
+            dialogLV.addView(currentWeightTV,lp);
+            currentWeightET = new EditText(weightDialog.getContext());
+            currentWeightET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentWeightET,lp);
+
+            goalWeightTV = new TextView(weightDialog.getContext());
+            goalWeightTV.setText("Goal weight is:");
+            dialogLV.addView(goalWeightTV,lp);
+            goalWeightET = new EditText(weightDialog.getContext());
+            goalWeightET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalWeightET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== WeightCorrectionGoal.class){
+                        ((WeightCorrectionGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+            return weightDialog;
+        }
     }
 }

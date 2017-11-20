@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.other;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +15,11 @@ import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -33,6 +36,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     private TextView currentLvlGoal;
     private int levelCurrent = 0;
     Button lvlOne, lvlTwo, lvlThree, lvlFour;
+    private ElementDialogBuilder edb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,10 +121,11 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         Date fromDate = this.dateFrom;
         Date toDate = this.dateTo;
         ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, fromDate, toDate, goalName, goalDescription);
-        elementCorrectionGoal.save();
-        Intent intent = new Intent(ElementCorrectionActivity.this, StartActivity.class);
-        startActivity(intent);
-        this.finish();
+
+            if(edb==null){
+                edb = new ElementDialogBuilder();
+            }
+            edb.createDialog(ElementCorrectionActivity.this,elementCorrectionGoal).show();
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
@@ -176,5 +181,59 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         Intent intent = new Intent(this, AllSectionTheme.class);
         startActivity(intent);
         this.finish();
+    }
+
+    private static class ElementDialogBuilder extends DialogBuilder {
+        private static EditText currentElementET, goalElementET;
+        private static TextView currentElementTV, goalElementTV;
+
+        private static Dialog elementDialog;
+
+        public ElementDialogBuilder() {
+        }
+        @Override
+        public Dialog createDialog(final Activity activity, Goal goal){
+            elementDialog = super.createDialog(activity,goal);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date_from = sdf.format(dialogBuilderGoal.getFromDate());
+            dateFrom.setText(date_from);
+            String date_to = sdf.format(dialogBuilderGoal.getToDate());
+            dateTo.setText(date_to);
+
+            currentElementTV = new TextView(elementDialog.getContext());
+            currentElementTV.setText("Your current level is:");
+            dialogLV.addView(currentElementTV,lp);
+            currentElementET = new EditText(elementDialog.getContext());
+            currentElementET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            dialogLV.addView(currentElementET,lp);
+
+            goalElementTV = new TextView(elementDialog.getContext());
+            goalElementTV.setText("Goal level is:");
+            dialogLV.addView(goalElementTV,lp);
+            goalElementET = new EditText(elementDialog.getContext());
+            goalElementET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            dialogLV.addView(goalElementET,lp);
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Class c = dialogBuilderGoal.getClass();
+                    if(c== ElementCorrectionGoal.class){
+                        ((ElementCorrectionGoal)dialogBuilderGoal).save();
+                    }
+                    encourage();
+                    Intent intent = new Intent(activity, StartActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                }
+            });
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.hide();
+                }
+            });
+
+            return elementDialog;
+        }
     }
 }
