@@ -269,7 +269,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2" >
+            android:layout_weight="2">
 
             <Button
                 android:id="@+id/goalRepeatsResult"
@@ -324,7 +324,6 @@
             android:layout_alignBottom="@+id/fromId"
             android:layout_alignLeft="@+id/repeatsDateTo"
             android:layout_alignStart="@+id/repeatsDateTo"
-            android:onClick="pickDateFrom"
             android:text="00.00.0000"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
@@ -362,13 +361,14 @@
     </RelativeLayout>
 
     <Button
-        android:onClick="saveGoal"
+        android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp"
-        android:textColor="@color/colorBackground"
-        android:textSize="18sp"
         android:background="@drawable/sport_save_goal"
-        android:text="@string/save_goal"/>
+        android:onClick="saveGoal"
+        android:padding="15sp"
+        android:text="@string/save_goal"
+        android:textColor="@color/colorBackground"
+        android:textSize="18sp" />
 
 </LinearLayout>

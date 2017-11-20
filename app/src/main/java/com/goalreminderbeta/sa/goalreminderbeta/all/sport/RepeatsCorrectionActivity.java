@@ -84,9 +84,6 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         }
     }
 
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(RepeatsCorrectionActivity.this, repeatsDateFrom);
-    }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(RepeatsCorrectionActivity.this, repeatsDateTo);
     }
@@ -160,7 +157,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(repeatsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(repeatsDateTo.getText()));
 
-        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && repeatsGoal > repeatsCurrent) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
@@ -174,6 +171,8 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
                 toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
             } else if(goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else if(repeatsGoal < repeatsCurrent) {
+                    toast = Toast.makeText(getApplicationContext(), "ВАША ЖЕЛАЙМАЯ ЦЕЛЬ НИЖЕ ТЕКУШЕЙ", Toast.LENGTH_SHORT);
             } else {
                 toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }

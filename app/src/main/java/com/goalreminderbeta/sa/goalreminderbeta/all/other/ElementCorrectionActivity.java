@@ -83,9 +83,6 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         }
     }
 
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(ElementCorrectionActivity.this, elementsDateFrom);
-    }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(ElementCorrectionActivity.this, elementsDateTo);
     }

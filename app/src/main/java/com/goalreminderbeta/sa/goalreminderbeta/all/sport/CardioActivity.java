@@ -148,9 +148,6 @@ public class CardioActivity extends AppCompatActivity {
         return timer;
     }
 
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(CardioActivity.this, sportDateFrom);
-    }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(CardioActivity.this, sportDateTo);
     }

@@ -73,6 +73,31 @@
     <string name="options_saturday">С</string>
     <string name="notifications_on_off">ВКЛ/ВЫКЛ УВЕДОМЛЕНИЯ:</string>
 
+    <!-- ACTIVITY STATISTICS-->
+
+    <string name="statistics">СТАТИСТИКА</string>
+    <string name="statistics_description_of_purpose">Я ХОЧУ БЫТЬ ЛУЧШИМ В МИРЕ ПО СКОРОСТИ БЕГА</string>
+    <string name="statistics_current_result">ТЕКУЩИЙ РЕЗУЛЬТАТ:</string>
+    <string name="statistics_your_aim">ВАША ЦЕЛЬ:</string>
+    <string name="statistics_remaining_purpose">ОСТАЛОСЬ ДО ЦЕЛИ:</string>
+    <string name="statistics_day_task">ЗАДАЧА В ДЕНЬ:</string>
+    <string name="statistics_status">СТАТУС:</string>
+    <string name="statistics_days_left">ОСТАЛОСЬ ДНЕЙ:</string>
+    <string name="statistics_done">ОСТАЛОСЬ ДНЕЙ:</string>
+
+    <!-- ACTIVITY all themes -->
+
+    <string name="select_themes">ВЫБЕРИТЕ ТЕМУ</string>
+    <string name="sport">СПОРТ</string>
+    <string name="science">НАУКА</string>
+    <string name="other">ДРУГОЕ</string>
+
+    <!-- ACTIVITY SPORT -->
+
+    <string name="weightt_sport">МАССА</string>
+    <string name="cardio_sport">КАРДИО</string>
+    <string name="repetitions_sport">ПОВТОРЕНИЯ</string>
+
     <!-- ACTIVITY SPORT CATEGORY MASA -->
 
     <string name="weight_description_purpose">ОПИСАНИЕ ЦЕЛИ:</string>
@@ -132,5 +157,7 @@
     <string name="skills_goal_date">ДАТА ЦЕЛИ:</string>
     <string name="skills_goal_date_from">ОТ</string>
     <string name="skills_goal_date_before">ДО</string>
+
+
 
 </resources>
