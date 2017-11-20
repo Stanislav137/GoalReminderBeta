@@ -58,13 +58,12 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10sp"
                 android:text="@string/cardio_description_purpose"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <ImageView
                 android:id="@+id/imgReadyDescription"
@@ -331,13 +330,13 @@
             android:id="@+id/sportDateFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/repeatsDateTo"
-            android:layout_alignStart="@+id/repeatsDateTo"
-            android:onClick="pickDateFrom"
             android:text="00.00.0000"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:layout_alignBottom="@+id/fromId" />
+            android:layout_alignBaseline="@+id/fromId"
+            android:layout_alignBottom="@+id/fromId"
+            android:layout_alignLeft="@+id/repeatsDateTo"
+            android:layout_alignStart="@+id/repeatsDateTo" />
 
         <ImageView
             android:id="@+id/position3"

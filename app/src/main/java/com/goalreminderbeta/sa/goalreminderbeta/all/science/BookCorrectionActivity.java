@@ -112,9 +112,6 @@ public class BookCorrectionActivity extends AppCompatActivity {
         });
     }
 
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(BookCorrectionActivity.this, bookDateFrom);
-    }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(BookCorrectionActivity.this, bookDateTo);
     }

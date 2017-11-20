@@ -292,7 +292,6 @@
             android:layout_alignBottom="@+id/fromId"
             android:layout_alignLeft="@+id/repeatsDateTo"
             android:layout_alignStart="@+id/repeatsDateTo"
-            android:onClick="pickDateFrom"
             android:text="00.00.0000"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />

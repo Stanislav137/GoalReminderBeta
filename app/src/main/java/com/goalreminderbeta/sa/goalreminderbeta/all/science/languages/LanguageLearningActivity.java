@@ -77,9 +77,6 @@ public class LanguageLearningActivity extends AppCompatActivity {
         languageDateTo = (TextView) findViewById(R.id.languageDateTo);
     }
 
-    public void pickDateFrom(View view) throws ParseException {
-        CustomDatePicker.pickDate(LanguageLearningActivity.this, languageDateFrom);
-    }
     public void pickDateTo(View view) {
         CustomDatePicker.pickDate(LanguageLearningActivity.this, languageDateTo);
     }

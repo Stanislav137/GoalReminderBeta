@@ -297,6 +297,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
     public void setGoalWeight(View view) {
         final Dialog dialog;
         dialog = new Dialog(WeightCorrectionActivity.this);
