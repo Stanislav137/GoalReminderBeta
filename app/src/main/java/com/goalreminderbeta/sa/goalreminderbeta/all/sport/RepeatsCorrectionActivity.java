@@ -165,7 +165,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(repeatsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(repeatsDateTo.getText()));
 
-        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
@@ -183,7 +183,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             } else if(goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }
             toast.show();
         }

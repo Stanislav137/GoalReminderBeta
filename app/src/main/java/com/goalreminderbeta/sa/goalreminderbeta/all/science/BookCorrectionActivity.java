@@ -183,7 +183,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(bookDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(bookDateTo.getText()));
-        if (goalName != null && goalPage != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null && goalPage != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             ReadBookGoal readBook = new ReadBookGoal(currentPages, goalPage, dataBook, dateFrom, dateTo, goalName, goalDescription);
@@ -200,7 +200,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             } else if (goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }
             toast.show();
         }

@@ -216,7 +216,7 @@ public class CardioActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
-        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
@@ -234,7 +234,7 @@ public class CardioActivity extends AppCompatActivity {
             } else if (goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }
             toast.show();
         }

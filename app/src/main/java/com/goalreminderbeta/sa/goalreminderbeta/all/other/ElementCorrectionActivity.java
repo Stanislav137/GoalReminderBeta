@@ -120,7 +120,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(elementsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(elementsDateTo.getText()));
-        if (goalName != null && levelCurrent != 0 && !dateTo.equals(dateFrom)) {
+        if (goalName != null && levelCurrent != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
         Date fromDate = this.dateFrom;
         Date toDate = this.dateTo;
         ElementCorrectionGoal elementCorrectionGoal = new ElementCorrectionGoal(levelCurrent, fromDate, toDate, goalName, goalDescription);
@@ -136,7 +136,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         } else if (goalName == null) {
             toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
         } else {
-            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
         }
         toast.show();
       }

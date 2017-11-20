@@ -172,7 +172,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
 
 
-        if(goalName != null && currentWeight != 0 && goalWeight != 0 && !dateTo.equals(dateFrom)) {
+        if(goalName != null && currentWeight != 0 && goalWeight != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
             double currentWeight = this.currentWeight;
             double goalWeight = this.goalWeight;
             Date dateFrom = this.dateFrom;
@@ -192,7 +192,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             } else if(goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }
             toast.show();
         }

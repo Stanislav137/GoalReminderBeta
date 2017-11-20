@@ -88,7 +88,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(languageDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(languageDateTo.getText()));
-        if (goalName != null && !dateTo.equals(dateFrom)) {
+        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
         LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
@@ -107,7 +107,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
         } else if (goalName == null) {
             toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
         } else {
-            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ЗАПОЛНИТЕ ВСЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
         }
         toast.show();
         }
@@ -241,14 +241,14 @@ public class LanguageLearningActivity extends AppCompatActivity {
             currentLanguageTV.setText("Your language level is:");
             dialogLV.addView(currentLanguageTV,lp);
             currentLanguageET = new EditText(languageDialog.getContext());
-            currentLanguageET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            currentLanguageET.setText(String.valueOf(dialogBuilderGoal.getCurrentLanguageLevel()));
             dialogLV.addView(currentLanguageET,lp);
 
             goalLanguageTV = new TextView(languageDialog.getContext());
             goalLanguageTV.setText("Goal language level is:");
             dialogLV.addView(goalLanguageTV,lp);
             goalLanguageET = new EditText(languageDialog.getContext());
-            goalLanguageET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalLanguageET.setText(String.valueOf(dialogBuilderGoal.getGoalLanguageLevel()));
             dialogLV.addView(goalLanguageET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
