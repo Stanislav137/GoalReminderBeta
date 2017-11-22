@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Parcelable;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.CustomNotificationService;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationService;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -41,6 +43,7 @@ public class StartActivity extends AppCompatActivity {
     private Button startAddGoal;
     private ExpandableListView allGoalsList;
     private List<Goal> allGoals;
+    public static int sizeOfList=0;
     private BootStrap bootStrap;
     private boolean logicAddGoal;
     private Animation anim = null;
@@ -64,7 +67,28 @@ public class StartActivity extends AppCompatActivity {
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
-        startNotification();
+        //startService(new Intent(this, NotificationService.class));
+       // startNotification();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(ConfigActivity.isNotifOn()){
+            stopService(new Intent(this,NotificationService.class));
+            Intent intent = new Intent(this,NotificationService.class);
+            intent.putExtra("size",allGoals.size());
+            intent.putExtra("frequency",ConfigActivity.getFrequency());
+            intent.putExtra("sound",ConfigActivity.isSoundOn());
+            intent.putExtra("vibr",ConfigActivity.isVibrOn());
+            intent.putExtra("days",ConfigActivity.getSelectedDays());
+            NotificationService.isService = true;
+        startService(intent);
+        sizeOfList = allGoals.size();
+        }
+        else
+            NotificationService.isService = false;
+            stopService(new Intent(this,NotificationService.class));
     }
 
     @Override
@@ -92,7 +116,6 @@ public class StartActivity extends AppCompatActivity {
                     dialog.show();
                     Button delete = (Button) dialog.findViewById(R.id.delete);
                     Button back = (Button) dialog.findViewById(R.id.back);
-
                     delete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -231,7 +254,6 @@ public class StartActivity extends AppCompatActivity {
                     return true;
 
                 }else {
-
                     return false;
                 }
             }

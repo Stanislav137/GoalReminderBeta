@@ -82,6 +82,18 @@
                     android:background="@color/clr_sport"></LinearLayout>
             </RelativeLayout>
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveBTN"
+            android:text="Save"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorBackground"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/others_save_goal"/>
+
     </LinearLayout>
 
 </LinearLayout>

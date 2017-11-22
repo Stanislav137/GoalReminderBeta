@@ -162,8 +162,8 @@
     <string-array name="frequency">
         <item>Each hour</item>
         <item>Each 2 hours</item>
+        <item>Each 3 hours</item>
         <item>Each 4 hours</item>
-        <item>Each day</item>
     </string-array>
 
     <string-array name="frequencyValues">

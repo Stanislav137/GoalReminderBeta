@@ -19,12 +19,15 @@
             android:name="QUERY_LOG"
             android:value="true" />
 
-        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.VIBRATE"
+            />
+
 
         <receiver android:name=".additional.notification.NotificationPublisher" />
 
         <activity
             android:name=".all.StartActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -65,7 +68,14 @@
         <activity
             android:name=".options.OptionsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".options.ConfigActivity"></activity>
+        <activity android:name=".options.ConfigActivity" />
+
+        <service
+            android:name=".additional.notification.NotificationService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":service"
+            ></service>
     </application>
 
 </manifest>
