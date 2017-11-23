@@ -94,9 +94,9 @@ public class NotificationService extends Service {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentIntent(pIntent);
         builder.setWhen(System.currentTimeMillis());
-        builder.setSmallIcon(R.drawable.notification);
+        builder.setSmallIcon(R.drawable.logo);
         builder.setTicker("Be better");
-        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_launcher));
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.logo));
         builder.setAutoCancel(true);
         builder.setContentTitle(title);
         builder.setContentText(content); // Текст уведомления
