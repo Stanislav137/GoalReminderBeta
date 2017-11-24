@@ -213,7 +213,7 @@ public class CardioActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
-        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
+        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && currentRunTime >= goalRunTime) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);

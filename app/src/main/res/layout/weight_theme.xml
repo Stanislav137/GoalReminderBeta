@@ -222,12 +222,13 @@
                 android:id="@+id/sportMinusWeightGoal"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:layout_below="@+id/position2"
-                android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_red"
                 android:text="-"
                 android:textColor="@color/colorBackground"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:layout_below="@+id/position2"
+                android:layout_alignLeft="@+id/position2"
+                android:layout_alignStart="@+id/position2" />
 
             <Button
                 android:id="@+id/sportPlusWeightGoal"

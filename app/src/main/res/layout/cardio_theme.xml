@@ -58,6 +58,7 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:text="@string/cardio_description_purpose"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"

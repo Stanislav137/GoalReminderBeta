@@ -58,13 +58,13 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp"
                 android:text="@string/repetitions_description_exercise"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp"
-                android:layout_marginLeft="10sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/imgReadyDescription"
@@ -77,13 +77,13 @@
                 android:background="@drawable/empty" />
 
             <ImageView
+                android:id="@+id/showWarningId"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:onClick="showWarning"
-                android:id="@+id/showWarningId"
                 android:layout_alignParentRight="true"
                 android:layout_margin="10sp"
-                android:background="@drawable/warning" />
+                android:background="@drawable/warning"
+                android:onClick="showWarning" />
 
         </RelativeLayout>
 
