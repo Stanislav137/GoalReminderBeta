@@ -52,6 +52,10 @@ public class LanguageLearningActivity extends AppCompatActivity {
         dialog = new Dialog(LanguageLearningActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.description_goal);
+        EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
+        nameGoal.setText(goalName);
+        descriptionGoal.setText(goalDescription);
         dialog.show();
     }
 
