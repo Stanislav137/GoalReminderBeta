@@ -158,6 +158,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
     public void editDescription(View view) {
         dialog = new Dialog(BookCorrectionActivity.this);
         dialog.setContentView(R.layout.description_goal);
+        EditText descriptionGoal = (EditText) dialog.findViewById(R.id.descriptionGoal);
+        EditText nameGoal = (EditText) dialog.findViewById(R.id.nameGoal);
+        nameGoal.setText(goalName);
+        descriptionGoal.setText(goalDescription);
         dialog.show();
     }
 

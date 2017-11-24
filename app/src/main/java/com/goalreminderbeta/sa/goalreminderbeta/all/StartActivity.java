@@ -49,7 +49,6 @@ public class StartActivity extends AppCompatActivity {
     private Animation anim = null;
     private ExpListAdapter adapter;
     private boolean switchQuote;
-    private GestureDetectorCompat gestureObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,12 +88,6 @@ public class StartActivity extends AppCompatActivity {
         else
             NotificationService.isService = false;
             stopService(new Intent(this,NotificationService.class));
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.gestureObject.onTouchEvent(event);
-        return super.onTouchEvent(event);
     }
 
     private void setListenersOnChild(){
