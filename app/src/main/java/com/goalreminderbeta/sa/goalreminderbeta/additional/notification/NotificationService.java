@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
@@ -28,6 +29,8 @@ public class NotificationService extends Service {
     private static final int NOTIFICATION_ID=1;
     public PendingIntent servicePendingIntent;
     public static boolean isService=true;
+    public static boolean isDay=true;
+    AlarmManager am;
     public NotificationService() {
     }
 
@@ -39,15 +42,31 @@ public class NotificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        int frequency = intent.getIntExtra("frequency",1);
-        int[]days = intent.getIntArrayExtra("days");
-        Calendar calendar = Calendar.getInstance();
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+
         Context context = getApplicationContext();
+
+        if(isService) {
+            Calendar calendar = Calendar.getInstance();
+            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+            int frequency = Integer.parseInt(intent.getStringExtra("frequency"));
+            int[]days = intent.getIntArrayExtra("days");
+            if(isDay(dayOfWeek,days)){
+            try{
+                TimeUnit.SECONDS.sleep(frequency*10);
+            }catch (InterruptedException e){e.printStackTrace();}
+            sendNotification(context,intent);
+            }/*else{
+                while (!isDay){
+                    isDay(dayOfWeek,intent.getIntArrayExtra("days"));
+                }
                 try{
-                   TimeUnit.SECONDS.sleep(frequency*10);
-        }catch (InterruptedException e){e.printStackTrace();}
+                    TimeUnit.SECONDS.sleep(frequency*10);
+                }catch (InterruptedException e){e.printStackTrace();}
                 sendNotification(context,intent);
+            }*/
+        }
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -57,6 +76,8 @@ public class NotificationService extends Service {
     }
 
     private void sendNotification(Context context,Intent intent){
+        int frequency = intent.getIntExtra("frequency",1);
+        int[]days = intent.getIntArrayExtra("days");
         int size = intent.getIntExtra("size",0);
         boolean sound = intent.getBooleanExtra("sound",true);
         boolean vibr = intent.getBooleanExtra("vibr",true);
@@ -84,22 +105,28 @@ public class NotificationService extends Service {
             else{
             }
         }
+
+       // am = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        //am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime()+5000,10000,pIntent);
         manager.notify(NOTIFICATION_ID,notification);
 
     }
 
     public static Notification createNotification(String content, String title, Context context, PendingIntent pIntent) {
-        //builder.setDefaults(Notification.DEFAULT_ALL);
-        // setPriority(NotificationCompat.PRIORITY_LOW)*/
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentIntent(pIntent);
         builder.setWhen(System.currentTimeMillis());
+
         builder.setSmallIcon(R.mipmap.notification);
         builder.setTicker("Be better");
         builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.mipmap.logo));
+
+        builder.setSmallIcon(R.drawable.my_goal_image);
+        builder.setTicker("Be better");
+
         builder.setAutoCancel(true);
         builder.setContentTitle(title);
-        builder.setContentText(content); // Текст уведомления
+        builder.setContentText(content);
 
         return builder.build();
     }
@@ -107,11 +134,15 @@ public class NotificationService extends Service {
     private boolean isDay(int day, int[]days){
         for(int d:days){
             if(days[day-2]!=0){
-                return true;
+                isDay=true;
+                return isDay;
             }
         }
-        return false;
+        isDay=false;
+        return isDay;
     }
+
+
 
 
 }

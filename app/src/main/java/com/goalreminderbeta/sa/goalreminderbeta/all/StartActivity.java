@@ -2,8 +2,10 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,6 +52,11 @@ public class StartActivity extends AppCompatActivity {
     private ExpListAdapter adapter;
     private boolean switchQuote;
 
+    private GestureDetectorCompat gestureObject;
+    private SharedPreferences sp;
+    private static int[]selectedDays = new int[]{0,0,0,0,0,0,0};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +67,29 @@ public class StartActivity extends AppCompatActivity {
 
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        if(sp.getBoolean("notification",true)){
+            Intent intent = new Intent(this,NotificationService.class);
+            intent.putExtra("size",allGoals.size());
+            intent.putExtra("frequency",sp.getString("interval","1"));
+            intent.putExtra("sound",sp.getBoolean("sound",true));
+            intent.putExtra("vibr",sp.getBoolean("vibration",true));
+            for(int i=0;i<7;i++){
+                boolean a = sp.getBoolean("day"+(i+1),false);
+                if(!a){
+                    selectedDays[i]=i+1;
+                }else{
+                    selectedDays[i]=0;
+                }
+            }
+            intent.putExtra("days",selectedDays);
+            NotificationService.isService = true;
+            startService(intent);
+            sizeOfList = allGoals.size();
+        }
+        else{
+            NotificationService.isService = false;
+            stopService(new Intent(this,NotificationService.class));}
         //setLongListenersOnChild();
         setListenersOnChild();
         setListenerOnGroup();
@@ -73,7 +103,7 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(ConfigActivity.isNotifOn()){
+        /*if(ConfigActivity.isNotifOn()){
             stopService(new Intent(this,NotificationService.class));
             Intent intent = new Intent(this,NotificationService.class);
             intent.putExtra("size",allGoals.size());
@@ -85,9 +115,9 @@ public class StartActivity extends AppCompatActivity {
         startService(intent);
         sizeOfList = allGoals.size();
         }
-        else
+        else{
             NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));
+            stopService(new Intent(this,NotificationService.class));}*/
     }
 
     private void setListenersOnChild(){

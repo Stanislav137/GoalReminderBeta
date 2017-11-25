@@ -16,6 +16,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.Notifica
 import com.goalreminderbeta.sa.goalreminderbeta.all.RecordsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 
+import java.util.Calendar;
 
 
 public class ConfigActivity extends Activity implements OnClickListener{
@@ -57,7 +58,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
         save.setOnClickListener(this);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
-        if(notifOn){
+        /*if(notifOn){
             stopService(new Intent(this,NotificationService.class));
             Intent intent = new Intent(this,NotificationService.class);
             intent.putExtra("size",StartActivity.sizeOfList);
@@ -70,7 +71,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
         }
         else
             NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));
+            stopService(new Intent(this,NotificationService.class));*/
 
     }
 
@@ -79,8 +80,8 @@ public class ConfigActivity extends Activity implements OnClickListener{
         super.onResume();
         frequency = sp.getString("interval","");
         notifOn = sp.getBoolean("notification",true);
-        soundOn = sp.getBoolean("sound",false);
-        vibrOn = sp.getBoolean("vibration",false);
+        soundOn = sp.getBoolean("sound",true);
+        vibrOn = sp.getBoolean("vibration",true);
         for(int i=0;i<7;i++){
             boolean a = sp.getBoolean("day"+(i+1),false);
             if(!a){
@@ -105,6 +106,8 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
     @Override
     public void onClick(View view) {
+        Calendar calendar = Calendar.getInstance();
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         frequency = sp.getString("interval","");
         notifOn = sp.getBoolean("notification",true);
@@ -131,8 +134,8 @@ public class ConfigActivity extends Activity implements OnClickListener{
             startService(intent);
 
         }
-        else
+        else{
             NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));
+            stopService(new Intent(this,NotificationService.class));}
     }
 }
