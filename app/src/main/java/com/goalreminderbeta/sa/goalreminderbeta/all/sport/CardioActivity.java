@@ -45,12 +45,13 @@ public class CardioActivity extends AppCompatActivity {
     private Button sportAddDistanceX100;
     private Button runDistanceResult, runTimeResult;
     private Button sportMinusTime, sportAddTime, nextTime;
+    private boolean verifyNextTime = false;
     private Date dateFrom, dateTo;
     private TextView sportDateFrom, sportDateTo, changeTxtTime;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private int distance, currentRunTime, goalRunTime;
-    private boolean currentOrGoalTime = false ;
+    private int distance, currentRunTime = 0, goalRunTime = 0;
+    private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
 
     @Override
@@ -134,6 +135,7 @@ public class CardioActivity extends AppCompatActivity {
                 if (current.equals("true")) {
                     if (direction.equals("+")) {
                         currentRunTime += increasing;
+                        verifyNextTime = true;
                     } else if (currentRunTime > 0) {
                         currentRunTime -= increasing;
                     }
@@ -261,17 +263,19 @@ public class CardioActivity extends AppCompatActivity {
     private void switchWeight(){
         sportAddTime.setOnClickListener(null);
         sportMinusTime.setOnClickListener(null);
-        if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")){
-            setTimerOnButton(sportMinusTime, "-", "false", 1);
-            setTimerOnButton(sportAddTime, "+", "false", 1);
-            changeTxtTime.setText("ЖЕЛАЕМАЯ ЦЕЛЬ:");
-            runTimeResult.setText("" + goalRunTime);
-        }else {
-            setTimerOnButton(sportMinusTime, "-", "true", 1);
-            setTimerOnButton(sportAddTime, "+", "true", 1);
-            changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
-            runTimeResult.setText("" + currentRunTime);
-        }
+        if(verifyNextTime) {
+            if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")) {
+                setTimerOnButton(sportMinusTime, "-", "false", 1);
+                setTimerOnButton(sportAddTime, "+", "false", 1);
+                changeTxtTime.setText("ЖЕЛАЕМАЯ ЦЕЛЬ:");
+                runTimeResult.setText("" + goalRunTime);
+            } else {
+                setTimerOnButton(sportMinusTime, "-", "true", 1);
+                setTimerOnButton(sportAddTime, "+", "true", 1);
+                changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
+                runTimeResult.setText("" + currentRunTime);
+            }
+        } else return;
     }
     private void initializeUX(){
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -310,12 +314,24 @@ public class CardioActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
-
+        if(!verifyMode[0]){
+            value.setText(currentRunTime + "");
+            verifyMode[0] = true;
+        } else {
+            value.setText(goalRunTime + "");
+            verifyMode[0] = false;
+        }
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                runTimeResult.setText(value.getText());
-                currentRunTime = Integer.parseInt(value.getText().toString());
+                if(verifyMode[0]){
+                    currentRunTime = Integer.parseInt(value.getText().toString());
+                    runTimeResult.setText(currentRunTime + "");
+                    verifyNextTime = true;
+                } else {
+                    goalRunTime = Integer.parseInt(value.getText().toString());
+                    runTimeResult.setText(goalRunTime + "");
+                }
                 dialog.dismiss();
             }
         });

@@ -294,7 +294,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sportCurrentWeight.setText(value.getText());
-
+                currentWeight = Double.parseDouble(value.getText().toString());
                 dialog.dismiss();
             }
         });
