@@ -236,6 +236,8 @@ public class CardioActivity extends AppCompatActivity {
                 toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
             } else if (goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else if (currentRunTime <= goalRunTime) {
+                toast = Toast.makeText(getApplicationContext(), "ЖЕЛАЕМАЯ ЦЕЛЬ БОЛЬШЕ ТЕКУЩЕЙ", Toast.LENGTH_SHORT);
             } else {
                 toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }

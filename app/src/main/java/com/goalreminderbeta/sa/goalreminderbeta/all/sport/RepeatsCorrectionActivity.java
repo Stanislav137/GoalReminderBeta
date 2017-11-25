@@ -166,31 +166,29 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(repeatsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(repeatsDateTo.getText()));
 
-        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && repeatsGoal > repeatsCurrent) {
-            if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
-                Date dateFrom = this.dateFrom;
-                Date dateTo = this.dateTo;
-                RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
-                if (rdb == null) {
-                    rdb = new RepeatsDialogBuilder();
-                }
-                rdb.createDialog(RepeatsCorrectionActivity.this, runCorrectionGoal).show();
-                // runCorrectionGoal.save();
-                //DialogFactory.createRepeatsDialog(RepeatsCorrectionActivity.this,runCorrectionGoal);
-
-            } else {
-                Toast toast;
-                if (dateTo.equals(dateFrom)) {
-                    toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
-                } else if (goalName == null) {
-                    toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
-                } else if (repeatsGoal < repeatsCurrent) {
-                    toast = Toast.makeText(getApplicationContext(), "ВАША ЖЕЛАЙМАЯ ЦЕЛЬ НИЖЕ ТЕКУШЕЙ", Toast.LENGTH_SHORT);
-                } else {
-                    toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
-                }
-                toast.show();
+        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && repeatsGoal > repeatsCurrent) {
+            Date dateFrom = this.dateFrom;
+            Date dateTo = this.dateTo;
+            RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);
+            if (rdb == null) {
+                rdb = new RepeatsDialogBuilder();
             }
+            rdb.createDialog(RepeatsCorrectionActivity.this, runCorrectionGoal).show();
+            // runCorrectionGoal.save();
+            //DialogFactory.createRepeatsDialog(RepeatsCorrectionActivity.this,runCorrectionGoal);
+
+        } else {
+            Toast toast;
+            if (dateTo.equals(dateFrom)) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            } else if (goalName == null) {
+                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            } else if (repeatsGoal <= repeatsCurrent) {
+                toast = Toast.makeText(getApplicationContext(), "ВАША ЖЕЛАЙМАЯ ЦЕЛЬ НИЖЕ ТЕКУШЕЙ", Toast.LENGTH_SHORT);
+            } else {
+                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            }
+            toast.show();
         }
     }
     public void backToHome(View view) {

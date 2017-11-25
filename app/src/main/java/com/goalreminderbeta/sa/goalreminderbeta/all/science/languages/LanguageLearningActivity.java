@@ -37,6 +37,8 @@ public class LanguageLearningActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private LanguageDialogBuilder ldb;
+    private boolean verifyMode = false;
+    private int nextIndexCurrent = 1, nextIndexGoal = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +91,8 @@ public class LanguageLearningActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(languageDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(languageDateTo.getText()));
-        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime()) {
+
+        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && nextIndexCurrent < nextIndexGoal) {
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
         LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
@@ -169,23 +172,27 @@ public class LanguageLearningActivity extends AppCompatActivity {
     }
 
     public void currentLevelPrev(View view) {
+        verifyMode = true;
         LanguageLevels currentlevel =
                 getPrevLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())));
         lvlLanguageCurrent.setText(currentlevel.toString());
     }
 
     public void currentLevelNext(View view) {
+        verifyMode = true;
         LanguageLevels currentlevel =
                 getNextLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageCurrent.getText())));
         lvlLanguageCurrent.setText(currentlevel.toString());
     }
     public void goalLevelPrev(View view) {
+        verifyMode = false;
         LanguageLevels currentlevel =
                 getPrevLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
         lvlLanguageGoal.setText(currentlevel.toString());
     }
 
     public void goalLevelNext(View view) {
+        verifyMode = false;
         LanguageLevels currentlevel =
                 getNextLanguageLevel(LanguageLevels.valueOf(String.valueOf(lvlLanguageGoal.getText())));
         lvlLanguageGoal.setText(currentlevel.toString());
@@ -194,21 +201,34 @@ public class LanguageLearningActivity extends AppCompatActivity {
     {
         int index = e.ordinal();
         if (index < 5) {
-            int nextIndex = index + 1;
             LanguageLevels[] levels = LanguageLevels.values();
-            nextIndex %= levels.length;
-            return levels[nextIndex];
+            if(verifyMode){
+                nextIndexCurrent = index + 1;
+                nextIndexCurrent %= levels.length;
+                return levels[nextIndexCurrent];
+            } else {
+                nextIndexGoal = index + 1;
+                nextIndexGoal %= levels.length;
+                return levels[nextIndexGoal];
+            }
         }
         return LanguageLevels.C2;
     }
+
     private LanguageLevels getPrevLanguageLevel(LanguageLevels e)
     {
         int index = e.ordinal();
         if (index > 0){
-            int nextIndex = index - 1;
             LanguageLevels[] levels = LanguageLevels.values();
-            nextIndex %= levels.length;
-            return levels[nextIndex];
+            if(verifyMode){
+                nextIndexCurrent = index - 1;
+                nextIndexCurrent %= levels.length;
+                return levels[nextIndexCurrent];
+            } else {
+                nextIndexGoal = index - 1;
+                nextIndexGoal %= levels.length;
+                return levels[nextIndexGoal];
+            }
         }
         return LanguageLevels.Begin;
     }
