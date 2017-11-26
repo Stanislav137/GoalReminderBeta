@@ -1,15 +1,15 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.ActivityManager;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -32,7 +32,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 
 import java.util.ArrayList;
@@ -54,7 +53,8 @@ public class StartActivity extends AppCompatActivity {
 
     private GestureDetectorCompat gestureObject;
     private SharedPreferences sp;
-    private static int[]selectedDays = new int[]{0,0,0,0,0,0,0};
+    private SharedPreferences.Editor editor;
+    private static int[]selectedDays = new int[]{1,2,3,4,5,6,7};
 
 
     @Override
@@ -67,57 +67,42 @@ public class StartActivity extends AppCompatActivity {
 
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
+
         sp = PreferenceManager.getDefaultSharedPreferences(this);
-        if(sp.getBoolean("notification",true)){
-            Intent intent = new Intent(this,NotificationService.class);
+        editor = sp.edit();
+
+        if(!sp.getBoolean("fromStart",false)) {
+            Intent intent = new Intent(this, NotificationService.class);
             intent.putExtra("size",allGoals.size());
-            intent.putExtra("frequency",sp.getString("interval","1"));
-            intent.putExtra("sound",sp.getBoolean("sound",true));
-            intent.putExtra("vibr",sp.getBoolean("vibration",true));
-            for(int i=0;i<7;i++){
-                boolean a = sp.getBoolean("day"+(i+1),false);
-                if(!a){
-                    selectedDays[i]=i+1;
-                }else{
-                    selectedDays[i]=0;
-                }
+            if(allGoals.size()>0){
+                intent.putExtra("title", "You goals are ready!");
+                intent.putExtra("content", "Keep it up!");
+                editor.putString("title","You goals are ready!");
+                editor.putString("content","Keep it up!");
+                editor.commit();
+            }else{
+            intent.putExtra("title", "You have no goals!");
+            intent.putExtra("content", "Add some goal to start");
+                editor.putString("title","You have no goals!");
+                editor.putString("content","Add some goal to start");
+                editor.commit();
             }
+            intent.putExtra("frequency", 1);
+            intent.putExtra("soundOn", true);
+            intent.putExtra("vibrOn", true);
             intent.putExtra("days",selectedDays);
-            NotificationService.isService = true;
             startService(intent);
-            sizeOfList = allGoals.size();
         }
-        else{
-            NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));}
-        //setLongListenersOnChild();
         setListenersOnChild();
         setListenerOnGroup();
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
-        //startService(new Intent(this, NotificationService.class));
-       // startNotification();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        /*if(ConfigActivity.isNotifOn()){
-            stopService(new Intent(this,NotificationService.class));
-            Intent intent = new Intent(this,NotificationService.class);
-            intent.putExtra("size",allGoals.size());
-            intent.putExtra("frequency",ConfigActivity.getFrequency());
-            intent.putExtra("sound",ConfigActivity.isSoundOn());
-            intent.putExtra("vibr",ConfigActivity.isVibrOn());
-            intent.putExtra("days",ConfigActivity.getSelectedDays());
-            NotificationService.isService = true;
-        startService(intent);
-        sizeOfList = allGoals.size();
-        }
-        else{
-            NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));}*/
     }
 
     private void setListenersOnChild(){
@@ -441,5 +426,41 @@ public class StartActivity extends AppCompatActivity {
             rlQuote.setVisibility(View.VISIBLE);
             dataQuote();
         } else rlQuote.setVisibility(View.INVISIBLE);
+    }
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(!sp.getBoolean("fromStart",false)) {
+            Intent intent = new Intent(this, NotificationService.class);
+            intent.putExtra("size",allGoals.size());
+            if(allGoals.size()>0){
+                intent.putExtra("title", "You goals are ready!");
+                intent.putExtra("content", "Keep it up!");
+                editor.putString("title","You goals are ready!");
+                editor.putString("content","Keep it up!");
+                editor.commit();
+            }else{
+                intent.putExtra("title", "You have no goals!");
+                intent.putExtra("content", "Add some goal to start");
+                editor.putString("title","You have no goals!");
+                editor.putString("content","Add some goal to start");
+                editor.commit();
+            }
+            intent.putExtra("frequency", 1);
+            intent.putExtra("soundOn", true);
+            intent.putExtra("vibrOn", true);
+            startService(intent);
+        }
+
     }
 }
