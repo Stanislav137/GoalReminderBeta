@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -349,8 +350,10 @@ public class CardioActivity extends AppCompatActivity {
     }
 
     private static class CardioDialogBuilder extends DialogBuilder {
-        private static EditText distanceET, currentRunTimeET, goalRunTimeET;
+        private static TextView distanceET, currentRunTimeET, goalRunTimeET;
         private static TextView distanceTV, currentRunTimeTV, goalRunTimeTV;
+        private static LinearLayout.LayoutParams params;
+        private static LinearLayout ll, ll_2;
 
         private static Dialog cardioDialog;
 
@@ -366,24 +369,52 @@ public class CardioActivity extends AppCompatActivity {
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
 
+            params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            ll = new LinearLayout(cardioDialog.getContext());
+            ll_2 = new LinearLayout(cardioDialog.getContext());
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll_2.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundColor(Color.GRAY);
+            ll_2.setBackgroundColor(Color.GRAY);
+
             distanceTV = new TextView(cardioDialog.getContext());
+            distanceTV.setTextColor(Color.rgb(68,182,72));
+            distanceTV.setTextSize(20);
+            distanceTV.setPadding(20,0,0,0);
             distanceTV.setText("Your distance is:");
             dialogLV.addView(distanceTV,lp);
-            distanceET = new EditText(cardioDialog.getContext());
+            distanceET = new TextView(cardioDialog.getContext());
             distanceET.setText(String.valueOf(dialogBuilderGoal.getDistance()));
+            distanceET.setPadding(20,20,20,20);
+            distanceET.setTextSize(20);
+            distanceET.setTextColor(Color.BLACK);
             dialogLV.addView(distanceET,lp);
+            dialogLV.addView(ll,params);
 
             currentRunTimeTV = new TextView(cardioDialog.getContext());
+            currentRunTimeTV.setTextColor(Color.rgb(68,182,72));
+            currentRunTimeTV.setTextSize(20);
+            currentRunTimeTV.setPadding(20,0,0,0);
             currentRunTimeTV.setText("Your time now is:");
             dialogLV.addView(currentRunTimeTV,lp);
-            currentRunTimeET = new EditText(cardioDialog.getContext());
+            currentRunTimeET = new TextView(cardioDialog.getContext());
+            currentRunTimeET.setPadding(20,20,20,20);
+            currentRunTimeET.setTextSize(20);
+            currentRunTimeET.setTextColor(Color.BLACK);
             currentRunTimeET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
             dialogLV.addView(currentRunTimeET,lp);
+            dialogLV.addView(ll_2,params); // here
 
             goalRunTimeTV = new TextView(cardioDialog.getContext());
+            goalRunTimeTV.setTextColor(Color.rgb(68,182,72));
+            goalRunTimeTV.setTextSize(20);
+            goalRunTimeTV.setPadding(20,0,0,0);
             goalRunTimeTV.setText("Goal time is:");
             dialogLV.addView(goalRunTimeTV,lp);
-            goalRunTimeET = new EditText(cardioDialog.getContext());
+            goalRunTimeET = new TextView(cardioDialog.getContext());
+            goalRunTimeET.setPadding(20,20,20,20);
+            goalRunTimeET.setTextSize(20);
+            goalRunTimeET.setTextColor(Color.BLACK);
             goalRunTimeET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalRunTimeET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {

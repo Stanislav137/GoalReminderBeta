@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.other;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -188,8 +190,10 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     }
 
     private static class ElementDialogBuilder extends DialogBuilder {
-        private static EditText currentElementET, goalElementET;
+        private static TextView currentElementET, goalElementET;
         private static TextView currentElementTV, goalElementTV;
+        private static LinearLayout.LayoutParams params;
+        private static LinearLayout ll;
 
         private static Dialog elementDialog;
 
@@ -204,17 +208,35 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
 
+            params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            ll = new LinearLayout(elementDialog.getContext());
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundColor(Color.GRAY);
+
             currentElementTV = new TextView(elementDialog.getContext());
+            currentElementTV.setTextColor(Color.rgb(68,182,72));
+            currentElementTV.setTextSize(20);
+            currentElementTV.setPadding(20,0,0,0);
             currentElementTV.setText("Your current level is:");
             dialogLV.addView(currentElementTV,lp);
-            currentElementET = new EditText(elementDialog.getContext());
+            currentElementET = new TextView(elementDialog.getContext());
+            currentElementET.setPadding(20,20,20,20);
+            currentElementET.setTextSize(20);
+            currentElementET.setTextColor(Color.BLACK);
             currentElementET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
             dialogLV.addView(currentElementET,lp);
+            dialogLV.addView(ll, params);
 
             goalElementTV = new TextView(elementDialog.getContext());
+            goalElementTV.setTextColor(Color.rgb(68,182,72));
+            goalElementTV.setTextSize(20);
+            goalElementTV.setPadding(20,0,0,0);
             goalElementTV.setText("Goal level is:");
             dialogLV.addView(goalElementTV,lp);
-            goalElementET = new EditText(elementDialog.getContext());
+            goalElementET = new TextView(elementDialog.getContext());
+            goalElementET.setPadding(20,20,20,20);
+            goalElementET.setTextSize(20);
+            goalElementET.setTextColor(Color.BLACK);
             goalElementET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalElementET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {

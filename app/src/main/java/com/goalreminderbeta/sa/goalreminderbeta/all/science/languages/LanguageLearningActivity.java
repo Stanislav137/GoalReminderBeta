@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.science.languages;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -240,8 +242,10 @@ public class LanguageLearningActivity extends AppCompatActivity {
     }
 
     private static class LanguageDialogBuilder extends DialogBuilder {
-        private static EditText currentLanguageET, goalLanguageET;
+        private static TextView currentLanguageET, goalLanguageET;
         private static TextView currentLanguageTV, goalLanguageTV;
+        private static LinearLayout.LayoutParams params;
+        private static LinearLayout ll;
 
         private static Dialog languageDialog;
 
@@ -258,17 +262,35 @@ public class LanguageLearningActivity extends AppCompatActivity {
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
 
+            params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            ll = new LinearLayout(languageDialog.getContext());
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundColor(Color.GRAY);
+
             currentLanguageTV = new TextView(languageDialog.getContext());
+            currentLanguageTV.setTextColor(Color.rgb(68,182,72));
+            currentLanguageTV.setTextSize(20);
+            currentLanguageTV.setPadding(20,0,0,0);
             currentLanguageTV.setText("Your language level is:");
             dialogLV.addView(currentLanguageTV,lp);
-            currentLanguageET = new EditText(languageDialog.getContext());
+            currentLanguageET = new TextView(languageDialog.getContext());
+            currentLanguageET.setPadding(20,20,20,20);
+            currentLanguageET.setTextSize(20);
+            currentLanguageET.setTextColor(Color.BLACK);
             currentLanguageET.setText(String.valueOf(dialogBuilderGoal.getCurrentLanguageLevel()));
             dialogLV.addView(currentLanguageET,lp);
+            dialogLV.addView(ll, params);
 
             goalLanguageTV = new TextView(languageDialog.getContext());
+            goalLanguageTV.setTextColor(Color.rgb(68,182,72));
+            goalLanguageTV.setTextSize(20);
+            goalLanguageTV.setPadding(20,0,0,0);
             goalLanguageTV.setText("Goal language level is:");
             dialogLV.addView(goalLanguageTV,lp);
-            goalLanguageET = new EditText(languageDialog.getContext());
+            goalLanguageET = new TextView(languageDialog.getContext());
+            goalLanguageET.setPadding(20,20,20,20);
+            goalLanguageET.setTextSize(20);
+            goalLanguageET.setTextColor(Color.BLACK);
             goalLanguageET.setText(String.valueOf(dialogBuilderGoal.getGoalLanguageLevel()));
             dialogLV.addView(goalLanguageET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {

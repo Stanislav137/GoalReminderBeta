@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginBottom="5sp"
+                android:background="@color/clr_main"
+                android:textColor="@color/colorBackground"
+                android:text="ПОДТВЕРДИТЕ ДАННЫЕ"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -19,77 +27,124 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/clr_main"
                     android:text="Ваша цель:"/>
-                <EditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/goalName"
+                    android:textSize="20sp"
+                    android:layout_margin="10sp"
+                    android:textColor="@color/colorBlack"
                     android:editable="false"
                     android:hint=""/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/clr_main"
                     android:text="Описание цели:"/>
-                <EditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/goalDescr"
+                    android:textSize="20sp"
+                    android:layout_margin="10sp"
+                    android:textColor="@color/colorBlack"
                     android:hint=""
                     android:editable="false"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/currentProgress"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text=""/>-->
+
                 <TextView
-                    android:id="@+id/currentProgress"
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""/>
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/clr_main"
+                    android:text="Начало:" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Начало:"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_margin="10sp"
+                    android:textColor="@color/colorBlack"
                     android:id="@+id/dateFrom"
                     android:editable="false"
                     android:hint=""/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/clr_main"
                     android:text="Окончание:"/>
-                <EditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/dateTo"
+                    android:textSize="20sp"
+                    android:layout_margin="10sp"
+                    android:textColor="@color/colorBlack"
                     android:hint=""
                     android:editable="false"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:background="@color/colorGrey"></LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/confirm"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:background="@color/clr_main"
-                    android:text="ПОДТВЕРДИТЬ"
-                    android:textColor="@color/colorBackground"
-                    android:textSize="18sp" />
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/clr_main"
-                    android:text="ОТМЕНА"
-                    android:textColor="@color/colorBackground"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                android:background="@color/clr_main"
+                android:text="ПОДТВЕРДИТЬ"
+                android:padding="10sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="5sp"
+                android:textColor="@color/colorBackground"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:paddingLeft="5sp"
+                android:paddingRight="5sp"
+                android:background="@color/clr_main"
+                android:text="ОТМЕНА"
+                android:textColor="@color/colorBackground"
+                android:textSize="18sp" />
+    </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
-
-</LinearLayout>
+</RelativeLayout>

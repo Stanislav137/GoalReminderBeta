@@ -4,10 +4,15 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.view.Display;
+import android.view.TextureView;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -15,7 +20,7 @@ import android.widget.Toast;
  */
 
 public abstract class DialogBuilder {
-    protected static EditText goalName, goalDescr, dateFrom, dateTo;
+    protected static TextView goalName, goalDescr, dateFrom, dateTo;
     protected static Button confirm, cancel;
     protected static LinearLayout dialogLV;
     protected static LayoutParams lp;
@@ -34,13 +39,12 @@ public abstract class DialogBuilder {
         dialog = new Dialog(activity);
         dialogBuilderGoal = goal;
         dialog.setTitle("Confirmation");
-
         dialog.setContentView(R.layout.confirm_dialog);
-        goalName = (EditText)dialog.findViewById(R.id.goalName);
-        goalDescr = (EditText)dialog.findViewById(R.id.goalDescr);
-        dateFrom = (EditText)dialog.findViewById(R.id.dateFrom);
-        dateTo = (EditText)dialog.findViewById(R.id.dateTo);
-        dateFrom = (EditText)dialog.findViewById(R.id.dateFrom);
+        goalName = (TextView)dialog.findViewById(R.id.goalName);
+        goalDescr = (TextView)dialog.findViewById(R.id.goalDescr);
+        dateFrom = (TextView)dialog.findViewById(R.id.dateFrom);
+        dateTo = (TextView)dialog.findViewById(R.id.dateTo);
+        dateFrom = (TextView)dialog.findViewById(R.id.dateFrom);
         dialogLV = (LinearLayout)dialog.findViewById(R.id.fieldsLV);
         lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         confirm = (Button)dialog.findViewById(R.id.confirm);

@@ -4,15 +4,20 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
  import android.app.Activity;
  import android.app.Dialog;
  import android.content.Intent;
+ import android.graphics.Color;
  import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
+ import android.support.v7.widget.LinearLayoutCompat;
+ import android.view.MotionEvent;
 import android.view.View;
  import android.view.Window;
+ import android.widget.ActionMenuView;
  import android.widget.Button;
  import android.widget.EditText;
  import android.widget.ImageView;
+ import android.widget.LinearLayout;
+ import android.widget.RelativeLayout;
  import android.widget.TextView;
  import android.widget.Toast;
 
@@ -329,8 +334,10 @@ public class WeightCorrectionActivity extends AppCompatActivity {
     }
 
     private static class WeightDialogBuilder extends DialogBuilder {
-        private static EditText currentWeightET, goalWeightET;
+        private static TextView currentWeightET, goalWeightET;
         private static TextView currentWeightTV, goalWeightTV;
+        private static LinearLayout.LayoutParams params;
+        private static LinearLayout ll;
 
         private static Dialog weightDialog;
 
@@ -345,18 +352,35 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
 
+            params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            ll = new LinearLayout(weightDialog.getContext());
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundColor(Color.GRAY);
+
             currentWeightTV = new TextView(weightDialog.getContext());
+            currentWeightTV.setTextColor(Color.rgb(68,182,72));
+            currentWeightTV.setTextSize(20);
+            currentWeightTV.setPadding(20,0,0,0);
             currentWeightTV.setText("Your weight now is:");
             dialogLV.addView(currentWeightTV,lp);
-            currentWeightET = new EditText(weightDialog.getContext());
+            currentWeightET = new TextView(weightDialog.getContext());
             currentWeightET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            currentWeightET.setPadding(20,20,20,20);
+            currentWeightET.setTextSize(20);
+            currentWeightET.setTextColor(Color.BLACK);
             dialogLV.addView(currentWeightET,lp);
-
+            dialogLV.addView(ll,params);
             goalWeightTV = new TextView(weightDialog.getContext());
+            goalWeightTV.setTextColor(Color.rgb(68,182,72));
+            goalWeightTV.setTextSize(20);
+            goalWeightTV.setPadding(20,0,0,0);
             goalWeightTV.setText("Goal weight is:");
             dialogLV.addView(goalWeightTV,lp);
-            goalWeightET = new EditText(weightDialog.getContext());
+            goalWeightET = new TextView(weightDialog.getContext());
             goalWeightET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalWeightET.setPadding(20,20,20,20);
+            goalWeightET.setTextSize(20);
+            goalWeightET.setTextColor(Color.BLACK);
             dialogLV.addView(goalWeightET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
