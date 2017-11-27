@@ -41,6 +41,7 @@ public class NotificationService extends Service {
     public static int frequency=1;
     public static boolean soundOn=true;
     public static boolean vibrOn=true;
+    public static boolean notifOn=true;
     public static int[]days = {1,2,3,4,5,6,7};
     private static SharedPreferences sp;
     public NotificationService() {
@@ -50,6 +51,7 @@ public class NotificationService extends Service {
     public void onCreate() {
         super.onCreate();
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
@@ -60,9 +62,15 @@ public class NotificationService extends Service {
         soundOn = intent.getBooleanExtra("soundOn",true);
         vibrOn = intent.getBooleanExtra("vibrOn",true);
         days = intent.getIntArrayExtra("days");
+        notifOn = sp.getBoolean("notifOn",true);
         Context context = getApplicationContext();
-        startNotification(context,title,content,frequency,days,soundOn,vibrOn);
-        return START_REDELIVER_INTENT;
+        if(notifOn) {
+            startNotification(context,title,content,frequency,days,soundOn,vibrOn);
+        }
+        else{
+            stopSelf(startId);
+        }
+        return super.onStartCommand(intent,flags,startId);
     }
 
 
@@ -90,7 +98,7 @@ public class NotificationService extends Service {
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         long futureTime = SystemClock.elapsedRealtime()+frequency*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,frequency*10000,pIntent);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,frequency*1000*3600,pIntent);
 
     }
 

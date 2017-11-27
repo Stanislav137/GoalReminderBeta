@@ -25,7 +25,7 @@ import java.util.Calendar;
 public class ConfigActivity extends Activity implements OnClickListener{
     private SharedPreferences sp;
     private static String frequency="1";
-    private static boolean notifOn=true;
+    public static boolean notifOn=true;
     private static boolean soundOn=true;
     private static boolean vibrOn=true;
     private static int[]selectedDays = new int[]{0,0,0,0,0,0,0};
@@ -59,8 +59,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
         setContentView(R.layout.activity_config);
         getFragmentManager().beginTransaction().add(R.id.mainLL,new Config()).commit();
         save = (Button)findViewById(R.id.saveBTN);
-       // config = (TextView)findViewById(R.id.configTV);
-
         save.setOnClickListener(this);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         /*if(notifOn){
@@ -95,12 +93,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
                 selectedDays[i]=0;
             }
         }
-        /*StringBuilder sb = new StringBuilder("");
-        sb.append("freq:"+frequency+" notifOn "+notifOn+" soundON "+soundOn+" vibrOn "+vibrOn+" days ");
-        for(int i:selectedDays){
-            sb.append(" "+i);
-        }
-        config.setText(sb.toString());*/
+
     }
 
     public void openGoals(View view) {
@@ -166,21 +159,54 @@ public class ConfigActivity extends Activity implements OnClickListener{
         intent.putExtra("frequency",freq);
         intent.putExtra("soundOn",soundOn);
         intent.putExtra("vibrOn",vibrOn);
+        intent.putExtra("notifOn",notifOn);
         if(notifOn) {
             NotificationService.isService = true;
             startService(intent);
         }
         else{
             NotificationService.isService = false;
-            stopService(new Intent(this,NotificationService.class));}
+            stopService(intent);}
 
     }
 
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
-        Intent restartIntent = new Intent(this, NotificationService.class);
+        if(!sp.getBoolean("fromStart",false)) {
+            Intent intent = new Intent(this, NotificationService.class);
+            intent.putExtra("size",StartActivity.sizeOfList);
+            SharedPreferences.Editor editor = sp.edit();
+            if(StartActivity.sizeOfList>0){
+                intent.putExtra("title", "DC You goals are ready!");
+                intent.putExtra("content", "Keep it up!");
+                editor.putString("title","DC You goals are ready!");
+                editor.putString("content","Keep it up!");
+                editor.commit();
+            }else{
+                intent.putExtra("title", "DC You have no goals!");
+                intent.putExtra("content", "Add some goal to start");
+                editor.putString("title","DC You have no goals!");
+                editor.putString("content","Add some goal to start");
+                editor.commit();
+            }
+            intent.putExtra("frequency", Integer.parseInt(frequency));
+            intent.putExtra("soundOn", soundOn);
+            intent.putExtra("vibrOn", vibrOn);
+            intent.putExtra("notifOn",notifOn);
+            if(ConfigActivity.isNotifOn()) {
+                NotificationService.isService = true;
+                editor = sp.edit();
+                editor.putBoolean("notif",notifOn);
+                startService(intent);
+            }
+            else{
+                NotificationService.isService = false;
+                stopService(intent);}
+        }
+    }*/
+        /*Intent restartIntent = new Intent(this, NotificationService.class);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         String title = sp.getString("title","");
         String content = sp.getString("content","");
@@ -190,9 +216,8 @@ public class ConfigActivity extends Activity implements OnClickListener{
         PendingIntent pi = PendingIntent.getService(this, 1, restartIntent, PendingIntent.FLAG_ONE_SHOT);
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis() + 3000,5000, pi);
+        am.setRepeating(AlarmManager.RTC, System.currentTimeMillis() + 3000,5000, pi);*/
 
-    }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);

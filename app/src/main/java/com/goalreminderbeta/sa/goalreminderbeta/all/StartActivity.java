@@ -437,30 +437,38 @@ public class StartActivity extends AppCompatActivity {
         return false;
     }
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
         if(!sp.getBoolean("fromStart",false)) {
             Intent intent = new Intent(this, NotificationService.class);
             intent.putExtra("size",allGoals.size());
             if(allGoals.size()>0){
-                intent.putExtra("title", "You goals are ready!");
+                intent.putExtra("title", "DS You goals are ready!");
                 intent.putExtra("content", "Keep it up!");
-                editor.putString("title","You goals are ready!");
+                editor.putString("title","DS You goals are ready!");
                 editor.putString("content","Keep it up!");
                 editor.commit();
             }else{
-                intent.putExtra("title", "You have no goals!");
+                intent.putExtra("title", "DS You have no goals!");
                 intent.putExtra("content", "Add some goal to start");
-                editor.putString("title","You have no goals!");
+                editor.putString("title","DS You have no goals!");
                 editor.putString("content","Add some goal to start");
                 editor.commit();
             }
-            intent.putExtra("frequency", 1);
-            intent.putExtra("soundOn", true);
-            intent.putExtra("vibrOn", true);
-            startService(intent);
+            intent.putExtra("frequency", Integer.parseInt(ConfigActivity.getFrequency()));
+            intent.putExtra("soundOn", ConfigActivity.isSoundOn());
+            intent.putExtra("vibrOn", ConfigActivity.isVibrOn());
+            intent.putExtra("notifOn",ConfigActivity.isNotifOn());
+            if(ConfigActivity.notifOn) {
+                NotificationService.isService = true;
+                startService(intent);
+            }
+            else{
+                NotificationService.isService = false;
+                stopService(intent);}
         }
+        }*/
 
-    }
+
 }
