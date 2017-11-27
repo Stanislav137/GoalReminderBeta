@@ -64,12 +64,7 @@ public class NotificationService extends Service {
         days = intent.getIntArrayExtra("days");
         notifOn = sp.getBoolean("notifOn",true);
         Context context = getApplicationContext();
-        if(notifOn) {
-            startNotification(context,title,content,frequency,days,soundOn,vibrOn);
-        }
-        else{
-            stopSelf(startId);
-        }
+        startNotification(context,title,content,frequency,days,soundOn,vibrOn);
         return super.onStartCommand(intent,flags,startId);
     }
 
@@ -98,7 +93,7 @@ public class NotificationService extends Service {
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         long futureTime = SystemClock.elapsedRealtime()+frequency*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,frequency*1000*3600,pIntent);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,frequency*10000,pIntent);
 
     }
 

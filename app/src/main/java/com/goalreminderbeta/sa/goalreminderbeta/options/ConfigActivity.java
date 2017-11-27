@@ -160,13 +160,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
         intent.putExtra("soundOn",soundOn);
         intent.putExtra("vibrOn",vibrOn);
         intent.putExtra("notifOn",notifOn);
-        if(notifOn) {
+
             NotificationService.isService = true;
             startService(intent);
-        }
-        else{
-            NotificationService.isService = false;
-            stopService(intent);}
+
 
     }
 
