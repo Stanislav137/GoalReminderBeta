@@ -53,7 +53,6 @@ public class StartActivity extends AppCompatActivity {
 
     private GestureDetectorCompat gestureObject;
     private SharedPreferences sp;
-    private SharedPreferences.Editor editor;
     private static int[]selectedDays = new int[]{1,2,3,4,5,6,7};
 
 
@@ -69,28 +68,22 @@ public class StartActivity extends AppCompatActivity {
         bootStrap = new BootStrap();
 
         sp = PreferenceManager.getDefaultSharedPreferences(this);
-        editor = sp.edit();
-
         if(!sp.getBoolean("fromStart",false)) {
             Intent intent = new Intent(this, NotificationService.class);
             intent.putExtra("size",allGoals.size());
             if(allGoals.size()>0){
                 intent.putExtra("title", "You goals are ready!");
                 intent.putExtra("content", "Keep it up!");
-                editor.putString("title","You goals are ready!");
-                editor.putString("content","Keep it up!");
-                editor.commit();
+
             }else{
             intent.putExtra("title", "You have no goals!");
             intent.putExtra("content", "Add some goal to start");
-                editor.putString("title","You have no goals!");
-                editor.putString("content","Add some goal to start");
-                editor.commit();
             }
             intent.putExtra("frequency", 1);
             intent.putExtra("soundOn", true);
             intent.putExtra("vibrOn", true);
             intent.putExtra("days",selectedDays);
+            intent.putExtra("notification",true);
             startService(intent);
         }
         setListenersOnChild();

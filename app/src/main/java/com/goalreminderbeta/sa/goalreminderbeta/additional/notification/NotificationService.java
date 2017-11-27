@@ -62,14 +62,14 @@ public class NotificationService extends Service {
         soundOn = intent.getBooleanExtra("soundOn",true);
         vibrOn = intent.getBooleanExtra("vibrOn",true);
         days = intent.getIntArrayExtra("days");
-        notifOn = sp.getBoolean("notifOn",true);
+        NotificationService.notifOn = intent.getBooleanExtra("notification",true);
         Context context = getApplicationContext();
-        startNotification(context,title,content,frequency,days,soundOn,vibrOn);
+        startNotification(context,title,content,frequency,days,soundOn,vibrOn,notifOn);
         return super.onStartCommand(intent,flags,startId);
     }
 
 
-    public void startNotification(Context context,String title,String content, int frequency, int[]days,boolean soundOn, boolean vibrOn){
+    public void startNotification(Context context,String title,String content, int frequency, int[]days,boolean soundOn, boolean vibrOn,boolean notifOn){
         Notification notification = createNotification(context,title,content);
         if(soundOn) {
             if(vibrOn)
@@ -82,14 +82,15 @@ public class NotificationService extends Service {
             else{
             }
         }
-        scheduleNotification(context,notification,frequency,days);
+        scheduleNotification(context,notification,frequency,days,notifOn);
     }
 
-    private static void scheduleNotification(Context context,Notification notification,int frequency,int[]days){
+    private static void scheduleNotification(Context context,Notification notification,int frequency,int[]days,boolean notifOn){
 
         Intent notifIntent = new Intent(context,NotificationPublisher.class);
         notifIntent.putExtra("notifID",1);
         notifIntent.putExtra("notif",notification);
+        notifIntent.putExtra("not",notifOn);
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         long futureTime = SystemClock.elapsedRealtime()+frequency*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
@@ -117,23 +118,26 @@ public class NotificationService extends Service {
     }
 
     @Override public void onTaskRemoved(Intent rootIntent){
-        Intent restartServiceIntent = new Intent(getApplicationContext(), this.getClass());
-        restartServiceIntent.setPackage(getPackageName());
+        Intent restartServiceIntent = new Intent(this, NotificationService.class);
+        //restartServiceIntent.setPackage(getPackageName());
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        String title = sp.getString("title","");
-        String content = sp.getString("content","");
-        boolean soundOn = sp.getBoolean("sound",true);
-        boolean vibrOn=sp.getBoolean("vibration",true);
-        String frequency = sp.getString("interval","1");
-        int freq = Integer.parseInt(frequency);
-        restartServiceIntent.putExtra("title", title);
+        //String title = sp.getString("title","");
+        //String content = sp.getString("content","");
+        //boolean soundOn = sp.getBoolean("sound",true);
+        //boolean vibrOn=sp.getBoolean("vibration",true);
+        //String frequency = sp.getString("interval","1");
+
+        //int freq = Integer.parseInt(frequency);
+        restartServiceIntent.putExtra("title",title);
         restartServiceIntent.putExtra("content", content);
         restartServiceIntent.putExtra("soundOn",soundOn);
         restartServiceIntent.putExtra("vibrOn",vibrOn);
-        restartServiceIntent.putExtra("frequency",freq);
-        PendingIntent restartServicePendingIntent = PendingIntent.getService(getApplicationContext(), 1, restartServiceIntent, PendingIntent.FLAG_ONE_SHOT);
-        AlarmManager alarmService = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-        alarmService.set(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + 1000, restartServicePendingIntent);
+        restartServiceIntent.putExtra("frequency",frequency);
+        restartServiceIntent.putExtra("notification",notifOn);
+        //PendingIntent restartServicePendingIntent = PendingIntent.getService(getApplicationContext(), 1, restartServiceIntent, PendingIntent.FLAG_ONE_SHOT);
+        //AlarmManager alarmService = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        //alarmService.set(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + 1000, restartServicePendingIntent);
+        startService(restartServiceIntent);
         super.onTaskRemoved(rootIntent);
     }
 

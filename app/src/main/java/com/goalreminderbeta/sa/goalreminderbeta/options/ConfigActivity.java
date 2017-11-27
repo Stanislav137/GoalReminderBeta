@@ -111,12 +111,13 @@ public class ConfigActivity extends Activity implements OnClickListener{
     @Override
     public void onClick(View view) {
         NotificationService.configSaved = true;
-        Calendar calendar = Calendar.getInstance();
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        //Calendar calendar = Calendar.getInstance();
+       // int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         frequency = sp.getString("interval","");
         int freq = Integer.parseInt(frequency);
         notifOn = sp.getBoolean("notification",false);
+        NotificationService.notifOn=notifOn;
         soundOn = sp.getBoolean("sound",false);
         vibrOn = sp.getBoolean("vibration",false);
         for(int i=0;i<7;i++){
@@ -128,13 +129,13 @@ public class ConfigActivity extends Activity implements OnClickListener{
             }
         }
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString("interval",frequency);
-        editor.putBoolean("notification",notifOn);
-        editor.putBoolean("sound",soundOn);
-        editor.putBoolean("vibration",vibrOn);
+       // editor.putString("interval",frequency);
+        //editor.putBoolean("notification",notifOn);
+        //editor.putBoolean("sound",soundOn);
+        //editor.putBoolean("vibration",vibrOn);
         editor.putBoolean("fromStart", true);
         NotificationService.fromStart = sp.getBoolean("fromStart", true);
-        editor.commit();
+        //editor.commit();
         /*StringBuilder sb = new StringBuilder("");
         sb.append("freq:"+frequency+" notifOn "+notifOn+" soundON "+soundOn+" vibrOn "+vibrOn+" days");
         for(int i:selectedDays){
@@ -142,24 +143,26 @@ public class ConfigActivity extends Activity implements OnClickListener{
         }
         config.setText(sb.toString());*/
         Intent intent = new Intent(this,NotificationService.class);
-        editor = sp.edit();
+        //editor = sp.edit();
         if(StartActivity.sizeOfList>0){
             intent.putExtra("title", "You goals are ready!");
             intent.putExtra("content", "Keep it up!");
             editor.putString("title","You goals are ready!");
             editor.putString("content","Keep it up!");
+            editor.putBoolean("notification",notifOn);
             editor.commit();
         }else{
             intent.putExtra("title", "You have no goals!");
             intent.putExtra("content", "Add some goal to start");
             editor.putString("title","You have no goals!");
             editor.putString("content","Add some goal to start");
+            editor.putBoolean("notification",notifOn);
             editor.commit();
         }
         intent.putExtra("frequency",freq);
         intent.putExtra("soundOn",soundOn);
         intent.putExtra("vibrOn",vibrOn);
-        intent.putExtra("notifOn",notifOn);
+        intent.putExtra("notification",notifOn);
 
             NotificationService.isService = true;
             startService(intent);
