@@ -25,5 +25,45 @@
         android:defaultValue="1"
         android:summary="Choose how often yo wish to receive notifications"
         ></ListPreference>
+    <PreferenceScreen
+        android:enabled="false"
+        >
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="0"
+            android:title="Monday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="1"
+            android:title="Tuesday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="2"
+            android:title="Wednesday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="3"
+            android:title="Thursday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="4"
+            android:title="Friday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="5"
+            android:title="Saturday"
+            ></CheckBoxPreference>
+        <CheckBoxPreference
+            android:checked="false"
+            android:key="6"
+            android:title="Sunday"
+            ></CheckBoxPreference>
+
+    </PreferenceScreen>
 
 </PreferenceScreen>

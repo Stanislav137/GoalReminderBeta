@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.InformationService;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationService;
 import com.goalreminderbeta.sa.goalreminderbeta.all.RecordsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
@@ -31,7 +32,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
     private static int[]selectedDays = new int[]{0,0,0,0,0,0,0};
 
     private Button save;
-    private TextView config;
+    //private TextView config;
 
     public static String getFrequency() {
         return frequency;
@@ -60,6 +61,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
         getFragmentManager().beginTransaction().add(R.id.mainLL,new Config()).commit();
         save = (Button)findViewById(R.id.saveBTN);
         save.setOnClickListener(this);
+        //config = (TextView)findViewById(R.id.configTV);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         /*if(notifOn){
             stopService(new Intent(this,NotificationService.class));
@@ -85,14 +87,20 @@ public class ConfigActivity extends Activity implements OnClickListener{
         notifOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
         vibrOn = sp.getBoolean("vibration",true);
-        for(int i=0;i<7;i++){
-            boolean a = sp.getBoolean("day"+(i+1),false);
+
+        /*for(int i=0;i<7;i++){
+            boolean a = sp.getBoolean(""+i,false);
             if(!a){
-                selectedDays[i]=i+1;
+                selectedDays[i]=i;
             }else{
                 selectedDays[i]=0;
             }
         }
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<7;i++){
+            sb.append(""+selectedDays[i]);
+        }
+        config.setText("Freq"+frequency+" NotOn"+notifOn+" soundON"+soundOn+" vibrOn"+vibrOn+" days "+sb.toString());*/
 
     }
 
@@ -111,8 +119,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
     @Override
     public void onClick(View view) {
         NotificationService.configSaved = true;
-        //Calendar calendar = Calendar.getInstance();
-       // int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         frequency = sp.getString("interval","");
         int freq = Integer.parseInt(frequency);
@@ -120,16 +126,21 @@ public class ConfigActivity extends Activity implements OnClickListener{
         NotificationService.notifOn=notifOn;
         soundOn = sp.getBoolean("sound",false);
         vibrOn = sp.getBoolean("vibration",false);
-        for(int i=0;i<7;i++){
-            boolean a = sp.getBoolean("day"+(i+1),false);
+        /*for(int i=0;i<7;i++){
+            boolean a = sp.getBoolean(""+i,false);
             if(!a){
-                selectedDays[i]=i+1;
+                selectedDays[i]=1;
             }else{
                 selectedDays[i]=0;
             }
         }
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<7;i++){
+            sb.append(""+selectedDays[i]);
+        }
+        config.setText("Freq"+frequency+" NotOn"+notifOn+" soundON"+soundOn+" vibrOn"+vibrOn+" days "+sb.toString());*/
         SharedPreferences.Editor editor = sp.edit();
-       // editor.putString("interval",frequency);
+        //editor.putString("interval",frequency);
         //editor.putBoolean("notification",notifOn);
         //editor.putBoolean("sound",soundOn);
         //editor.putBoolean("vibration",vibrOn);
@@ -164,8 +175,16 @@ public class ConfigActivity extends Activity implements OnClickListener{
         intent.putExtra("vibrOn",vibrOn);
         intent.putExtra("notification",notifOn);
 
+        //Intent informIntent = new Intent(this, InformationService.class);
+        ///informIntent.putExtra("notification",notifOn);;
+        //informIntent.putExtra("days",selectedDays);
+
+
             NotificationService.isService = true;
             startService(intent);
+        //startService(informIntent);
+
+
 
 
     }

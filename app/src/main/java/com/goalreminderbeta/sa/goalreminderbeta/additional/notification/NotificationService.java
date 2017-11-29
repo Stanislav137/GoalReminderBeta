@@ -9,25 +9,12 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.BitmapFactory;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.IBinder;
-import android.os.Parcelable;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
-
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
-import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class NotificationService extends Service {
     NotificationManager manager;
     public static boolean isService=true;
@@ -35,13 +22,13 @@ public class NotificationService extends Service {
     AlarmManager am;
     public static boolean fromStart = false;
     public static boolean configSaved = false;
-
     public static String title="";
     public static String content="";
     public static int frequency=1;
     public static boolean soundOn=true;
     public static boolean vibrOn=true;
     public static boolean notifOn=true;
+    public static int size=0;
     public static int[]days = {1,2,3,4,5,6,7};
     private static SharedPreferences sp;
     public NotificationService() {
@@ -61,15 +48,16 @@ public class NotificationService extends Service {
         frequency = intent.getIntExtra("frequency",1);
         soundOn = intent.getBooleanExtra("soundOn",true);
         vibrOn = intent.getBooleanExtra("vibrOn",true);
-        days = intent.getIntArrayExtra("days");
+        //days = intent.getIntArrayExtra("days");
+        size = intent.getIntExtra("size",0);
         NotificationService.notifOn = intent.getBooleanExtra("notification",true);
         Context context = getApplicationContext();
-        startNotification(context,title,content,frequency,days,soundOn,vibrOn,notifOn);
+        startNotification(context,title,content,frequency,soundOn,vibrOn,notifOn);
         return super.onStartCommand(intent,flags,startId);
     }
 
 
-    public void startNotification(Context context,String title,String content, int frequency, int[]days,boolean soundOn, boolean vibrOn,boolean notifOn){
+    public void startNotification(Context context,String title,String content, int frequency, boolean soundOn, boolean vibrOn,boolean notifOn){
         Notification notification = createNotification(context,title,content);
         if(soundOn) {
             if(vibrOn)
@@ -82,10 +70,10 @@ public class NotificationService extends Service {
             else{
             }
         }
-        scheduleNotification(context,notification,frequency,days,notifOn);
+        scheduleNotification(context,notification,frequency,notifOn);
     }
 
-    private static void scheduleNotification(Context context,Notification notification,int frequency,int[]days,boolean notifOn){
+    private static void scheduleNotification(Context context,Notification notification,int frequency,boolean notifOn){
 
         Intent notifIntent = new Intent(context,NotificationPublisher.class);
         notifIntent.putExtra("notifID",1);
@@ -95,7 +83,6 @@ public class NotificationService extends Service {
         long futureTime = SystemClock.elapsedRealtime()+frequency*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,frequency*10000,pIntent);
-
     }
 
     private static Notification createNotification(Context context, String title, String content){
@@ -103,7 +90,8 @@ public class NotificationService extends Service {
         PendingIntent pIntent = PendingIntent.getActivity(context,0,intentNotif,0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentTitle(title);
-        builder.setContentText(content);
+        if(InformationService.send)builder.setContentText("IS "+content);
+        else builder.setContentText(content);
         builder.setContentIntent(pIntent);
         builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(R.drawable.my_goal_image);
@@ -117,7 +105,7 @@ public class NotificationService extends Service {
         return null;
     }
 
-    @Override public void onTaskRemoved(Intent rootIntent){
+    /*@Override public void onTaskRemoved(Intent rootIntent){
         Intent restartServiceIntent = new Intent(this, NotificationService.class);
         //restartServiceIntent.setPackage(getPackageName());
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -139,18 +127,7 @@ public class NotificationService extends Service {
         //alarmService.set(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + 1000, restartServicePendingIntent);
         startService(restartServiceIntent);
         super.onTaskRemoved(rootIntent);
-    }
-
-    private boolean isDay(int day, int[]days){
-        for(int d:days){
-            if(days[day-2]!=0){
-                isDay=true;
-                return isDay;
-            }
-        }
-        isDay=false;
-        return isDay;
-    }
+    }*/
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);

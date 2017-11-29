@@ -19,13 +19,11 @@
             android:name="QUERY_LOG"
             android:value="true" />
 
-        <uses-permission android:name="android.permission.VIBRATE"
-            />
+        <uses-permission android:name="android.permission.VIBRATE" />
 
-
-        <receiver android:name=".additional.notification.NotificationPublisher" >
+        <receiver android:name=".additional.notification.NotificationPublisher">
             <intent-filter>
-                <action android:name = "android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
@@ -78,8 +76,12 @@
             android:name=".additional.notification.NotificationService"
             android:enabled="true"
             android:exported="true"
-            android:process=":service"
-            ></service>
+            android:process=":service" />
+        <service
+            android:name=".additional.notification.InformationService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":informService"></service>
     </application>
 
 </manifest>
