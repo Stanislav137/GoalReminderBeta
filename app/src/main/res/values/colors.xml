@@ -16,4 +16,5 @@
     <color name="clr_main">#44b648</color>
     <color name="clr_science">#3F51B5</color>
     <color name="clr_sport">#d23134</color>
+    <color name="clr_task_day">#ad85f560</color>
 </resources>
