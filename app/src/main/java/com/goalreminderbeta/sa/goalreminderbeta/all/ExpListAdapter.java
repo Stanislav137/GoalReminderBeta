@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -29,10 +30,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private ImageView arrowDownUp, statusGoal;
     private Map<Long,Goal> allGoalsMap;
-
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
     private TextView leftToGoalUnits, dataBook, taskOfDayUnits;
     private RelativeLayout bookPresent, runDistance;
+    boolean checkComplete = false;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
         mContext = context;
@@ -171,17 +172,30 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
-                             View convertView, ViewGroup parent) {
+    public View getChildView(final int groupPosition, final int childPosition, final boolean isLastChild,
+                             View convertView, final ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        convertView = inflater.inflate(R.layout.child_section, null);
-        convertView.setMinimumHeight(1500);
+        if(checkComplete) {
+            convertView = inflater.inflate(R.layout.child_section, null);
+            convertView.setMinimumHeight(1500);
 
-        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-        Goal goal = allGoalsMap.get(groupPos); //actual goal
-        fillDataChild(goal, convertView, goal.getThemeCategory());
+            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+            Goal goal = allGoalsMap.get(groupPos); //actual goal
+            fillDataChild(goal, convertView, goal.getThemeCategory());
+        } else {
+            convertView = inflater.inflate(R.layout.child_section2, null);
+            convertView.setMinimumHeight(1500);
+
+            final Button completed = (Button) convertView.findViewById(R.id.completed);
+            completed.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkComplete = true;
+                }
+            });
+        }
 
         return convertView;
     }
