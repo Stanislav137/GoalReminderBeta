@@ -25,37 +25,5 @@
         android:defaultValue="1"
         android:summary="Choose how often yo wish to receive notifications"
         ></ListPreference>
-   <PreferenceScreen
-       android:key="days"
-       android:title="Week-days"
-       android:summary="Choose days when you don't want to receive notifications">
-       <CheckBoxPreference
-           android:key="day1"
-           android:title="Monday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day2"
-           android:title="Tuesday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day3"
-           android:title="Wednesday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day4"
-           android:title="Thursday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day5"
-           android:title="Friday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day6"
-           android:title="Saturday">
-       </CheckBoxPreference>
-       <CheckBoxPreference
-           android:key="day7"
-           android:title="Sunday">
-       </CheckBoxPreference>
-   </PreferenceScreen>
+
 </PreferenceScreen>

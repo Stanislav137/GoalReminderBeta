@@ -25,20 +25,20 @@ public class Config extends PreferenceFragment {
     private static String[]days = new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     private static Set<String> selectedDays = new HashSet<>(Arrays.asList(days));
     private static Set<String> selected = new HashSet<>();
-    private MultiSelectListPreference preference;
+    //private MultiSelectListPreference preference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.config);
 
-        preference = new MultiSelectListPreference(getActivity());
+        /*preference = new MultiSelectListPreference(getActivity());
         preference.setEntries(days);
         preference.setEntryValues(days);
         preference.setDefaultValue(selectedDays);
         preference.setKey("days");
         preference.setTitle("Week-days");
-        preference.setSummary("Select week-days");
+        preference.setSummary("Select week-days");*/
 
         Preference.OnPreferenceChangeListener daysListener
                 = new Preference.OnPreferenceChangeListener() {
@@ -52,6 +52,6 @@ public class Config extends PreferenceFragment {
             }
         };
 
-        preference.setOnPreferenceChangeListener(daysListener);
+        //preference.setOnPreferenceChangeListener(daysListener);
     }
 }
