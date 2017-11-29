@@ -45,7 +45,6 @@ public class StartActivity extends AppCompatActivity {
     private Animation anim = null;
     private ExpListAdapter adapter;
     private boolean switchQuote;
-    private GestureDetectorCompat gestureObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
