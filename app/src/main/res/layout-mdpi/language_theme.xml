@@ -7,21 +7,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:background="@color/clr_sport">
+        android:background="@color/clr_science">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="backToPrevActivity"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true" >
 
             <ImageView
                 android:id="@+id/arrowBack"
-                android:layout_width="30sp"
+                android:layout_width="25sp"
                 android:layout_height="20sp"
-                android:layout_margin="10sp"
+                android:layout_margin="15sp"
                 android:background="@drawable/arrow_goalwhite"
                 android:rotation="90" />
+
         </LinearLayout>
 
         <TextView
@@ -30,15 +31,15 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КАРДИО"
+            android:text="КАТЕГОРИЯ ЯЗЫКИ"
             android:textColor="@color/colorBackground"
             android:textSize="22sp" />
 
         <ImageView
             android:layout_width="45sp"
             android:layout_height="45sp"
-            android:layout_alignParentRight="true"
             android:layout_marginRight="5sp"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@drawable/menu_white"
             android:onClick="backToHome" />
@@ -58,10 +59,10 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:text="@string/cardio_description_purpose"
+                android:text="@string/language_name_language"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
+                android:layout_marginLeft="10sp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -70,20 +71,20 @@
                 android:id="@+id/imgReadyDescription"
                 android:layout_width="30sp"
                 android:layout_height="30sp"
+                android:layout_marginLeft="5sp"
+                android:background="@drawable/empty"
                 android:layout_alignBottom="@+id/descriptionGoal"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="8sp"
                 android:layout_toRightOf="@+id/descriptionGoal"
-                android:background="@drawable/empty" />
+                android:layout_toEndOf="@+id/descriptionGoal" />
 
             <ImageView
-                android:id="@+id/showWarningId"
                 android:layout_width="60sp"
                 android:layout_height="60sp"
+                android:onClick="showWarning"
+                android:id="@+id/showWarningId"
                 android:layout_alignParentRight="true"
                 android:layout_margin="10sp"
-                android:background="@drawable/warning"
-                android:onClick="showWarning" />
+                android:background="@drawable/warning" />
 
         </RelativeLayout>
 
@@ -95,9 +96,9 @@
         android:background="@color/colorGrey"></LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llCurrentWeight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/llCurrentRepeats"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -106,12 +107,11 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:text="@string/cardio_distance"
+                android:layout_marginLeft="10sp"
+                android:text="@string/language_level_language"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp" />
 
@@ -123,48 +123,30 @@
                 android:layout_marginLeft="10sp" />
 
             <Button
-                android:id="@+id/sportMinusDistance"
+                android:id="@+id/prevLvlCurrent"
                 android:layout_width="60sp"
                 android:layout_height="60sp"
-                android:layout_alignLeft="@+id/position1"
-                android:layout_alignStart="@+id/position1"
-                android:layout_alignTop="@+id/position1"
-                android:background="@drawable/btn_red"
-                android:text="-"
+                android:layout_below="@+id/position1"
+                android:textSize="18sp"
                 android:textColor="@color/colorBackground"
-                android:textSize="28sp" />
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/btn_blue"
+                android:text="PREV"
+                android:onClick="currentLevelPrev"/>
 
             <Button
-                android:id="@+id/sportAddDistance"
+                android:id="@+id/nextLvlCurrent"
                 android:layout_width="60sp"
                 android:layout_height="60sp"
-                android:background="@drawable/btn_red"
-                android:text="+"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/prevLvlCurrent"
+                android:background="@drawable/btn_blue"
+                android:text="NEXT"
                 android:textColor="@color/colorBackground"
-                android:textSize="28sp"
-                android:layout_alignTop="@+id/sportMinusDistance"
-                android:layout_toRightOf="@+id/sportMinusDistance"
-                android:layout_toEndOf="@+id/sportMinusDistance" />
+                android:textSize="18sp"
+                android:onClick="currentLevelNext"/>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignBottom="@+id/sportAddDistance"
-                android:layout_alignTop="@+id/sportAddDistance"
-                android:layout_marginLeft="15sp"
-                android:layout_toRightOf="@+id/sportAddDistance">
-
-                <Button
-                    android:id="@+id/sportAddDistanceX100"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/btn_red"
-                    android:text="+100"
-                    android:textColor="@color/colorBackground"
-                    android:textSize="17sp" />
-
-            </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -173,27 +155,14 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/runDistanceResult"
+                android:id="@+id/lvlLanguageCurrent"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
-                android:onClick="setDistance"
-                android:text="0"
                 android:textColor="@color/colorBackground"
-                android:textSize="30sp" />
-
-            <Button
-                android:layout_width="35sp"
-                android:layout_height="35sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10sp"
-                android:background="@drawable/btn_red"
-                android:text="M"
-                android:textColor="@color/colorBackground" />
+                android:textSize="30sp"/>
 
         </RelativeLayout>
 
@@ -205,9 +174,9 @@
         android:background="@color/colorGrey"></LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llGoalWeight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/llGoalRepeats"
         android:layout_weight="1">
 
         <RelativeLayout
@@ -216,12 +185,11 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/changeTxtTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
-                android:text="@string/cardio_current_time"
+                android:layout_marginLeft="10sp"
+                android:text="@string/language_desired_result"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp" />
 
@@ -233,47 +201,29 @@
                 android:layout_marginLeft="10sp" />
 
             <Button
-                android:id="@+id/sportMinusTime"
+                android:id="@+id/prevLvlGoal"
                 android:layout_width="60sp"
                 android:layout_height="60sp"
                 android:layout_below="@+id/position2"
-                android:layout_toEndOf="@+id/position2"
-                android:layout_toRightOf="@+id/position2"
-                android:background="@drawable/btn_red"
-                android:text="-"
+                android:textSize="18sp"
                 android:textColor="@color/colorBackground"
-                android:textSize="28sp" />
+                android:layout_marginLeft="10sp"
+                android:background="@drawable/btn_blue"
+                android:text="PREV"
+                android:onClick="goalLevelPrev"/>
 
             <Button
-                android:id="@+id/sportAddTime"
+                android:id="@+id/nextLvlGoal"
                 android:layout_width="60sp"
                 android:layout_height="60sp"
                 android:layout_below="@+id/position2"
                 android:layout_marginLeft="8sp"
-                android:layout_toRightOf="@+id/sportMinusTime"
-                android:background="@drawable/btn_red"
-                android:text="+"
+                android:layout_toRightOf="@+id/prevLvlGoal"
+                android:background="@drawable/btn_blue"
+                android:text="NEXT"
                 android:textColor="@color/colorBackground"
-                android:textSize="28sp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignBottom="@+id/sportAddTime"
-                android:layout_alignTop="@+id/sportAddTime"
-                android:layout_marginLeft="15sp"
-                android:layout_toRightOf="@+id/sportAddTime">
-
-                <Button
-                    android:id="@+id/nextTime"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/btn_red"
-                    android:text="@string/cardio_current_time_ok"
-                    android:textColor="@color/colorBackground"
-                    android:textSize="18sp" />
-            </RelativeLayout>
+                android:textSize="18sp"
+                android:onClick="goalLevelNext"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -282,17 +232,15 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/runTimeResult"
+                android:id="@+id/lvlLanguageGoal"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
                 android:background="@drawable/btn_green"
-                android:onClick="setTime"
-                android:text="0"
                 android:textColor="@color/colorBackground"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
@@ -313,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10sp"
-            android:text="@string/cardio_goal_date"
+            android:text="@string/language_goal_date"
             android:textColor="@color/colorBlack"
             android:textSize="22sp" />
 
@@ -323,21 +271,21 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10sp"
-            android:text="@string/cardio_goal_date_from"
+            android:text="@string/language_goal_date_from"
             android:textColor="@color/colorBlack"
             android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/sportDateFrom"
+            android:id="@+id/languageDateFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00.00.0000"
-            android:textColor="@color/colorBlack"
-            android:textSize="22sp"
             android:layout_alignBaseline="@+id/fromId"
             android:layout_alignBottom="@+id/fromId"
-            android:layout_alignLeft="@+id/repeatsDateTo"
-            android:layout_alignStart="@+id/repeatsDateTo" />
+            android:layout_alignLeft="@+id/languageDateTo"
+            android:layout_alignStart="@+id/languageDateTo"
+            android:text="00.00.0000"
+            android:textColor="@color/colorBlack"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/position3"
@@ -353,12 +301,12 @@
             android:layout_below="@+id/position3"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="20sp"
-            android:text="@string/cardio_goal_date_before"
+            android:text="@string/language_goal_date_before"
             android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/repeatsDateTo"
+            android:id="@+id/languageDateTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/position3"
@@ -369,17 +317,16 @@
             android:text="00.00.0000"
             android:textColor="@color/colorBlack"
             android:textSize="22sp" />
-
     </RelativeLayout>
 
     <Button
-        android:id="@+id/sportSaveGoal"
+        android:onClick="saveGoal"
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:background="@drawable/sport_save_goal"
-        android:onClick="saveGoal"
-        android:text="@string/save_goal"
+        android:padding="15sp"
         android:textColor="@color/colorBackground"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:background="@drawable/science_save_goal"
+        android:text="@string/save_goal"/>
 
 </LinearLayout>

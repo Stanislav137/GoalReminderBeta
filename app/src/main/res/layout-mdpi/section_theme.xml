@@ -29,7 +29,7 @@
         android:layout_toRightOf="@+id/ivTheme"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10sp"
-        android:textColor="@color/colorYellow"/>
+        android:textColor="@color/colorBlack"/>
 
     <TextView
         android:id="@id/nameGoal"

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/colorGreen">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="backToPrevActivity"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="25sp"
+                android:layout_height="15sp"
+                android:layout_margin="10sp"
+                android:background="@drawable/arrow_goalwhite"
+                android:rotation="90" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ngTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="КАТЕГОРИЯ НАВЫКИ"
+            android:textColor="@color/colorBackground"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5sp"
+            android:background="@drawable/menu_white"
+            android:onClick="backToHome" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="editDescription">
+
+            <TextView
+                android:id="@+id/descriptionGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp"
+                android:text="@string/skills_description_skills"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imgReadyDescription"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_alignBottom="@+id/descriptionGoal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8sp"
+                android:layout_toRightOf="@+id/descriptionGoal"
+                android:background="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/showWarningId"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10sp"
+                android:background="@drawable/warning"
+                android:onClick="showWarning" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llLvl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/chooseLvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:text="@string/skills_choose_level"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/yourLvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/position1"
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="10sp"
+                android:text="@string/skills_your_level"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/currentLvlGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/position1"
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="5sp"
+                android:layout_toRightOf="@+id/yourLvl"
+                android:text="0"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/maxLvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/skills_your_max_level"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_marginStart="20dp"
+                android:layout_alignBaseline="@+id/maxlLvlGoal"
+                android:layout_alignBottom="@+id/maxlLvlGoal"
+                android:layout_toRightOf="@+id/currentLvlGoal"
+                android:layout_toEndOf="@+id/currentLvlGoal" />
+
+            <TextView
+                android:id="@+id/maxlLvlGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/position1"
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="5sp"
+                android:layout_toRightOf="@+id/maxLvl"
+                android:text="5"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/position1"
+                android:layout_width="1sp"
+                android:layout_height="1sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20sp" />
+
+            <Button
+                android:id="@+id/lvlOne"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/btn_red"
+                android:text="1"
+                android:textColor="@color/colorBackground"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/lvlTwo"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/lvlOne"
+                android:background="@drawable/btn_lvl_two"
+                android:text="2"
+                android:textColor="@color/colorBackground"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/lvlThree"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/lvlTwo"
+                android:background="@drawable/btn_lvl_two"
+                android:text="3"
+                android:textColor="@color/colorBackground"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/lvlFour"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_below="@+id/position1"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/lvlThree"
+                android:background="@drawable/lvl_four_btn"
+                android:text="4"
+                android:textColor="@color/colorBackground"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/skills_goal_date"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/fromId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_centerVertical="true"
+            android:text="@string/skills_goal_date_from"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/elementsDateFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/fromId"
+            android:layout_alignBottom="@+id/fromId"
+            android:layout_alignLeft="@+id/repeatsDateTo"
+            android:layout_alignStart="@+id/repeatsDateTo"
+            android:text="00.00.0000"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/position3"
+            android:layout_width="1sp"
+            android:layout_height="1sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10sp" />
+
+        <TextView
+            android:id="@+id/toId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/position3"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="20sp"
+            android:text="@string/skills_goal_date_before"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/position3"
+            android:layout_marginLeft="30sp"
+            android:layout_toRightOf="@+id/fromId"
+            android:text="00.00.0000"
+            android:layout_marginTop="20sp"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:id="@+id/repeatsDateTo"
+            android:onClick="pickDateTo"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
+
+    <Button
+        android:onClick="saveGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:textColor="@color/colorBackground"
+        android:textSize="18sp"
+        android:background="@drawable/others_save_goal"
+        android:text="@string/save_goal"/>
+
+</LinearLayout>
