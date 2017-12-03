@@ -22,8 +22,7 @@ import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.CustomNotificationService;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationService;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -32,7 +31,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,10 +49,9 @@ public class StartActivity extends AppCompatActivity {
     private ExpListAdapter adapter;
     private boolean switchQuote;
 
+    Intent serviceIntent;
     private GestureDetectorCompat gestureObject;
     private SharedPreferences sp;
-    private static int[]selectedDays = new int[]{1,2,3,4,5,6,7};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +64,7 @@ public class StartActivity extends AppCompatActivity {
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
 
-
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
         setListenersOnChild();
         setListenerOnGroup();
         printAllGoals();
@@ -77,26 +74,29 @@ public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        sp = PreferenceManager.getDefaultSharedPreferences(this);
-        if(!sp.getBoolean("fromStart",false)) {
-            Intent intent = new Intent(this, NotificationService.class);
-            intent.putExtra("size",allGoals.size());
-            if(allGoals.size()>0){
-                intent.putExtra("title", "You goals are ready!");
-                intent.putExtra("content", "Keep it up!");
-
-            }else{
-                intent.putExtra("title", "You have no goals!");
-                intent.putExtra("content", "Add some goal to start");
-            }
-            intent.putExtra("frequency", 1);
-            intent.putExtra("soundOn", true);
-            intent.putExtra("vibrOn", true);
-           // intent.putExtra("days",selectedDays);
-            intent.putExtra("notification",true);
-            startService(intent);
-        }
         super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        serviceIntent = new Intent(this,MyService.class);
+        if(allGoals.size()>0) {
+            serviceIntent.putExtra("title", "You goals are ready!");
+            serviceIntent.putExtra("text", "Keep it up!");
+        }
+        else {
+            serviceIntent.putExtra("title", "You have no goals!");
+            serviceIntent.putExtra("text", "Add some goal to start");
+        }
+        serviceIntent.putExtra("interval","1");
+        serviceIntent.putExtra("notification",true);
+        serviceIntent.putExtra("sound",true);
+        serviceIntent.putExtra("vibration",true);
+        if(sp.getBoolean("main",true)){
+            startService(serviceIntent);
+        }
     }
 
     private void setListenersOnChild(){
@@ -378,32 +378,6 @@ public class StartActivity extends AppCompatActivity {
     }
     public void stopAnimAddGoal() {
         startAddGoal.clearAnimation();
-    }
-    public void startNotification(){
-        OptionsDTO optionsDTO = OptionsDTO.findById(OptionsDTO.class, 1);
-        if(allGoals.isEmpty()){
-            CustomNotificationService.scheduleNotification(
-                    CustomNotificationService.createNotification(
-                            "You have no goals!",
-                            "Add some goal to start!",
-                            getApplicationContext(),
-                            optionsDTO.getSoundConfig()
-                    ),
-                    5000,
-                    getApplicationContext()
-            );
-        }else {
-            CustomNotificationService.scheduleNotification(
-                    CustomNotificationService.createNotification(
-                            "You goals are ready!",
-                            "Keep it up!",
-                            getApplicationContext(),
-                            optionsDTO.getSoundConfig()
-                    ),
-                    5000,
-                    getApplicationContext()
-            );
-        }
     }
     private void dataQuote() {
         Typeface face = null;

@@ -1,5 +1,6 @@
 package com.goalreminderbeta.sa.goalreminderbeta.additional.notification;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -12,25 +13,16 @@ import android.support.v4.app.NotificationCompat;
 import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 
 public class NotificationPublisher extends BroadcastReceiver {
-
-    public static String NOTIFICATION_ID = "notifID";
-    public static String NOTIFICATION = "notif";
-
     public void onReceive(Context context, Intent intent) {
 
-
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        Notification notification = intent.getParcelableExtra(NOTIFICATION);
-
-        int id = intent.getIntExtra(NOTIFICATION_ID, 0);
-        boolean not = intent.getBooleanExtra("not",true);
-
-        if(not)
-        notificationManager.notify(id, notification);
-        else{
-
+        Notification notification = intent.getParcelableExtra("notification");
+        boolean notOn = intent.getBooleanExtra("notOn",true);
+        if(notOn)
+        {
+            notificationManager.notify(1, notification);
         }
 
     }
+
 }

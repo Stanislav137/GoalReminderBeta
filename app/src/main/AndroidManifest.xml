@@ -23,7 +23,7 @@
 
         <receiver android:name=".additional.notification.NotificationPublisher">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="publisher" />
             </intent-filter>
         </receiver>
 
@@ -73,15 +73,16 @@
         <activity android:name=".options.ConfigActivity" />
 
         <service
-            android:name=".additional.notification.NotificationService"
+            android:name=".additional.notification.ServiceHelper"
             android:enabled="true"
             android:exported="true"
-            android:process=":service" />
+            android:process=":serviceHelper" />
         <service
-            android:name=".additional.notification.InformationService"
+            android:name=".additional.notification.MyService"
             android:enabled="true"
             android:exported="true"
-            android:process=":informService"></service>
+            android:process=":myService"
+            android:stopWithTask="false"></service>
     </application>
 
 </manifest>
