@@ -21,8 +21,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.CustomDatePicker;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
-import com.goalreminderbeta.sa.goalreminderbeta.all.AllSectionTheme;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;

@@ -1,20 +1,26 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogFactory;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
 import java.text.DecimalFormat;
@@ -33,7 +39,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
     private TextView leftToGoalUnits, dataBook, taskOfDayUnits;
     private RelativeLayout bookPresent, runDistance;
-    boolean checkComplete = false;
+    private boolean checkComplete = false;
+
+    /* FOR DAY GOAL */
+
+    private TextView nameData, distanceDG, currentResultDG, goalResultDG, taskDG, madeToday, goalDescriptionDG;
 
     public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
         mContext = context;
@@ -188,6 +198,21 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.child_section2, null);
             convertView.setMinimumHeight(1500);
 
+            findUxDayGoal(convertView);
+            showDataDG(groupPosition, convertView);
+
+            final LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
+            showPopupDayTask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    final LinearLayoutCompat.LayoutParams lparams = new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.FILL_PARENT, LinearLayoutCompat.LayoutParams.FILL_PARENT);
+//                    final EditText edittext = new EditText(mContext.getApplicationContext());
+//                    edittext.setLayoutParams(lparams);
+//                    edittext.setWidth(32);
+//                    edittext.setEms(50);
+                }
+            });
+
             final Button completed = (Button) convertView.findViewById(R.id.completed);
             completed.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -198,6 +223,45 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         }
 
         return convertView;
+    }
+
+    private void findUxDayGoal(View view) {
+        nameData = (TextView) view.findViewById(R.id.nameData);
+        distanceDG = (TextView) view.findViewById(R.id.distanceDG);
+        currentResultDG = (TextView) view.findViewById(R.id.currentResultDG);
+        goalResultDG = (TextView) view.findViewById(R.id.goalResultDG);
+        taskDG = (TextView) view.findViewById(R.id.taskDG);
+        madeToday = (TextView) view.findViewById(R.id.madeToday);
+        goalDescriptionDG = (TextView) view.findViewById(R.id.goalDescriptionDG);
+    }
+
+    private void showDataDG(int groupPosition, View view) {
+        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+        Goal goal = allGoalsMap.get(groupPos); //actual goal
+        String dataBookDG;
+        double dayTask = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
+        double madeTodayResult = 100;
+        if(goal.getDataBook() == null) {
+            dataBookDG = "";
+        } else {
+            dataBookDG = " | " + goal.getDataBook();
+        }
+        if(!goal.getThemeCategory().equals("КАРДИО")) {
+            LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
+            llDistance.setVisibility(View.GONE);
+        } else {
+            distanceDG.setText(goal.getDistance() + " метров");
+        }
+        nameData.setText(goal.getNameGoal() +  dataBookDG);
+        currentResultDG.setText(goal.getCurrentResult() + "");
+        goalResultDG.setText(goal.getGoalResult() + "");
+        taskDG.setText(String.format("%.1f", dayTask) + "");
+        madeToday.setText(String.format("%.1f", madeTodayResult) + "");
+        if(goal.getDescriptionGoal().equals("")) {
+            goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !");
+        } else {
+            goalDescriptionDG.setText(goal.getDescriptionGoal() + "");
+        }
     }
 
     @Override

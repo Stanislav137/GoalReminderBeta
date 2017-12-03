@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:id="@+id/distanceRun"
+            android:id="@+id/distanceDG"
             android:layout_marginLeft="10sp"
             android:textSize="15sp"
             android:text="10000 метров"/>
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:id="@+id/currentResult"
+            android:id="@+id/currentResultDG"
             android:layout_marginLeft="10sp"
             android:textSize="15sp"
             android:text="10 страниц"/>
@@ -111,7 +111,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/goalResult"
+            android:id="@+id/goalResultDG"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10sp"
             android:textSize="15sp"
@@ -139,7 +139,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/taskDay"
+            android:id="@+id/taskDG"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10sp"
             android:textSize="15sp"
@@ -169,11 +169,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dayResult"
+            android:id="@+id/madeToday"
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="10sp"
             android:textSize="15sp"
             android:text="0 страниц"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -191,7 +192,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/goalDescription"
+            android:id="@+id/goalDescriptionDG"
             android:layout_centerHorizontal="true"
             android:textColor="@color/clr_sport"
             android:textSize="15sp"
@@ -214,17 +215,7 @@
             android:layout_height="wrap_content"
             android:text="ВЫПОЛНИЛ"
             android:id="@+id/completed"
-            android:layout_weight="1"
             android:background="@color/clr_main"
-            android:textColor="@color/colorBackground"
-            android:textSize="18sp"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="НЕ ВЫПОЛНИЛ"
-            android:id="@+id/uncompleted"
-            android:layout_weight="1"
-            android:background="@color/clr_sport"
             android:textColor="@color/colorBackground"
             android:textSize="18sp"/>
     </LinearLayout>

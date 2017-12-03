@@ -160,6 +160,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(ElementCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
 
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
