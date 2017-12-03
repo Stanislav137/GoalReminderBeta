@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:id="@+id/list1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    <ImageView
+        android:layout_width="70sp"
+        android:layout_height="70sp"
+        android:id="@+id/ivTheme"
+        android:layout_marginLeft="10sp"
+        android:layout_margin="1sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPORT"
+        android:id="@+id/themeCategory"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/ivTheme"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10sp"
+        android:textColor="@color/colorYellow"/>
+
+    <TextView
+        android:id="@id/nameGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отжимания"
+        android:textColor="@color/colorBlack"
+        android:layout_alignBottom="@+id/ivTheme"
+        android:layout_alignLeft="@+id/themeCategory"
+        android:layout_alignStart="@+id/themeCategory" />
+
+    <ImageView
+        android:layout_width="25sp"
+        android:layout_height="15sp"
+        android:id="@+id/arrowDownUp"
+        android:background="@drawable/arrow_goal"
+        android:layout_marginRight="10sp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/rlCircle"/>
+
+    <ImageView
+        android:layout_width="0.5sp"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrey"
+        android:id="@+id/line_v"
+        android:layout_toStartOf="@+id/rlCircle"/>
+
+    <RelativeLayout
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:id="@+id/rlCircle"
+        android:layout_alignTop="@+id/ivTheme"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <ProgressBar
+            android:id="@+id/circleProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:max="100"
+            android:progress="70"
+            android:progressDrawable="@drawable/circular_green"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textCircleProgress"
+            android:textColor="@color/colorGreen"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="70%">
+        </TextView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+</RelativeLayout>

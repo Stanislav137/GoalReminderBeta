@@ -143,15 +143,15 @@
                 android:id="@+id/maxLvl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="20dp"
                 android:text="@string/skills_your_max_level"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
+                android:layout_marginStart="20dp"
                 android:layout_alignBaseline="@+id/maxlLvlGoal"
                 android:layout_alignBottom="@+id/maxlLvlGoal"
                 android:layout_toRightOf="@+id/currentLvlGoal"
-                android:layout_toEndOf="@+id/currentLvlGoal"
-                android:layout_marginStart="20dp" />
+                android:layout_toEndOf="@+id/currentLvlGoal" />
 
             <TextView
                 android:id="@+id/maxlLvlGoal"

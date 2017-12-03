@@ -82,7 +82,7 @@ public class DialogFactory {
             dateTo = (EditText) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);
             cancel = (Button)findViewById(R.id.cancel);
-            currentResult = (TextView)findViewById(R.id.currentProgress);
+           // currentResult = (TextView)findViewById(R.id.currentProgress);
         }
 
 
@@ -137,7 +137,7 @@ public class DialogFactory {
             dateTo = (EditText) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);
             cancel = (Button)findViewById(R.id.cancel);
-            currentResult = (TextView)findViewById(R.id.currentProgress);
+            //currentResult = (TextView)findViewById(R.id.currentProgress);
         }
 
     }

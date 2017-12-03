@@ -286,8 +286,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
         }
 
     private static class BookDialogBuilder extends DialogBuilder {
-        private static EditText dataBookET, currentBookET, goalBookET;
+        private static TextView dataBookET, currentBookET, goalBookET;
         private static TextView dataBookTV, currentBookTV, goalBookTV;
+        private static LinearLayout.LayoutParams params;
+        private static LinearLayout ll, ll_2;
 
         private static Dialog bookDialog;
 
@@ -302,28 +304,56 @@ public class BookCorrectionActivity extends AppCompatActivity {
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
 
+            params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            ll = new LinearLayout(bookDialog.getContext());
+            ll_2 = new LinearLayout(bookDialog.getContext());
+            ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll_2.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundColor(Color.GRAY);
+            ll_2.setBackgroundColor(Color.GRAY);
+
             dataBookTV = new TextView(bookDialog.getContext());
+            dataBookTV.setTextColor(Color.rgb(68,182,72));
+            dataBookTV.setTextSize(20);
+            dataBookTV.setPadding(20,0,0,0);
             dataBookTV.setText("НАЗВАНИЕ КНИГИ");
             dialogLV.addView(dataBookTV,lp);
-            dataBookET = new EditText(bookDialog.getContext());
+            dataBookET = new TextView(bookDialog.getContext());
+            dataBookET.setPadding(20,20,20,20);
+            dataBookET.setTextSize(20);
+            dataBookET.setTextColor(Color.BLACK);
             if(dialogBuilderGoal.getDataBook() == null) {
                 dataBookET.setText("");
             } else {
                 dataBookET.setText(String.valueOf(dialogBuilderGoal.getDataBook()));
             }
-            dialogLV.addView(dataBookET,lp);
+            dialogLV.addView(dataBookET, lp);
+            dialogLV.addView(ll, params);
 
             currentBookTV = new TextView(bookDialog.getContext());
+            currentBookTV.setTextColor(Color.rgb(68,182,72));
+            currentBookTV.setTextSize(20);
+            currentBookTV.setPadding(20,0,0,0);
             currentBookTV.setText("ВАША ТЕКУЩЯЯ СТРАНИЦА:");
             dialogLV.addView(currentBookTV,lp);
-            currentBookET = new EditText(bookDialog.getContext());
+            currentBookET = new TextView(bookDialog.getContext());
+            currentBookET.setPadding(20,20,20,20);
+            currentBookET.setTextSize(20);
+            currentBookET.setTextColor(Color.BLACK);
             currentBookET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
             dialogLV.addView(currentBookET,lp);
+            dialogLV.addView(ll_2, params);
 
             goalBookTV = new TextView(bookDialog.getContext());
+            goalBookTV.setTextColor(Color.rgb(68,182,72));
+            goalBookTV.setTextSize(20);
+            goalBookTV.setPadding(20,0,0,0);
             goalBookTV.setText("Your goal pages:");
             dialogLV.addView(goalBookTV,lp);
-            goalBookET = new EditText(bookDialog.getContext());
+            goalBookET = new TextView(bookDialog.getContext());
+            goalBookET.setPadding(20,20,20,20);
+            goalBookET.setTextSize(20);
+            goalBookET.setTextColor(Color.BLACK);
             goalBookET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
             dialogLV.addView(goalBookET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {

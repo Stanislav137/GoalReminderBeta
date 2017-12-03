@@ -44,7 +44,7 @@
     <string name="maximum_number_repetitions">МАКС. КОЛ-ВО ПОВТОРЕНИЙ:</string>
     <string name="maximum_number_repetitions_times">раз</string>
     <string name="exercise">УПРАЖНЕНИЕ:</string>
-    <string name="Pushups">Отжимания</string>
+    <string name="Pushups" translatable="false">Отжимания</string>
     <string name="theme_science">ТЕМА НАУКА</string>
     <string name="category_books">КАТЕГОРИЯ КНИГА</string>
     <string name="quick_read">САМОЕ БЫСТРОЕ ПРОЧТЕНИЕ:</string>
@@ -144,7 +144,7 @@
     <string name="language_name_language">НАЗВАНИЕ ЯЗЫКА:</string>
     <string name="language_level_language">ВАШ УРОВЕНЬ ЯЗЫКА:</string>
     <string name="language_desired_result">ЖЕЛАЕМЫЙ РЕЗУЛЬТАТ:</string>
-    <string name="language_goal_date">ДАТА ЦЕЛИ:</string>
+    <string name="language_goal_date" translatable="false">ДАТА ЦЕЛИ:</string>
     <string name="language_goal_date_from">ОТ</string>
     <string name="language_goal_date_before">ДО</string>
 
@@ -152,10 +152,10 @@
 
     <string name="skills_description_skills">ОПИСАНИЕ НАВЫКА:</string>
     <string name="skills_choose_level">ВЫБЕРИТЕ УРОВЕНЬ:</string>
-    <string name="skills_your_level">ВАШ УРОВЕНЬ:</string>
-    <string name="skills_your_max_level">МАКС. УРОВЕНЬ:</string>
+    <string name="skills_your_level" translatable="false">ВАШ УРОВЕНЬ:</string>
+    <string name="skills_your_max_level" translatable="false">МАКС. УРОВЕНЬ:</string>
     <string name="skills_goal_date">ДАТА ЦЕЛИ:</string>
-    <string name="skills_goal_date_from">ОТ</string>
+    <string name="skills_goal_date_from" translatable="false">ОТ</string>
     <string name="skills_goal_date_before">ДО</string>
 
     <!--config-->
