@@ -1,0 +1,43 @@
+package com.goalreminderbeta.sa.goalreminderbeta.additional.notification;
+
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.support.v4.app.NotificationCompat;
+
+import com.goalreminderbeta.sa.goalreminderbeta.R;
+
+/**
+ * Created by Yevgeniya on 02.12.2017.
+ */
+public class NotificationFactory {
+    private static NotificationFactory factory;
+    private String title;
+    private String content;
+    private PendingIntent pIntent;
+    private Context context;
+    private NotificationFactory(Context context,String title,String content,PendingIntent pIntent){
+        this.title = title;
+        this.content = content;
+        this.context = context;
+        this.pIntent = pIntent;
+    }
+    public static NotificationFactory getInstance(Context context,String title,String content,PendingIntent pIntent){
+        if(factory==null) factory = new NotificationFactory(context,title,content,pIntent);
+        return factory;
+    }
+    public Notification createNotification(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        builder.setTicker("Notification");
+        builder.setSmallIcon(R.drawable.my_goal_image);
+        builder.setContentTitle(title);
+        builder.setContentText(content);
+        builder.setAutoCancel(true);
+        builder.setContentIntent(pIntent);
+        return  builder.build();
+    }
+
+
+
+}
+
