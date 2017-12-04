@@ -295,7 +295,8 @@ public class CardioActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
-
+        value.setText(distance + "");
+        value.isShown();
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

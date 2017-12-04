@@ -38,7 +38,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     private Button scienceGoalPage, minusPage, addPage, addX20;
     private int goalPage;
     private double currentPages = 0;
-    private String nameBook, nameAuthor;
+    private String nameBook = "", nameAuthor = "";
     private boolean boolNameBook = true;
     private Dialog dialog;
     private Date dateFrom, dateTo;
@@ -143,6 +143,10 @@ public class BookCorrectionActivity extends AppCompatActivity {
         dialog = new Dialog(BookCorrectionActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.present_book);
+        EditText enterNameBook = (EditText) dialog.findViewById(R.id.enterNameBook);
+        EditText enterNameAuthor = (EditText) dialog.findViewById(R.id.enterNameAuthor);
+        enterNameBook.setText(nameBook + "");
+        enterNameAuthor.setText(nameAuthor + "");
         dialog.show();
     }
 
@@ -266,7 +270,8 @@ public class BookCorrectionActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
-
+        value.setText(goalPage + "");
+        value.isShown();
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
