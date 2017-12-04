@@ -12,6 +12,7 @@
     <color name="colorYellow">#ffd000</color>
     <color name="colorChildGoal">#e8fff9</color>
     <color name="colorSlide">#ececec</color>
+    <color name="colorWhite">#FFF</color>
 
     <color name="clr_main">#44b648</color>
     <color name="clr_science">#3F51B5</color>

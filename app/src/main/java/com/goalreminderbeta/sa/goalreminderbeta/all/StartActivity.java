@@ -50,8 +50,9 @@ public class StartActivity extends AppCompatActivity {
     private boolean switchQuote;
 
     Intent serviceIntent;
-    private GestureDetectorCompat gestureObject;
     private SharedPreferences sp;
+    private SharedPreferences sPref;
+    private int countHelpUser = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +66,49 @@ public class StartActivity extends AppCompatActivity {
         bootStrap = new BootStrap();
 
         sp = PreferenceManager.getDefaultSharedPreferences(this);
+        loadCount();
+        if(countHelpUser == 0) {
+            helpUserStart();
+        }
         setListenersOnChild();
         setListenerOnGroup();
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
+    }
+
+    private void helpUserStart() {
+        final Dialog dialog;
+        dialog = new Dialog(StartActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.help_user_start);
+        Button closePopup = (Button) dialog.findViewById(R.id.closePopup);
+        dialog.show();
+        closePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        countHelpUser++;
+    }
+
+    void saveCount() {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putInt("SAVE_COUNT", countHelpUser);
+        ed.commit();
+    }
+
+    void loadCount() {
+        sPref = getPreferences(MODE_PRIVATE);
+        countHelpUser = sPref.getInt("SAVE_COUNT", countHelpUser);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveCount();
     }
 
     @Override
