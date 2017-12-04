@@ -248,7 +248,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         }
         if(!goal.getThemeCategory().equals("КАРДИО")) {
             LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
+            LinearLayout separator = (LinearLayout) view.findViewById(R.id.separator);
             llDistance.setVisibility(View.GONE);
+            separator.setVisibility(View.GONE);
         } else {
             distanceDG.setText(goal.getDistance() + " метров");
         }
@@ -291,7 +293,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "повторений";
                 break;
             case "КНИГА":
-                bookPresent.setVisibility(View.VISIBLE);
+                if(goal.getDataBook().equals("")) {
+                    bookPresent.setVisibility(View.GONE);
+                } else {
+                    bookPresent.setVisibility(View.VISIBLE);
+                }
                 units = "страниц";
                 break;
             case "ЯЗЫКИ":

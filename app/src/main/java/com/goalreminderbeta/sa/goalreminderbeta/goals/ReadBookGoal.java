@@ -13,7 +13,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private double goalResult;
     private Date fromDate;
     private Date toDate;
-    private String dataBook;
+    private String dataBook = "";
     private String nameGoal, descriptionGoal;
     private String themeCategory;
 
