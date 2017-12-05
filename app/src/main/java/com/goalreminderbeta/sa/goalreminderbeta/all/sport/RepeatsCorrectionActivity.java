@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,12 +45,14 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private String goalDescription, goalName;
     private int repeatsCurrent, repeatsGoal;
     private RepeatsDialogBuilder rdb;
+    private boolean type = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.repeats_theme);
 
+        chooseType();
         findAllButtons();
         addToList(); // using for BootStrap!
         setListenersOnButtons();
@@ -92,6 +95,48 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         } else {
             goalName = null;
             dialog.dismiss();
+        }
+    }
+
+    private void chooseType() {
+        dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_choose_type);
+        Button newRecord = (Button) dialog.findViewById(R.id.newRecord);
+        Button regularAttack = (Button) dialog.findViewById(R.id.regularAttack);
+        TextView descrRecord = (TextView) dialog.findViewById(R.id.descrRecord);
+        TextView descrRA = (TextView) dialog.findViewById(R.id.descrRA);
+        descrRecord.setText(R.string.descr_new_record);
+        descrRA.setText(R.string.descr_regular_attack);
+        newRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = false;
+                dialog.dismiss();
+                validateType();
+            }
+        });
+        regularAttack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = true;
+                dialog.dismiss();
+                validateType();
+            }
+        });
+        dialog.show();
+    }
+
+    private void validateType() {
+        if(!type) {
+            return;
+        } else {
+            LinearLayout llCurrentRepeats =(LinearLayout) findViewById(R.id.llCurrentRepeats);
+            llCurrentRepeats.setVisibility(View.INVISIBLE);
+            //  sportMinusTime.setEnabled(false);
+            //  sportAddTime.setEnabled(false);
+            // nextTime.setEnabled(false);
+            // runTimeResult.setEnabled(false);
         }
     }
 
@@ -168,7 +213,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(repeatsDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(repeatsDateTo.getText()));
 
-        if (goalName != null && repeatsCurrent != 0 && repeatsGoal != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && repeatsGoal > repeatsCurrent) {
+        if (goalName != null && repeatsGoal != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && repeatsGoal > repeatsCurrent) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             RepeatsCorrectionGoal runCorrectionGoal = new RepeatsCorrectionGoal(repeatsCurrent, repeatsGoal, dateFrom, dateTo, goalName, goalDescription);

@@ -260,7 +260,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         taskDG.setText(String.format("%.1f", dayTask) + "");
         madeToday.setText(String.format("%.1f", madeTodayResult) + "");
         if(goal.getDescriptionGoal().equals("")) {
-            goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !");
+            goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string
         } else {
             goalDescriptionDG.setText(goal.getDescriptionGoal() + "");
         }

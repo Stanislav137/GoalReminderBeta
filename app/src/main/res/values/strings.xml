@@ -158,6 +158,11 @@
     <string name="skills_goal_date_from" translatable="false">ОТ</string>
     <string name="skills_goal_date_before">ДО</string>
 
+    <!-- POPUP TYPE GOAL -->
+
+    <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в твоих упражнениях на повторения, для этого введи текущее кол-во и свой конечный результат.</string>
+    <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться ругялярности выполнения упражнения каждый день. Для этого просто запиши свою цель в повторениях за один день.</string>
+
     <!--config-->
     <string-array name="frequency">
         <item>Each hour</item>
@@ -197,7 +202,4 @@
     <string-array name="selectedDays">
 
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

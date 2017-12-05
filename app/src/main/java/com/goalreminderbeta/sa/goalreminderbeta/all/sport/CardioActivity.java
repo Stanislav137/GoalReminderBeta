@@ -52,16 +52,56 @@ public class CardioActivity extends AppCompatActivity {
     private int distance, currentRunTime = 0, goalRunTime = 0;
     private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
+    private boolean type = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cardio_theme);
 
+        chooseType();
         findAllWidgets();
         addToList(); // using for BootStrap!
         setListenersOnButtons();
         initializeUX();
+    }
+
+    private void validateType() {
+        if(!type) {
+            return;
+        } else {
+            LinearLayout llGoalWeight =(LinearLayout) findViewById(R.id.llGoalWeight);
+            llGoalWeight.setVisibility(View.INVISIBLE);
+          //  sportMinusTime.setEnabled(false);
+          //  sportAddTime.setEnabled(false);
+           // nextTime.setEnabled(false);
+           // runTimeResult.setEnabled(false);
+        }
+    }
+
+    private void chooseType() {
+        dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.popup_choose_type);
+        Button newRecord = (Button) dialog.findViewById(R.id.newRecord);
+        Button regularAttack = (Button) dialog.findViewById(R.id.regularAttack);
+        newRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = false;
+                dialog.dismiss();
+                validateType();
+            }
+        });
+        regularAttack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = true;
+                dialog.dismiss();
+                validateType();
+            }
+        });
+        dialog.show();
     }
 
     private void findAllWidgets() {
@@ -218,7 +258,7 @@ public class CardioActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFrom = formatter.parse(String.valueOf(sportDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(sportDateTo.getText()));
-        if (goalName != null  && currentRunTime != 0 && goalRunTime != 0 && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && currentRunTime >= goalRunTime) {
+        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && currentRunTime >= goalRunTime) {
             Date dateFrom = this.dateFrom;
             Date dateTo = this.dateTo;
             CardioGoal runCorrectionGoal = new CardioGoal(distance, currentRunTime, goalRunTime, dateFrom, dateTo, goalName, goalDescription);
