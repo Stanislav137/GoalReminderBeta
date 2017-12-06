@@ -49,7 +49,9 @@ public class CardioActivity extends AppCompatActivity {
     private TextView sportDateFrom, sportDateTo, changeTxtTime;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private int distance, currentRunTime = 0, goalRunTime = 0;
+    private int distance;
+    private static int currentRunTime = 0;
+    private static int goalRunTime = 0;
     private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
     private boolean type = false;
@@ -407,7 +409,6 @@ public class CardioActivity extends AppCompatActivity {
             dateFrom.setText(date_from);
             String date_to = sdf.format(dialogBuilderGoal.getToDate());
             dateTo.setText(date_to);
-
             params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1);
             ll = new LinearLayout(cardioDialog.getContext());
             ll_2 = new LinearLayout(cardioDialog.getContext());
@@ -430,32 +431,34 @@ public class CardioActivity extends AppCompatActivity {
             dialogLV.addView(distanceET,lp);
             dialogLV.addView(ll,params);
 
-            currentRunTimeTV = new TextView(cardioDialog.getContext());
-            currentRunTimeTV.setTextColor(Color.rgb(68,182,72));
-            currentRunTimeTV.setTextSize(20);
-            currentRunTimeTV.setPadding(20,0,0,0);
-            currentRunTimeTV.setText("Your time now is:");
-            dialogLV.addView(currentRunTimeTV,lp);
-            currentRunTimeET = new TextView(cardioDialog.getContext());
-            currentRunTimeET.setPadding(20,20,20,20);
-            currentRunTimeET.setTextSize(20);
-            currentRunTimeET.setTextColor(Color.BLACK);
-            currentRunTimeET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
-            dialogLV.addView(currentRunTimeET,lp);
-            dialogLV.addView(ll_2,params); // here
+            if(currentRunTime != 0 && goalRunTime !=0) {
+                currentRunTimeTV = new TextView(cardioDialog.getContext());
+                currentRunTimeTV.setTextColor(Color.rgb(68, 182, 72));
+                currentRunTimeTV.setTextSize(20);
+                currentRunTimeTV.setPadding(20, 0, 0, 0);
+                currentRunTimeTV.setText("Your time now is:");
+                dialogLV.addView(currentRunTimeTV, lp);
+                currentRunTimeET = new TextView(cardioDialog.getContext());
+                currentRunTimeET.setPadding(20, 20, 20, 20);
+                currentRunTimeET.setTextSize(20);
+                currentRunTimeET.setTextColor(Color.BLACK);
+                currentRunTimeET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+                dialogLV.addView(currentRunTimeET, lp);
+                dialogLV.addView(ll_2, params); // here
 
-            goalRunTimeTV = new TextView(cardioDialog.getContext());
-            goalRunTimeTV.setTextColor(Color.rgb(68,182,72));
-            goalRunTimeTV.setTextSize(20);
-            goalRunTimeTV.setPadding(20,0,0,0);
-            goalRunTimeTV.setText("Goal time is:");
-            dialogLV.addView(goalRunTimeTV,lp);
-            goalRunTimeET = new TextView(cardioDialog.getContext());
-            goalRunTimeET.setPadding(20,20,20,20);
-            goalRunTimeET.setTextSize(20);
-            goalRunTimeET.setTextColor(Color.BLACK);
-            goalRunTimeET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
-            dialogLV.addView(goalRunTimeET,lp);
+                goalRunTimeTV = new TextView(cardioDialog.getContext());
+                goalRunTimeTV.setTextColor(Color.rgb(68, 182, 72));
+                goalRunTimeTV.setTextSize(20);
+                goalRunTimeTV.setPadding(20, 0, 0, 0);
+                goalRunTimeTV.setText("Goal time is:");
+                dialogLV.addView(goalRunTimeTV, lp);
+                goalRunTimeET = new TextView(cardioDialog.getContext());
+                goalRunTimeET.setPadding(20, 20, 20, 20);
+                goalRunTimeET.setTextSize(20);
+                goalRunTimeET.setTextColor(Color.BLACK);
+                goalRunTimeET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+                dialogLV.addView(goalRunTimeET, lp);
+            }
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

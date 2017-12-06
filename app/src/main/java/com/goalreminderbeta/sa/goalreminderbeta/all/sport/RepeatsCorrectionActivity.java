@@ -43,7 +43,8 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private TextView repeatsDateFrom, repeatsDateTo;
     private Dialog dialog;
     private String goalDescription, goalName;
-    private int repeatsCurrent, repeatsGoal;
+    private int repeatsGoal;
+    private static int repeatsCurrent;
     private RepeatsDialogBuilder rdb;
     private boolean type = false;
 
@@ -360,26 +361,26 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setBackgroundColor(Color.GRAY);
 
-            currentRepeatsTV = new TextView(repeatsDialog.getContext());
-            currentRepeatsTV.setTextColor(Color.rgb(68,182,72));
-            currentRepeatsTV.setTextSize(20);
-            currentRepeatsTV.setPadding(20,0,0,0);
-            currentRepeatsTV.setText("Your weight now is:");
-            currentRepeatsTV.setText("Your repeats now is:");
-            dialogLV.addView(currentRepeatsTV,lp);
-            currentRepeatsET = new TextView(repeatsDialog.getContext());
-            currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
-            currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
-            currentRepeatsET.setPadding(20,20,20,20);
-            currentRepeatsET.setTextSize(20);
-            currentRepeatsET.setTextColor(Color.BLACK);
-            dialogLV.addView(currentRepeatsET,lp);
-            dialogLV.addView(ll,params);
+            if(repeatsCurrent != 0) {
+                currentRepeatsTV = new TextView(repeatsDialog.getContext());
+                currentRepeatsTV.setTextColor(Color.rgb(68, 182, 72));
+                currentRepeatsTV.setTextSize(20);
+                currentRepeatsTV.setPadding(20, 0, 0, 0);
+                currentRepeatsTV.setText("Your repeats now is:");
+                dialogLV.addView(currentRepeatsTV, lp);
+                currentRepeatsET = new TextView(repeatsDialog.getContext());
+                currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+                currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+                currentRepeatsET.setPadding(20, 20, 20, 20);
+                currentRepeatsET.setTextSize(20);
+                currentRepeatsET.setTextColor(Color.BLACK);
+                dialogLV.addView(currentRepeatsET, lp);
+                dialogLV.addView(ll, params);
+            }
             goalRepeatsTV = new TextView(repeatsDialog.getContext());
             goalRepeatsTV.setTextColor(Color.rgb(68,182,72));
             goalRepeatsTV.setTextSize(20);
             goalRepeatsTV.setPadding(20,0,0,0);
-            goalRepeatsTV.setText("Goal weight is:");
             goalRepeatsTV.setText("Goal repeats is:");
             dialogLV.addView(goalRepeatsTV,lp);
             goalRepeatsET = new TextView(repeatsDialog.getContext());
