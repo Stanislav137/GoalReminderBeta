@@ -38,11 +38,11 @@
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginRight="5sp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:background="@drawable/menu_white"
-            android:onClick="backToHome" />
+            android:onClick="backToHome"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
     <LinearLayout
