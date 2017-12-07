@@ -321,7 +321,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             dataBookTV.setTextColor(Color.rgb(68,182,72));
             dataBookTV.setTextSize(20);
             dataBookTV.setPadding(20,0,0,0);
-            dataBookTV.setText("НАЗВАНИЕ КНИГИ");
+            dataBookTV.setText("ДАННЫЕ КНИГИ");
             dialogLV.addView(dataBookTV,lp);
             dataBookET = new TextView(bookDialog.getContext());
             dataBookET.setPadding(20,20,20,20);
