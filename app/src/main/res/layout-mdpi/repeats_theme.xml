@@ -61,6 +61,7 @@
                 android:text="@string/repetitions_description_exercise"
                 android:textColor="@color/colorBlack"
                 android:textSize="22sp"
+                android:layout_marginLeft="10sp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -105,6 +106,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/titleRepeatsCurrent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/repetitions_number_repetitions"

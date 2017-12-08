@@ -20,7 +20,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -69,7 +69,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -106,7 +106,7 @@
                     android:layout_marginTop="5sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -206,7 +206,7 @@
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -288,94 +288,10 @@
                     </RelativeLayout>
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/cetegory_skills"
-                    android:textSize="18sp"
-                    android:enabled="false"
-                    android:background="@color/clr_sport"
-                    android:textColor="@color/colorBackground"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10sp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/learn_fast"
-                            android:textSize="15sp"
-                            android:textColor="@color/colorBlack"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:layout_marginLeft="20sp"
-                            android:textColor="@color/colorBlack"
-                            android:text="@string/yield_on_two_hands"/>
-
-                    </RelativeLayout>
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1sp"
                     android:background="@color/colorGrey"></LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10sp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/duration"
-                            android:textSize="15sp"
-                            android:textColor="@color/colorBlack"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:layout_marginLeft="20sp"
-                            android:textColor="@color/colorBlack"
-                            android:text="@string/duration_days"/>
-
-                    </RelativeLayout>
-                </LinearLayout>
 
                 <Button
                     android:layout_width="match_parent"
@@ -384,7 +300,7 @@
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_sport"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -471,7 +387,7 @@
                     android:textSize="20sp"
                     android:enabled="false"
                     android:background="@color/clr_science"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -485,7 +401,7 @@
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/clr_science"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -573,7 +489,7 @@
                     android:textSize="18sp"
                     android:enabled="false"
                     android:background="@color/colorPrimary"
-                    android:textColor="@color/colorBackground"/>
+                    android:textColor="@color/colorWhite"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -659,6 +575,90 @@
                     android:layout_width="match_parent"
                     android:layout_height="1sp"
                     android:background="@color/colorGrey"></LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/cetegory_skills"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:background="@color/clr_main"
+                    android:textColor="@color/colorWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/learn_fast"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="@string/yield_on_two_hands"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/duration"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorBlack"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginLeft="20sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="@string/duration_days"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
