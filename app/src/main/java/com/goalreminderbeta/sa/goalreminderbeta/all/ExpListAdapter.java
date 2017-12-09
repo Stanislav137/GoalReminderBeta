@@ -301,7 +301,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "страниц";
                 break;
             case "ЯЗЫКИ":
-                units = "уровень";
+                units = "часов";
                 break;
 
         }
@@ -332,7 +332,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else {
             currentResultUnits.setText((int)currentNumber + " " + units);
             goalResultUnits.setText((int)goalNumber + " " + units);
-            distanceRunUnits.setText("" + goal.getDistance());
+            distanceRunUnits.setText("" + goal.getDistance() + " метров");
             dataBook.setText(goal.getDataBook());
         }
 
@@ -345,8 +345,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else {
             goalDescription.setText(goal.getDescriptionGoal() + ""); // ОПИСАНИЕ ЦЕЛИ
         }
-        leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);   // СКОЛЬКО UNITS ОСТАЛОСЬ
-        taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);            // ЗАДАЧА В ДЕНЬ
+        if(themeCategory.equals("НАВЫКИ")) {
+            leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " очков");   // СКОЛЬКО UNITS ОСТАЛОСЬ
+            taskOfDayUnits.setText(String.format("%.1f", dayTask) + " очков");            // ЗАДАЧА В ДЕНЬ
+        } else {
+            leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
+            taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);
+        }
         leftDaysGoal.setText(getDifferenceInDays(new Date(), goal.getToDate()) + "");   // СКОЛЬКО ДНЕЙ ОСТАЛОСЬ
         fromGoal.setText("ОТ " + fromDate); // ОТ ЧИСЛА
         toGoal.setText("ДО " + toDate); // ДО ЧИСЛА

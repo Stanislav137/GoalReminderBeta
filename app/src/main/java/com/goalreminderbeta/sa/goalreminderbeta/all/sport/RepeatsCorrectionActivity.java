@@ -133,11 +133,13 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             return;
         } else {
             LinearLayout llCurrentRepeats =(LinearLayout) findViewById(R.id.llCurrentRepeats);
-            llCurrentRepeats.setVisibility(View.INVISIBLE);
-            //  sportMinusTime.setEnabled(false);
-            //  sportAddTime.setEnabled(false);
-            // nextTime.setEnabled(false);
-            // runTimeResult.setEnabled(false);
+            TextView titleRepeatsCurrent = (TextView) findViewById(R.id.titleRepeatsCurrent);
+            llCurrentRepeats.setBackgroundColor(Color.rgb(202,202,202));
+            sportMinusRepeatCurrent.setVisibility(View.INVISIBLE);
+            sportPlusRepeatCurrent.setVisibility(View.INVISIBLE);
+            addX10CurrentRepeat.setVisibility(View.INVISIBLE);
+            currentRepeatsResult.setVisibility(View.INVISIBLE);
+            titleRepeatsCurrent.setVisibility(View.INVISIBLE);
         }
     }
 

@@ -5,20 +5,20 @@
     <string name="menu_myoptions">ОПЦИИ</string>
     <string name="circle_add_goal">ADD GOAL</string>
     <string name="save_goal">СОХРАНИТЬ ЦЕЛЬ</string>
-    <string name="description_theme_sport">Данная тема поможет достичь желаемого результата в сфере спорт и предоставит на выбор 4 категории.</string>
-    <string name="description_theme_science">Данная тема поможет достичь желаемого резулятата в сфере изучения и предоставит на выбор 2 категории.</string>
+    <string name="description_theme_sport">Данная тема поможет достичь желаемого результата в сфере спорт и предоставит на выбор 3 категории. Вперёд к новым победам!</string>
+    <string name="description_theme_science">Данная тема поможет достичь желаемого результата в сфере изучения и предоставит на выбор 2 категории. Будь мудрее с каждым днём!</string>
     <string name="description_theme_other">Данная тема поможет достичь желаемых результатов в абсолютно разных сферах и предоставит на выюор 2 категории.</string>
     <string name="description_theme_mygoal">Данная категория позволит создать собственную цель, если это касается чего-то особенного.</string>
     <string name="chosen">ВЫБРАТЬ</string>
-    <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса.</string>
-    <string name="description_category_run">Данная категория поможет добиться желаемого результата в скорости или выносливости, например в беге,
+    <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса. Самое время для мощных тренировок!</string>
+    <string name="description_category_run">Данная категория поможет добиться желаемого результата в скорости и выносливости, например: в беге,
         езды на велосипеде и т.д.</string>
-    <string name="description_category_skills">Данная категория поможет улучшить ваши навыки в любом деле до определенного уровня, например шпагат, рисование, танец, выход на турнике и т.д.</string>
-    <string name="description_category_repeats">Данная категория поможет поставить новый рекорд в упражнении например отжимания, приседания и т.д., а
-        также создать еще более мощное тело.</string>
-    <string name="description_category_book">Если вы хотели прочитать книгу то эта категория не даст вам забросить эту цель
-        и вы прочитаете её до конца.</string>
-    <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который вы хотите выучить.</string>
+    <string name="description_category_skills">Данная категория поможет улучшить твои навыки в практически любом деле до определенного уровня, например: выход на турнике, шпагат, танец, рисование и т.д.</string>
+    <string name="description_category_repeats">Данная категория поможет поставить новый рекорд в упражнении, например: отжимания, приседания и т.д., а
+        также создать еще более мощное тело!</string>
+    <string name="description_category_book">Если ты хотел прочитать книгу, то эта категория не даст тебе забросить эту цель
+        и ты прочитаешь книгу до конца. Становись еще сообразительней!</string>
+    <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который ты хочешь выучить. Вперёд за знаниями!</string>
     <string name="quote">Я во всем ищу вдохновение для себя… Если кто-либо преследует свою мечту, то это вдохновляет меня.</string>
     <string name="quote_author">Конор МакГрегор</string>
 
@@ -103,7 +103,7 @@
     <string name="weight_description_purpose">ОПИСАНИЕ ЦЕЛИ:</string>
     <string name="weight_current_weight">ТЕКУЩИЙ ВЕС:</string>
     <string name="weight_current_weight_kg">КГ</string>
-    <string name="weight_your_aim">ВАША ЦЕЛЬ:</string>
+    <string name="weight_your_aim">ЖЕЛАЕМЫЕ ВЕС:</string>
     <string name="weight_your_aim_kg">КГ</string>
     <string name="weight_goal_date">ДАТА ЦЕЛИ:</string>
     <string name="weight_goal_date_from">ОТ</string>
@@ -122,7 +122,7 @@
     <!-- ACTIVITY SPORT CATEGORY REPETITIONS-->
 
     <string name="repetitions_description_exercise">ОПИСАНИЕ УПРАЖНЕНИЯ:</string>
-    <string name="repetitions_number_repetitions">ВАШЕ КОЛ-ВО ПОВТОРЕНИЙ:</string>
+    <string name="repetitions_number_repetitions">КОЛ-ВО ПОВТОРЕНИЙ СЕЙЧАС:</string>
     <string name="repetitions_desired_result">ЖЕЛАЕМЫЙ РЕЗУЛЬТАТ:</string>
     <string name="repetitions_goal_date">ДАТА ЦЕЛИ:</string>
     <string name="repetitions_goal_date_from">ОТ</string>
@@ -132,7 +132,7 @@
 
     <string name="book_description_purpose">ОПИСАНИЕ ЦЕЛИ:</string>
     <string name="book_number_page_read">КОЛ-ВО СТРАНИЦ ДЛЯ ПРОЧТЕНИЯ:</string>
-    <string name="book_this_book">ДАННАЯ КНИГА:</string>
+    <string name="book_this_book">ДАННЫЕ КНИГИ:</string>
     <string name="book_untitled">БЕЗ НАЗВАНИЯ:</string>
     <string name="book_change">ИЗМЕНИТЬ</string>
     <string name="book_goal_date">ДАТА ЦЕЛИ:</string>
@@ -142,7 +142,7 @@
     <!-- ACTIVITY SCIENCE CATEGORY LANGUAGE-->
 
     <string name="language_name_language">НАЗВАНИЕ ЯЗЫКА:</string>
-    <string name="language_level_language">ВАШ УРОВЕНЬ ЯЗЫКА:</string>
+    <string name="language_level_language">ТЕКУЩИЙ УРОВЕНЬ ЯЗЫКА:</string>
     <string name="language_desired_result">ЖЕЛАЕМЫЙ РЕЗУЛЬТАТ:</string>
     <string name="language_goal_date" translatable="false">ДАТА ЦЕЛИ:</string>
     <string name="language_goal_date_from">ОТ</string>
@@ -151,8 +151,8 @@
     <!-- ACTIVITY OTHERS CATEGORY OTHERS SKILLS-->
 
     <string name="skills_description_skills">ОПИСАНИЕ НАВЫКА:</string>
-    <string name="skills_choose_level">ВЫБЕРИТЕ УРОВЕНЬ:</string>
-    <string name="skills_your_level" translatable="false">ВАШ УРОВЕНЬ:</string>
+    <string name="skills_choose_level">ВЫБЕРИ УРОВЕНЬ:</string>
+    <string name="skills_your_level" translatable="false">МОЙ УРОВЕНЬ:</string>
     <string name="skills_your_max_level" translatable="false">МАКС. УРОВЕНЬ:</string>
     <string name="skills_goal_date">ДАТА ЦЕЛИ:</string>
     <string name="skills_goal_date_from" translatable="false">ОТ</string>
@@ -160,8 +160,11 @@
 
     <!-- POPUP TYPE GOAL -->
 
-    <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в твоих упражнениях на повторения, для этого введи текущее кол-во и свой конечный результат.</string>
-    <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться ругялярности выполнения упражнения каждый день. Для этого просто запиши свою цель в повторениях за один день.</string>
+    <string name="descr_new_record_cardio">Выбрав это мы поможем тебе поставить новый рекорд твоей цели. Тебе нужно будет записать: дистанцию, текущею скорость и твою цель в секундах. Вперед!</string>
+    <string name="descr_regular_attack_cardio">Выбрав это мы поможем добиться твоей ругулярности, для этого запиши дистанцию которую хочешь преодолевать каждый день и вперёд!</string>
+
+    <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в твоих упражнениях на повторения, для этого введи текущее кол-во повторений и свой конечный результат!</string>
+    <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться регулярности выполнения упражнения каждый день. Для этого просто запиши свою цель в повторениях за один день!</string>
 
     <!--config-->
     <string-array name="frequency">

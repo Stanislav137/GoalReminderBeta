@@ -73,11 +73,12 @@ public class CardioActivity extends AppCompatActivity {
             return;
         } else {
             LinearLayout llGoalWeight =(LinearLayout) findViewById(R.id.llGoalWeight);
-            llGoalWeight.setVisibility(View.INVISIBLE);
-          //  sportMinusTime.setEnabled(false);
-          //  sportAddTime.setEnabled(false);
-           // nextTime.setEnabled(false);
-           // runTimeResult.setEnabled(false);
+            llGoalWeight.setBackgroundColor(Color.rgb(202,202,202));
+            changeTxtTime.setVisibility(View.INVISIBLE);
+            sportMinusTime.setVisibility(View.INVISIBLE);
+            sportAddTime.setVisibility(View.INVISIBLE);
+            nextTime.setVisibility(View.INVISIBLE);
+            runTimeResult.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -274,11 +275,11 @@ public class CardioActivity extends AppCompatActivity {
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
-                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ТВОЯ ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
             } else if (goalName == null) {
                 toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
             } else if (currentRunTime <= goalRunTime) {
-                toast = Toast.makeText(getApplicationContext(), "ЖЕЛАЕМАЯ ЦЕЛЬ БОЛЬШЕ ТЕКУЩЕЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "ЖЕЛАЕМОЕ ВРЕМЯ БОЛЬШЕ ТЕКУЩЕГО", Toast.LENGTH_SHORT);
             } else {
                 toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
             }
@@ -310,7 +311,7 @@ public class CardioActivity extends AppCompatActivity {
             if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")) {
                 setTimerOnButton(sportMinusTime, "-", "false", 1);
                 setTimerOnButton(sportAddTime, "+", "false", 1);
-                changeTxtTime.setText("ЖЕЛАЕМАЯ ЦЕЛЬ:");
+                changeTxtTime.setText("ЖЕЛАЕМОЕ ВРЕМЯ:");
                 runTimeResult.setText("" + goalRunTime);
             } else {
                 setTimerOnButton(sportMinusTime, "-", "true", 1);
