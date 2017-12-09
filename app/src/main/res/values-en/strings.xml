@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BeBetter</string>
+    <string name="best_speed" translatable="false">BEST SPEED</string>
+    <string name="Pushups" translatable="false">Push ups</string>
+    <string name="SUM_READ_PAPERS" translatable="false">SUM OF READING PAGES:</string>
+    <string name="X_rule" translatable="false"></string>
+    <string name="menu_mygoal" translatable="false">GOALS</string>
+
+
+</resources>
