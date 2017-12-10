@@ -291,8 +291,16 @@ public class CardioActivity extends AppCompatActivity {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
         dialog.setContentView(R.layout.warning);
-
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
+        TextView instruction = (TextView) dialog.findViewById(R.id.instruction);
+        if(!type) {
+            descrCategory.setText(R.string.descr_cardio_nr);
+            instruction.setText(R.string.instruct_cardio_nr);
+        } else {
+            descrCategory.setText(R.string.descr_cardio_ra);
+            instruction.setText(R.string.instruct_cardio_ra);
+        }
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

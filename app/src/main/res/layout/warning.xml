@@ -3,29 +3,69 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorRed"
-        android:textColor="@color/colorBackground"
-        android:textSize="18sp"
-        android:text="ОЧЕНЬ ВАЖНО!"/>
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_margin="10sp"
-        android:textColor="@color/colorRed"
-        android:text="ЗДЕСЬ БУДЕТ ДЕТАЛЬНАЯ ИНФА ЗАЧЕМ ЭТА ТЕМА"/>
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/closeWarning"
-        android:background="@color/colorRed"
-        android:textColor="@color/colorBackground"
-        android:textSize="18sp"
-        android:text="ХОРОШО"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorRed"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"
+                    android:text="ВНИМАНИЕ !"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:background="@color/clr_main"
+                    android:textSize="18sp"
+                    android:text="ОПИСАНИЕ КАТЕГОРИИ"/>
+
+                <TextView
+                    android:id="@+id/descrCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_margin="5sp"
+                    android:text="@string/descr_weight"/>
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/clr_main"
+                    android:text="ИНСТРУКЦИЯ"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_margin="5sp"
+                    android:text="@string/instruct_weight"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/closeWarning"
+                android:background="@color/clr_main"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:text="ХОРОШО"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

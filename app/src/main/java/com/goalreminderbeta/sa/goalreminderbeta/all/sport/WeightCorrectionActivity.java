@@ -233,8 +233,12 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dialog = new Dialog(WeightCorrectionActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
-
+        TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
+        TextView instruction = (TextView) dialog.findViewById(R.id.instruction);
+        descrCategory.setText(R.string.descr_weight);
+        instruction.setText(R.string.instruct_weight);
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
