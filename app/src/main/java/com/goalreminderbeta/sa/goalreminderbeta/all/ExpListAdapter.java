@@ -38,8 +38,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Map<Long,Goal> allGoalsMap;
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
     private TextView leftToGoalUnits, dataBook, taskOfDayUnits;
-    private RelativeLayout bookPresent, runDistance;
+    private RelativeLayout bookPresent;
+    private LinearLayout runDistance;
     private boolean checkComplete = false;
+    private LinearLayout separator1, separator2;;
 
     /* FOR DAY GOAL */
 
@@ -118,12 +120,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         currentResultUnits = (TextView) view.findViewById(R.id.currentResultUnits);
         goalResultUnits = (TextView) view.findViewById(R.id.yourGoalUnits);
         bookPresent = (RelativeLayout) view.findViewById(R.id.bookPresent);
-        runDistance = (RelativeLayout) view.findViewById(R.id.runDistance);
+        runDistance = (LinearLayout) view.findViewById(R.id.runDistance);
         leftDaysGoal = (TextView) view.findViewById(R.id.leftDaysGoal);
         leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
         dataBook = (TextView) view.findViewById(R.id.dataBook);
         taskOfDayUnits = (TextView) view.findViewById(R.id.taskOfDayUnits);
         statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
+        separator1 = (LinearLayout) view.findViewById(R.id.separator1);
+        separator2 = (LinearLayout) view.findViewById(R.id.separator2);
     }
 
     @Override
@@ -285,6 +289,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             case "КАРДИО":
                 units = "сек";
                 runDistance.setVisibility(View.VISIBLE);
+                separator2.setVisibility(View.VISIBLE);
                 break;
             case "НАВЫКИ":
                 units = "уровень";
@@ -295,8 +300,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             case "КНИГА":
                 if(goal.getDataBook().equals("")) {
                     bookPresent.setVisibility(View.GONE);
+                    separator1.setVisibility(View.GONE);
                 } else {
                     bookPresent.setVisibility(View.VISIBLE);
+                    separator1.setVisibility(View.VISIBLE);
                 }
                 units = "страниц";
                 break;

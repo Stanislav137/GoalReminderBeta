@@ -6,20 +6,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
+            android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ЗАДАЧА ВЫПОЛНЕНА ?"
             android:background="@color/clr_main"
-            android:textColor="@color/colorBackground"
-            android:textSize="18sp"/>
+            android:text="ЗАДАЧА ВЫПОЛНЕНА ?"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15sp">
+        android:padding="20sp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,7 +29,7 @@
             android:id="@+id/nameData"
             android:layout_centerHorizontal="true"
             android:textColor="@color/colorBlack"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="НАЗВАНИЕ ЦЕЛИ | НАЗВАНИЕ КНИГИ"/>
 
     </RelativeLayout>
@@ -44,24 +46,24 @@
         android:orientation="horizontal"
         android:visibility="visible"
         android:id="@+id/llDistance"
-        android:padding="15sp">
+        android:padding="20sp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:textSize="15sp"
-                android:id="@+id/distanceTitle"
-                android:text="ДИСТАНЦИЯ:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:id="@+id/distanceTitle"
+            android:text="ДИСТАНЦИЯ:"/>
 
         <TextView
             android:id="@+id/distanceDG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
+            android:layout_marginLeft="15sp"
             android:text="10000 метров"
             android:textColor="@color/colorBlack"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -76,24 +78,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp">
+        android:padding="20sp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
             android:id="@+id/currentResultTxt"
-            android:textSize="15sp"
-            android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"
             android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <TextView
             android:id="@+id/currentResultDG"
-            android:layout_marginLeft="10sp"
-            android:textSize="15sp"
-            android:text="10 страниц"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15sp"
+            android:text="10 страниц"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -105,13 +107,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp">
+        android:padding="20sp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="ВАША ЦЕЛЬ:"/>
 
         <TextView
@@ -119,8 +121,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/goalResultDG"
             android:textColor="@color/colorBlack"
-            android:layout_marginLeft="10sp"
-            android:textSize="15sp"
+            android:layout_marginLeft="15sp"
+            android:textSize="18sp"
             android:text="100 страниц"/>
     </LinearLayout>
 
@@ -133,13 +135,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp">
+        android:padding="20sp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="ЗАДАЧА НА СЕГОДНЯ:"/>
 
         <TextView
@@ -147,8 +149,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/taskDG"
             android:textColor="@color/colorBlack"
-            android:layout_marginLeft="10sp"
-            android:textSize="15sp"
+            android:layout_marginLeft="15sp"
+            android:textSize="18sp"
             android:text="15 страниц"/>
     </LinearLayout>
 
@@ -163,13 +165,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/showPopupDayTask"
         android:background="@color/clr_task_day"
-        android:padding="15sp">
+        android:padding="20sp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="СЕГОДНЯШНИЙ РЕЗУЛЬТАТ:"/>
 
         <TextView
@@ -177,8 +179,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/madeToday"
             android:textColor="@color/colorBlack"
-            android:layout_marginLeft="10sp"
-            android:textSize="15sp"
+            android:layout_marginLeft="15sp"
+            android:textSize="18sp"
             android:text="0 страниц"/>
 
     </LinearLayout>
@@ -201,7 +203,7 @@
             android:id="@+id/goalDescriptionDG"
             android:layout_centerHorizontal="true"
             android:textColor="@color/clr_sport"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:text="ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"/>
 
     </RelativeLayout>
@@ -222,7 +224,7 @@
             android:text="ВЫПОЛНИЛ"
             android:id="@+id/completed"
             android:background="@color/clr_main"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"/>
     </LinearLayout>
 </LinearLayout>
