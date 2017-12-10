@@ -41,6 +41,7 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         String title = intent.getStringExtra("title");
         String text = intent.getStringExtra("text");
         String freq = intent.getStringExtra("interval");
@@ -80,14 +81,16 @@ public class MyService extends Service {
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         long futureTime = SystemClock.elapsedRealtime()+freqNum*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*5000,pIntent);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*10000,pIntent);
 
     }
 
     private Notification createNotification(Context context,String title,String resultText,boolean soundOn, boolean vibrOn){
         Intent serviceIntent = new Intent(this,StartActivity.class);
         PendingIntent pIntent = PendingIntent.getActivity(context,0,serviceIntent,0);
-        factory = NotificationFactory.getInstance(context,title,resultText.toString(),pIntent);
+        factory = NotificationFactory.getInstance(context,pIntent);
+        factory.setTitle(title);
+        factory.setContent(resultText);
         Notification notification = factory.createNotification();
         if(soundOn&&vibrOn)
         {notification.defaults = Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE;}

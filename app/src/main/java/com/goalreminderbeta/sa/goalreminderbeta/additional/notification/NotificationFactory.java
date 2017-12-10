@@ -16,14 +16,13 @@ public class NotificationFactory {
     private String content;
     private PendingIntent pIntent;
     private Context context;
-    private NotificationFactory(Context context,String title,String content,PendingIntent pIntent){
-        this.title = title;
-        this.content = content;
+    private NotificationFactory(Context context, PendingIntent pIntent){
+
         this.context = context;
         this.pIntent = pIntent;
     }
-    public static NotificationFactory getInstance(Context context,String title,String content,PendingIntent pIntent){
-        if(factory==null) factory = new NotificationFactory(context,title,content,pIntent);
+    public static NotificationFactory getInstance(Context context,PendingIntent pIntent){
+        if(factory==null) factory = new NotificationFactory(context,pIntent);
         return factory;
     }
     public Notification createNotification(){
@@ -38,6 +37,20 @@ public class NotificationFactory {
     }
 
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setpIntent(PendingIntent pIntent) {
+        this.pIntent = pIntent;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 }
 
