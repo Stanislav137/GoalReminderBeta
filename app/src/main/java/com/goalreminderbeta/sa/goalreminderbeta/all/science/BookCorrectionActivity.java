@@ -241,8 +241,11 @@ public class BookCorrectionActivity extends AppCompatActivity {
         final Dialog dialog;
         dialog = new Dialog(BookCorrectionActivity.this);
         dialog.setContentView(R.layout.warning);
-
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
+        TextView instruction = (TextView) dialog.findViewById(R.id.instruction);
+        descrCategory.setText(R.string.descr_book);
+        instruction.setText(R.string.instruct_book);
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

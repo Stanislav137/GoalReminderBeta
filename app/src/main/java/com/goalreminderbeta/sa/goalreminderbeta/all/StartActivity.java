@@ -51,12 +51,11 @@ public class StartActivity extends AppCompatActivity {
 
     Intent serviceIntent;
     private SharedPreferences sp;
-<<<<<<< Updated upstream
+
     private SharedPreferences sPref;
     private int countHelpUser = 0;
-=======
+
     private SharedPreferences.Editor editor;
->>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +68,12 @@ public class StartActivity extends AppCompatActivity {
         allGoals = new ArrayList<>();
         bootStrap = new BootStrap();
 
-<<<<<<< Updated upstream
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         loadCount();
         if(countHelpUser == 0) {
             helpUserStart();
         }
-=======
 
->>>>>>> Stashed changes
         setListenersOnChild();
         setListenerOnGroup();
         printAllGoals();
