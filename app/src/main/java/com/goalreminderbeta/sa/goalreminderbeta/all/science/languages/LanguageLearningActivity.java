@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -157,8 +159,6 @@ public class LanguageLearningActivity extends AppCompatActivity {
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
-                showWarningId.setVisibility(View.INVISIBLE);
                 dialog.dismiss();
             }
         });
@@ -318,5 +318,13 @@ public class LanguageLearningActivity extends AppCompatActivity {
 
             return languageDialog;
         }
+    }
+    public void onStart() {
+        super.onStart();
+        Animation anim = null;
+        ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+        anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim2);
+        showWarningId.startAnimation(anim);
+        return;
     }
 }
