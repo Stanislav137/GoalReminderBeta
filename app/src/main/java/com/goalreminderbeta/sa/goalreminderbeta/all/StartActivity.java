@@ -42,13 +42,11 @@ public class StartActivity extends AppCompatActivity {
     private Button startAddGoal;
     private ExpandableListView allGoalsList;
     private List<Goal> allGoals;
-    public static int sizeOfList=0;
     private BootStrap bootStrap;
     private boolean logicAddGoal;
     private Animation anim = null;
     private ExpListAdapter adapter;
-    private boolean switchQuote;
-
+    private boolean switchQuote, verifyDay;
     Intent serviceIntent;
     private SharedPreferences sp;
 
@@ -118,6 +116,28 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+//        final Dialog dialog;
+//        dialog = new Dialog(StartActivity.this);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.verify_day);
+//        dialog.setCanceledOnTouchOutside(false);
+//        Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
+//        Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
+//        goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                verifyDay = true;
+//                dialog.dismiss();
+//            }
+//        });
+//        goToRelax.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                verifyDay = false;
+//                dialog.dismiss();
+//            }
+//        });
+//        dialog.show();
     }
 
     @Override

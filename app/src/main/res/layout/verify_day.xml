@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300sp"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clr_science"
+        android:id="@+id/confirmDelete"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:text="СЕГОДНЯ Я"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2sp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/goToWorkOnGoals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:background="@color/clr_science"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/colorWhite"
+            android:text="ИДУ К ВЕЛИЧИЮ" />
+
+        <Button
+            android:id="@+id/goToRelax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="@color/clr_science"
+            android:text="ОТДЫХАЮ"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
