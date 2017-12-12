@@ -243,39 +243,37 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         double dayTask = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
         double madeTodayResult = 0;
-        currentResultDG.setText(goal.getCurrentResult() + "");
-        goalResultDG.setText(goal.getGoalResult() + "");
-        madeToday.setText(String.format("%.1f", madeTodayResult) + "");
-        if(goal.getDescriptionGoal().equals("")) {
-            goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string
-        } else {
-            goalDescriptionDG.setText(goal.getDescriptionGoal() + "");
-        }
-        taskDG.setText(String.format("%.1f", dayTask) + "");
+        String units = "";
 
         switch (goal.getThemeCategory()) {
             case "МАССА":
+                units = "кг";
                 LinearLayout llTaskWeek = (LinearLayout) view.findViewById(R.id.llTaskWeek);
                 LinearLayout separator3 = (LinearLayout) view.findViewById(R.id.separator3);
                 llTaskWeek.setVisibility(View.VISIBLE);
                 separator3.setVisibility(View.VISIBLE);
                 taskDG.setText("тренировка");
-                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + "");
+                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 break;
             case "КАРДИО":
+                units = "сек";
                 LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
                 LinearLayout separator = (LinearLayout) view.findViewById(R.id.separator);
                 llDistance.setVisibility(View.VISIBLE);
                 separator.setVisibility(View.VISIBLE);
                 distanceDG.setText(goal.getDistance() + " метров");
+                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "НАВЫКИ":
-
+                units = "очки";
+                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "ПОВТОРЕНИЯ":
-
+                units = "повторения";
+                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "КНИГА":
+                units = "страниц";
                 String dataBookDG;
                 if(goal.getDataBook() == null) {
                     dataBookDG = "";
@@ -283,10 +281,22 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     dataBookDG = " | " + goal.getDataBook();
                 }
                 nameData.setText(goal.getNameGoal() +  dataBookDG);
+                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "ЯЗЫКИ":
-
+                units = "очки";
+                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
+        }
+
+        /* FOR ALL GOALS */
+        currentResultDG.setText(goal.getCurrentResult() + " " + units);
+        goalResultDG.setText(goal.getGoalResult() + " " + units);
+        madeToday.setText(String.format("%.1f", madeTodayResult) + " " + units);
+        if(goal.getDescriptionGoal().equals("")) {
+            goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string
+        } else {
+            goalDescriptionDG.setText(goal.getDescriptionGoal() + "");
         }
     }
 
