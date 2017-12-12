@@ -5,27 +5,27 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50sp"
+        android:layout_height="45sp"
         android:textColor="@color/colorWhite"
         android:background="@color/clr_main"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="ПРИВЕТ ЧЕМПИОН !"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_margin="5sp"
         android:textColor="@color/colorBlack"
         android:text="Приветствуем тебя в нашем приложении, для того чтобы успешно начать ты должен вспомнить свою цель которую ты хочешь достичь в ближайшее время, найти подходящею категорию и записать её. Программа поможет тебе её закончить до конца!"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50sp"
+        android:layout_height="45sp"
         android:id="@+id/closePopup"
         android:textColor="@color/colorWhite"
         android:background="@color/clr_main"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Вперёд в АТАКУ !"/>
 
 </LinearLayout>

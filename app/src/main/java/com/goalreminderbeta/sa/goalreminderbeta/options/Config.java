@@ -32,14 +32,6 @@ public class Config extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.config);
 
-        /*preference = new MultiSelectListPreference(getActivity());
-        preference.setEntries(days);
-        preference.setEntryValues(days);
-        preference.setDefaultValue(selectedDays);
-        preference.setKey("days");
-        preference.setTitle("Week-days");
-        preference.setSummary("Select week-days");*/
-
         Preference.OnPreferenceChangeListener daysListener
                 = new Preference.OnPreferenceChangeListener() {
             @Override

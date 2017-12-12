@@ -32,7 +32,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="ВЫБЕРИТЕ ТЕМУ"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </RelativeLayout>
 
@@ -57,7 +57,7 @@
                 android:layout_height="100sp"
                 android:text="@string/chosen"
                 android:textSize="16sp"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_red"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -129,7 +129,7 @@
                 android:id="@+id/imThemeScience"
                 android:text="@string/chosen"
                 android:textSize="16sp"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_blue"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -203,7 +203,7 @@
                 android:background="@drawable/btn_green"
                 android:onClick="createSkillsGoal"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </RelativeLayout>

@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
  import android.view.MotionEvent;
 import android.view.View;
  import android.view.Window;
+ import android.view.animation.Animation;
+ import android.view.animation.AnimationUtils;
  import android.widget.ActionMenuView;
  import android.widget.Button;
  import android.widget.EditText;
@@ -233,13 +235,15 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         dialog = new Dialog(WeightCorrectionActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
-
+        TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
+        TextView instruction = (TextView) dialog.findViewById(R.id.instruction);
+        descrCategory.setText(R.string.descr_weight);
+        instruction.setText(R.string.instruct_weight);
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
-                showWarningId.setVisibility(View.INVISIBLE);
                 dialog.dismiss();
             }
         });
@@ -404,5 +408,14 @@ public class WeightCorrectionActivity extends AppCompatActivity {
 
             return weightDialog;
         }
+    }
+
+    public void onStart() {
+        super.onStart();
+        Animation anim = null;
+        ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+        anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim2);
+        showWarningId.startAnimation(anim);
+        return;
     }
 }

@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -269,13 +271,19 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         final Dialog dialog;
         dialog = new Dialog(RepeatsCorrectionActivity.this);
         dialog.setContentView(R.layout.warning);
-
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
+        TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
+        TextView instruction = (TextView) dialog.findViewById(R.id.instruction);
+        if(!type) {
+            descrCategory.setText(R.string.descr_repeats_nr);
+            instruction.setText(R.string.instruct_repeats_nr);
+        } else {
+            descrCategory.setText(R.string.descr_repeats_ra);
+            instruction.setText(R.string.instruct_repeats_ra);
+        }
         closeWarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
-                showWarningId.setVisibility(View.INVISIBLE);
                 dialog.dismiss();
             }
         });
@@ -414,5 +422,14 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
 
             return repeatsDialog;
         }
+    }
+
+    public void onStart() {
+        super.onStart();
+        Animation anim = null;
+        ImageView showWarningId = (ImageView) findViewById(R.id.showWarningId);
+        anim = AnimationUtils.loadAnimation(this, R.anim.btn_anim2);
+        showWarningId.startAnimation(anim);
+        return;
     }
 }

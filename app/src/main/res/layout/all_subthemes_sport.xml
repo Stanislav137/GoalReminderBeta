@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="ВАБЕРИТЕ КАТЕГОРИЮ"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </RelativeLayout>
 
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
-        android:background="@color/colorBackground"
+        android:background="@color/colorWhite"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -129,7 +129,7 @@
                 android:background="@drawable/btn_red"
                 android:onClick="createRunCorrectionGoal"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </RelativeLayout>
@@ -204,10 +204,11 @@
                 android:id="@+id/imThemeRepeats"
                 android:text="@string/chosen"
                 android:textSize="16sp"
-                android:textColor="@color/colorBackground"
-                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_red"
                 android:layout_centerVertical="true"
-                android:background="@drawable/btn_red"/>
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 

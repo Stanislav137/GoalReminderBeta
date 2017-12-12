@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.goalreminderbeta.sa.goalreminderbeta">
+    package="com.goalreminderbeta.sa.goalreminderbeta"
+    android:installLocation="internalOnly">
 
     <application
         android:name=".SugarInitialization"
@@ -20,6 +21,7 @@
             android:value="true" />
 
         <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
         <receiver android:name=".additional.notification.NotificationPublisher">
             <intent-filter>
@@ -82,7 +84,8 @@
             android:enabled="true"
             android:exported="true"
             android:process=":myService"
-            android:stopWithTask="false"></service>
+            android:stopWithTask="false" />
+
     </application>
 
 </manifest>

@@ -51,8 +51,11 @@ public class StartActivity extends AppCompatActivity {
 
     Intent serviceIntent;
     private SharedPreferences sp;
+
     private SharedPreferences sPref;
     private int countHelpUser = 0;
+
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class StartActivity extends AppCompatActivity {
         if(countHelpUser == 0) {
             helpUserStart();
         }
+
         setListenersOnChild();
         setListenerOnGroup();
       //printAllGoals();
@@ -119,9 +123,12 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sp.edit();
+        editor.putInt("goals",allGoals.size());
+        editor.commit();
         serviceIntent = new Intent(this,MyService.class);
-        if(allGoals.size()>0) {
+        if(sp.getInt("goals",0)>0) {
             serviceIntent.putExtra("title", "You goals are ready!");
             serviceIntent.putExtra("text", "Keep it up!");
         }
@@ -129,13 +136,19 @@ public class StartActivity extends AppCompatActivity {
             serviceIntent.putExtra("title", "You have no goals!");
             serviceIntent.putExtra("text", "Add some goal to start");
         }
-        serviceIntent.putExtra("interval","1");
-        serviceIntent.putExtra("notification",true);
-        serviceIntent.putExtra("sound",true);
-        serviceIntent.putExtra("vibration",true);
+
         if(sp.getBoolean("main",true)){
-            startService(serviceIntent);
+            serviceIntent.putExtra("interval","1");
+            serviceIntent.putExtra("notification",true);
+            serviceIntent.putExtra("sound",true);
+            serviceIntent.putExtra("vibration",true);
+        }else{
+            serviceIntent.putExtra("interval",sp.getString("interval",""));
+            serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
+            serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
+            serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
         }
+        startService(serviceIntent);
     }
 
     private void setListenersOnChild(){
