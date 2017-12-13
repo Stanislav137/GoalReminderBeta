@@ -81,7 +81,7 @@ public class MyService extends Service {
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         long futureTime = SystemClock.elapsedRealtime()+freqNum*1000;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*10000,pIntent);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*1000*3600,pIntent);
 
     }
 
