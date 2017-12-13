@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private LinearLayout runDistance;
     private boolean checkComplete = false;
     private LinearLayout separator1, separator2;
+    private Typeface faceBold = null;
 
     /* FOR DAY GOAL */
 
@@ -189,7 +191,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         if(checkComplete) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
-            convertView.setMinimumHeight(1500);
+            //convertView.setMinimumHeight(1500);
 
             Long groupPos = Long.parseLong(String.valueOf(groupPosition));
             Goal goal = allGoalsMap.get(groupPos); //actual goal
@@ -197,7 +199,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             fillDataChild(goal, convertView, goal.getThemeCategory());
         } else {
             convertView = inflater.inflate(R.layout.child_section_complete, null);
-            convertView.setMinimumHeight(1500);
+            //convertView.setMinimumHeight(1500);
 
             findUxDayGoal(convertView);
             showDataDG(groupPosition, convertView);
@@ -215,6 +217,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             });
 
             final Button completed = (Button) convertView.findViewById(R.id.completed);
+
+            faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/font_bold.otf");
+            completed.setTypeface(faceBold);
             completed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
