@@ -56,6 +56,7 @@ public class StartActivity extends AppCompatActivity {
 
     private SharedPreferences.Editor editor;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
