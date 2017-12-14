@@ -79,7 +79,7 @@ public class MyService extends Service {
         notifIntent.putExtra("notOn",notOn);
         //notifIntent.putExtra("not",notifOn);
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-        long futureTime = SystemClock.elapsedRealtime()+freqNum*1000;
+        long futureTime = SystemClock.elapsedRealtime()+freqNum*1000*3600;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*1000*3600,pIntent);
 
