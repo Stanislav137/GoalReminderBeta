@@ -117,31 +117,31 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        final Dialog dialog;
-        dialog = new Dialog(StartActivity.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.verify_day);
-        dialog.setCanceledOnTouchOutside(false);
-        Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
-        Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
-        goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verifyDay = true;
-                dialog.cancel();
-            }
-        });
-        goToRelax.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verifyDay = false;
-                Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
-                startActivity(intent);
-                finish();
-                //dialog.dismiss();
-            }
-        });
-        dialog.show();
+//        final Dialog dialog;
+//        dialog = new Dialog(StartActivity.this);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.verify_day);
+//        dialog.setCanceledOnTouchOutside(false);
+//        Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
+//        Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
+//        goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                verifyDay = true;
+//                dialog.cancel();
+//            }
+//        });
+//        goToRelax.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                verifyDay = false;
+//                Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
+//                startActivity(intent);
+//                finish();
+//                //dialog.dismiss();
+//            }
+//        });
+//        dialog.show();
     }
 
     @Override
