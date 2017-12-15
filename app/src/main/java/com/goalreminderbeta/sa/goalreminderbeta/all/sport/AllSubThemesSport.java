@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class AllSubThemesSport extends AppCompatActivity {
 
     private LinearLayout weightCorrectionGoal;
+    private Typeface faceBold = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +47,13 @@ public class AllSubThemesSport extends AppCompatActivity {
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();
+        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
         Button imgSport = (Button) findViewById(R.id.imThemeWeight);
+        imgSport.setTypeface(faceBold);
         Button imThemeRun = (Button) findViewById(R.id.imThemeRun);
+        imThemeRun.setTypeface(faceBold);
         Button imThemeRepeats = (Button) findViewById(R.id.imThemeRepeats);
+        imThemeRepeats.setTypeface(faceBold);
         allBtns.add(imgSport);
         allBtns.add(imThemeRun);
         allBtns.add(imThemeRepeats);

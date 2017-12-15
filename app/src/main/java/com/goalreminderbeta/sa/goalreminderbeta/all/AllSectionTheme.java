@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class AllSectionTheme extends AppCompatActivity {
 
     private LinearLayout llThemeSport, llThemeScience;
+    private Typeface faceBold = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +43,13 @@ public class AllSectionTheme extends AppCompatActivity {
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();
+        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
         Button imgSport = (Button) findViewById(R.id.imThemeSport);
+        imgSport.setTypeface(faceBold);
         Button imThemeScience = (Button) findViewById(R.id.imThemeScience);
+        //imThemeScience.setTypeface(faceBold);
         Button imThemeSkills = (Button) findViewById(R.id.btnCreateSkillsGoal);
+        imThemeSkills.setTypeface(faceBold);
         allBtns.add(imgSport);
         allBtns.add(imThemeScience);
         allBtns.add(imThemeSkills);

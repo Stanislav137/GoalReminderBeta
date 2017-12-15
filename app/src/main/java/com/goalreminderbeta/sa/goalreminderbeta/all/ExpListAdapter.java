@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
@@ -202,6 +204,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             //convertView.setMinimumHeight(1500);
 
             findUxDayGoal(convertView);
+            blink(convertView);
             showDataDG(groupPosition, convertView);
 
             final LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
@@ -218,7 +221,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             final Button completed = (Button) convertView.findViewById(R.id.completed);
 
-            faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/font_bold.otf");
+            faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
             completed.setTypeface(faceBold);
             completed.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -286,6 +289,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     dataBookDG = " | " + goal.getDataBook();
                 }
                 nameData.setText(goal.getNameGoal() +  dataBookDG);
+                dayTask = Math.ceil(dayTask);
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "ЯЗЫКИ":
@@ -415,5 +419,33 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             arrowDownUp.setRotation(0);
             arrowDownUp.getResources().getDrawable(R.drawable.arrow_goal);
         }
+    }
+
+    private void blink(final View view){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int timeToBlink = 1000;    //in milissegunds
+                try{Thread.sleep(timeToBlink);}catch (Exception e) {}
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView txt = (TextView) view.findViewById(R.id.madeToday);
+                        TextView titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                        LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
+                        if(txt.getVisibility() == View.VISIBLE){
+                            txt.setVisibility(View.INVISIBLE);
+                            showPopupDayTask.setBackgroundColor(Color.parseColor("#44b648"));
+                            titleTxt.setTextColor(Color.WHITE);
+                        }else{
+                            txt.setVisibility(View.VISIBLE);
+                            showPopupDayTask.setBackgroundColor(Color.parseColor("#FFE4E4E4"));
+                            titleTxt.setTextColor(Color.BLACK);
+                        }
+                        blink(view);
+                    }
+                });
+            }
+        }).start();
     }
 }

@@ -3,6 +3,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.science;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +21,7 @@ public class AllSubThemesScience extends AppCompatActivity {
 
     private LinearLayout subWeight;
     private NotificationManager notificationManager;
+    private Typeface faceBold = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,11 @@ public class AllSubThemesScience extends AppCompatActivity {
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();
+        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
         Button imThemeBook = (Button) findViewById(R.id.imThemeBook);
+        imThemeBook.setTypeface(faceBold);
         Button imThemeLanguage = (Button) findViewById(R.id.imThemeLanguage);
+        imThemeLanguage.setTypeface(faceBold);
         allBtns.add(imThemeBook);
         allBtns.add(imThemeLanguage);
         startBootStrap(allBtns);
