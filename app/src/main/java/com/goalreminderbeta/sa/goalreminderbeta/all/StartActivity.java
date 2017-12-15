@@ -34,6 +34,8 @@ import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,14 +50,16 @@ public class StartActivity extends AppCompatActivity {
     private Animation anim = null;
     private ExpListAdapter adapter;
     private boolean switchQuote, verifyDay;
+    private String date,dateFromSP;
     Intent serviceIntent;
     private SharedPreferences sp;
 
     private SharedPreferences sPref;
     private int countHelpUser = 0;
-
     private SharedPreferences.Editor editor;
+    private GregorianCalendar calendar;
 
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,40 +122,55 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        final Dialog dialog;
-//        dialog = new Dialog(StartActivity.this);
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.setContentView(R.layout.verify_day);
-//        dialog.setCanceledOnTouchOutside(false);
-//        Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
-//        Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
-//        goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                verifyDay = true;
-//                dialog.cancel();
-//            }
-//        });
-//        goToRelax.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                verifyDay = false;
-//                Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
-//                startActivity(intent);
-//                finish();
-//                //dialog.dismiss();
-//            }
-//        });
-//        dialog.show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        calendar = new GregorianCalendar();
+        int day = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        month+=1;
+        int year = calendar.get(Calendar.YEAR);
+        date = String.valueOf(day)+"."+String.valueOf(month)+"."+String.valueOf(year);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
+        dateFromSP = sp.getString("date","");
+        if (!date.equals(dateFromSP)) {
+        verifyDay = true;
+        }else{verifyDay = false;}
         editor = sp.edit();
         editor.putInt("goals",allGoals.size());
         editor.commit();
+        if (verifyDay) {
+            dialog = new Dialog(StartActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.verify_day);
+            dialog.setCanceledOnTouchOutside(false);
+            Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
+            Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
+            goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    editor = sp.edit();
+                    editor.putString("date",date);
+                    editor.commit();
+                    dialog.cancel();
+                }
+            });
+            goToRelax.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    editor = sp.edit();
+                    editor.putString("date",date);
+                    editor.commit();
+                    Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
+                    startActivity(intent);
+                    finish();
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+        }
         serviceIntent = new Intent(this,MyService.class);
         if(sp.getInt("goals",0)>0) {
             serviceIntent.putExtra("title", "You goals are ready!");
