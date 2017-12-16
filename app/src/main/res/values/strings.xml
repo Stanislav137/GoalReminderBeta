@@ -94,7 +94,7 @@
 
     <!-- ACTIVITY SPORT -->
 
-    <string name="weightt_sport">МАССА</string>
+    <string name="weight_sport">МАССА</string>
     <string name="cardio_sport">КАРДИО</string>
     <string name="repetitions_sport">ПОВТОРЕНИЯ</string>
 

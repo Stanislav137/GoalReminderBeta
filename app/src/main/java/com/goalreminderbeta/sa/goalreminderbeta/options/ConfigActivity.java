@@ -58,12 +58,12 @@ public class ConfigActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
         getFragmentManager().beginTransaction().add(R.id.mainLL,new Config()).commit();
-        save = (Button)findViewById(R.id.saveBTN);
-        save.setOnClickListener(this);
         config = (TextView)findViewById(R.id.configTV);
         dayText = (TextView)findViewById(R.id.dayTV);
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         days = new boolean[7];
+        save = (Button)findViewById(R.id.saveBTN);
+        save.setOnClickListener(this);
     }
 
     @Override
