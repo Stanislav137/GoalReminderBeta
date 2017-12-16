@@ -45,17 +45,19 @@ public class MyService extends Service {
         String title = intent.getStringExtra("title");
         String text = intent.getStringExtra("text");
         String freq = intent.getStringExtra("interval");
+
         int freqNum = Integer.parseInt(freq);
         boolean notOn = intent.getBooleanExtra("notification",true);
         boolean soundOn = intent.getBooleanExtra("sound",true);
         boolean vibrOn = intent.getBooleanExtra("vibration",true);
+        long delay = intent.getLongExtra("delay",3600000);
         //StringBuffer resultText = new StringBuffer();
         //resultText.append(text+" f "+freqNum+" n "+notOn+" "+" s "+soundOn+" v "+vibrOn);
         context = getApplicationContext();
 
         Notification notification = createNotification(context,title,text,soundOn,vibrOn);
 
-        send(context,notification,freqNum,notOn);
+        send(context,notification,freqNum,delay,notOn);
         NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this).setSmallIcon(R.mipmap.logo);
         startForeground(27,builder2.build());
         Intent hideIntent = new Intent(this, ServiceHelper.class);
@@ -72,14 +74,14 @@ public class MyService extends Service {
         return null;
     }
 
-    private void send(Context context, Notification notification, int freqNum, boolean notOn){
+    private void send(Context context, Notification notification, int freqNum, long delay,boolean notOn){
         Intent notifIntent = new Intent(context,NotificationPublisher.class);
         notifIntent.putExtra("notifID",1);
         notifIntent.putExtra("notification",notification);
         notifIntent.putExtra("notOn",notOn);
-        //notifIntent.putExtra("not",notifOn);
+
         PendingIntent pIntent = PendingIntent.getBroadcast(context,0,notifIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-        long futureTime = SystemClock.elapsedRealtime()+freqNum*1000*3600;
+        long futureTime = SystemClock.elapsedRealtime()+delay;
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,futureTime,freqNum*1000*3600,pIntent);
 

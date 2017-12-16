@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DayPicker;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
@@ -148,13 +149,41 @@ public class StartActivity extends AppCompatActivity {
             dialog.setCanceledOnTouchOutside(false);
             Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
             Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
+            serviceIntent = new Intent(this,MyService.class);
+            if(sp.getInt("goals",0)>0) {
+                serviceIntent.putExtra("title", "You goals are ready!");
+                serviceIntent.putExtra("text", "Keep it up!");
+            }
+            else {
+                serviceIntent.putExtra("title", "You have no goals!");
+                serviceIntent.putExtra("text", "Add some goal to start");
+            }
+
             goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     editor = sp.edit();
                     editor.putString("date",date);
                     editor.commit();
+
+                    if(sp.getBoolean("main",true)){
+                        serviceIntent.putExtra("interval","1");
+                        serviceIntent.putExtra("delay",3600000);
+                        serviceIntent.putExtra("notification",true);
+                        serviceIntent.putExtra("sound",true);
+                        serviceIntent.putExtra("vibration",true);
+                    }else{
+                        serviceIntent.putExtra("interval",sp.getString("interval",""));
+                        String delayStr = sp.getString("interval","");
+                        long delay = Integer.parseInt(delayStr)*1000*3600;
+                        serviceIntent.putExtra("delay",delay);
+                        serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
+                        serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
+                        serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
+                    }
+                    startService(serviceIntent);
                     dialog.cancel();
+
                 }
             });
             goToRelax.setOnClickListener(new View.OnClickListener() {
@@ -163,36 +192,28 @@ public class StartActivity extends AppCompatActivity {
                     editor = sp.edit();
                     editor.putString("date",date);
                     editor.commit();
-                    Intent intent = new Intent(StartActivity.this, ConfigActivity.class);
-                    startActivity(intent);
+                    if(sp.getBoolean("main",true)){
+                        serviceIntent.putExtra("interval","1");
+                        serviceIntent.putExtra("delay",3600000);
+                        serviceIntent.putExtra("notification",true);
+                        serviceIntent.putExtra("sound",true);
+                        serviceIntent.putExtra("vibration",true);
+                    }else{
+                        serviceIntent.putExtra("interval",sp.getString("interval",""));
+                        long delay = DayPicker.getDelay();
+                        serviceIntent.putExtra("delay",delay);
+                        serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
+                        serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
+                        serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
+                    }
+                    startService(serviceIntent);
                     finish();
                     dialog.dismiss();
                 }
             });
             dialog.show();
         }
-        serviceIntent = new Intent(this,MyService.class);
-        if(sp.getInt("goals",0)>0) {
-            serviceIntent.putExtra("title", "You goals are ready!");
-            serviceIntent.putExtra("text", "Keep it up!");
-        }
-        else {
-            serviceIntent.putExtra("title", "You have no goals!");
-            serviceIntent.putExtra("text", "Add some goal to start");
-        }
 
-        if(sp.getBoolean("main",true)){
-            serviceIntent.putExtra("interval","1");
-            serviceIntent.putExtra("notification",true);
-            serviceIntent.putExtra("sound",true);
-            serviceIntent.putExtra("vibration",true);
-        }else{
-            serviceIntent.putExtra("interval",sp.getString("interval",""));
-            serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
-            serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
-            serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
-        }
-        startService(serviceIntent);
     }
 
     private void setListenersOnChild(){
