@@ -47,13 +47,9 @@ public class AllSubThemesSport extends AppCompatActivity {
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();
-        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
         Button imgSport = (Button) findViewById(R.id.imThemeWeight);
-        imgSport.setTypeface(faceBold);
         Button imThemeRun = (Button) findViewById(R.id.imThemeRun);
-        imThemeRun.setTypeface(faceBold);
         Button imThemeRepeats = (Button) findViewById(R.id.imThemeRepeats);
-        imThemeRepeats.setTypeface(faceBold);
         allBtns.add(imgSport);
         allBtns.add(imThemeRun);
         allBtns.add(imThemeRepeats);

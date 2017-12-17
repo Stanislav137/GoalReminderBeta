@@ -58,7 +58,7 @@ public abstract class DialogBuilder {
     }
 
     public void encourage(){
-        Toast.makeText(activity.getApplicationContext(),"You are super super!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity.getApplicationContext(),"Цель успешно добавлена!",Toast.LENGTH_SHORT).show();
     }
 
 }

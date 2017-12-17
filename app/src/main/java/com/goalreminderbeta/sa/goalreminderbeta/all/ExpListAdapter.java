@@ -1,15 +1,21 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -17,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
 import java.text.DecimalFormat;
@@ -41,7 +48,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private boolean checkComplete = false;
     private LinearLayout separator1, separator2;
     private Typeface faceBold = null;
-
     /* FOR DAY GOAL */
 
     private TextView nameData, distanceDG, currentResultDG, goalResultDG, taskDG, madeToday, goalDescriptionDG;
@@ -190,13 +196,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, final ViewGroup parent) {
 
         final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+        Goal goal = allGoalsMap.get(groupPos); //actual goal
 
         if(checkComplete) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
 
-            Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-            Goal goal = allGoalsMap.get(groupPos); //actual goal
             findWidgetsChild(convertView);
             fillDataChild(goal, convertView, goal.getThemeCategory());
         } else {
@@ -220,9 +226,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             });
 
             final Button completed = (Button) convertView.findViewById(R.id.completed);
+            final EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
 
             faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
             completed.setTypeface(faceBold);
+            enterNewResult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
             completed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -255,13 +268,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         switch (goal.getThemeCategory()) {
             case "МАССА":
+                TextView titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                TextView titleDG = (TextView) view.findViewById(R.id.titleDG);
+                titleTxt.setText("МОЙ ВЕС СОСТАВЛЯЕТ:");
                 units = "кг";
                 LinearLayout llTaskWeek = (LinearLayout) view.findViewById(R.id.llTaskWeek);
                 LinearLayout separator3 = (LinearLayout) view.findViewById(R.id.separator3);
                 llTaskWeek.setVisibility(View.VISIBLE);
                 separator3.setVisibility(View.VISIBLE);
                 taskDG.setText("тренировка");
+                taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
+                titleDG.setTextColor(Color.parseColor("#d23134"));
                 break;
             case "КАРДИО":
                 units = "сек";
@@ -293,7 +311,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
             case "ЯЗЫКИ":
-                units = "очки";
+                units = "часы";
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
                 break;
         }
