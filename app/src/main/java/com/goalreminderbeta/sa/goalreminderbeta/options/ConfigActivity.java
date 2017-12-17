@@ -133,6 +133,8 @@ public class ConfigActivity extends Activity implements OnClickListener{
             serviceIntent.putExtra("text", "Add some goal to start");
         }
         serviceIntent.putExtra("interval",freq);
+        long delay = Integer.parseInt(freq)*1000*3600;
+        serviceIntent.putExtra("delay",delay);
         serviceIntent.putExtra("notification",notOn);
         serviceIntent.putExtra("sound",soundOn);
         serviceIntent.putExtra("vibration",vibrOn);
