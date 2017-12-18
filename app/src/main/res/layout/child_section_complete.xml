@@ -78,6 +78,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/llCurrentResult"
         android:padding="20sp">
 
         <TextView
@@ -101,6 +102,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1sp"
+        android:id="@+id/separator4"
         android:background="@color/colorGrey"
         android:layout_alignParentBottom="true"></LinearLayout>
 
@@ -141,18 +143,18 @@
             android:id="@+id/titleDG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="ЗАДАЧА НА СЕГОДНЯ:"
             android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:text="ЗАДАЧА НА СЕГОДНЯ:"/>
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/taskDG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/taskDG"
-            android:textColor="@color/colorBlack"
             android:layout_marginLeft="15sp"
-            android:textSize="18sp"
-            android:text="15 страниц"/>
+            android:text="15 страниц"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout

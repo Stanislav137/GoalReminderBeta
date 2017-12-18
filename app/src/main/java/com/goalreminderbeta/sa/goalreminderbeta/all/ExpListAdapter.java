@@ -226,6 +226,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             });
 
             final Button completed = (Button) convertView.findViewById(R.id.completed);
+
             faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
             completed.setTypeface(faceBold);
 
@@ -276,13 +277,19 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 titleDG.setTextColor(Color.parseColor("#d23134"));
                 break;
             case "КАРДИО":
-                units = "сек";
+                TextView titleTxtCardio = (TextView) view.findViewById(R.id.titleTxt);
+                LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
                 LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
                 LinearLayout separator = (LinearLayout) view.findViewById(R.id.separator);
+                LinearLayout separator4 = (LinearLayout) view.findViewById(R.id.separator4);
                 llDistance.setVisibility(View.VISIBLE);
                 separator.setVisibility(View.VISIBLE);
+                separator4.setVisibility(View.GONE);
+                llCurrentResult.setVisibility(View.GONE);
+                titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
+                units = "сек";
                 distanceDG.setText(goal.getDistance() + " метров");
-                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                taskDG.setText("тренировка");
                 break;
             case "НАВЫКИ":
                 units = "очки";
