@@ -52,8 +52,8 @@ public class CardioActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distance;
-    private static int currentRunTime = 0;
-    private static int goalRunTime = 0;
+    private int currentRunTime = 0;
+    private int goalRunTime = 0;
     private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
     private boolean type = false;
@@ -440,7 +440,7 @@ public class CardioActivity extends AppCompatActivity {
             dialogLV.addView(distanceET,lp);
             dialogLV.addView(ll,params);
 
-            if(currentRunTime != 0 && goalRunTime !=0) {
+            if(dialogBuilderGoal.getCurrentResult() != 0 && dialogBuilderGoal.getGoalResult() !=0) {
                 currentRunTimeTV = new TextView(cardioDialog.getContext());
                 currentRunTimeTV.setTextColor(Color.rgb(68, 182, 72));
                 currentRunTimeTV.setTextSize(20);

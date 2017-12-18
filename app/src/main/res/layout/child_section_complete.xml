@@ -229,6 +229,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/separator5"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/colorGrey"

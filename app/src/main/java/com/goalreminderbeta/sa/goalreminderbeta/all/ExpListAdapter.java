@@ -275,29 +275,49 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "КАРДИО":
-                TextView titleTxtCardio = (TextView) view.findViewById(R.id.titleTxt);
-                LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
-                LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
-                LinearLayout separator = (LinearLayout) view.findViewById(R.id.separator);
-                LinearLayout separator4 = (LinearLayout) view.findViewById(R.id.separator4);
-                llDistance.setVisibility(View.VISIBLE);
-                separator.setVisibility(View.VISIBLE);
-                separator4.setVisibility(View.GONE);
-                llCurrentResult.setVisibility(View.GONE);
-                titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
                 units = "сек";
-                distanceDG.setText(goal.getDistance() + " метров");
-                taskDG.setText("тренировка");
+                if(goal.getCurrentResult()==0 && goal.getGoalResult() == 0) { // regular attack
+                    LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
+                    LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
+                    LinearLayout separator4 = (LinearLayout) view.findViewById(R.id.separator4);
+                    LinearLayout separator3RA = (LinearLayout) view.findViewById(R.id.separator3);
+                    LinearLayout separator5 = (LinearLayout) view.findViewById(R.id.separator5);
+                    llCurrentResult.setVisibility(View.GONE);
+                    showPopupDayTask.setVisibility(View.GONE);
+                    separator4.setVisibility(View.GONE);
+                    separator3RA.setVisibility(View.GONE);
+                    separator5.setVisibility(View.GONE);
+                    distanceDG.setText(goal.getDistance() + " метров");
+                    taskDG.setText("преодолеть дистанцию");
+                    goalResultDG.setText(goal.getDistance() + " " + "метров");
+                } else {
+                    LinearLayout llDistance = (LinearLayout) view.findViewById(R.id.llDistance);
+                    LinearLayout separator = (LinearLayout) view.findViewById(R.id.separator);
+                    llDistance.setVisibility(View.VISIBLE);
+                    separator.setVisibility(View.VISIBLE);
+                    TextView titleTxtCardio = (TextView) view.findViewById(R.id.titleTxt);
+                    titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
+                    distanceDG.setText(goal.getDistance() + " метров");
+                    taskDG.setText("тренировка");
+                    currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                    goalResultDG.setText(goal.getGoalResult() + " " + units);
+                }
                 break;
             case "НАВЫКИ":
                 units = "очки";
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "ПОВТОРЕНИЯ":
                 units = "повторения";
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "КНИГА":
                 units = "страниц";
@@ -310,16 +330,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 nameData.setText(goal.getNameGoal() +  dataBookDG);
                 dayTask = Math.ceil(dayTask);
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "ЯЗЫКИ":
                 units = "часы";
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
         }
 
         /* FOR ALL GOALS */
-        currentResultDG.setText(goal.getCurrentResult() + " " + units);
-        goalResultDG.setText(goal.getGoalResult() + " " + units);
         madeToday.setText(String.format("%.1f", madeTodayResult) + " " + units);
         if(goal.getDescriptionGoal().equals("")) {
             goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string
