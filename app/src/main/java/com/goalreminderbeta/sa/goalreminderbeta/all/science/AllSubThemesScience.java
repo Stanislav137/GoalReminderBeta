@@ -47,11 +47,8 @@ public class AllSubThemesScience extends AppCompatActivity {
 
     public void findImagesBanners() {
         ArrayList<Button> allBtns = new ArrayList<>();
-        faceBold = Typeface.createFromAsset(getAssets(), "fonts/start_font.otf");
         Button imThemeBook = (Button) findViewById(R.id.imThemeBook);
-        imThemeBook.setTypeface(faceBold);
         Button imThemeLanguage = (Button) findViewById(R.id.imThemeLanguage);
-        imThemeLanguage.setTypeface(faceBold);
         allBtns.add(imThemeBook);
         allBtns.add(imThemeLanguage);
         startBootStrap(allBtns);
