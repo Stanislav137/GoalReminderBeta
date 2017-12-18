@@ -99,7 +99,7 @@
                 android:layout_weight="2">
 
                 <TextView
-                    android:id="@+id/currentWeightChild"
+                    android:id="@+id/notificationInterval"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -267,6 +267,7 @@
                 android:layout_weight="2">
 
                 <Button
+                    android:id="@+id/firstDay"
                     android:layout_width="45sp"
                     android:layout_height="45sp"
                     android:text="@string/options_sunday"
@@ -274,7 +275,8 @@
                     android:textColor="@color/colorBackground"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/circle_day"/>
+                    android:background="@drawable/circle_day"
+                    android:onClick="test"/>
 
             </RelativeLayout>
 

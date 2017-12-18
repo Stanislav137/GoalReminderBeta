@@ -197,9 +197,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
         final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-        Goal goal = allGoalsMap.get(groupPos); //actual goal
+        final Goal goal = allGoalsMap.get(groupPos); //actual goal
 
-        if(checkComplete) {
+        if(goal.getCompleted()) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
 
@@ -226,20 +226,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             });
 
             final Button completed = (Button) convertView.findViewById(R.id.completed);
-            final EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
-
             faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
             completed.setTypeface(faceBold);
-            enterNewResult.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                }
-            });
             completed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    checkComplete = true;
+                    goal.setCompleted(true);
+                    goal.save();
                 }
             });
         }

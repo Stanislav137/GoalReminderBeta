@@ -9,6 +9,8 @@ public interface Goal {
 
     boolean delete();
     Long getId();
+    void setCompleted(boolean completed);
+    boolean getCompleted();
     String getNameGoal();
     String getThemeCategory();
     String getDescriptionGoal();
@@ -20,4 +22,5 @@ public interface Goal {
     String getDataBook();
     LanguageLevels getCurrentLanguageLevel();
     LanguageLevels getGoalLanguageLevel();
+    long save();
 }

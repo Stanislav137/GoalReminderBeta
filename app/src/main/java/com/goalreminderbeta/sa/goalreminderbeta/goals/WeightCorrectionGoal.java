@@ -22,6 +22,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private Date toDate;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
+    private boolean completed;
 
     public WeightCorrectionGoal() {
     }
@@ -36,6 +37,14 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         this.themeCategory = "МАССА";
     }
 
+    @Override
+    public boolean getCompleted() {
+        return completed;
+    }
+    @Override
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
     public String getDescriptionGoal() {
         return descriptionGoal;
     }

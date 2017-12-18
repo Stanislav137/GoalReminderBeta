@@ -14,6 +14,7 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     private String themeCategory;
     private LanguageLevels currentLanguageLevel;
     private LanguageLevels goalLanguageLevel;
+    private boolean completed;
 
     public LanguageLearningGoal() {
     }
@@ -29,6 +30,14 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         this.themeCategory = "ЯЗЫКИ";
     }
 
+    @Override
+    public boolean getCompleted() {
+        return completed;
+    }
+    @Override
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
     @Override
     public Date getFromDate() {
         return fromDate;

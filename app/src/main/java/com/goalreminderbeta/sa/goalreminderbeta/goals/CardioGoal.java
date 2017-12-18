@@ -15,6 +15,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     private int currentResult;
     private double goalResult;
     private int distance;
+    private boolean completed;
 
     public CardioGoal() {
     }
@@ -46,6 +47,16 @@ public class CardioGoal extends SugarRecord implements Goal{
 
     public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
+    }
+
+    @Override
+    public boolean getCompleted() {
+        return completed;
+    }
+
+    @Override
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     @Override

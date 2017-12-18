@@ -14,6 +14,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     private double goalResult;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
+    private boolean completed;
 
     public ElementCorrectionGoal() {
     }
@@ -26,6 +27,15 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "НАВЫКИ";
+    }
+
+    @Override
+    public boolean getCompleted() {
+        return completed;
+    }
+    @Override
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     @Override

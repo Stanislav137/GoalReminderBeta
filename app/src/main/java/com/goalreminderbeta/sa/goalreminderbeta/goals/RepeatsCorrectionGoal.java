@@ -13,6 +13,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private double currentResult, goalResult;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
+    private boolean completed;
 
     public RepeatsCorrectionGoal() {
     }
@@ -27,6 +28,14 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         this.themeCategory = "ПОВТОРЕНИЯ";
     }
 
+    @Override
+    public boolean getCompleted() {
+        return completed;
+    }
+    @Override
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
     @Override
     public Date getFromDate() {
         return fromDate;

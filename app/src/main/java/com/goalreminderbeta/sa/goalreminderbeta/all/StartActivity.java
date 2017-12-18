@@ -119,7 +119,6 @@ public class StartActivity extends AppCompatActivity {
         super.onDestroy();
         saveCount();
     }
-
     @Override
     protected void onStart() {
         super.onStart();

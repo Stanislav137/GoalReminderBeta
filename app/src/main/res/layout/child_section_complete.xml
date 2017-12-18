@@ -269,6 +269,7 @@
             android:id="@+id/completed"
             android:background="@drawable/completed"
             android:textColor="@color/colorWhite"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            android:onClick="popupTest"/>
     </LinearLayout>
 </LinearLayout>
