@@ -47,7 +47,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int repeatsGoal;
-    private static int repeatsCurrent;
+    private int repeatsCurrent;
     private RepeatsDialogBuilder rdb;
     private boolean type = false;
 
@@ -372,7 +372,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setBackgroundColor(Color.GRAY);
 
-            if(repeatsCurrent != 0) {
+            if(dialogBuilderGoal.getCurrentResult() != 0) {
                 currentRepeatsTV = new TextView(repeatsDialog.getContext());
                 currentRepeatsTV.setTextColor(Color.rgb(68, 182, 72));
                 currentRepeatsTV.setTextSize(20);

@@ -114,7 +114,7 @@
         android:layout_alignParentBottom="true"></LinearLayout>
 
     <LinearLayout
-        android:id="@+id/rlCurrentResult"
+        android:id="@+id/llCurrentResult"
         android:padding="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -142,6 +142,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/separator7"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/colorGrey"
@@ -181,6 +183,7 @@
         android:layout_alignParentBottom="true"></LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llLeftToGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20sp">
@@ -208,6 +211,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/separator8"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:background="@color/colorGrey"
