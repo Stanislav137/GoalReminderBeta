@@ -127,92 +127,94 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        calendar = new GregorianCalendar();
-        int day = calendar.get(Calendar.DATE);
-        int month = calendar.get(Calendar.MONTH);
-        month+=1;
-        int year = calendar.get(Calendar.YEAR);
-        date = String.valueOf(day)+"."+String.valueOf(month)+"."+String.valueOf(year);
-        sp = PreferenceManager.getDefaultSharedPreferences(this);
-        dateFromSP = sp.getString("date","");
-        if (!date.equals(dateFromSP)) {
-        verifyDay = true;
-        }else{verifyDay = false;}
-        editor = sp.edit();
-        editor.putInt("goals",allGoals.size());
-        editor.commit();
-        if (verifyDay) {
-            dialog = new Dialog(StartActivity.this);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.verify_day);
-            dialog.setCanceledOnTouchOutside(false);
-            Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
-            Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
-            serviceIntent = new Intent(this,MyService.class);
-            if(sp.getInt("goals",0)>0) {
-                serviceIntent.putExtra("title", "You goals are ready!");
-                serviceIntent.putExtra("text", "Keep it up!");
+        if(allGoals.size() != 0) {
+            calendar = new GregorianCalendar();
+            int day = calendar.get(Calendar.DATE);
+            int month = calendar.get(Calendar.MONTH);
+            month += 1;
+            int year = calendar.get(Calendar.YEAR);
+            date = String.valueOf(day) + "." + String.valueOf(month) + "." + String.valueOf(year);
+            sp = PreferenceManager.getDefaultSharedPreferences(this);
+            dateFromSP = sp.getString("date", "");
+            if (!date.equals(dateFromSP)) {
+                verifyDay = true;
+            } else {
+                verifyDay = false;
             }
-            else {
-                serviceIntent.putExtra("title", "You have no goals!");
-                serviceIntent.putExtra("text", "Add some goal to start");
+            editor = sp.edit();
+            editor.putInt("goals", allGoals.size());
+            editor.commit();
+            if (verifyDay) {
+                dialog = new Dialog(StartActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.verify_day);
+                dialog.setCanceledOnTouchOutside(false);
+                Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
+                Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
+                serviceIntent = new Intent(this, MyService.class);
+                if (sp.getInt("goals", 0) > 0) {
+                    serviceIntent.putExtra("title", "You goals are ready!");
+                    serviceIntent.putExtra("text", "Keep it up!");
+                } else {
+                    serviceIntent.putExtra("title", "You have no goals!");
+                    serviceIntent.putExtra("text", "Add some goal to start");
+                }
+
+                goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        editor = sp.edit();
+                        editor.putString("date", date);
+                        editor.commit();
+
+                        if (sp.getBoolean("main", true)) {
+                            serviceIntent.putExtra("interval", "1");
+                            serviceIntent.putExtra("delay", 3600000);
+                            serviceIntent.putExtra("notification", true);
+                            serviceIntent.putExtra("sound", true);
+                            serviceIntent.putExtra("vibration", true);
+                        } else {
+                            serviceIntent.putExtra("interval", sp.getString("interval", ""));
+                            String delayStr = sp.getString("interval", "");
+                            long delay = Integer.parseInt(delayStr) * 1000 * 3600;
+                            serviceIntent.putExtra("delay", delay);
+                            serviceIntent.putExtra("notification", sp.getBoolean("notification", true));
+                            serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
+                            serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
+                        }
+                        startService(serviceIntent);
+                        dialog.cancel();
+
+                    }
+                });
+                goToRelax.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        editor = sp.edit();
+                        editor.putString("date", date);
+                        editor.commit();
+                        if (sp.getBoolean("main", true)) {
+                            serviceIntent.putExtra("interval", "1");
+                            serviceIntent.putExtra("delay", 3600000);
+                            serviceIntent.putExtra("notification", true);
+                            serviceIntent.putExtra("sound", true);
+                            serviceIntent.putExtra("vibration", true);
+                        } else {
+                            serviceIntent.putExtra("interval", sp.getString("interval", ""));
+                            long delay = DayPicker.getDelay();
+                            serviceIntent.putExtra("delay", delay);
+                            serviceIntent.putExtra("notification", sp.getBoolean("notification", true));
+                            serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
+                            serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
+                        }
+                        startService(serviceIntent);
+                        finish();
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
-
-            goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    editor = sp.edit();
-                    editor.putString("date",date);
-                    editor.commit();
-
-                    if(sp.getBoolean("main",true)){
-                        serviceIntent.putExtra("interval","1");
-                        serviceIntent.putExtra("delay",3600000);
-                        serviceIntent.putExtra("notification",true);
-                        serviceIntent.putExtra("sound",true);
-                        serviceIntent.putExtra("vibration",true);
-                    }else{
-                        serviceIntent.putExtra("interval",sp.getString("interval",""));
-                        String delayStr = sp.getString("interval","");
-                        long delay = Integer.parseInt(delayStr)*1000*3600;
-                        serviceIntent.putExtra("delay",delay);
-                        serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
-                        serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
-                        serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
-                    }
-                    startService(serviceIntent);
-                    dialog.cancel();
-
-                }
-            });
-            goToRelax.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    editor = sp.edit();
-                    editor.putString("date",date);
-                    editor.commit();
-                    if(sp.getBoolean("main",true)){
-                        serviceIntent.putExtra("interval","1");
-                        serviceIntent.putExtra("delay",3600000);
-                        serviceIntent.putExtra("notification",true);
-                        serviceIntent.putExtra("sound",true);
-                        serviceIntent.putExtra("vibration",true);
-                    }else{
-                        serviceIntent.putExtra("interval",sp.getString("interval",""));
-                        long delay = DayPicker.getDelay();
-                        serviceIntent.putExtra("delay",delay);
-                        serviceIntent.putExtra("notification",sp.getBoolean("notification",true));
-                        serviceIntent.putExtra("sound",sp.getBoolean("sound",true));
-                        serviceIntent.putExtra("vibration",sp.getBoolean("vibration",true));
-                    }
-                    startService(serviceIntent);
-                    finish();
-                    dialog.dismiss();
-                }
-            });
-            dialog.show();
         }
-
     }
 
     private void setListenersOnChild(){

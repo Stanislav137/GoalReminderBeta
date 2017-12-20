@@ -96,7 +96,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
         dateFrom = formatter.parse(String.valueOf(languageDateFrom.getText()));
         dateTo = formatter.parse(String.valueOf(languageDateTo.getText()));
 
-        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && nextIndexCurrent < nextIndexGoal) {
+        if (goalName != null && !dateTo.equals(dateFrom) && dateFrom.getTime() < dateTo.getTime() && nextIndexCurrent < nextIndexGoal || nextIndexGoal == 0 && nextIndexCurrent == 0) {
         Date dateFrom = this.dateFrom;
         Date dateTo = this.dateTo;
         LanguageLearningGoal languageLearningGoal = new LanguageLearningGoal(dateFrom, dateTo, goalName, goalDescription,
@@ -232,6 +232,9 @@ public class LanguageLearningActivity extends AppCompatActivity {
             } else {
                 nextIndexGoal = index - 1;
                 nextIndexGoal %= levels.length;
+                if(nextIndexGoal == 0) {
+                    return levels[nextIndexGoal + 1];
+                }
                 return levels[nextIndexGoal];
             }
         }
