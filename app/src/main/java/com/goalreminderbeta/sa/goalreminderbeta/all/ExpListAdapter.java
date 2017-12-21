@@ -213,7 +213,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 
             findUxDayGoal(convertView);
             blink(convertView);
-            showDataDG(groupPosition, convertView);
+            showDataDG(goal, convertView);
 
             final LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
             showPopupDayTask.setOnClickListener(new View.OnClickListener() {
@@ -255,16 +255,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         taskOfWeekUnits = (TextView) view.findViewById(R.id.taskOfWeekUnits);
     }
 
-    private void showDataDG(int groupPosition, View view) {
-        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
-        Goal goal = allGoalsMap.get(groupPos); //actual goal
-
+    private void showDataDG(Goal goal, View view) {
         double dayTask = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
         double madeTodayResult = 0;
         String units = "";
 
         if(goal.getThemeCategory().equals("КНИГА")) {
-            if (goal.getDataBook().equals(" ")) {
+            if (goal.getDataBook().equals("")) {
                 nameData.setText(goal.getNameGoal() + "");
             } else {
                 nameData.setText(goal.getNameGoal() + " | " + goal.getDataBook());
