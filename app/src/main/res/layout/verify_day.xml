@@ -10,22 +10,23 @@
         android:id="@+id/confirmDelete"
         android:textSize="18sp"
         android:textColor="@color/colorWhite"
-        android:text="СЕГОДНЯ Я"/>
+        android:text="@string/verify_day_today"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2sp"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/goToWorkOnGoals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:background="@color/clr_science"
             android:layout_alignParentLeft="true"
+            android:layout_weight="1"
+            android:background="@color/clr_science"
+            android:text="@string/verify_day_greatness"
             android:textColor="@color/colorWhite"
-            android:text="ИДУ К ВЕЛИЧИЮ" />
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/goToRelax"
@@ -34,7 +35,7 @@
             android:layout_alignParentRight="true"
             android:layout_weight="1"
             android:background="@color/clr_science"
-            android:text="ОТДЫХАЮ"
+            android:text="@string/verify_day_relax"
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
     </LinearLayout>

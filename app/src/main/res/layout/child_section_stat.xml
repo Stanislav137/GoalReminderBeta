@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/currentResultUnits"
-            android:text="80кг"
+            android:text="@string/child_section_start_kg"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
             android:textColor="@color/colorBlack"
@@ -201,7 +201,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15sp"
-            android:text="10кг"
+            android:text="@string/statistics_remaining_purpose_kg"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
@@ -221,7 +221,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ЗАДАЧА В ДЕНЬ:"
+            android:text="@string/statistics_task_day"
             android:id="@+id/taskOfDay"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
@@ -236,7 +236,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15sp"
-            android:text="1кг"
+            android:text="@string/statistics_task_day_kg"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
@@ -333,7 +333,7 @@
             android:id="@+id/leftDaysGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10"
+            android:text="@string/statistics_days_left_day"
             android:textSize="18sp"
             android:layout_marginLeft="15sp"
             android:textColor="@color/colorBlack"

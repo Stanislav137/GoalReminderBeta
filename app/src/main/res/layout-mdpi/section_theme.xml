@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SPORT"
+        android:text="@string/section_thame_sport"
         android:id="@+id/themeCategory"
         android:textSize="23sp"
         android:layout_toRightOf="@+id/ivTheme"
@@ -35,7 +35,7 @@
         android:id="@id/nameGoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Отжимания"
+        android:text="@string/section_thame_Push_ups"
         android:textColor="@color/colorBlack"
         android:layout_alignBottom="@+id/ivTheme"
         android:layout_alignLeft="@+id/themeCategory"

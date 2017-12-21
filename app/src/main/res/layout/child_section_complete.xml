@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/clr_main"
-            android:text="ЗАДАЧА ВЫПОЛНЕНА ?"
+            android:text="@string/child_section_complete_task_is_done"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </LinearLayout>
@@ -30,7 +30,8 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="НАЗВАНИЕ ЦЕЛИ | НАЗВАНИЕ КНИГИ"/>
+            android:text="@string/child_section_complete_Goal_name_of_book"/>
+
 
     </RelativeLayout>
 
@@ -84,7 +85,7 @@
             android:id="@+id/currentResultTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"
+            android:text="@string/child_section_complete_current_score"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
@@ -93,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15sp"
-            android:text="10 страниц"
+            android:text="@string/child_section_complete_current_score_pages"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
     </LinearLayout>
@@ -114,7 +115,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="ВАША ЦЕЛЬ:"/>
+            android:text="@string/child_section_complete_your_goal"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,7 +124,7 @@
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
-            android:text="100 страниц"/>
+            android:text="@string/child_section_complete_your_goal_pages"/>
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +143,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="ЗАДАЧА НА СЕГОДНЯ:"/>
+            android:text="@string/child_section_complete_task_for_today"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -151,7 +152,7 @@
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
-            android:text="15 страниц"/>
+            android:text="@string/child_section_complete_task_for_today_pages"/>
     </LinearLayout>
 
     <LinearLayout
@@ -212,7 +213,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:text="СЕГОДНЯ ВЫПОЛНЕНО:"/>
+            android:text="@string/child_section_complete_completed_today"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -221,7 +222,7 @@
             android:textColor="@color/colorBlack"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
-            android:text="0 страниц"/>
+            android:text="@string/child_section_complete_completed_today_pages"/>
 
     </LinearLayout>
 
@@ -244,7 +245,7 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/clr_sport"
             android:textSize="18sp"
-            android:text="ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"/>
+            android:text="@string/child_section_complete_you"/>
 
     </RelativeLayout>
 
@@ -261,7 +262,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ВЫПОЛНЕНО"
+            android:text="@string/child_section_complete_done"
             android:drawableRight="@mipmap/notification"
             android:drawablePadding="-30sp"
             android:padding="15sp"

@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВЫБЕРИТЕ КАТЕГОРИЮ"
+            android:text="@string/book_select_category"
             android:textColor="@color/colorBackground"
             android:textSize="22sp" />
     </RelativeLayout>
@@ -81,7 +81,7 @@
                         android:id="@+id/themeSportTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="КНИГА"
+                        android:text="@string/book_book"
                         android:textColor="@color/colorBlack"
                         android:textSize="29sp"
                         android:layout_alignParentTop="true"
@@ -157,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:text="ЯЗЫКИ"
+                        android:text="@string/languages_languages"
                         android:textColor="@color/colorBlack"
                         android:textSize="29sp"
                         tools:ignore="UnknownIdInLayout" />

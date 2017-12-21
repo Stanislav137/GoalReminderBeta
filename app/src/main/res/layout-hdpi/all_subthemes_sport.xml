@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВАБЕРИТЕ КАТЕГОРИЮ"
+            android:text="@string/SELECT_CATEGORY_sport"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
     </RelativeLayout>
@@ -52,13 +52,13 @@
                 android:id="@+id/imThemeWeight"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
                 android:background="@drawable/btn_red"
                 android:onClick="createWeightCorrectionGoal"
                 android:text="@string/chosen"
                 android:textColor="@color/colorBackground"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
