@@ -1,6 +1,7 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -84,6 +85,7 @@ public class StartActivity extends AppCompatActivity {
         printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
+
     }
 
     private void helpUserStart() {
@@ -454,7 +456,7 @@ public class StartActivity extends AppCompatActivity {
             allGoalsMap.put(i,allGoals.get((int)i));
         }
 
-        adapter = new ExpListAdapter(getApplicationContext(), groups, allGoalsMap);
+        adapter = new ExpListAdapter(StartActivity.this, groups, allGoalsMap);
         allGoalsList.setAdapter(adapter);
     }
     public void openGoalChooser(View view) {

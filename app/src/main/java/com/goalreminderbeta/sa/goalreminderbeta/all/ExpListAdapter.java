@@ -1,14 +1,17 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,10 +24,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -48,6 +53,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private boolean checkComplete = false;
     private LinearLayout separator1, separator2;
     private Typeface faceBold = null;
+    Button completed;
+    Dialog congrDialog;
+    AlertDialog.Builder adb;
+
     /* FOR DAY GOAL */
 
     private TextView nameData, distanceDG, currentResultDG, goalResultDG, taskDG, madeToday, goalDescriptionDG;
@@ -56,6 +65,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         mContext = context;
         mGroups = groups;
         this.allGoalsMap = allGoalsMap;
+
+
     }
 
     @Override
@@ -194,54 +205,60 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(final int groupPosition, final int childPosition, final boolean isLastChild,
                              View convertView, final ViewGroup parent) {
-
-        final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Long groupPos = Long.parseLong(String.valueOf(groupPosition));
         Goal goal = allGoalsMap.get(groupPos); //actual goal
-
-        if(checkComplete) {
-            convertView = inflater.inflate(R.layout.child_section_stat, null);
-            //convertView.setMinimumHeight(1500);
-
-            findWidgetsChild(convertView);
-            fillDataChild(goal, convertView, goal.getThemeCategory());
-        } else {
-            convertView = inflater.inflate(R.layout.child_section_complete, null);
-            //convertView.setMinimumHeight(1500);
-
-            findUxDayGoal(convertView);
-            blink(convertView);
-            showDataDG(groupPosition, convertView);
-
-            final LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
-            showPopupDayTask.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        if(convertView==null){
+            final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if(checkComplete) {
+                convertView = inflater.inflate(R.layout.child_section_stat, null);
+                //convertView.setMinimumHeight(1500);
+                findWidgetsChild(convertView);
+                fillDataChild(goal, convertView, goal.getThemeCategory());
+            } else {
+                convertView = inflater.inflate(R.layout.child_section_complete, null);
+                //convertView.setMinimumHeight(1500);
+                findUxDayGoal(convertView);
+                blink(convertView);
+                showDataDG(groupPosition, convertView);
+                LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
+                showPopupDayTask.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 //                    final LinearLayoutCompat.LayoutParams lparams = new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.FILL_PARENT, LinearLayoutCompat.LayoutParams.FILL_PARENT);
 //                    final EditText edittext = new EditText(mContext.getApplicationContext());
 //                    edittext.setLayoutParams(lparams);
 //                    edittext.setWidth(32);
 //                    edittext.setEms(50);
-                }
-            });
+                    }
+                });
 
-            final Button completed = (Button) convertView.findViewById(R.id.completed);
-            final EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
+                completed = (Button) convertView.findViewById(R.id.completed);
+                EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
 
-            faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
-            completed.setTypeface(faceBold);
-            enterNewResult.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+                faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
+                completed.setTypeface(faceBold);
+                enterNewResult.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                }
-            });
-            completed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    checkComplete = true;
-                }
-            });
+                    }
+                });
+                completed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        checkComplete = true;
+
+                        adb = new AlertDialog.Builder(mContext);
+                        adb.setTitle("Congratulations");
+                        adb.setMessage("Go on! You are super");
+                        adb.setPositiveButton("Thanks",null);
+                        adb.setCancelable(true);
+                        congrDialog = adb.create();
+                        congrDialog.show();
+
+                    }
+                });
+            }
         }
 
         return convertView;
