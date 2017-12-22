@@ -1,14 +1,12 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

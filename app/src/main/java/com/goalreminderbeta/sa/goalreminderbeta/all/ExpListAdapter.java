@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -39,6 +40,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
+
+import static android.R.attr.password;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
@@ -229,11 +232,32 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             showPopupDayTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    final LinearLayoutCompat.LayoutParams lparams = new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.FILL_PARENT, LinearLayoutCompat.LayoutParams.FILL_PARENT);
-//                    final EditText edittext = new EditText(mContext.getApplicationContext());
-//                    edittext.setLayoutParams(lparams);
-//                    edittext.setWidth(32);
-//                    edittext.setEms(50);
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+                    alertDialog.setTitle("НОВЫЙ РЕЗУЛЬТАТ");
+                    alertDialog.setMessage("Введите новый прогресс");
+
+                    final EditText input = new EditText(mContext);
+                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.MATCH_PARENT);
+                    input.setLayoutParams(lp);
+                    alertDialog.setView(input);
+
+                    alertDialog.setPositiveButton("YES",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    alertDialog.setNegativeButton("NO",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    alertDialog.show();
                     }
                 });
 
