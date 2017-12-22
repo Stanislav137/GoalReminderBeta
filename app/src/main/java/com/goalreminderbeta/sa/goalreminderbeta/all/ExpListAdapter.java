@@ -1,14 +1,17 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +24,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -50,6 +55,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private LinearLayout separator1, separator2;
     private Typeface faceBold = null;
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
+    Button completed;
+    Dialog congrDialog;
+    AlertDialog.Builder adb;
+
     /* FOR DAY GOAL */
 
     private TextView nameData, distanceDG, currentResultDG, goalResultDG, taskDG, madeToday, goalDescriptionDG;
@@ -58,6 +67,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         mContext = context;
         mGroups = groups;
         this.allGoalsMap = allGoalsMap;
+
+
     }
 
     @Override
@@ -224,21 +235,36 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
 //                    edittext.setLayoutParams(lparams);
 //                    edittext.setWidth(32);
 //                    edittext.setEms(50);
-                }
-            });
+                    }
+                });
 
-            final Button completed = (Button) convertView.findViewById(R.id.completed);
+                completed = (Button) convertView.findViewById(R.id.completed);
+                EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
 
-            faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
-            completed.setTypeface(faceBold);
+                faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
+                completed.setTypeface(faceBold);
+                enterNewResult.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-            completed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    goal.setCompleted(true);
-                    goal.save();
-                }
-            });
+                    }
+                });
+                completed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        checkComplete = true;
+
+                        adb = new AlertDialog.Builder(mContext);
+                        adb.setTitle("Congratulations");
+                        adb.setMessage("Go on! You are super");
+                        adb.setPositiveButton("Thanks",null);
+                        adb.setCancelable(true);
+                        congrDialog = adb.create();
+                        congrDialog.show();
+
+                    }
+                });
+            }
         }
 
         return convertView;
@@ -284,8 +310,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
-                currentResultDG.setText(goal.getCurrentResult() + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "КАРДИО":
                 units = "сек";
@@ -359,6 +383,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         }
 
         /* FOR ALL GOALS */
+        currentResultDG.setText(goal.getCurrentResult() + " " + units);
+        goalResultDG.setText(goal.getGoalResult() + " " + units);
         madeToday.setText(String.format("%.1f", madeTodayResult) + " " + units);
         if(goal.getDescriptionGoal().equals("")) {
             goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string
