@@ -87,16 +87,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/llMenu">
-
-        <ExpandableListView
-            android:background="@color/colorBackground"
-            android:id="@+id/allGoalsList"
-            android:layout_below="@+id/llMenu"
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:groupIndicator="@color/colorPrimary"
-            android:transcriptMode="alwaysScroll" />
-
+            android:layout_height="match_parent">
+            <ExpandableListView
+                android:background="@color/colorBackground"
+                android:id="@+id/allGoalsList"
+                android:layout_below="@+id/llMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:groupIndicator="@color/colorPrimary"
+                android:transcriptMode="alwaysScroll" />
+        </android.support.v4.widget.SwipeRefreshLayout>
     </RelativeLayout>
 
         <Button

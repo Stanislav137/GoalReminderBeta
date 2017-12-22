@@ -30,7 +30,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
-import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -239,21 +238,21 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 });
 
                 completed = (Button) convertView.findViewById(R.id.completed);
-                EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
+              //  EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
 
                 faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
                 completed.setTypeface(faceBold);
-                enterNewResult.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
+//                enterNewResult.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                    }
+//                });
                 completed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        checkComplete = true;
-
+                        goal.setCompleted(true);
+                        goal.save();
                         adb = new AlertDialog.Builder(mContext);
                         adb.setTitle("Congratulations");
                         adb.setMessage("Go on! You are super");
@@ -261,12 +260,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         adb.setCancelable(true);
                         congrDialog = adb.create();
                         congrDialog.show();
-
+                        notifyDataSetChanged();
                     }
                 });
             }
-        }
-
         return convertView;
     }
 
@@ -310,6 +307,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 break;
             case "КАРДИО":
                 units = "сек";
@@ -341,6 +340,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 }
                 break;
             case "НАВЫКИ":
+                TextView titleTxtSkill = (TextView) view.findViewById(R.id.titleTxt);
+                titleTxtSkill.setText("ВВЕДИ НОВЫЙ ПРОГРЕСС:");
                 skillsPoints(goal);
                 units = "очки";
                 taskDG.setText("тренировка");
@@ -383,8 +384,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         }
 
         /* FOR ALL GOALS */
-        currentResultDG.setText(goal.getCurrentResult() + " " + units);
-        goalResultDG.setText(goal.getGoalResult() + " " + units);
         madeToday.setText(String.format("%.1f", madeTodayResult) + " " + units);
         if(goal.getDescriptionGoal().equals("")) {
             goalDescriptionDG.setText("ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !"); // default string

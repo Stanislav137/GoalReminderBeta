@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +45,7 @@ import java.util.Map;
 
 public class StartActivity extends AppCompatActivity {
 
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private Button startAddGoal;
     private ExpandableListView allGoalsList;
     private List<Goal> allGoals;
@@ -523,5 +525,9 @@ public class StartActivity extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    public void refresh() {
+        //allGoalsList.refreshDrawableState();
     }
 }
