@@ -238,16 +238,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 });
 
                 completed = (Button) convertView.findViewById(R.id.completed);
-              //  EditText enterNewResult = (EditText) convertView.findViewById(R.id.enterNewResult);
 
                 faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
                 completed.setTypeface(faceBold);
-//                enterNewResult.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                    }
-//                });
                 completed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
