@@ -52,10 +52,9 @@
     <string name="SUM_READ_PAPERS">СУМА ПРОЧИТАНЫХ СТРАНИЦ.:</string>
     <string name="pages100">100 страниц</string>
     <string name="category_language">КАТЕГОРИЯ ЯЗЫКИ</string>
-    <string name="words_per_day">МАКС. КОЛ-ВО СЛОВ ЗА ДЕНЬ:</string>
-    <string name="words_per_day_words">слов</string>
-    <string name="sum_learned_words">СУМА ИЗУЧЕННЫХ СЛОВ:</string>
-    <string name="sum_learned_words_100_word">100 слов</string>
+    <string name="sum_hours">СУМА ЧАСОВ ИЗУЧЕНИЯ:</string>
+    <string name="maximum_number_hours_day">МАКСИМАЛЬНОЕ КОЛ-ВО ЧАСОВ ЗА ДЕНЬ:</string>
+    <string name="lang_units">часов</string>
 
     <!-- ACTIVITY OPTIONS -->
 

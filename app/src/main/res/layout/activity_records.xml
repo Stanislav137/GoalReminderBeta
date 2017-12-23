@@ -505,7 +505,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/words_per_day"
+                            android:text="@string/sum_hours"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"
                             android:layout_alignParentTop="true"
@@ -525,7 +525,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="@string/words_per_day_words"/>
+                            android:text="@string/lang_units"/>
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -549,7 +549,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/sum_learned_words"
+                            android:text="@string/maximum_number_hours_day"
                             android:textSize="15sp"
                             android:textColor="@color/colorBlack"/>
 
@@ -566,7 +566,7 @@
                             android:textSize="15sp"
                             android:layout_marginLeft="20sp"
                             android:textColor="@color/colorBlack"
-                            android:text="@string/sum_learned_words_100_word"/>
+                            android:text="@string/lang_units"/>
 
                     </RelativeLayout>
                 </LinearLayout>
