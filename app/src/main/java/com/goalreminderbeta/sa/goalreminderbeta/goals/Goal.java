@@ -14,6 +14,7 @@ public interface Goal {
     String getNameGoal();
     String getThemeCategory();
     String getDescriptionGoal();
+    void setCurrentResult(double currentResult);
     double getCurrentResult();
     double getGoalResult();
     Date getFromDate();

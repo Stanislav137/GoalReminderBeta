@@ -33,14 +33,17 @@ import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLe
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.IllegalFormatException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
+import static android.R.attr.cacheColorHint;
 import static android.R.attr.password;
 
 public class ExpListAdapter extends BaseExpandableListAdapter {
@@ -49,6 +52,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Context mContext;
     private ImageView arrowDownUp, statusGoal;
     private Map<Long,Goal> allGoalsMap;
+    //private Goal goal;
     private TextView fromGoal, toGoal, goalDescription, currentResultUnits, goalResultUnits, distanceRunUnits, leftDaysGoal;
     private TextView leftToGoalUnits, dataBook, taskOfDayUnits, taskOfWeekUnits;
     private RelativeLayout bookPresent;
@@ -57,6 +61,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private LinearLayout separator1, separator2;
     private Typeface faceBold = null;
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
+    private String units="";
     Button completed;
     Dialog congrDialog;
     AlertDialog.Builder adb;
@@ -246,6 +251,22 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     alertDialog.setPositiveButton("YES",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    try {
+                                        String res = input.getText().toString();
+                                        double resInt = Double.parseDouble(res);
+                                        String curRes = currentResultDG.getText().toString().substring(0,
+                                                currentResultDG.getText().toString().indexOf(' '));
+                                        double curResInt = Double.parseDouble(curRes);
+                                        double finRes = curResInt - Math.abs(resInt);
+                                        //input.setText(String.valueOf(finRes)+" "+units);
+                                        goal.setCurrentResult(finRes);
+
+                                    }catch (IllegalFormatException e){Toast.makeText(mContext,"IllegExc",Toast.LENGTH_SHORT);}
+                                    catch (Exception e){
+                                        Toast.makeText(mContext,"Exc",Toast.LENGTH_SHORT);
+                                    }
+                                    Toast.makeText(mContext,"Yes was clicked",Toast.LENGTH_SHORT);
+                                    notifyDataSetChanged();
                                     dialog.cancel();
                                 }
                             });
@@ -260,6 +281,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     alertDialog.show();
                     }
                 });
+            showDataDG(goal,convertView);
 
                 completed = (Button) convertView.findViewById(R.id.completed);
 
@@ -298,7 +320,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private void showDataDG(Goal goal, View view) {
         double dayTask = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
         double madeTodayResult = 0;
-        String units = "";
+        units = "";
 
         if(goal.getThemeCategory().equals("КНИГА")) {
             if (goal.getDataBook().equals("")) {

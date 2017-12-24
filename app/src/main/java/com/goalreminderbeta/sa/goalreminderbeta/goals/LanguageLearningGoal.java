@@ -81,6 +81,11 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public void setCurrentResult(double currentResult) {
+
+    }
+
+    @Override
     public double getCurrentResult() {
         return 0;
     }

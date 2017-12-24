@@ -86,7 +86,6 @@ public class CardioGoal extends SugarRecord implements Goal{
         this.themeCategory = themeCategory;
     }
 
-    @Override
     public double getCurrentResult() {
         return currentResult;
     }
