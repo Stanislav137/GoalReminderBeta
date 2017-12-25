@@ -14,8 +14,10 @@ public class CardioGoal extends SugarRecord implements Goal{
     private String themeCategory;
     private int currentResult;
     private double goalResult;
+    private double madeTodayResult;
     private int distance;
     private boolean completed;
+    private boolean blink;
 
     public CardioGoal() {
     }
@@ -55,8 +57,18 @@ public class CardioGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public boolean getBlink() {
+        return blink;
+    }
+
+    @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setBlink(boolean blink) {
+        this.blink = blink;
     }
 
     @Override
@@ -95,6 +107,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        this.madeTodayResult = madeTodayResult;
+    }
+
+    @Override
     public double getGoalResult() {
         return goalResult;
     }
@@ -111,6 +128,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     @Override
     public String getDataBook() {
         return null;
+    }
+
+    @Override
+    public double getMadeTodayResult() {
+        return madeTodayResult;
     }
 
     @Override

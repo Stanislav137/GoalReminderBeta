@@ -11,12 +11,14 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private int pages;
     private double currentResult;
     private double goalResult;
+    private double madeTodayResult;
     private Date fromDate;
     private Date toDate;
     private String dataBook = "";
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private boolean completed;
+    private boolean blink;
 
     public ReadBookGoal() {
     }
@@ -36,10 +38,22 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     public boolean getCompleted() {
         return completed;
     }
+
+    @Override
+    public boolean getBlink() {
+        return blink;
+    }
+
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public void setBlink(boolean blink) {
+        this.blink = blink;
+    }
+
     public int getPages() {
         return pages;
     }
@@ -55,6 +69,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public void setCurrentResult(double currentResult) {
         this.currentResult = currentResult;
+    }
+
+    @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        this.madeTodayResult = madeTodayResult;
     }
 
     @Override
@@ -101,6 +120,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public String getDataBook() {
         return dataBook;
+    }
+
+    @Override
+    public double getMadeTodayResult() {
+        return madeTodayResult;
     }
 
     public void setDataBook(String dataBook) {
