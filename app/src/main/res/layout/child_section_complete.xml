@@ -82,22 +82,36 @@
         android:id="@+id/llCurrentResult"
         android:padding="20sp">
 
-        <TextView
-            android:id="@+id/currentResultTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/currentResultDG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:text="10 страниц"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/currentResultTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/currentResultDG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:text="10 страниц"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -112,21 +126,35 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:text="ВАША ЦЕЛЬ:"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/goalResultDG"
-            android:textColor="@color/colorBlack"
-            android:layout_marginLeft="15sp"
-            android:textSize="18sp"
-            android:text="100 страниц"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:text="ВАША ЦЕЛЬ:"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/goalResultDG"
+                android:textColor="@color/colorBlack"
+                android:layout_marginLeft="15sp"
+                android:textSize="18sp"
+                android:text="100 страниц"/>
+
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -138,24 +166,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:padding="20sp">
 
-        <TextView
-            android:id="@+id/titleDG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ЗАДАЧА НА СЕГОДНЯ:"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/taskDG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:text="15 страниц"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/titleDG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ЗАДАЧА НА СЕГОДНЯ:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/taskDG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:text="15 страниц"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -210,22 +253,36 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
-        <TextView
-            android:id="@+id/titleTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="СЕГОДНЯ ВЫПОЛНЕНО:"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/madeToday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:text="0 страниц"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/titleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="СЕГОДНЯ ВЫПОЛНЕНО:"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/madeToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:text="0 страниц"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
