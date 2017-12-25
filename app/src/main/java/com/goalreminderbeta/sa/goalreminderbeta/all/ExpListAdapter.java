@@ -257,15 +257,22 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                         String curRes = currentResultDG.getText().toString().substring(0,
                                                 currentResultDG.getText().toString().indexOf(' '));
                                         double curResInt = Double.parseDouble(curRes);
-                                        double finRes = curResInt - Math.abs(resInt);
-                                        //input.setText(String.valueOf(finRes)+" "+units);
+                                        if(goal.getThemeCategory().equals("МАССА")||
+                                                goal.getThemeCategory().equals("КАРДИО"))
+                                        {
+                                            double finRes = curResInt - Math.abs(resInt);
                                         goal.setCurrentResult(finRes);
+                                        }else if(goal.getThemeCategory().equals("КНИГА")||
+                                                goal.getThemeCategory().equals("ПОВТОРЕНИЯ")
+                                                ||goal.getThemeCategory().equals("ЯЗЫКИ")||
+                                                goal.getThemeCategory().equals("НАВЫКИ")){
+                                            double finRes = curResInt + Math.abs(resInt);
+                                            goal.setCurrentResult(finRes);
+                                        }
 
-                                    }catch (IllegalFormatException e){Toast.makeText(mContext,"IllegExc",Toast.LENGTH_SHORT);}
-                                    catch (Exception e){
-                                        Toast.makeText(mContext,"Exc",Toast.LENGTH_SHORT);
+                                    }catch (IllegalFormatException e){
+                                        e.printStackTrace();
                                     }
-                                    Toast.makeText(mContext,"Yes was clicked",Toast.LENGTH_SHORT);
                                     notifyDataSetChanged();
                                     dialog.cancel();
                                 }
