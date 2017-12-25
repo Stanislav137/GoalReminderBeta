@@ -1,17 +1,9 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 
 public class WeightCorrectionGoal extends SugarRecord implements Goal {
 

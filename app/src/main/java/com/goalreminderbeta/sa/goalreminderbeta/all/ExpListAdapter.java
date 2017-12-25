@@ -507,7 +507,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 break;
             case "КНИГА":
-                if(goal.getDataBook().equals(" ")) {
+                if(goal.getDataBook().equals("")) {
                     bookPresent.setVisibility(View.GONE);
                     separator1.setVisibility(View.GONE);
                 } else {
