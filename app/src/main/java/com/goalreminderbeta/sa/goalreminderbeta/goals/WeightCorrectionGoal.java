@@ -1,28 +1,21 @@
 package com.goalreminderbeta.sa.goalreminderbeta.goals;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.orm.SugarRecord;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 
 public class WeightCorrectionGoal extends SugarRecord implements Goal {
 
     private double currentResult;
     private double goalResult;
-    private double currentResultStatus;
+    private double currentResultStatus, madeTodayResult;
     private Date fromDate;
     private Date toDate;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private boolean completed;
+    private boolean blink;
 
     public WeightCorrectionGoal() {
     }
@@ -41,10 +34,22 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     public boolean getCompleted() {
         return completed;
     }
+
+    @Override
+    public boolean getBlink() {
+        return blink;
+    }
+
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public void setBlink(boolean blink) {
+        this.blink = blink;
+    }
+
     public String getDescriptionGoal() {
         return descriptionGoal;
     }
@@ -59,6 +64,11 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
 
     public void setCurrentResult(double currentWeight) {
         this.currentResult = currentWeight;
+    }
+
+    @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        this.madeTodayResult = madeTodayResult;
     }
 
     public double getGoalResult() {
@@ -89,6 +99,11 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     @Override
     public String getDataBook() {
         return null;
+    }
+
+    @Override
+    public double getMadeTodayResult() {
+        return madeTodayResult;
     }
 
     @Override

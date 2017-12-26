@@ -17,7 +17,7 @@
                 android:textSize="18sp"
                 android:layout_marginBottom="5sp"
                 android:background="@color/clr_main"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:text="ПОДТВЕРДИТЕ ДАННЫЕ"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                 android:padding="10sp"
                 android:paddingLeft="5sp"
                 android:paddingRight="5sp"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
             <Button
                 android:id="@+id/cancel"
@@ -142,7 +142,7 @@
                 android:paddingRight="5sp"
                 android:background="@color/clr_main"
                 android:text="ОТМЕНА"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
     </LinearLayout>
         </LinearLayout>

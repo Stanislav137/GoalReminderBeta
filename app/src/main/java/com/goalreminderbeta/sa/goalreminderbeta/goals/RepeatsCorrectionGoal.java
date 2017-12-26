@@ -11,9 +11,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private Date fromDate;
     private Date toDate;
     private double currentResult, goalResult;
+    private double madeTodayResult;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private boolean completed;
+    private boolean blink;
 
     public RepeatsCorrectionGoal() {
     }
@@ -32,10 +34,22 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public boolean getCompleted() {
         return completed;
     }
+
+    @Override
+    public boolean getBlink() {
+        return blink;
+    }
+
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public void setBlink(boolean blink) {
+        this.blink = blink;
+    }
+
     @Override
     public Date getFromDate() {
         return fromDate;
@@ -61,6 +75,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public double getMadeTodayResult() {
+        return madeTodayResult;
+    }
+
+    @Override
     public LanguageLevels getCurrentLanguageLevel() {
         return null;
     }
@@ -81,6 +100,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
 
     public void setCurrentResult(double currentResult) {
         this.currentResult = currentResult;
+    }
+
+    @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        this.madeTodayResult = madeTodayResult;
     }
 
     @Override

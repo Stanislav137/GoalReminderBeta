@@ -15,6 +15,8 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     private LanguageLevels currentLanguageLevel;
     private LanguageLevels goalLanguageLevel;
     private boolean completed;
+    private boolean blink;
+    private double madeTodayResult;
 
     public LanguageLearningGoal() {
     }
@@ -34,10 +36,22 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     public boolean getCompleted() {
         return completed;
     }
+
+    @Override
+    public boolean getBlink() {
+        return blink;
+    }
+
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    @Override
+    public void setBlink(boolean blink) {
+        this.blink = blink;
+    }
+
     @Override
     public Date getFromDate() {
         return fromDate;
@@ -62,6 +76,11 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return null;
     }
 
+    @Override
+    public double getMadeTodayResult() {
+        return madeTodayResult;
+    }
+
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
@@ -83,6 +102,11 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     @Override
     public void setCurrentResult(double currentResult) {
 
+    }
+
+    @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        this.madeTodayResult = madeTodayResult;
     }
 
     @Override
