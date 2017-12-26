@@ -439,12 +439,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "кг";
                 DecimalFormat precision = new DecimalFormat("0.0");
                 currentResultUnits.setText(precision.format(currentNumber) + " " + units);
-                goalResultUnits.setText(precision.format(goalNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + "");
                 taskOfDayUnits.setText("тренировка");
                 goalResultUnits.setText((int)goalNumber + " " + units);
-                taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);
                 currentResultUnits.setText((int)currentNumber + " " + units);
                 break;
             case "КАРДИО":
