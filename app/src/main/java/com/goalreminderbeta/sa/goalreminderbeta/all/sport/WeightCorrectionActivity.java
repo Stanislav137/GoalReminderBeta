@@ -199,11 +199,11 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         } else {
             Toast toast;
             if(dateTo.equals(dateFrom)) {
-                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.your_date_going_with_todays_date), Toast.LENGTH_SHORT);
             } else if(goalName == null) {
-                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
             }
             toast.show();
         }
@@ -253,27 +253,27 @@ public class WeightCorrectionActivity extends AppCompatActivity {
         if (button.getId()==R.id.changeCurrentWeight){
             sportMinusWeightCurrent.setOnClickListener(null);
             sportPlusWeightCurrent.setOnClickListener(null);
-            if (button.getText().equals("ГР")){
+            if (button.getText().equals(getString(R.string.g1_weight_correction_Activity))){
                 setTimerOnButton(sportMinusWeightCurrent, "-", true, 1);
                 setTimerOnButton(sportPlusWeightCurrent, "+", true, 1);
-                button.setText("КГ");
+                button.setText(getString(R.string.kg1_weight_correction_Activity));
             }else {
                 setTimerOnButton(sportMinusWeightCurrent, "-", true, 0.1);
                 setTimerOnButton(sportPlusWeightCurrent, "+", true, 0.1);
-                button.setText("ГР");
+                button.setText(getString(R.string.g2_weight_correction_Activity));
             }
         }
         if(button.getId()==R.id.changeGoalWeight) {
             sportMinusWeightGoal.setOnClickListener(null);
             sportPlusWeightGoal.setOnClickListener(null);
-            if (button.getText().equals("ГР")){
+            if (button.getText().equals(getString(R.string.g3_weight_correction_Activity))){
                 setTimerOnButton(sportMinusWeightGoal, "-", false, 1);
                 setTimerOnButton(sportPlusWeightGoal, "+", false, 1);
-                button.setText("КГ");
+                button.setText(getString(R.string.kg2_weight_correction_Activity));
             }else {
                 setTimerOnButton(sportMinusWeightGoal, "-", false, 0.1);
                 setTimerOnButton(sportPlusWeightGoal, "+", false, 0.1);
-                button.setText("ГР");
+                button.setText(getString(R.string.g4_weight_correction_Activity));
             }
         }
     }
@@ -365,7 +365,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             currentWeightTV.setTextColor(Color.rgb(68,182,72));
             currentWeightTV.setTextSize(20);
             currentWeightTV.setPadding(20,0,0,0);
-            currentWeightTV.setText("Your weight now is:");
+            currentWeightTV.setText(R.string.currentWeightTV_weight_correction_Activity);
             dialogLV.addView(currentWeightTV,lp);
             currentWeightET = new TextView(weightDialog.getContext());
             currentWeightET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
@@ -378,7 +378,7 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             goalWeightTV.setTextColor(Color.rgb(68,182,72));
             goalWeightTV.setTextSize(20);
             goalWeightTV.setPadding(20,0,0,0);
-            goalWeightTV.setText("Goal weight is:");
+            goalWeightTV.setText(R.string.goalWeightTV_weight_correction_Activity);
             dialogLV.addView(goalWeightTV,lp);
             goalWeightET = new TextView(weightDialog.getContext());
             goalWeightET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));

@@ -355,5 +355,67 @@
     <string name="repeats_theme_from">ОТ</string>
 
     <string name="category_skills">КАТЕГОРИЯ НАВЫКИ</string>
-    КАТЕГОРИЯ НАВЫКИ
+
+
+
+    //java
+    <string name="training_explist">тренировка</string>
+
+    //toast
+
+    <string name="your_date_going_with_todays_date">ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ</string>
+    <string name="yoour_date_going_with_todays_date">ТВОЯ ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ</string>
+    <string name="enter_description_objective">ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ</string>
+    <string name="please_chec_data_entered">ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ</string>
+    <string name="what_time_larger_than_current">ЖЕЛАЕМОЕ ВРЕМЯ БОЛЬШЕ ТЕКУЩЕГО</string>
+    <string name="your_desired_goal_below_current_one">ВАША ЖЕЛАЕМАЯ ЦЕЛЬ НИЖЕ ТЕКУЩЕЙ</string>
+
+    //start activity
+    <string name="want_remove_your_target">ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ -</string>
+
+    //ExpList
+    <string name="you_havent_failed_until_give_up">ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !</string>
+
+    <string name="cardio_current_time_java">ТЕКУЩЕЕ ВРЕМЯ:</string>
+    <string name="cardio_desired_time_java">"ЖЕЛАЕМОЕ ВРЕМЯ:":</string>
+    <string name="cardio_current_time_java2">ТЕКУЩЕЕ ВРЕМЯ:</string>
+    <string name="Your_distance_is">Ваше расстояние:</string>
+
+    <string name="g1_weight_correction_Activity">ГР</string>
+    <string name="kg1_weight_correction_Activity">КГ</string>
+    <string name="g2_weight_correction_Activity">ГР</string>
+    <string name="kg2_weight_correction_Activity">КГ</string>
+    <string name="g3_weight_correction_Activity">ГР</string>
+    <string name="kg3_weight_correction_Activity">КГ</string>
+    <string name="g4_weight_correction_Activity">ГР</string>
+
+    <string name="currentWeightTV_weight_correction_Activity">Ваш вес теперь:</string>
+    <string name="goalWeightTV_weight_correction_Activity">Вес цели:</string>
+    <string name="currentRepeatsTV_repeats_Activity">Ваши повторы теперь:</string>
+    <string name="goalRepeatsTVrepeats_Activity">Повторы цели:</string>
+
+    <string name="distanceTV_cardio_Activity">Ваше расстояние:</string>
+    <string name="currentRunTimeTV_cardio_Activity">Ваше время:</string>
+    <string name="goalRunTimeTV_cardio_Activity">Время выполнения:</string>
+
+    <string name="dataBookTV_book_Activity">ДАННЫЕ КНИГИ</string>
+    <string name="goalBookTV_book_Activity">Ваши целевые страницы:</string>
+
+    <string name="currentLanguageTV_language">Уровень владения языком:</string>
+    <string name="goalLanguageTV_language">Уровень языка:</string>
+
+    <string name="currentElementTV_element_Activity">Ваш текущий уровень:</string>
+    <string name="goalElementTV_element_Activity">Уровень цели:</string>
+
+    <string name="toast_makeText">Вы супер-супер!</string>
+
+    //dialog
+    <string name="adb_setTitle">Подтверждение</string>
+    <string name="current_Result">Сейчас вы выполняете:</string>
+    <string name="setNeutralButton">Отмена</string>
+    <string name="adb_setTitle2">Подтверждение</string>
+    <string name="currentResult1">Сейчас вы преодолеваете:</string>
+
+    <string name="dialog">Подтверждение</string>
+    <string name="currentBookTV_book_Activity">ВАША ТЕКУЩАЯ СТРАНИЦА:</string>
 </resources>

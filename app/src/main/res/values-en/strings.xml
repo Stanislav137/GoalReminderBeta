@@ -214,6 +214,47 @@
     <string name="cardio_m">M</string>
     <string name="skills_description_skills">DESCRIPTION OF SKILL:</string>
     <string name="book_description_purpose">DESCRIPTION OF PURPOSE:</string>
+    <string name="Your_distance_is">Your distance:</string>
+    <string name="adb_setTitle">Confirmation</string>
+    <string name="adb_setTitle2">Confirmation</string>
+    <string name="cardio_current_time_java">CURRENT TIME:</string>
+    <string name="cardio_current_time_java2">CURRENT TIME:</string>
+    <string name="cardio_desired_time_java">\"DESIRED\":</string>
+    <string name="currentBookTV_book_Activity">YOUR CURRENT PAGE:</string>
+    <string name="currentElementTV_element_Activity">Your current level:</string>
+    <string name="currentLanguageTV_language">Level of proficiency:</string>
+    <string name="currentRepeatsTV_repeats_Activity">Your replays now:</string>
+    <string name="currentResult1">Now you have to overcome:</string>
+    <string name="currentRunTimeTV_cardio_Activity">Your time:</string>
+    <string name="currentWeightTV_weight_correction_Activity">Your weight now:</string>
+    <string name="current_Result">Now you are doing:</string>
+    <string name="dataBookTV_book_Activity">THESE BOOKS</string>
+    <string name="dialog">Confirmation</string>
+    <string name="distanceTV_cardio_Activity">Your distance:</string>
+    <string name="enter_description_objective">ENTER A DESCRIPTION OF THE PURPOSE</string>
+    <string name="g1_weight_correction_Activity">GR</string>
+    <string name="g2_weight_correction_Activity">GR</string>
+    <string name="g3_weight_correction_Activity">GR</string>
+    <string name="g4_weight_correction_Activity">GR</string>
+    <string name="goalBookTV_book_Activity">Your landing page:</string>
+    <string name="goalElementTV_element_Activity">Level objectives:</string>
+    <string name="goalLanguageTV_language">Language level:</string>
+    <string name="goalRepeatsTVrepeats_Activity">Repetition goal:</string>
+    <string name="goalRunTimeTV_cardio_Activity">Run time:</string>
+    <string name="goalWeightTV_weight_correction_Activity">Goal weight:</string>
+    <string name="kg1_weight_correction_Activity">KG</string>
+    <string name="kg2_weight_correction_Activity">KG</string>
+    <string name="kg3_weight_correction_Activity">KG</string>
+    <string name="please_chec_data_entered">PLEASE CHECK THE DATA</string>
+    <string name="setNeutralButton">Cancel</string>
+    <string name="toast_makeText">You are super-super!</string>
+    <string name="training_explist">training</string>
+    <string name="want_remove_your_target">YOU WANT TO REMOVE YOUR GOAL IS</string>
+    <string name="what_time_larger_than_current">WHAT TIME IS LARGER THAN THE CURRENT</string>
+    <string name="yoour_date_going_with_todays_date">YOUR GOAL DATE MATCHES TODAY\'S DATE</string>
+    <string name="you_havent_failed_until_give_up">YOU HAVEN\'T FAILED UNTIL I GIVE UP !</string>
+    <string name="your_date_going_with_todays_date">YOUR GOAL DATE MATCHES TODAY\'S DATE</string>
+    <string name="your_desired_goal_below_current_one">YOUR DESIRED GOAL BELOW THE CURRENT ONE</string>
 
 
 </resources>

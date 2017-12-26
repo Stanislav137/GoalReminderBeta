@@ -233,13 +233,13 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
-                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.your_date_going_with_todays_date), Toast.LENGTH_SHORT);
             } else if (goalName == null) {
-                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
             } else if (repeatsGoal <= repeatsCurrent) {
-                toast = Toast.makeText(getApplicationContext(), "ВАША ЖЕЛАЙМАЯ ЦЕЛЬ НИЖЕ ТЕКУШЕЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.your_desired_goal_below_current_one), Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
             }
             toast.show();
         }
@@ -377,7 +377,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
                 currentRepeatsTV.setTextColor(Color.rgb(68, 182, 72));
                 currentRepeatsTV.setTextSize(20);
                 currentRepeatsTV.setPadding(20, 0, 0, 0);
-                currentRepeatsTV.setText("Your repeats now is:");
+                currentRepeatsTV.setText(R.string.currentRepeatsTV_repeats_Activity);
                 dialogLV.addView(currentRepeatsTV, lp);
                 currentRepeatsET = new TextView(repeatsDialog.getContext());
                 currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
@@ -392,7 +392,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             goalRepeatsTV.setTextColor(Color.rgb(68,182,72));
             goalRepeatsTV.setTextSize(20);
             goalRepeatsTV.setPadding(20,0,0,0);
-            goalRepeatsTV.setText("Goal repeats is:");
+            goalRepeatsTV.setText(R.string.goalRepeatsTVrepeats_Activity);
             dialogLV.addView(goalRepeatsTV,lp);
             goalRepeatsET = new TextView(repeatsDialog.getContext());
             goalRepeatsET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));

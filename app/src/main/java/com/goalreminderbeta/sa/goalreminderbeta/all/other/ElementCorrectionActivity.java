@@ -137,11 +137,11 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
-            toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.your_date_going_with_todays_date), Toast.LENGTH_SHORT);
         } else if (goalName == null) {
-            toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
         } else {
-            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
         }
         toast.show();
       }
@@ -218,7 +218,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             currentElementTV.setTextColor(Color.rgb(68,182,72));
             currentElementTV.setTextSize(20);
             currentElementTV.setPadding(20,0,0,0);
-            currentElementTV.setText("Your current level is:");
+            currentElementTV.setText(R.string.currentElementTV_element_Activity);
             dialogLV.addView(currentElementTV,lp);
             currentElementET = new TextView(elementDialog.getContext());
             currentElementET.setPadding(20,20,20,20);
@@ -232,7 +232,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             goalElementTV.setTextColor(Color.rgb(68,182,72));
             goalElementTV.setTextSize(20);
             goalElementTV.setPadding(20,0,0,0);
-            goalElementTV.setText("Goal level is:");
+            goalElementTV.setText(R.string.goalElementTV_element_Activity);
             dialogLV.addView(goalElementTV,lp);
             goalElementET = new TextView(elementDialog.getContext());
             goalElementET.setPadding(20,20,20,20);
