@@ -6,9 +6,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -36,7 +38,9 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.IllegalFormatException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -65,6 +69,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     Button completed;
     Dialog congrDialog;
     AlertDialog.Builder adb;
+
+    private SharedPreferences sp;
 
     /* FOR DAY GOAL */
 
@@ -218,6 +224,21 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Long groupPos = Long.parseLong(String.valueOf(groupPosition));
         final Goal goal = allGoalsMap.get(groupPos); //actual goal
+        GregorianCalendar calendar = new GregorianCalendar();
+        int day = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        month += 1;
+        int year = calendar.get(Calendar.YEAR);
+        final String date = String.valueOf(day) + "." + String.valueOf(month) + "." + String.valueOf(year);
+        sp = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String date2 = sp.getString("date"+String.valueOf(groupPosition)+String.valueOf(childPosition),"");
+        if (!date.equals(date2)) {
+            goal.setCompleted(false);
+            goal.save();
+        } else {
+            goal.setCompleted(true);
+            goal.save();
+        }
 
         if(goal.getCompleted()) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
@@ -297,6 +318,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 completed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("date"+String.valueOf(groupPosition)+String.valueOf(childPosition), date);
+                        editor.commit();
                         goal.setCompleted(true);
                         goal.save();
                         adb = new AlertDialog.Builder(mContext);
