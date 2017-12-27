@@ -12,6 +12,7 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.media.MediaMetadataCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.Display;
@@ -32,7 +33,12 @@ import android.widget.Toast;
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -71,6 +77,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     Dialog congrDialog;
     AlertDialog.Builder adb;
     SharedPreferences sp;
+    ProgressBar progressBar;
+    TextView textCircleProgress;
 
     /* FOR DAY GOAL */
 
@@ -120,8 +128,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     }
 
     private void checkProgress(double currentProgress, View convertView) {
-        ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.circleProgress);
-        TextView textCircleProgress = (TextView) convertView.findViewById(R.id.textCircleProgress);
+        progressBar = (ProgressBar) convertView.findViewById(R.id.circleProgress);
+        textCircleProgress = (TextView) convertView.findViewById(R.id.textCircleProgress);
 
         progressBar.setProgress((int) currentProgress);
 
@@ -203,16 +211,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 break;
 
         }
-        showDataGroup(goal, convertView);
+        showDataGroup(goal, convertView, goal.getProgress());
     }
 
-    private void showDataGroup(Goal goal, View convertView) {
+    private void showDataGroup(Goal goal, View convertView,double progress) {
         TextView nameGoal = (TextView) convertView.findViewById(R.id.nameGoal);
         nameGoal.setText(goal.getNameGoal());
         TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
         themeCategory.setText(goal.getThemeCategory());
 
-        Double progress = 0.0;
+        //Double progress = 30.0;
         double currentProgress = progress;
         checkProgress(currentProgress, convertView);
     }
@@ -231,7 +239,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         int year = calendar.get(Calendar.YEAR);
         final String date = String.valueOf(day) + "." + String.valueOf(month) + "." + String.valueOf(year);
         sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-        final String date2 = sp.getString("date"+String.valueOf(groupPosition)+String.valueOf(childPosition), "");
+        final String date2 = sp.getString("date"+String.valueOf(goal.getId()), "");
         if (!date.equals(date2)) {
             goal.setCompleted(false);
             goal.save();
@@ -246,8 +254,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
 
+
             findWidgetsChild(convertView);
             fillDataChild(goal, convertView, goal.getThemeCategory());
+
         } else {
             convertView = inflater.inflate(R.layout.child_section_complete, null);
             //convertView.setMinimumHeight(1500);
@@ -301,6 +311,40 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     madeTodayResult = Double.parseDouble(input.getText().toString());
                                     madeToday.setText(madeTodayResult + "");
                                     goal.setMadeTodayResult(madeTodayResult);
+                                    goal.setCurrentResult(madeTodayResult);
+                                    double iR = goal.getInitialResult();
+                                    double cR = goal.getCurrentResult();
+                                    double percent = 0;
+                                    if(goal instanceof ReadBookGoal
+                                            ||goal instanceof LanguageLearningGoal){
+                                        percent = (cR/iR)*100;
+                                    }else if(goal instanceof CardioGoal
+                                            ||goal instanceof RepeatsCorrectionGoal||
+                                            goal instanceof WeightCorrectionGoal){
+                                        percent = ((iR - cR)/iR)*100;
+                                    }else {
+                                        percent = 0;
+                                    }
+                                    goal.setProgress(Math.round(percent));
+                                    int currentProgress = (int)Math.round(goal.getProgress());
+                                    progressBar.setProgress(currentProgress);
+
+                                    if(currentProgress <= 30) {
+                                        progressBar.getProgressDrawable().setColorFilter(mContext.
+                                                getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
+                                        textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+                                    }
+                                    if(currentProgress > 30 && currentProgress <= 60) {
+                                        progressBar.getProgressDrawable().setColorFilter(mContext.
+                                                getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
+                                        textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+                                    }
+                                    if(currentProgress > 60 && currentProgress <= 100) {
+                                        progressBar.getProgressDrawable().setColorFilter(mContext.
+                                                getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+                                        textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+                                    }
+                                    textCircleProgress.setText((int)currentProgress + "%");
                                     goal.setBlink(true);
                                     goal.save();
                                     notifyDataSetChanged();
@@ -328,7 +372,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences.Editor editor = sp.edit();
-                        editor.putString("date"+String.valueOf(groupPosition)+String.valueOf(childPosition),date);
+                        editor.putString("date"+String.valueOf(goal.getId()),date);
                         editor.commit();
                         goal.setCompleted(true);
                         goal.save();

@@ -12,9 +12,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     private Date fromDate;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
+    private double initialResult;
     private int currentResult;
     private double goalResult;
     private double madeTodayResult;
+    private double progress=0.0;
     private int distance;
     private boolean completed;
     private boolean blink;
@@ -25,12 +27,25 @@ public class CardioGoal extends SugarRecord implements Goal{
     public CardioGoal(int distance, int currentRunDistance, double runTime, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.distance = distance;
         this.currentResult = currentRunDistance;
+        this.initialResult = currentResult;
         this.goalResult = runTime;
         this.descriptionGoal = descriptionGoal;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "КАРДИО";
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public double getInitialResult() {
+        return initialResult;
+    }
+
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
     }
 
     @Override
@@ -41,6 +56,19 @@ public class CardioGoal extends SugarRecord implements Goal{
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setCurrentResult(int currentResult) {
+        this.currentResult += currentResult;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
+    }
+
 
     @Override
     public Date getFromDate() {

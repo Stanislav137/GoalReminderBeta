@@ -28,4 +28,8 @@ public interface Goal {
     LanguageLevels getCurrentLanguageLevel();
     LanguageLevels getGoalLanguageLevel();
     long save();
+    double getProgress();
+    void setProgress(double progress);
+    double getInitialResult();
+    void setInitialResult(double initialResult);
 }

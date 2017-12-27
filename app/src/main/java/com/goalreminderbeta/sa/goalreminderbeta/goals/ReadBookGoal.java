@@ -19,6 +19,8 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private String themeCategory;
     private boolean completed;
     private boolean blink;
+    private double initialResult;
+    private double progress=0.0;
 
     public ReadBookGoal() {
     }
@@ -31,7 +33,29 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.toDate = toDate;
         this.dataBook = dataBook;
         this.nameGoal = nameGoal;
+        this.initialResult = pages;
         this.themeCategory = "КНИГА";
+    }
+
+    public double getInitialResult() {
+        return initialResult;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
+    }
+
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     @Override

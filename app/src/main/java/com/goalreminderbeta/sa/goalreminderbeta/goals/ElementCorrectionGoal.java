@@ -14,6 +14,8 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     private double goalResult;
     private String nameGoal, descriptionGoal;
     private double madeTodayResult;
+    private double progress=0.0;
+    private double initialResult;
     private String themeCategory;
     private boolean completed;
     private boolean blink;
@@ -21,14 +23,36 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     public ElementCorrectionGoal() {
     }
 
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
     public ElementCorrectionGoal(int levelCurrent, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = levelCurrent;
+        this.initialResult = currentResult;
         this.goalResult = 5;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "НАВЫКИ";
+    }
+
+    public double getInitialResult() {
+        return initialResult;
+    }
+
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     @Override
@@ -100,7 +124,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     }
 
     public void setCurrentResult(double currentResult) {
-        this.currentResult = currentResult;
+        this.currentResult += currentResult;
     }
 
     @Override

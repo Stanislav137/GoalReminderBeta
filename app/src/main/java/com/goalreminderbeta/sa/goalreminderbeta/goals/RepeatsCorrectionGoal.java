@@ -15,19 +15,43 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private boolean completed;
+    private double initialResult;
     private boolean blink;
+    private double progress=0.0;
+
 
     public RepeatsCorrectionGoal() {
+    }
+
+    public boolean isCompleted() {
+        return completed;
     }
 
     public RepeatsCorrectionGoal(double currentRepeats, double goalRepeats, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = currentRepeats;
+        this.initialResult = currentRepeats;
         this.goalResult = goalRepeats;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "ПОВТОРЕНИЯ";
+    }
+
+    public double getInitialResult() {
+        return initialResult;
+    }
+
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     @Override

@@ -12,22 +12,54 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private double currentResultStatus, madeTodayResult;
     private Date fromDate;
     private Date toDate;
+    private double initialResult;
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private boolean completed;
     private boolean blink;
+    private double progress=0.0;
 
     public WeightCorrectionGoal() {
+    }
+
+
+    public boolean isCompleted() {
+        return completed;
     }
 
     public WeightCorrectionGoal(double currentWeight, double goalWeight, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = currentWeight;
+        this.initialResult = currentWeight;
         this.goalResult = goalWeight;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "МАССА";
+    }
+
+    public double getInitialResult() {
+        return initialResult;
+    }
+
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
+    }
+
+    public double getCurrentResultStatus() {
+        return currentResultStatus;
+    }
+
+    public void setCurrentResultStatus(double currentResultStatus) {
+        this.currentResultStatus = currentResultStatus;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     @Override
