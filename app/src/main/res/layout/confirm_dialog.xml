@@ -18,7 +18,7 @@
                 android:layout_marginBottom="5sp"
                 android:background="@color/clr_main"
                 android:textColor="@color/colorWhite"
-                android:text="ПОДТВЕРДИТЕ ДАННЫЕ"/>
+                android:text="@string/confirm_dialog_confirm_data"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
                     android:textSize="20sp"
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/clr_main"
-                    android:text="Ваша цель:"/>
+                    android:text="@string/confirm_dialog_your_aim"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:textSize="20sp"
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/clr_main"
-                    android:text="Описание цели:"/>
+                    android:text="@string/confirm_dialog_description_purpose"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,10 +74,10 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
                     android:layout_marginLeft="10sp"
+                    android:text="@string/confirm_dialog_Beginning"
                     android:textColor="@color/clr_main"
-                    android:text="Начало:" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
                     android:textSize="20sp"
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/clr_main"
-                    android:text="Окончание:"/>
+                    android:text="@string/confirm_dialog_ends"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:background="@color/clr_main"
-                android:text="ПОДТВЕРДИТЬ"
+                android:text="@string/confirm_dialog_confirm"
                 android:padding="10sp"
                 android:paddingLeft="5sp"
                 android:paddingRight="5sp"
@@ -141,6 +141,8 @@
                 android:paddingLeft="5sp"
                 android:paddingRight="5sp"
                 android:background="@color/clr_main"
+                android:text="@string/confirm_dialog_cancel"
+                android:textColor="@color/colorBackground"
                 android:text="ОТМЕНА"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />

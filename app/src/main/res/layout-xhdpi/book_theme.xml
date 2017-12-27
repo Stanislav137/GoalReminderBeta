@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КНИГА"
+            android:text="@string/book_category_book"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 

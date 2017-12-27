@@ -82,7 +82,7 @@ public class StartActivity extends AppCompatActivity {
 
         setListenersOnChild();
         setListenerOnGroup();
-        printAllGoals();
+      //printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
 
@@ -345,7 +345,7 @@ public class StartActivity extends AppCompatActivity {
                         Button delete = (Button) dialog.findViewById(R.id.delete);
                         Button back = (Button) dialog.findViewById(R.id.back);
 
-                        confirmDelete.setText("ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ - " + goal.getNameGoal());
+                        confirmDelete.setText(getString(R.string.want_remove_your_target) + goal.getNameGoal());
 
                         delete.setOnClickListener(new View.OnClickListener() {
                             @Override

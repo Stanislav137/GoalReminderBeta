@@ -30,7 +30,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КАРДИО"
+            android:text="@string/cardio_category_cardio"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
@@ -192,7 +192,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_margin="10sp"
                 android:background="@drawable/btn_red"
-                android:text="M"
+                android:text="@string/cardio_m"
                 android:textColor="@color/colorBackground" />
 
         </RelativeLayout>
@@ -290,14 +290,14 @@
                 android:id="@+id/runTimeResult"
                 android:layout_width="90sp"
                 android:layout_height="90sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
                 android:background="@drawable/btn_green"
                 android:onClick="setTime"
                 android:text="0"
                 android:textColor="@color/colorBackground"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
