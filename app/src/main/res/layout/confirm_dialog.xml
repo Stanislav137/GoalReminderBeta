@@ -142,8 +142,6 @@
                 android:paddingRight="5sp"
                 android:background="@color/clr_main"
                 android:text="@string/confirm_dialog_cancel"
-                android:textColor="@color/colorBackground"
-                android:text="ОТМЕНА"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
     </LinearLayout>

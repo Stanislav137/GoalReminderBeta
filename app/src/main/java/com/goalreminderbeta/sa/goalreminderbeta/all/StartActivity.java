@@ -82,7 +82,7 @@ public class StartActivity extends AppCompatActivity {
 
         setListenersOnChild();
         setListenerOnGroup();
-      //printAllGoals();
+        printAllGoals();
         setListenersOnTitle();
         startAnimAddGoal();
 

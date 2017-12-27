@@ -22,16 +22,16 @@ public class SugarInitialization extends SugarApp {
     public void onCreate() {
         super.onCreate();
         SugarContext.init(getApplicationContext());
-      //  SchemaGenerator schemaGenerator = new SchemaGenerator(this);
-      //  schemaGenerator.createDatabase(new SugarDb(this).getDB());
+        SchemaGenerator schemaGenerator = new SchemaGenerator(this);
+        schemaGenerator.createDatabase(new SugarDb(this).getDB());
 
 
 
 
-//        OptionsDTO options = new OptionsDTO();
-//        options.setId((long) 1);
-//        options.setSoundConfig(true);
-//        options.save();
+        OptionsDTO options = new OptionsDTO();
+        options.setId((long) 1);
+        options.setSoundConfig(true);
+        options.save();
     }
 
     @Override

@@ -83,6 +83,11 @@
         android:id="@+id/llCurrentResult"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/currentResultTxt"
             android:layout_width="wrap_content"
@@ -90,18 +95,12 @@
             android:text="@string/child_section_complete_current_score"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/currentResultTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ТЕКУЩЕЙ РЕЗУЛЬТАТ:"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
 
         <TextView
             android:id="@+id/currentResultDG"
@@ -113,27 +112,13 @@
             android:textSize="18sp" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/currentResultDG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15sp"
-                android:text="10 страниц"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:id="@+id/separator4"
+        android:orientation="horizontal"
         android:background="@color/colorGrey"
         android:layout_alignParentBottom="true"></LinearLayout>
 
@@ -155,14 +140,6 @@
                 android:text="@string/child_section_complete_your_goal"/>
 
             </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:text="@string/child_section_complete_your_goal"/>
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -176,17 +153,10 @@
                 android:textColor="@color/colorBlack"
                 android:layout_marginLeft="15sp"
                 android:textSize="18sp"
-                android:text="100 страниц"/>
+                android:text="@string/child_section_complete_your_goal_pages"/>
 
         </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/goalResultDG"
-            android:textColor="@color/colorBlack"
-            android:layout_marginLeft="15sp"
-            android:textSize="18sp"
-            android:text="@string/child_section_complete_your_goal_pages"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -205,14 +175,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
             <TextView
-                android:id="@+id/titleDG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/child_section_complete_task_for_today_pages"
+                android:id="@+id/titleDG"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:text="@string/child_section_complete_task_for_today"/>
 
         </RelativeLayout>
 
@@ -220,31 +189,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:text="@string/child_section_complete_task_for_today"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/taskDG"
-            android:textColor="@color/colorBlack"
-            android:layout_marginLeft="15sp"
-            android:textSize="18sp"
-            android:text="@string/child_section_complete_task_for_today_pages"/>
-            <TextView
-                android:id="@+id/taskDG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15sp"
-                android:text="15 страниц"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/taskDG"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginLeft="15sp"
+                    android:textSize="18sp"
+                    android:text="@string/child_section_complete_task_for_today_pages"/>
 
         </RelativeLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -297,8 +252,12 @@
         android:id="@+id/showPopupDayTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/showPopupDayTask"
         android:padding="20sp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
         <TextView
             android:id="@+id/titleTxt"
@@ -307,19 +266,6 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             android:text="@string/child_section_complete_completed_today"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/titleTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="СЕГОДНЯ ВЫПОЛНЕНО:"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -335,14 +281,6 @@
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
             android:text="@string/child_section_complete_completed_today_pages"/>
-            <TextView
-                android:id="@+id/madeToday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15sp"
-                android:text="0 страниц"
-                android:textColor="@color/colorBlack"
-                android:textSize="18sp" />
 
         </RelativeLayout>
 
