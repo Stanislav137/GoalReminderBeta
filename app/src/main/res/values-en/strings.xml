@@ -172,7 +172,7 @@
     <string name="help_user_start_Go_on">Forward to ATTACK!</string>
     <string name="help_user_start_hello_champ">HELLO CHAMP !</string>
     <string name="help_user_start_hello_champ_text">Welcome to our application, in order to successfully start you must remember your goal you want to achieve in the near future, find the appropriate category and record it. The program will help you to finish it to the end!</string>
-    <string name="instruct_skills">test</string>
+    <string name="instruct_skills">Write down your goal name and motivating words that will help you reach the end, and also you will need to evaluate your current level of skill that you want to record and at the same time represent your final result of this skill, this will be your 5th level - yours target. Then enter the date of your goal and every day you will receive a notification that it is time to train to improve your skill and when you feel that raised the level, then write down your progress! Each level is 100 points! Good luck champion!</string>
     <string name="language_theme_category_languages">CATEGORY LANGUAGES</string>
     <string name="languages_languages">LANGUAGES</string>
     <string name="popup_choose_type_choose">choose</string>
@@ -219,7 +219,7 @@
     <string name="adb_setTitle2">Confirmation</string>
     <string name="cardio_current_time_java">CURRENT TIME:</string>
     <string name="cardio_current_time_java2">CURRENT TIME:</string>
-    <string name="cardio_desired_time_java">\"DESIRED\":</string>
+    <string name="cardio_desired_time_java">DESIRED:</string>
     <string name="currentBookTV_book_Activity">YOUR CURRENT PAGE:</string>
     <string name="currentElementTV_element_Activity">Your current level:</string>
     <string name="currentLanguageTV_language">Level of proficiency:</string>
@@ -247,9 +247,9 @@
     <string name="kg3_weight_correction_Activity">KG</string>
     <string name="please_chec_data_entered">PLEASE CHECK THE DATA</string>
     <string name="setNeutralButton">Cancel</string>
-    <string name="toast_makeText">You are super-super!</string>
+    <string name="toast_makeText">Goal successfully added!</string>
     <string name="training_explist">training</string>
-    <string name="want_remove_your_target">YOU WANT TO REMOVE YOUR GOAL IS</string>
+    <string name="want_remove_your_target">YOU WANT TO REMOVE YOUR GOAL IS - </string>
     <string name="what_time_larger_than_current">WHAT TIME IS LARGER THAN THE CURRENT</string>
     <string name="yoour_date_going_with_todays_date">YOUR GOAL DATE MATCHES TODAY\'S DATE</string>
     <string name="you_havent_failed_until_give_up">YOU HAVEN\'T FAILED UNTIL I GIVE UP !</string>
