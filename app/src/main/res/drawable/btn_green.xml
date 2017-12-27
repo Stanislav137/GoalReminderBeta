@@ -3,11 +3,13 @@
     <item android:state_pressed="false">
         <shape android:shape="oval">
             <solid android:color="#1c8620"/>
+            <stroke android:width="3px" android:color="#000000" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape android:shape="oval">
-            <solid android:color="#1e9323"/>
+            <solid android:color="#000000"/>
+            <stroke android:width="3px" android:color="#000000" />
         </shape>
     </item>
 </selector>
