@@ -8,18 +8,15 @@ package com.goalreminderbeta.sa.goalreminderbeta.all.sport;
  import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
- import android.support.v7.widget.LinearLayoutCompat;
  import android.view.MotionEvent;
 import android.view.View;
  import android.view.Window;
  import android.view.animation.Animation;
  import android.view.animation.AnimationUtils;
- import android.widget.ActionMenuView;
  import android.widget.Button;
  import android.widget.EditText;
  import android.widget.ImageView;
  import android.widget.LinearLayout;
- import android.widget.RelativeLayout;
  import android.widget.TextView;
  import android.widget.Toast;
 
@@ -368,7 +365,8 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             currentWeightTV.setText(R.string.currentWeightTV_weight_correction_Activity);
             dialogLV.addView(currentWeightTV,lp);
             currentWeightET = new TextView(weightDialog.getContext());
-            currentWeightET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            double goalWeightCurrent = Double.parseDouble(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            currentWeightET.setText((String.format("%.1f",goalWeightCurrent) + ""));
             currentWeightET.setPadding(20,20,20,20);
             currentWeightET.setTextSize(20);
             currentWeightET.setTextColor(Color.BLACK);
@@ -381,7 +379,8 @@ public class WeightCorrectionActivity extends AppCompatActivity {
             goalWeightTV.setText(R.string.goalWeightTV_weight_correction_Activity);
             dialogLV.addView(goalWeightTV,lp);
             goalWeightET = new TextView(weightDialog.getContext());
-            goalWeightET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            double goalWeightGoal = Double.parseDouble(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalWeightET.setText(String.format("%.1f",goalWeightGoal) + "");
             goalWeightET.setPadding(20,20,20,20);
             goalWeightET.setTextSize(20);
             goalWeightET.setTextColor(Color.BLACK);
