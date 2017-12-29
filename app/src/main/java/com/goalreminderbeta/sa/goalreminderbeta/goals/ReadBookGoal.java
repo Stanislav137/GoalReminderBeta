@@ -33,7 +33,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         this.toDate = toDate;
         this.dataBook = dataBook;
         this.nameGoal = nameGoal;
-        this.initialResult = pages;
+        this.initialResult = 0;
         this.themeCategory = "КНИГА";
     }
 

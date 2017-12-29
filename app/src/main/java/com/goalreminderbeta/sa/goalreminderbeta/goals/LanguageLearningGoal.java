@@ -164,6 +164,7 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return madeTodayResult;
     }
 
+
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
@@ -186,22 +187,22 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     public void setCurrentResult(double currentResult) {
         this.currentResult += currentResult;
         if(this.currentResult<70&&this.currentResult>0){
-            setCurrentLanguageLevel(LanguageLevels.Begin);
-        }else if(this.currentResult>=70&&this.currentResult<140){
             setCurrentLanguageLevel(LanguageLevels.A1);
-        }else if(this.currentResult>=140&&this.currentResult<210){
+        }else if(this.currentResult>=70&&this.currentResult<140){
             setCurrentLanguageLevel(LanguageLevels.A2);
-        }
-        else if(this.currentResult>=210&&this.currentResult<280){
+        }else if(this.currentResult>=140&&this.currentResult<210){
             setCurrentLanguageLevel(LanguageLevels.B1);
         }
-        else if(this.currentResult>=280&&this.currentResult<350){
+        else if(this.currentResult>=210&&this.currentResult<280){
             setCurrentLanguageLevel(LanguageLevels.B2);
         }
-        else if(this.currentResult>=350&&this.currentResult<420){
+        else if(this.currentResult>=280&&this.currentResult<350){
             setCurrentLanguageLevel(LanguageLevels.C1);
-        }else{
+        }
+        else if(this.currentResult>=350&&this.currentResult<420){
             setCurrentLanguageLevel(LanguageLevels.C2);
+        }else{
+            setCurrentLanguageLevel(LanguageLevels.Begin);
         }
 
     }

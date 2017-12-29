@@ -34,6 +34,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
+import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
@@ -239,7 +240,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         int year = calendar.get(Calendar.YEAR);
         final String date = String.valueOf(day) + "." + String.valueOf(month) + "." + String.valueOf(year);
         sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-        final String date2 = sp.getString("date"+String.valueOf(goal.getId()), "");
+        final String date2 = sp.getString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(), "");
         if (!date.equals(date2)) {
             goal.setCompleted(false);
             goal.save();
@@ -314,14 +315,24 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     goal.setCurrentResult(madeTodayResult);
                                     double iR = goal.getInitialResult();
                                     double cR = goal.getCurrentResult();
+                                    double gR = goal.getGoalResult();
                                     double percent = 0;
-                                    if(goal instanceof ReadBookGoal
-                                            ||goal instanceof LanguageLearningGoal){
-                                        percent = (cR/iR)*100;
+                                    if(goal instanceof ReadBookGoal){
+                                        percent = Math.abs((cR/gR)*100);
+                                    }else if(goal instanceof LanguageLearningGoal){
+                                        double mR = goal.getMadeTodayResult();
+                                        percent = Math.abs((mR/(gR-iR))*100);
                                     }else if(goal instanceof CardioGoal
-                                            ||goal instanceof RepeatsCorrectionGoal||
-                                            goal instanceof WeightCorrectionGoal){
-                                        percent = ((iR - cR)/iR)*100;
+                                            ||goal instanceof RepeatsCorrectionGoal){
+                                        percent = Math.abs(((iR - cR)/(gR-iR))*100);
+                                    }else if(goal instanceof WeightCorrectionGoal){
+                                        if(iR>gR||gR>iR){
+                                            percent = Math.abs(((cR-iR)/(gR-iR)*100));
+                                        }
+                                           else if(goal instanceof ElementCorrectionGoal){
+                                            double cR2 = ((ElementCorrectionGoal)goal).getCurrentResult2();
+                                            percent = Math.abs((cR2/(500-iR))*100);
+                                        }else {percent=0;}
                                     }else {
                                         percent = 0;
                                     }
@@ -372,7 +383,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences.Editor editor = sp.edit();
-                        editor.putString("date"+String.valueOf(goal.getId()),date);
+                        editor.putString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(),date);
                         editor.commit();
                         goal.setCompleted(true);
                         goal.save();
@@ -429,7 +440,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
-                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                currentResultDG.setText(goal.getInitialResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
@@ -459,7 +470,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
                     distanceDG.setText(goal.getDistance() + " метров");
                     taskDG.setText("тренировка");
-                    currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                    currentResultDG.setText(goal.getInitialResult() + " " + units);
                     goalResultDG.setText(goal.getGoalResult() + " " + units);
                     madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 }
@@ -488,7 +499,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskDG.setText("выполнить повторения");
                 } else {
                     taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                }                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                }                currentResultDG.setText(goal.getInitialResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
@@ -496,7 +507,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "страниц";
                 dayTask = Math.ceil(dayTask);
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                currentResultDG.setText(goal.getInitialResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
