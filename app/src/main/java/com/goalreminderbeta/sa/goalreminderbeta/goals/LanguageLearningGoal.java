@@ -4,7 +4,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLe
 import com.orm.SugarRecord;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class LanguageLearningGoal extends SugarRecord implements Goal{
 
@@ -15,8 +14,13 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     private LanguageLevels currentLanguageLevel;
     private LanguageLevels goalLanguageLevel;
     private boolean completed;
+    private double progress=0.0;
     private boolean blink;
+    private LanguageLevels initialLevel;
     private double madeTodayResult;
+    private double currentResult;
+    private double initialResult;
+    private double goalResult;
 
     public LanguageLearningGoal() {
     }
@@ -25,11 +29,90 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
                                 LanguageLevels currentLanguageLevel, LanguageLevels goalLanguageLevel) {
         this.fromDate = fromDate;
         this.toDate = toDate;
+        this.initialLevel = currentLanguageLevel;
         this.nameGoal = nameGoal;
         this.descriptionGoal = descriptionGoal;
         this.currentLanguageLevel = currentLanguageLevel;
         this.goalLanguageLevel = goalLanguageLevel;
         this.themeCategory = "ЯЗЫКИ";
+        if(currentLanguageLevel.equals(LanguageLevels.A1)){
+            currentResult=70;
+            initialResult = 70;
+        }else if(currentLanguageLevel.equals(LanguageLevels.A2)){
+            currentResult=140;
+            initialResult = 140;
+        }else if(currentLanguageLevel.equals(LanguageLevels.B1)){
+            currentResult=210;
+            initialResult = 210;
+        }else if(currentLanguageLevel.equals(LanguageLevels.B2)){
+            currentResult=280;
+            initialResult = 280;
+        }else if(currentLanguageLevel.equals(LanguageLevels.C1)){
+            currentResult=350;
+            initialResult = 350;
+        }else if(currentLanguageLevel.equals(LanguageLevels.C2)){
+            currentResult=420;
+            initialResult = 420;
+        }else{
+            currentResult=0;
+            initialResult = 0;
+        }
+
+        if(goalLanguageLevel.equals(LanguageLevels.A1)){
+            goalResult=70;
+        }else if(goalLanguageLevel.equals(LanguageLevels.A2)){
+            goalResult = 140;
+        }else if(goalLanguageLevel.equals(LanguageLevels.B1)){
+            goalResult = 210;
+        }else if(goalLanguageLevel.equals(LanguageLevels.B2)){
+            goalResult = 280;
+        }else if(goalLanguageLevel.equals(LanguageLevels.C1)){
+            goalResult = 350;
+        }else if(goalLanguageLevel.equals(LanguageLevels.C2)){
+            goalResult = 420;
+        }else{
+            goalResult = 0;
+        }
+    }
+
+    @Override
+    public double getInitialResult() {
+        initialResult=70;
+        if(this.initialLevel.equals(LanguageLevels.A1)){
+            return initialResult;
+        }else if(this.initialLevel.equals(LanguageLevels.A2)){
+            return initialResult*2;
+        }else if(this.initialLevel.equals(LanguageLevels.B1)){
+            return initialResult*3;
+        }else if(this.initialLevel.equals(LanguageLevels.B2)){
+            return initialResult*4;
+        }else if(this.initialLevel.equals(LanguageLevels.C1)){
+            return initialResult*5;
+        }else if(this.initialLevel.equals(LanguageLevels.C2)){
+            return initialResult*6;
+        }
+        return 0;
+    }
+
+    @Override
+    public void setInitialResult(double initialResult) {
+        this.initialResult = initialResult;
+    }
+
+    public LanguageLevels getInitialLevel() {
+        return initialLevel;
+    }
+
+    public void setInitialLevel(LanguageLevels initialLevel) {
+        this.initialLevel = initialLevel;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     @Override
@@ -81,6 +164,7 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
         return madeTodayResult;
     }
 
+
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
@@ -101,6 +185,25 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
 
     @Override
     public void setCurrentResult(double currentResult) {
+        this.currentResult += currentResult;
+        if(this.currentResult<70&&this.currentResult>0){
+            setCurrentLanguageLevel(LanguageLevels.A1);
+        }else if(this.currentResult>=70&&this.currentResult<140){
+            setCurrentLanguageLevel(LanguageLevels.A2);
+        }else if(this.currentResult>=140&&this.currentResult<210){
+            setCurrentLanguageLevel(LanguageLevels.B1);
+        }
+        else if(this.currentResult>=210&&this.currentResult<280){
+            setCurrentLanguageLevel(LanguageLevels.B2);
+        }
+        else if(this.currentResult>=280&&this.currentResult<350){
+            setCurrentLanguageLevel(LanguageLevels.C1);
+        }
+        else if(this.currentResult>=350&&this.currentResult<420){
+            setCurrentLanguageLevel(LanguageLevels.C2);
+        }else{
+            setCurrentLanguageLevel(LanguageLevels.Begin);
+        }
 
     }
 
@@ -111,11 +214,39 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
 
     @Override
     public double getCurrentResult() {
+        currentResult=70;
+        if(this.currentLanguageLevel.equals(LanguageLevels.A1)){
+            return currentResult;
+        }else if(this.currentLanguageLevel.equals(LanguageLevels.A2)){
+            return currentResult*2;
+        }else if(this.currentLanguageLevel.equals(LanguageLevels.B1)){
+            return currentResult*3;
+        }else if(this.currentLanguageLevel.equals(LanguageLevels.B2)){
+            return currentResult*4;
+        }else if(this.currentLanguageLevel.equals(LanguageLevels.C1)){
+            return currentResult*5;
+        }else if(this.currentLanguageLevel.equals(LanguageLevels.C2)){
+            return currentResult*6;
+        }
         return 0;
     }
 
     @Override
     public double getGoalResult() {
+        goalResult=70;
+        if(this.goalLanguageLevel.equals(LanguageLevels.A1)){
+            return goalResult;
+        }else if(this.goalLanguageLevel.equals(LanguageLevels.A2)){
+            return goalResult*2;
+        }else if(this.goalLanguageLevel.equals(LanguageLevels.B1)){
+            return goalResult*3;
+        }else if(this.goalLanguageLevel.equals(LanguageLevels.B2)){
+            return goalResult*4;
+        }else if(this.goalLanguageLevel.equals(LanguageLevels.C1)){
+            return goalResult*5;
+        }else if(this.goalLanguageLevel.equals(LanguageLevels.C2)){
+            return goalResult*6;
+        }
         return 0;
     }
 
