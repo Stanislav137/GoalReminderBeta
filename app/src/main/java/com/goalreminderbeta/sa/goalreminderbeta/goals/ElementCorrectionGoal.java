@@ -10,8 +10,8 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
 
     private Date fromDate;
     private Date toDate;
-    private double currentResult;
-    private double goalResult;
+    private double currentResult,initialLevel;
+    private double goalResult,goalResult2;
     private String nameGoal, descriptionGoal;
     private double madeTodayResult,currentResult2;
     private double progress=0.0;
@@ -31,6 +31,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     public ElementCorrectionGoal(int levelCurrent, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.descriptionGoal = descriptionGoal;
         this.currentResult = levelCurrent;
+        this.initialLevel = levelCurrent;
         if(levelCurrent == 1) {
             this.initialResult  = 100;
             this.currentResult2 = 100;
@@ -49,10 +50,27 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         }
 
         this.goalResult = 5;
+        this.goalResult2=500;
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.nameGoal = nameGoal;
         this.themeCategory = "НАВЫКИ";
+    }
+
+    public double getInitialLevel() {
+        return initialLevel;
+    }
+
+    public void setInitialLevel(double initialLevel) {
+        this.initialLevel = initialLevel;
+    }
+
+    public double getGoalResult2() {
+        return goalResult2;
+    }
+
+    public void setGoalResult2(double goalResult2) {
+        this.goalResult2 = goalResult2;
     }
 
     public double getInitialResult() {
@@ -155,6 +173,17 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     public void setMadeTodayResult(double madeTodayResult) {
         this.currentResult2+=madeTodayResult;
         this.madeTodayResult = madeTodayResult;
+        if(currentResult2>=100&&currentResult2<200){
+            setCurrentResult(1);
+        }else if(currentResult2>=200&&currentResult2<300){
+            setCurrentResult(2);
+        }else if(currentResult2>=300&&currentResult2<400){
+            setCurrentResult(3);
+        }else if(currentResult2>=400&&currentResult2<500){
+            setCurrentResult(4);
+        }else if(currentResult2==500){
+            setCurrentResult(5);
+        }
     }
 
     @Override
