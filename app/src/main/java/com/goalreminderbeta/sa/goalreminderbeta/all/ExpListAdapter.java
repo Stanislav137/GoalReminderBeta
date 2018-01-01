@@ -629,7 +629,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
                 double left = 5 - ((ElementCorrectionGoal)goal).getCurrentResult();
                 double leftUnits = 500 - ((ElementCorrectionGoal)goal).getCurrentResult2();
-                currentResultUnits.setText(((ElementCorrectionGoal)goal).getInitialLevel()+ " " + units + " / " + ((ElementCorrectionGoal)goal).getInitialResult() + " очков");
+                currentResultUnits.setText(((ElementCorrectionGoal)goal).getCurrentResult()+ " " + units + " / " + ((ElementCorrectionGoal)goal).getCurrentResult2() + " очков");
                 goalResultUnits.setText(String.valueOf(5) + " " + units + " / " + "500 очков");
                 taskOfDayUnits.setText("тренировка");
                 leftToGoalUnits.setText(String.format("%.1f", left) + " " + "уровня" + " / " + leftUnits + " очков");
