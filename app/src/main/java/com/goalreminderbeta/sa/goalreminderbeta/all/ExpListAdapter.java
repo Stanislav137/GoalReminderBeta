@@ -222,7 +222,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         themeCategory.setText(goal.getThemeCategory());
 
         //Double progress = 30.0;
-        double currentProgress = progress;
+        double currentProgress = goal.getProgress();
         checkProgress(currentProgress, convertView);
     }
 
@@ -287,52 +287,34 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     alertDialog.setPositiveButton("YES",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-//                                    try {
-//                                        String res = input.getText().toString();
-//                                        double resInt = Double.parseDouble(res);
-//                                        String curRes = currentResultDG.getText().toString().substring(0,
-//                                                currentResultDG.getText().toString().indexOf(' '));
-//                                        double curResInt = Double.parseDouble(curRes);
-//                                        if(goal.getThemeCategory().equals("МАССА")||
-//                                                goal.getThemeCategory().equals("КАРДИО"))
-//                                        {
-//                                            double finRes = curResInt - Math.abs(resInt);
-//                                        goal.setCurrentResult(finRes);
-//                                        }else if(goal.getThemeCategory().equals("КНИГА")||
-//                                                goal.getThemeCategory().equals("ПОВТОРЕНИЯ")
-//                                                ||goal.getThemeCategory().equals("ЯЗЫКИ")||
-//                                                goal.getThemeCategory().equals("НАВЫКИ")){
-//                                            double finRes = curResInt + Math.abs(resInt);
-//                                            goal.setCurrentResult(finRes);
-//                                        }
-//
-//                                    }catch (IllegalFormatException e){
-//                                        e.printStackTrace();
-//                                    }
                                     madeTodayResult = Double.parseDouble(input.getText().toString());
                                     madeToday.setText(madeTodayResult + "");
                                     goal.setMadeTodayResult(madeTodayResult);
                                     goal.setCurrentResult(madeTodayResult);
-                                    double iR = goal.getInitialResult();
-                                    double cR = goal.getCurrentResult();
-                                    double gR = goal.getGoalResult();
+                                    double iR;
+                                    double cR;
+                                    double gR;
                                     double percent = 0;
                                     if(goal instanceof ReadBookGoal){
+                                        cR = ((ReadBookGoal)goal).getCurrentResult();
+                                        gR = ((ReadBookGoal)goal).getGoalResult();
                                         percent = Math.abs((cR/gR)*100);
                                     }else if(goal instanceof LanguageLearningGoal){
                                         double mR = goal.getMadeTodayResult();
+                                        iR = ((LanguageLearningGoal)goal).getInitialResult();
+                                        gR = ((LanguageLearningGoal)goal).getGoalResult();
                                         percent = Math.abs((mR/(gR-iR))*100);
                                     }else if(goal instanceof CardioGoal
-                                            ||goal instanceof RepeatsCorrectionGoal){
-                                        percent = Math.abs(((iR - cR)/(gR-iR))*100);
-                                    }else if(goal instanceof WeightCorrectionGoal){
-                                        if(iR>gR||gR>iR){
-                                            percent = Math.abs(((cR-iR)/(gR-iR)*100));
-                                        }
-                                           else if(goal instanceof ElementCorrectionGoal){
-                                            double cR2 = ((ElementCorrectionGoal)goal).getCurrentResult2();
-                                            percent = Math.abs((cR2/(500-iR))*100);
-                                        }else {percent=0;}
+                                            ||goal instanceof RepeatsCorrectionGoal||goal instanceof WeightCorrectionGoal) {
+                                        iR = goal.getInitialResult();
+                                        cR = goal.getCurrentResult();
+                                        gR = goal.getGoalResult();
+                                        percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
+                                    }else if(goal instanceof ElementCorrectionGoal){
+                                        iR = ((ElementCorrectionGoal)goal).getInitialResult();
+                                        cR =((ElementCorrectionGoal)goal).getCurrentResult2();
+                                        percent = Math.round(Math.abs((iR - cR)/
+                                                (500-((ElementCorrectionGoal)goal).getInitialResult())*100));
                                     }else {
                                         percent = 0;
                                     }
@@ -386,6 +368,53 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         editor.putString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(),date);
                         editor.commit();
                         goal.setCompleted(true);
+                        double iR;
+                        double cR;
+                        double gR;
+                        double percent = 0;
+                        if(goal instanceof ReadBookGoal){
+                            cR = ((ReadBookGoal)goal).getCurrentResult();
+                            gR = ((ReadBookGoal)goal).getGoalResult();
+                            percent = Math.abs((cR/gR)*100);
+                        }else if(goal instanceof LanguageLearningGoal){
+                            double mR = goal.getMadeTodayResult();
+                            iR = ((LanguageLearningGoal)goal).getInitialResult();
+                            gR = ((LanguageLearningGoal)goal).getGoalResult();
+                            percent = Math.abs((mR/(gR-iR))*100);
+                        }else if(goal instanceof CardioGoal
+                                ||goal instanceof RepeatsCorrectionGoal||goal instanceof WeightCorrectionGoal) {
+                            iR = goal.getInitialResult();
+                            cR = goal.getCurrentResult();
+                            gR = goal.getGoalResult();
+                            percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
+                        }else if(goal instanceof ElementCorrectionGoal){
+                            iR = ((ElementCorrectionGoal)goal).getInitialResult();
+                            cR =((ElementCorrectionGoal)goal).getCurrentResult2();
+                            percent = Math.round(Math.abs((iR - cR)/
+                                    (500-((ElementCorrectionGoal)goal).getInitialResult())*100));
+                        }else {
+                            percent = 0;
+                        }
+                        goal.setProgress(Math.round(percent));
+                        int currentProgress = (int)Math.round(goal.getProgress());
+                        progressBar.setProgress(currentProgress);
+
+                        if(currentProgress <= 30) {
+                            progressBar.getProgressDrawable().setColorFilter(mContext.
+                                    getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
+                            textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+                        }
+                        if(currentProgress > 30 && currentProgress <= 60) {
+                            progressBar.getProgressDrawable().setColorFilter(mContext.
+                                    getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
+                            textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+                        }
+                        if(currentProgress > 60 && currentProgress <= 100) {
+                            progressBar.getProgressDrawable().setColorFilter(mContext.
+                                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+                            textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+                        }
+                        textCircleProgress.setText((int)currentProgress + "%");
                         goal.save();
                         adb = new AlertDialog.Builder(mContext);
                         adb.setTitle("Congratulations");
@@ -481,7 +510,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 skillsPoints(goal);
                 units = "очки";
                 taskDG.setText("тренировка");
-                currentResultDG.setText(goal.getCurrentResult() + " уровень" + " / " + pointsSkillsCurrent + " " + units);
+                currentResultDG.setText(((ElementCorrectionGoal)goal).getInitialLevel() + " уровень" + " / " + ((ElementCorrectionGoal)goal).getInitialResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " уровень" + " / " + pointsSkillsGoal + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
@@ -597,11 +626,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             case "НАВЫКИ":
                 skillsPoints(goal);
                 units = "уровень";
-                double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate());
-                currentResultUnits.setText(goal.getCurrentResult() + " " + units + " / " + pointsSkillsCurrent + " очков");
-                goalResultUnits.setText((int)goalNumber + " " + units + " / " + pointsSkillsGoal + " очков");
+                //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
+                double left = 5 - ((ElementCorrectionGoal)goal).getCurrentResult();
+                double leftUnits = 500 - ((ElementCorrectionGoal)goal).getCurrentResult2();
+                currentResultUnits.setText(((ElementCorrectionGoal)goal).getInitialLevel()+ " " + units + " / " + ((ElementCorrectionGoal)goal).getInitialResult() + " очков");
+                goalResultUnits.setText(String.valueOf(5) + " " + units + " / " + "500 очков");
                 taskOfDayUnits.setText("тренировка");
-                leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + "уровня" + " / " + (pointsSkillsGoal - pointsSkillsCurrent) + " очков");
+                leftToGoalUnits.setText(String.format("%.1f", left) + " " + "уровня" + " / " + leftUnits + " очков");
                 break;
             case "ПОВТОРЕНИЯ":
                 units = "повторений";
