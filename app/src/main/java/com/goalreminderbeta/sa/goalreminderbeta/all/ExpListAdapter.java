@@ -1,9 +1,11 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -13,6 +15,7 @@ import android.support.constraint.solver.SolverVariable;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -23,8 +26,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.DialogBuilder;
 import com.goalreminderbeta.sa.goalreminderbeta.all.science.languages.LanguageLevels;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
@@ -793,9 +798,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         verifyStatus(currentStatus, goalStatus); // СТАТУС
 
         if(goal.getDescriptionGoal().equals("")) {
-            if(typeLang.equals("ru")) {
-                goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
-            } else goalDescription.setText("You did not lose until you came!"); // в том случае если никто не ввел описание
+            goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
         } else {
             goalDescription.setText(goal.getDescriptionGoal() + ""); // ОПИСАНИЕ ЦЕЛИ
         }
