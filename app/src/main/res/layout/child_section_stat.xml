@@ -82,6 +82,11 @@
         android:visibility="gone"
         android:padding="15sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/distanceRun"
             android:layout_width="wrap_content"
@@ -91,16 +96,24 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/distanceRunUnits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10sp"
             android:text="1 км"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -119,6 +132,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/currentResult"
             android:layout_width="wrap_content"
@@ -127,6 +145,12 @@
             android:text="@string/statistics_current_result"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -135,9 +159,9 @@
             android:text="@string/child_section_start_kg"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
-            android:textColor="@color/colorBlack"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:textColor="@color/colorBlack" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -154,6 +178,11 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/yourGoal"
             android:layout_width="wrap_content"
@@ -163,6 +192,13 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/yourGoalUnits"
             android:layout_width="wrap_content"
@@ -170,9 +206,9 @@
             android:text="90кг"
             android:layout_marginLeft="15sp"
             android:textSize="18sp"
-            android:textColor="@color/colorBlack"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            android:textColor="@color/colorBlack" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -188,6 +224,11 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/leftToGoal"
             android:layout_width="wrap_content"
@@ -197,16 +238,23 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/leftToGoalUnits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="15sp"
             android:text="@string/statistics_remaining_purpose_kg"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -223,27 +271,36 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/statistics_task_day"
             android:id="@+id/taskOfDay"
             android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
         <TextView
             android:id="@+id/taskOfDayUnits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="15sp"
             android:text="@string/statistics_task_day_kg"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -262,6 +319,11 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -273,16 +335,24 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/taskOfWeekUnits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15sp"
             android:text="1кг"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -298,20 +368,34 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
-    <TextView
-        android:id="@+id/statusGoalTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="@string/statistics_status"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <ImageView
-        android:id="@+id/statusGoal"
-        android:layout_width="45sp"
-        android:layout_height="45sp"
-        android:layout_marginLeft="15sp" />
+            <TextView
+                android:id="@+id/statusGoalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/statistics_status"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/statusGoal"
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:layout_marginLeft="15sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -326,6 +410,11 @@
         android:layout_height="wrap_content"
         android:padding="20sp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/leftDaysGoalTitle"
             android:layout_width="wrap_content"
@@ -335,6 +424,13 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
         <TextView
             android:id="@+id/leftDaysGoal"
             android:layout_width="wrap_content"
@@ -343,8 +439,9 @@
             android:textSize="18sp"
             android:layout_marginLeft="15sp"
             android:textColor="@color/colorBlack"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

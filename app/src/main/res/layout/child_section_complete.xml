@@ -49,6 +49,10 @@
         android:visibility="gone"
         android:id="@+id/llDistance"
         android:padding="20sp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,6 +61,12 @@
             android:textSize="18sp"
             android:id="@+id/distanceTitle"
             android:text="ДИСТАНЦИЯ:"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
         <TextView
             android:id="@+id/distanceDG"
@@ -66,6 +76,8 @@
             android:text="10000 метров"
             android:textColor="@color/colorBlack"
             android:textSize="18sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -210,33 +222,40 @@
 
     <LinearLayout
         android:id="@+id/llTaskWeek"
-        android:visibility="gone"
+       android:visibility="gone"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20sp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ЗАДАЧА НА НЕДЕЛЮ:"
+                android:id="@+id/taskOfWeek"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ЗАДАЧА НА НЕДЕЛЮ:"
-            android:id="@+id/taskOfWeek"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:id="@+id/taskOfWeekUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15sp"
-            android:text="1кг"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/taskOfWeekUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1кг"
+                android:layout_marginLeft="15sp"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+        </RelativeLayout>
 
     </LinearLayout>
 
