@@ -31,7 +31,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="@string/category_weight"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
         <ImageView
@@ -125,7 +125,7 @@
                 android:layout_height="50sp"
                 android:layout_below="@+id/position1"
                 android:textSize="25sp"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_red"
                 android:text="-" />
@@ -139,7 +139,7 @@
                 android:layout_toRightOf="@+id/sportMinusWeightCurrent"
                 android:background="@drawable/btn_red"
                 android:text="+"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <RelativeLayout
@@ -157,7 +157,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_red"
                     android:text="@string/weight_current_weight_kg"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -176,7 +176,7 @@
                 android:layout_marginTop="10sp"
                 android:background="@drawable/btn_green"
                 android:text="0"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="30sp"
                 android:onClick="setCurrentWeight"
                 />
@@ -224,7 +224,7 @@
                 android:layout_height="50sp"
                 android:background="@drawable/btn_red"
                 android:text="-"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp"
                 android:layout_below="@+id/position2"
                 android:layout_alignLeft="@+id/position2"
@@ -239,7 +239,7 @@
                 android:layout_toRightOf="@+id/sportMinusWeightGoal"
                 android:background="@drawable/btn_red"
                 android:text="+"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <RelativeLayout
@@ -257,7 +257,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_red"
                     android:text="@string/weight_your_aim_kg"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
             </RelativeLayout>
         </RelativeLayout>
@@ -274,7 +274,7 @@
                 android:background="@drawable/btn_green"
                 android:onClick="setGoalWeight"
                 android:text="0"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
@@ -365,7 +365,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/sport_save_goal"
         android:text="@string/save_goal"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:onClick="saveGoal"
         />

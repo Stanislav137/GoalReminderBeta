@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/book_select_category"
-            android:textColor="@color/colorBackground"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
@@ -57,7 +57,7 @@
                 android:layout_height="100sp"
                 android:background="@drawable/btn_blue_sct"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"/>
@@ -130,7 +130,7 @@
                 android:layout_height="100sp"
                 android:background="@drawable/btn_blue_sct"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
