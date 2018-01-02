@@ -121,17 +121,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         if(currentProgress <= 30) {
             progressBar.getProgressDrawable().setColorFilter(mContext.
                     getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-            textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorRed));
         }
         if(currentProgress > 30 && currentProgress <= 60) {
             progressBar.getProgressDrawable().setColorFilter(mContext.
                     getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-            textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorYellow));
         }
         if(currentProgress > 60 && currentProgress <= 100) {
             progressBar.getProgressDrawable().setColorFilter(mContext.
                     getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-            textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
         }
         textCircleProgress.setText((int)currentProgress + "%");
     }
@@ -492,11 +492,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 }
                 LinearLayout llTaskWeek = (LinearLayout) view.findViewById(R.id.llTaskWeek);
                 LinearLayout separator3 = (LinearLayout) view.findViewById(R.id.separator3);
+                TextView taskOfWeek = (TextView) view.findViewById(R.id.taskOfWeek);
                 llTaskWeek.setVisibility(View.VISIBLE);
                 separator3.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     taskDG.setText("тренировка");
-                } else taskDG.setText("training");
+                    taskOfWeek.setText("ЗАДАЧА НА НЕДЕЛЮ:");
+                } else {
+                    taskDG.setText("training");
+                    taskOfWeek.setText("TASK FOR A WEEK:");
+                }
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
