@@ -129,12 +129,19 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
             textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorYellow));
         }
-        if(currentProgress > 60 && currentProgress <= 100) {
+        if(currentProgress > 60 && currentProgress < 100) {
             progressBar.getProgressDrawable().setColorFilter(mContext.
                     getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
             textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
         }
-        textCircleProgress.setText((int)currentProgress + "%");
+        if(currentProgress >= 100) {
+            textCircleProgress.setText("100%");
+            progressBar.getProgressDrawable().setColorFilter(mContext.
+                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
+        } else {
+            textCircleProgress.setText((int)currentProgress + "%");
+        }
     }
 
     private void findWidgetsChild(View view) {
@@ -344,19 +351,37 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     if(currentProgress <= 30) {
                                         progressBar.getProgressDrawable().setColorFilter(mContext.
                                                 getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorRed));
                                     }
                                     if(currentProgress > 30 && currentProgress <= 60) {
                                         progressBar.getProgressDrawable().setColorFilter(mContext.
                                                 getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorYellow));
                                     }
-                                    if(currentProgress > 60 && currentProgress <= 100) {
+                                    if(currentProgress > 60 && currentProgress < 100) {
                                         progressBar.getProgressDrawable().setColorFilter(mContext.
                                                 getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
                                     }
-                                    textCircleProgress.setText((int)currentProgress + "%");
+                                    if(currentProgress >= 100) {
+                                        String typeLang = mContext.getResources().getConfiguration().locale.getLanguage();
+                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+                                        if(typeLang.equals("ru")) {
+                                            alertDialog.setTitle("ЦЕЛЬ ВЫПОЛНЕНА! ТАК ДЕРЖАТЬ!");
+                                            alertDialog.setMessage("ЗАПИШИТЕ СЛЕДУЮЩУЮ ЦЕЛЬ! ВПЕРЁД К ВЕЛИЧИЮ!");
+                                        } else {
+                                            alertDialog.setTitle("THE PURPOSE IS IMPLEMENTED! KEEP IT UP!");
+                                            alertDialog.setMessage("WRITE THE FOLLOWING PURPOSE! FORWARD TO VALUE!");
+                                        }
+                                        alertDialog.setPositiveButton("OK", null);
+                                        progressBar.getProgressDrawable().setColorFilter(mContext.
+                                                getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
+                                        textCircleProgress.setText("100%");
+                                        alertDialog.show();
+                                    } else {
+                                        textCircleProgress.setText((int) currentProgress + "%");
+                                    }
                                     goal.setBlink(true);
                                     goal.save();
                                     notifyDataSetChanged();
@@ -421,19 +446,26 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         if(currentProgress <= 30) {
                             progressBar.getProgressDrawable().setColorFilter(mContext.
                                     getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,255,0,0));
+                            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorRed));
                         }
                         if(currentProgress > 30 && currentProgress <= 60) {
                             progressBar.getProgressDrawable().setColorFilter(mContext.
                                     getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,255,208,0));
+                            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorYellow));
                         }
-                        if(currentProgress > 60 && currentProgress <= 100) {
+                        if(currentProgress > 60 && currentProgress < 100) {
                             progressBar.getProgressDrawable().setColorFilter(mContext.
                                     getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,66,255,63));
+                            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
                         }
-                        textCircleProgress.setText((int)currentProgress + "%");
+                        if(currentProgress >= 100) {
+                            textCircleProgress.setText("100%");
+                            progressBar.getProgressDrawable().setColorFilter(mContext.
+                                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+                            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
+                        } else {
+                            textCircleProgress.setText((int)currentProgress + "%");
+                        }
                         goal.save();
                         String typeLang = mContext.getResources().getConfiguration().locale.getLanguage();
                         adb = new AlertDialog.Builder(mContext);
@@ -443,7 +475,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                             adb.setPositiveButton("ОКЕЙ", null);
                         } else {
                             adb.setTitle("Congratulations");
-                            adb.setMessage("Go on! You are super");
+                            adb.setMessage("Go on! You are the best!");
                             adb.setPositiveButton("Thanks", null);
                         }
                         adb.setCancelable(true);

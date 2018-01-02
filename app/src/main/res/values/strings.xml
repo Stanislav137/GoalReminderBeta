@@ -410,7 +410,7 @@
     <string name="currentElementTV_element_Activity">Ваш текущий уровень:</string>
     <string name="goalElementTV_element_Activity">Уровень цели:</string>
 
-    <string name="toast_makeText">Вы супер-супер!</string>
+    <string name="toast_makeText">Цель успешно добавлена!</string>
 
     //dialog
     <string name="adb_setTitle">Подтверждение</string>
