@@ -260,7 +260,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             goal.save();
         }
 
-        if(goal.getCompleted()) {
+        if(goal.getCompleted() || goal.getProgress() >= 100) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
 
