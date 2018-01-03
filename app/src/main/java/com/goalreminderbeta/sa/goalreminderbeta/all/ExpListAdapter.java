@@ -292,7 +292,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     goal.setMadeTodayResult(madeTodayResult);
                                     if(goal instanceof  WeightCorrectionGoal
                                             ||goal instanceof RepeatsCorrectionGoal
-                                            ||goal instanceof CardioGoal||goal instanceof LanguageLearningGoal){
+                                            ||goal instanceof CardioGoal
+                                            ||goal instanceof LanguageLearningGoal){
                                         goal.setCurrentResult(madeTodayResult);
                                     }
                                     double iR;
