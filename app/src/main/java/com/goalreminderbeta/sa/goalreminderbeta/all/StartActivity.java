@@ -225,35 +225,7 @@ public class StartActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-
-                final Goal goal = (Goal) parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
-                //Получаем объект по нажатию на него внутри групы (тепер можем его удалить либо модифицировать)
-
-                if (goal!=null){ // Если объект нашелся, удаляем по нажатии на него внутри группы
-
-                    final Dialog dialog;
-                    dialog = new Dialog(StartActivity.this);
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialog.setContentView(R.layout.confirm_deletion);
-                    dialog.show();
-                    Button delete = (Button) dialog.findViewById(R.id.delete);
-                    Button back = (Button) dialog.findViewById(R.id.back);
-                    delete.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            goal.delete();
-                            dialog.dismiss();
-                            printAllGoals();
-                        }
-                    });
-                    back.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                }
-                printAllGoals(); // обновляем наш лейаут после удаления
+                //printAllGoals(); // обновляем наш лейаут после удаления
 
                 if (allGoals.size() == 0) {
                     startAddGoal.setVisibility(View.VISIBLE);

@@ -175,6 +175,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             Goal goal = allGoalsMap.get(groupPos); //actual goal
 
             fillDataGroup(goal.getThemeCategory(), goal, convertView);
+
+            if(goal.getProgress() >= 100) {
+                RelativeLayout list1 = (RelativeLayout) convertView.findViewById(R.id.list1);
+                list1.setBackgroundColor(mContext.getResources().getColor(R.color.colorGreenBS));
+            }
         }
         expandGoal(isExpanded, convertView);
 
