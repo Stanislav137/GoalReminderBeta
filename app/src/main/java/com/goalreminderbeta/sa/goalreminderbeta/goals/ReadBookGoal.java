@@ -97,6 +97,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     @Override
     public void setMadeTodayResult(double madeTodayResult) {
+        this.currentResult+=madeTodayResult;
         this.madeTodayResult = madeTodayResult;
     }
 
