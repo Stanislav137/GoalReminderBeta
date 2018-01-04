@@ -844,9 +844,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 if(typeLang.equals("ru")) {
                     units = "часов";
                 } else units = "hours";
-                currentResultUnits.setText(goal.getCurrentLanguageLevel()+ " / " + lvlLangHoursCurrent + " " + units);
-                double lvlLangLeftGoal = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
-                units = "часов";
                 currentResultUnits.setText(((LanguageLearningGoal)goal).getCurrentLanguageLevel()+ " / " + ((LanguageLearningGoal)goal).getCurrentResult() + " " + units);
                 goalResultUnits.setText(goal.getGoalLanguageLevel()+ " / " + lvlLangHoursGoal + " " + units);
                 taskOfDayUnits.setText(String.format("%.1f", lvlLangLeftGoal) + " " + units);
