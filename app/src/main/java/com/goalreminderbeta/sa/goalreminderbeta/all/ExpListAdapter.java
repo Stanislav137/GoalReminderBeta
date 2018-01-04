@@ -1,9 +1,11 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -12,6 +14,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -321,7 +324,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     madeTodayResult = Double.parseDouble(input.getText().toString());
                                     madeToday.setText(madeTodayResult + "");
                                     goal.setMadeTodayResult(madeTodayResult);
-                                    goal.setCurrentResult(madeTodayResult);
+                                    if(goal instanceof  WeightCorrectionGoal
+                                            ||goal instanceof RepeatsCorrectionGoal
+                                            ||goal instanceof CardioGoal
+                                            ||goal instanceof LanguageLearningGoal){
+                                        goal.setCurrentResult(madeTodayResult);
+                                    }
                                     double iR;
                                     double cR;
                                     double gR;
@@ -665,9 +673,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 } else {
                     units = "hours";
                 }
-                currentResultDG.setText(goal.getCurrentLanguageLevel() + " / " + lvlLangHoursCurrent + " " + units);
-                goalResultDG.setText(goal.getGoalLanguageLevel() + " / " + lvlLangHoursGoal + " " + units);
                 taskDG.setText(String.format("%.1f", lvlDayTask) + " " + units);
+                currentResultDG.setText(((LanguageLearningGoal)goal).getCurrentLanguageLevel() + " / " + ((LanguageLearningGoal)goal).getCurrentResult() + " часов");
+                goalResultDG.setText(goal.getGoalLanguageLevel() + " / " + goal.getGoalResult() + " часов");
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
         }
@@ -778,6 +786,10 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskOfDayUnits.setText("training");
                     leftToGoalUnits.setText(String.format("%.1f", left) + " " + "level" + " / " + leftUnits + " points");
                 }
+                currentResultUnits.setText(((ElementCorrectionGoal)goal).getCurrentResult()+ " " + units + " / " + ((ElementCorrectionGoal)goal).getCurrentResult2() + " очков");
+                goalResultUnits.setText(String.valueOf(5) + " " + units + " / " + "500 очков");
+                taskOfDayUnits.setText("тренировка");
+                leftToGoalUnits.setText(String.format("%.1f", left) + " " + "уровня" + " / " + leftUnits + " очков");
                 break;
             case "ПОВТОРЕНИЯ":
                 if(typeLang.equals("ru")) {
@@ -833,9 +845,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     units = "часов";
                 } else units = "hours";
                 currentResultUnits.setText(goal.getCurrentLanguageLevel()+ " / " + lvlLangHoursCurrent + " " + units);
+                double lvlLangLeftGoal = (goal.getGoalResult() - goal.getCurrentResult()) / getDifferenceInDays(new Date(), goal.getToDate());
+                units = "часов";
+                currentResultUnits.setText(((LanguageLearningGoal)goal).getCurrentLanguageLevel()+ " / " + ((LanguageLearningGoal)goal).getCurrentResult() + " " + units);
                 goalResultUnits.setText(goal.getGoalLanguageLevel()+ " / " + lvlLangHoursGoal + " " + units);
                 taskOfDayUnits.setText(String.format("%.1f", lvlLangLeftGoal) + " " + units);
-                leftToGoalUnits.setText(String.format("%.1f", lvlLangHoursGoal - lvlLangHoursCurrent) + " " + units);
+                leftToGoalUnits.setText(String.format("%.1f", (goal.getGoalResult() - goal.getCurrentResult())) + " " + units);
                 break;
         }
 

@@ -148,6 +148,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/maxWeightTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -189,6 +190,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/minWeightTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -237,6 +239,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/distanceTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -278,6 +281,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/speedTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -331,6 +335,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/repeatsTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -371,6 +376,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/exerciseTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -432,6 +438,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/countBookTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -473,6 +480,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/pagesTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -520,6 +528,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/sumOfHoursTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -561,6 +570,7 @@
                         android:layout_weight="1" >
 
                         <TextView
+                            android:id="@+id/maxHoursTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -614,6 +624,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/skillTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
@@ -650,6 +661,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/durationTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"

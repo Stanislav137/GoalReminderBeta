@@ -46,7 +46,7 @@
     <string name="Pushups" translatable="false">Отжимания</string>
     <string name="theme_science">ТЕМА НАУКА</string>
     <string name="category_books">КАТЕГОРИЯ КНИГА</string>
-    <string name="quick_read">САМОЕ БЫСТРОЕ ПРОЧТЕНИЕ:</string>
+    <string name="quick_read">ОБЩЕЕ КОЛИЧЕСТВО КНИГ:</string>
     <string name="X_rule">Правило 10Х</string>
     <string name="SUM_READ_PAPERS">СУМА ПРОЧИТАНЫХ СТРАНИЦ.:</string>
     <string name="pages100">100 страниц</string>

@@ -186,20 +186,20 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     @Override
     public void setCurrentResult(double currentResult) {
         this.currentResult += currentResult;
-        if(this.currentResult<70&&this.currentResult>0){
+        if(this.currentResult>0&&this.currentResult<=70){
             setCurrentLanguageLevel(LanguageLevels.A1);
-        }else if(this.currentResult>=70&&this.currentResult<140){
+        }else if(this.currentResult>70&&this.currentResult<=140){
             setCurrentLanguageLevel(LanguageLevels.A2);
-        }else if(this.currentResult>=140&&this.currentResult<210){
+        }else if(this.currentResult>140&&this.currentResult<=210){
             setCurrentLanguageLevel(LanguageLevels.B1);
         }
-        else if(this.currentResult>=210&&this.currentResult<280){
+        else if(this.currentResult>210&&this.currentResult<=280){
             setCurrentLanguageLevel(LanguageLevels.B2);
         }
-        else if(this.currentResult>=280&&this.currentResult<350){
+        else if(this.currentResult>280&&this.currentResult<=350){
             setCurrentLanguageLevel(LanguageLevels.C1);
         }
-        else if(this.currentResult>=350&&this.currentResult<420){
+        else if(this.currentResult>350&&this.currentResult<=420){
             setCurrentLanguageLevel(LanguageLevels.C2);
         }else{
             setCurrentLanguageLevel(LanguageLevels.Begin);
@@ -210,25 +210,12 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     @Override
     public void setMadeTodayResult(double madeTodayResult) {
         this.madeTodayResult = madeTodayResult;
+
     }
 
     @Override
     public double getCurrentResult() {
-        currentResult=70;
-        if(this.currentLanguageLevel.equals(LanguageLevels.A1)){
-            return currentResult;
-        }else if(this.currentLanguageLevel.equals(LanguageLevels.A2)){
-            return currentResult*2;
-        }else if(this.currentLanguageLevel.equals(LanguageLevels.B1)){
-            return currentResult*3;
-        }else if(this.currentLanguageLevel.equals(LanguageLevels.B2)){
-            return currentResult*4;
-        }else if(this.currentLanguageLevel.equals(LanguageLevels.C1)){
-            return currentResult*5;
-        }else if(this.currentLanguageLevel.equals(LanguageLevels.C2)){
-            return currentResult*6;
-        }
-        return 0;
+        return currentResult;
     }
 
     @Override
