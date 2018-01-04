@@ -57,11 +57,10 @@
                 android:layout_height="100sp"
                 android:text="@string/chosen"
                 android:textSize="16sp"
-                android:textColor="@color/colorBackground"
-                android:background="@drawable/btn_red"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_red_at"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -129,7 +128,7 @@
                 android:id="@+id/imThemeScience"
                 android:text="@string/chosen"
                 android:textSize="16sp"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:background="@drawable/btn_blue_at"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -203,7 +202,7 @@
                 android:background="@drawable/btn_green_at"
                 android:onClick="createSkillsGoal"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </RelativeLayout>
