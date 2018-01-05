@@ -304,7 +304,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.MATCH_PARENT);
-                    input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    input.setInputType(InputType.TYPE_CLASS_PHONE);
                     input.setLayoutParams(lp);
                     alertDialog.setView(input);
 

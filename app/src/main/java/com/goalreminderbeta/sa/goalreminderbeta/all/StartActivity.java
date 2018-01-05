@@ -227,14 +227,14 @@ public class StartActivity extends AppCompatActivity {
 
                 //printAllGoals(); // обновляем наш лейаут после удаления
 
-                if (allGoals.size() == 0) {
-                    startAddGoal.setVisibility(View.VISIBLE);
-                    bootStrapAddGoalCenter();
-                } else {
-                    startAddGoal.setVisibility(View.VISIBLE);
-                    bootStrapAddGoalDown();
-                }
-                startAnimAddGoal();
+//                if (allGoals.size() == 0) {
+//                    startAddGoal.setVisibility(View.VISIBLE);
+//                    bootStrapAddGoalCenter();
+//                } else {
+//                    startAddGoal.setVisibility(View.VISIBLE);
+//                    bootStrapAddGoalDown();
+//                }
+//                startAnimAddGoal();
                 return false;
             }
         });
