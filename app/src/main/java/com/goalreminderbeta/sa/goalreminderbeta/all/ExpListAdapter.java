@@ -731,7 +731,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 currentResultUnits.setText(precision.format(currentNumber) + " " + units);
                 goalResultUnits.setText(precision.format(goalNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
-                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + "");
+                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 //goalResultUnits.setText((int)goalNumber + " " + units);
                 //taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);
                 currentResultUnits.setText((int)currentNumber + " " + units);
@@ -739,7 +739,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             case "КАРДИО":
                 if(typeLang.equals("ru")) {
                     units = "сек";
-                } else units = "seconds";
+                    taskOfDayUnits.setText("преодолеть дистанцию");
+                } else {
+                    units = "seconds";
+                    taskOfDayUnits.setText("bridge the distance");
+                }
                 if(goal.getCurrentResult() == 0) {
                     LinearLayout runDistance = (LinearLayout) convertView.findViewById(R.id.runDistance);
                     LinearLayout llCurrentResult = (LinearLayout) convertView.findViewById(R.id.llCurrentResult);
@@ -753,17 +757,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     separator1.setVisibility(View.GONE);
                     separator7.setVisibility(View.GONE);
                     separator8.setVisibility(View.GONE);
+                    if(typeLang.equals("ru")) {
+                        goalResultUnits.setText(goal.getDistance() + " метров");
+                    } else {
+                        goalResultUnits.setText(goal.getDistance() + " meters");
+                    }
                 } else {
                     runDistance.setVisibility(View.VISIBLE);
                     separator2.setVisibility(View.VISIBLE);
-                    goalResultUnits.setText((int)goalNumber + " " + units);
-                }
-                if(typeLang.equals("ru")) {
-                    goalResultUnits.setText(goal.getDistance() + " метров");
-                    taskOfDayUnits.setText("преодолеть дистанцию");
-                } else {
-                    goalResultUnits.setText(goal.getDistance() + " meters");
-                    taskOfDayUnits.setText("bridge the distance");
+                    goalResultUnits.setText(goal.getGoalResult() + " " + units);
                 }
                 currentResultUnits.setText((int)currentNumber + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
