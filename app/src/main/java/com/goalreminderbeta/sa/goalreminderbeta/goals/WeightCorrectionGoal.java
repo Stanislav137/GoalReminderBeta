@@ -42,6 +42,16 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         return initialResult;
     }
 
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return 0;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return 0;
+    }
+
     public void setInitialResult(double initialResult) {
         this.initialResult = initialResult;
     }

@@ -440,10 +440,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                             percent = Math.abs((mR/(gR-iR))*100);
                         }else if(goal instanceof CardioGoal
                                 ||goal instanceof RepeatsCorrectionGoal||goal instanceof WeightCorrectionGoal) {
-                            iR = goal.getInitialResult();
-                            cR = goal.getCurrentResult();
-                            gR = goal.getGoalResult();
-                            percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
+                            if(goal.getCurrentResult() == 0) {
+                                double dayCompletedCardioRepeats = goal.getDayCompletedCardioRepeats() + 1;
+                                goal.setDayCompletedCardioRepeats(dayCompletedCardioRepeats);
+                                double allDays = getDifferenceInDays(goal.getFromDate(), goal.getToDate());
+                                allDays = allDays / dayCompletedCardioRepeats;
+                                percent = 100 / allDays;
+                            } else {
+                                iR = goal.getInitialResult();
+                                cR = goal.getCurrentResult();
+                                gR = goal.getGoalResult();
+                                percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
+                            }
                         }else if(goal instanceof ElementCorrectionGoal){
                             iR = ((ElementCorrectionGoal)goal).getInitialResult();
                             cR =((ElementCorrectionGoal)goal).getCurrentResult2();
@@ -732,9 +740,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 goalResultUnits.setText(precision.format(goalNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
-                //goalResultUnits.setText((int)goalNumber + " " + units);
-                //taskOfDayUnits.setText(String.format("%.1f", dayTask) + " " + units);
-                currentResultUnits.setText((int)currentNumber + " " + units);
                 break;
             case "КАРДИО":
                 if(typeLang.equals("ru")) {

@@ -17,6 +17,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     private double goalResult;
     private double madeTodayResult;
     private double progress=0.0;
+    private double dayCompletedCardioRepeats;
     private int distance;
     private boolean completed;
     private boolean blink;
@@ -42,6 +43,16 @@ public class CardioGoal extends SugarRecord implements Goal{
 
     public double getInitialResult() {
         return initialResult;
+    }
+
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return dayCompletedCardioRepeats;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return this.dayCompletedCardioRepeats = dayCompletedCardioRepeats;
     }
 
     public void setInitialResult(double initialResult) {
