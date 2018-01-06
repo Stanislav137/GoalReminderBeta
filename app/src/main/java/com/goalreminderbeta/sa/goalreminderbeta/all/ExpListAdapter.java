@@ -20,9 +20,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -60,6 +63,7 @@ import static android.R.attr.password;
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<Goal>> mGroups;
+    private Activity mActivity;
     private Context mContext;
     private ImageView arrowDownUp, statusGoal;
     private Map<Long,Goal> allGoalsMap;
@@ -80,17 +84,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     SharedPreferences sp;
     ProgressBar progressBar;
     TextView textCircleProgress;
+    private ViewParent parentView;
+    private View groupItem;
 
     /* FOR DAY GOAL */
 
     private TextView nameData, distanceDG, currentResultDG, goalResultDG, taskDG, madeToday, goalDescriptionDG;
 
-    public ExpListAdapter(Context context,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
-        mContext = context;
+    public ExpListAdapter(Activity activity,ArrayList<ArrayList<Goal>> groups, Map<Long,Goal> allGoalsMap){
+        mActivity = activity;
+        mContext = mActivity.getApplicationContext();
         mGroups = groups;
         this.allGoalsMap = allGoalsMap;
-
-
     }
 
     @Override
@@ -231,7 +236,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              View convertView, final ViewGroup parent) {
 
         final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Long groupPos = Long.parseLong(String.valueOf(groupPosition));
+        final Long groupPos = Long.parseLong(String.valueOf(groupPosition));
         final Goal goal = allGoalsMap.get(groupPos); //actual goal
         GregorianCalendar calendar = new GregorianCalendar();
         int day = calendar.get(Calendar.DATE);
@@ -254,11 +259,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         if(goal.getCompleted()) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
-
-
             findWidgetsChild(convertView);
             fillDataChild(goal, convertView, goal.getThemeCategory());
-
         } else {
             convertView = inflater.inflate(R.layout.child_section_complete, null);
             //convertView.setMinimumHeight(1500);
@@ -269,15 +271,19 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             }
             showDataDG(goal, convertView);
 
+          //  groupItem =((ExpandableListView)parent).getExpandableListAdapter().getGroupView(groupPosition,true,null,parent);
+
+
+
             final LinearLayout showPopupDayTask = (LinearLayout) convertView.findViewById(R.id.showPopupDayTask);
             showPopupDayTask.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(mActivity);
                     alertDialog.setTitle("НОВЫЙ РЕЗУЛЬТАТ");
                     alertDialog.setMessage("Введите новый прогресс");
 
-                    final EditText input = new EditText(mContext);
+                    final EditText input = new EditText(mActivity);
                     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.MATCH_PARENT);
@@ -323,30 +329,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     }else {
                                         percent = 0;
                                     }
-                                    goal.setProgress(Math.round(percent));
-                                    int currentProgress = (int)Math.round(goal.getProgress());
-                                    progressBar.setProgress(currentProgress);
 
-                                    if(currentProgress <= 30) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,255,0,0));
-                                    }
-                                    if(currentProgress > 30 && currentProgress <= 60) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,255,208,0));
-                                    }
-                                    if(currentProgress > 60 && currentProgress <= 100) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(Color.argb(255,66,255,63));
-                                    }
-                                    textCircleProgress.setText((int)currentProgress + "%");
+                                    goal.setProgress(Math.round(percent));
                                     goal.setBlink(true);
                                     goal.save();
                                     notifyDataSetChanged();
                                     dialog.cancel();
+                                    reload();
                                 }
                             });
 
@@ -401,27 +390,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                             percent = 0;
                         }
                         goal.setProgress(Math.round(percent));
-                        int currentProgress = (int)Math.round(goal.getProgress());
-                        progressBar.setProgress(currentProgress);
-
-                        if(currentProgress <= 30) {
-                            progressBar.getProgressDrawable().setColorFilter(mContext.
-                                    getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,255,0,0));
-                        }
-                        if(currentProgress > 30 && currentProgress <= 60) {
-                            progressBar.getProgressDrawable().setColorFilter(mContext.
-                                    getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,255,208,0));
-                        }
-                        if(currentProgress > 60 && currentProgress <= 100) {
-                            progressBar.getProgressDrawable().setColorFilter(mContext.
-                                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(Color.argb(255,66,255,63));
-                        }
-                        textCircleProgress.setText((int)currentProgress + "%");
                         goal.save();
-                        adb = new AlertDialog.Builder(mContext);
+                        adb = new AlertDialog.Builder(mActivity);
                         adb.setTitle("Congratulations");
                         adb.setMessage("Go on! You are super");
                         adb.setPositiveButton("Thanks",null);
@@ -429,6 +399,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         congrDialog = adb.create();
                         congrDialog.show();
                         notifyDataSetChanged();
+                        reload();
                     }
                 });
             }
@@ -811,5 +782,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else if (goal.getGoalResult() == 5) {
             pointsSkillsGoal = 500;
         }
+    }
+
+    private void reload()
+    {
+        Intent intent = mActivity.getIntent();
+        mActivity.overridePendingTransition(0, 0);//4
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);//5
+        mActivity.finish();//6
+        mActivity.overridePendingTransition(0, 0);//7
+        mActivity.startActivity(intent);//8*/
     }
 }

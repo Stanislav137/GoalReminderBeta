@@ -29,8 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RecordsActivity extends AppCompatActivity {
     private List<ReadBookGoal> allReadBookGoals;
-    private ReadBookGoal rbGoal1;
-    private int rbGoal2;
+    private int rbGoal2,rbGoal3;
 
     private List<WeightCorrectionGoal> allWeightCorrectionGoals;
     private WeightCorrectionGoal wcG1,wcG2;
@@ -45,7 +44,8 @@ public class RecordsActivity extends AppCompatActivity {
     private ElementCorrectionGoal aecGoal;
 
     private List<LanguageLearningGoal> allLanguageLearningGoal;
-    private LanguageLearningGoal llGoal1,llGoal2;
+    private LanguageLearningGoal llGoal2;
+    private double llGoal3;
 
     private TextView maxWeight,minWeight,distance,speed,repeats,pages,sumOfHours,maxHours,duration,count,exercise,skill;
 
@@ -76,7 +76,7 @@ public class RecordsActivity extends AppCompatActivity {
         }
 
         if(allReadBookGoals!=null&&allReadBookGoals.size()>0){
-            rbGoal1 = defineBookGoals(allReadBookGoals);
+            rbGoal3 = defineBookGoals3(allReadBookGoals);
             rbGoal2 = defineBookGoals2(allReadBookGoals);
         }
         if(allCardioGoal!=null&&allCardioGoal.size()>0){
@@ -90,8 +90,8 @@ public class RecordsActivity extends AppCompatActivity {
             aecGoal = defineElementGoals(allElementsCorrectionGoal);
         }
         if(allLanguageLearningGoal!=null&&allLanguageLearningGoal.size()>0){
-            llGoal1 = defineLanguageGoal1(allLanguageLearningGoal);
             llGoal2 = defineLanguageGoal2(allLanguageLearningGoal);
+            llGoal3 = defineLanguageGoal3(allLanguageLearningGoal);
         }
     }
 
@@ -127,9 +127,7 @@ public class RecordsActivity extends AppCompatActivity {
         }else {repeats.setText("your repeatGoalName");}
 
         pages = (TextView)findViewById(R.id.pagesTV);
-        if(rbGoal1!=null){
-            pages.setText(String.valueOf(rbGoal1.getGoalResult())+" pages");
-        }else {pages.setText("pages");}
+        pages.setText(String.valueOf(rbGoal3)+" pages");
         count = (TextView)findViewById(R.id.countBookTV);
         {
             count.setText(String.valueOf(rbGoal2)+" books");
@@ -137,9 +135,7 @@ public class RecordsActivity extends AppCompatActivity {
 
 
         sumOfHours = (TextView)findViewById(R.id.sumOfHoursTV);
-        if(llGoal1!=null){
-            sumOfHours.setText(String.valueOf(llGoal1.getGoalResult()-llGoal1.getInitialResult())+" hours");
-        }else {sumOfHours.setText("hours");}
+        sumOfHours.setText(String.valueOf(llGoal3)+" hours");
         maxHours = (TextView)findViewById(R.id.maxHoursTV);
         if(llGoal2!=null){
             double d1 = llGoal2.getGoalResult()-llGoal2.getInitialResult();
@@ -319,6 +315,17 @@ public class RecordsActivity extends AppCompatActivity {
         }
         return null;
     }
+
+    private int defineBookGoals3(List<ReadBookGoal> goals){
+        int result = 0;
+        for(ReadBookGoal goal:goals){
+            if(goal.getProgress()>=100){
+                result+=goal.getGoalResult();
+            }
+        }
+
+        return result;
+    }
     private int defineBookGoals2(List<ReadBookGoal> goals){
 
         int result = 0;
@@ -354,6 +361,18 @@ public class RecordsActivity extends AppCompatActivity {
             return tempGoal;
         }
         return null;
+    }
+
+    private double defineLanguageGoal3(List<LanguageLearningGoal> goals){
+        double result = 0;
+
+        for(LanguageLearningGoal goal:goals){
+            if(goal.getProgress()>=100){
+                result+=goal.getGoalResult()-goal.getInitialResult();
+            }
+        }
+
+        return result;
     }
     private LanguageLearningGoal defineLanguageGoal2(List<LanguageLearningGoal> goals){
         LanguageLearningGoal tempGoal = goals.get(0);
