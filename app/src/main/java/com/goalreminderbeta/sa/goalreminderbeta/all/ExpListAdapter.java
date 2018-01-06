@@ -384,8 +384,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                         textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
                                     }
                                     if(currentProgress >= 100) {
-                                        String typeLang = mContext.getResources().getConfiguration().locale.getLanguage();
-                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+                                        String typeLang = mActivity.getResources().getConfiguration().locale.getLanguage();
+                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mActivity);
                                         if(typeLang.equals("ru")) {
                                             alertDialog.setTitle("ЦЕЛЬ ВЫПОЛНЕНА! ТАК ДЕРЖАТЬ!");
                                             alertDialog.setMessage("ЗАПИШИТЕ СЛЕДУЮЩУЮ ЦЕЛЬ! ВПЕРЁД К ВЕЛИЧИЮ!");
