@@ -65,7 +65,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Typeface faceBold = null;
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
     private double madeTodayResult = 0;
-    private String units;
+    private String units="";
     Button completed;
     Dialog congrDialog;
     AlertDialog.Builder adb;
