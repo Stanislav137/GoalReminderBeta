@@ -395,18 +395,9 @@ public class StartActivity extends AppCompatActivity {
                 if(startAddGoal.getVisibility() == View.VISIBLE) {
                     stopAnimAddGoal();
                     startAddGoal.setVisibility(View.INVISIBLE);
-                    /*ArrayList<Goal> list = (ArrayList) parent.getExpandableListAdapter().getGroup(groupPosition);
-                    Goal g = list.get(0);
-                    Date todayDate = new Date();
-                    Date goalDate = g.getToDate();
-                    if (todayDate.before(goalDate)) {
-                        showDialog(1);
-                        return true;
-                    }*/
                 } else {
                     startAnimAddGoal();
                     startAddGoal.setVisibility(View.VISIBLE);
-
                 }
                 ArrayList<Goal> list = (ArrayList) parent.getExpandableListAdapter().getGroup(groupPosition);
                 Goal g = list.get(0);

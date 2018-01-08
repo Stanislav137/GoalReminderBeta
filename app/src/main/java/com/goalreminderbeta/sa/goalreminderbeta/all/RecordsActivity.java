@@ -325,7 +325,7 @@ public class RecordsActivity extends AppCompatActivity {
     private int defineBookGoals3(List<ReadBookGoal> goals){
         int result = 0;
         for(ReadBookGoal goal:goals){
-            result+=goal.getGoalResult();
+            result+=goal.getCurrentResult();
         }
 
         return result;
