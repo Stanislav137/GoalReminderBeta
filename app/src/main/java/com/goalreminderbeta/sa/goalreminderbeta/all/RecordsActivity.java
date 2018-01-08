@@ -114,28 +114,32 @@ public class RecordsActivity extends AppCompatActivity {
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
             double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2).doubleValue();
-            speed.setText(String.valueOf(s)+" m/sec");
-        }else {speed.setText(" m/sec");}
+            speed.setText(String.valueOf(s)+" м/с");
+        }else {speed.setText(" м/с");}
 
         repeats = (TextView)findViewById(R.id.repeatsTV);
         if(rcGoal!=null){
-            repeats.setText(String.valueOf(rcGoal.getGoalResult())+" times");
-        }else {repeats.setText("times");}
+            double rcGoalText = rcGoal.getGoalResult();
+            if(rcGoalText>=2&&rcGoalText<=4)
+            repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
+            else repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раз");
+        }else {repeats.setText("раз");}
         exercise = (TextView)findViewById(R.id.exerciseTV);
         if(rcGoal!=null){
             exercise.setText(rcGoal.getNameGoal());
-        }else {repeats.setText("your repeatGoalName");}
+        }else {repeats.setText("Название упражнения");}
 
         pages = (TextView)findViewById(R.id.pagesTV);
-        pages.setText(String.valueOf(rbGoal3)+" pages");
+        pages.setText(String.valueOf(rbGoal3)+" стр");
         count = (TextView)findViewById(R.id.countBookTV);
-        {
-            count.setText(String.valueOf(rbGoal2)+" books");
-        }
-
-
+        if(rbGoal2==1)
+            count.setText(String.valueOf(rbGoal2)+" книга");
+        else if(rbGoal2>=2&&rbGoal2<=4)
+            count.setText(String.valueOf(rbGoal2)+" книги");
+        else
+            count.setText(String.valueOf(rbGoal2)+" книг");
         sumOfHours = (TextView)findViewById(R.id.sumOfHoursTV);
-        sumOfHours.setText(String.valueOf(llGoal3)+" hours");
+        sumOfHours.setText(String.valueOf(llGoal3)+" ч");
         maxHours = (TextView)findViewById(R.id.maxHoursTV);
         if(llGoal2!=null){
             double d1 = llGoal2.getGoalResult()-llGoal2.getInitialResult();
@@ -144,8 +148,8 @@ public class RecordsActivity extends AppCompatActivity {
             d2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(d2,TimeUnit.MILLISECONDS)));
             d2++;
             int d3=(int)(Math.round(d1/d2));
-            maxHours.setText(String.valueOf(d3)+" h/day");
-        }else {maxHours.setText("h/day");}
+            maxHours.setText(String.valueOf(d3)+" ч/день");
+        }else {maxHours.setText("ч/день");}
 
         duration = (TextView)findViewById(R.id.durationTV);
         if(aecGoal!=null){
@@ -153,12 +157,14 @@ public class RecordsActivity extends AppCompatActivity {
             long d2 = today.getTime() - aecGoal.getFromDate().getTime();
             d2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(d2,TimeUnit.MILLISECONDS)));
             d2++;
-            duration.setText(String.valueOf(d2)+" days");
-        }else { duration.setText("days");}
+            if(d2==1)duration.setText(String.valueOf(d2)+" день");
+            else if(d2>=2&&d2<=4)duration.setText(String.valueOf(d2)+" дня");
+            duration.setText(String.valueOf(d2)+" дней");
+        }else { duration.setText("0 дней");}
         skill = (TextView)findViewById(R.id.skillTV);
         if(aecGoal!=null){
             skill.setText(aecGoal.getNameGoal());
-        }else {skill.setText("Your skillName");}
+        }else {skill.setText("Название навыка");}
 
 
     }
@@ -319,9 +325,7 @@ public class RecordsActivity extends AppCompatActivity {
     private int defineBookGoals3(List<ReadBookGoal> goals){
         int result = 0;
         for(ReadBookGoal goal:goals){
-            if(goal.getProgress()>=100){
-                result+=goal.getGoalResult();
-            }
+            result+=goal.getGoalResult();
         }
 
         return result;

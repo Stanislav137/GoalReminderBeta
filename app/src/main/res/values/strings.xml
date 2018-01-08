@@ -49,7 +49,7 @@
     <string name="category_books">КАТЕГОРИЯ КНИГА</string>
     <string name="quick_read">ОБЩЕЕ КОЛИЧЕСТВО КНИГ:</string>
     <string name="X_rule">Правило 10Х</string>
-    <string name="SUM_READ_PAPERS">СУМА ПРОЧИТАНЫХ СТРАНИЦ.:</string>
+    <string name="SUM_READ_PAPERS">СУММА ПРОЧИТАНЫХ СТРАНИЦ.:</string>
     <string name="pages100">100 страниц</string>
     <string name="category_language">КАТЕГОРИЯ ЯЗЫКИ</string>
     <string name="sum_hours">СУМА ЧАСОВ ИЗУЧЕНИЯ:</string>
@@ -164,7 +164,7 @@
 
     <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в твоих упражнениях на повторения, для этого введи текущее кол-во повторений и свой конечный результат!</string>
     <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться регулярности выполнения упражнения каждый день. Для этого просто запиши свою цель в повторениях за один день!</string>
-
+    <string name="warning">Ваше время истекло.\nПостарайтесь лучше!</string>
     <!--config-->
     <string-array name="frequency">
         <item>Each hour</item>
