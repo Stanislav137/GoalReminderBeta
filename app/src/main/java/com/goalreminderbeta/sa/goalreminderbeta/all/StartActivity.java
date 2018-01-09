@@ -1,8 +1,11 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -19,6 +22,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
@@ -36,6 +40,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -61,7 +66,9 @@ public class StartActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private GregorianCalendar calendar;
 
-    private Dialog dialog;
+    private Dialog dialog,warningDialog;
+    private AlertDialog.Builder adb;
+    private View warningView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -357,13 +364,20 @@ public class StartActivity extends AppCompatActivity {
         allGoalsList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-
                 if(startAddGoal.getVisibility() == View.VISIBLE) {
                     stopAnimAddGoal();
                     startAddGoal.setVisibility(View.INVISIBLE);
                 } else {
                     startAnimAddGoal();
                     startAddGoal.setVisibility(View.VISIBLE);
+                }
+                ArrayList<Goal> list = (ArrayList) parent.getExpandableListAdapter().getGroup(groupPosition);
+                Goal g = list.get(0);
+                Date todayDate = new Date();
+                Date goalDate = g.getToDate();
+                if (todayDate.after(goalDate)) {
+                    showDialog(1);
+                    return true;
                 }
                 return false;
             }
@@ -499,5 +513,27 @@ public class StartActivity extends AppCompatActivity {
 
     public void refresh() {
         //allGoalsList.refreshDrawableState();
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        if(id==1){
+            adb = new AlertDialog.Builder(this);
+            adb.setTitle(null);
+            warningView = (View)getLayoutInflater().inflate(R.layout.warning_dialog,null);
+            adb.setView(warningView);
+            warningDialog=adb.create();
+            Button accept = (Button)warningView.findViewById(R.id.acceptBTN);
+            accept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                if(warningDialog!=null){
+                    warningDialog.cancel();
+                }
+                }
+            });
+            return warningDialog;
+        }
+        return super.onCreateDialog(id);
     }
 }
