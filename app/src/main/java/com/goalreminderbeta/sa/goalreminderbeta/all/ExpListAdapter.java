@@ -575,7 +575,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskOfWeek.setText("TASK FOR A WEEK:");
                 }
                 taskDG.setTextColor(Color.parseColor("#d23134"));
-                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
+                if(goal.getCurrentResult() <= goal.getGoalResult()) {
+                    taskOfWeekUnits.setText("+" + String.format("%.1f", dayTask * 7) + " " + units);
+                } else {
+                    taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
+                }
                 titleDG.setTextColor(Color.parseColor("#d23134"));
                 currentResultDG.setText(goal.getInitialResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
@@ -755,8 +759,13 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 DecimalFormat precision = new DecimalFormat("0.0");
                 currentResultUnits.setText(precision.format(currentNumber) + " " + units);
                 goalResultUnits.setText(precision.format(goalNumber) + " " + units);
-                leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
-                taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
+                if(goal.getCurrentResult() <= goal.getGoalResult()) {
+                    leftToGoalUnits.setText("+" + String.format("%.1f", leftGoalUnits) + " " + units);
+                    taskOfWeekUnits.setText("+" + String.format("%.1f", dayTask * 7) + " " + units);
+                } else {
+                    leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
+                    taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
+                }
                 break;
             case "КАРДИО":
                 if(typeLang.equals("ru")) {
