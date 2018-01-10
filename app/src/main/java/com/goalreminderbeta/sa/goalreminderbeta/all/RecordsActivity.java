@@ -98,19 +98,19 @@ public class RecordsActivity extends AppCompatActivity {
     private void defineElements(){
         maxWeight = (TextView)findViewById(R.id.maxWeightTV);
         if(wcG1!=null){
-            maxWeight.setText(String.valueOf(wcG1.getGoalResult())+" kg");
-        }else {maxWeight.setText("kg");}
+            maxWeight.setText(String.valueOf(wcG1.getGoalResult())+" кг");
+        }else {maxWeight.setText("кг");}
         minWeight = (TextView)findViewById(R.id.minWeightTV);
         if(wcG2!=null){
-            minWeight.setText(String.valueOf(wcG2.getGoalResult())+" kg");
+            minWeight.setText(String.valueOf(wcG2.getGoalResult())+" кг");
         }else {
-            minWeight.setText("kg");
+            minWeight.setText("кг");
         }
 
         distance = (TextView)findViewById(R.id.distanceTV);
         if(cGoal1!=null){
-            distance.setText(String.valueOf(cGoal1.getDistance())+" m");
-        }else {distance.setText("m");}
+            distance.setText(String.valueOf(cGoal1.getDistance())+" м");
+        }else {distance.setText("м");}
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
             double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2).doubleValue();

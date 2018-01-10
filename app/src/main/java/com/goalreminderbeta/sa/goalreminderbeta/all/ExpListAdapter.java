@@ -296,13 +296,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     madeTodayResult = Double.parseDouble(input.getText().toString());
                                     madeToday.setText(madeTodayResult + "");
                                     goal.setMadeTodayResult(madeTodayResult);
-                                    if(goal instanceof  WeightCorrectionGoal
+                                    /*if(goal instanceof  WeightCorrectionGoal
                                             ||goal instanceof RepeatsCorrectionGoal
                                             ||goal instanceof CardioGoal
-                                            ||goal instanceof LanguageLearningGoal){
+                                            //||goal instanceof LanguageLearningGoal
+                                            ){
                                         goal.setCurrentResult(madeTodayResult);
-                                    }
-                                    double iR;
+                                    }*/
+                                    /*double iR;
                                     double cR;
                                     double gR;
                                     double percent = 0;
@@ -330,7 +331,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                         percent = 0;
                                     }
 
-                                    goal.setProgress(Math.round(percent));
+                                    goal.setProgress(Math.round(percent));*/
                                     goal.setBlink(true);
                                     goal.save();
                                     notifyDataSetChanged();
@@ -362,6 +363,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         editor.putString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(),date);
                         editor.commit();
                         goal.setCompleted(true);
+                        if(goal instanceof CardioGoal||goal instanceof WeightCorrectionGoal ||goal instanceof RepeatsCorrectionGoal){
+                            goal.setCurrentResult(goal.getMadeTodayResult());
+                        }
+                        if(goal instanceof ReadBookGoal||goal instanceof LanguageLearningGoal){
+                            goal.setCurrentResult(goal.getMadeTodayResult());
+                        }
+                        if(goal instanceof ElementCorrectionGoal){
+                            ((ElementCorrectionGoal)goal).setCurrentResult2(goal.getMadeTodayResult());
+                        }
                         double iR;
                         double cR;
                         double gR;

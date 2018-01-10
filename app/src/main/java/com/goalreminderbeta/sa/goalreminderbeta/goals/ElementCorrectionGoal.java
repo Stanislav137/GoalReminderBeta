@@ -162,17 +162,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     }
 
     public void setCurrentResult2(double currentResult2) {
-        this.currentResult2 = currentResult2;
-    }
-
-    public void setCurrentResult(double currentResult) {
-        this.currentResult=currentResult;
-    }
-
-    @Override
-    public void setMadeTodayResult(double madeTodayResult) {
-        this.currentResult2+=madeTodayResult;
-        this.madeTodayResult = madeTodayResult;
+        this.currentResult2 += currentResult2;
         if(currentResult2>=100&&currentResult2<200){
             setCurrentResult(1);
         }else if(currentResult2>=200&&currentResult2<300){
@@ -184,6 +174,17 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
         }else if(currentResult2==500){
             setCurrentResult(5);
         }
+    }
+
+    public void setCurrentResult(double currentResult) {
+        this.currentResult=currentResult;
+    }
+
+    @Override
+    public void setMadeTodayResult(double madeTodayResult) {
+        //this.currentResult2+=madeTodayResult;
+        this.madeTodayResult = madeTodayResult;
+        /**/
     }
 
     @Override
