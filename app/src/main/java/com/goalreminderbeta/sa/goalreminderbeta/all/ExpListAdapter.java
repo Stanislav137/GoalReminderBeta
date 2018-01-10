@@ -581,8 +581,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 }
                 titleDG.setTextColor(Color.parseColor("#d23134"));
-                currentResultDG.setText(goal.getInitialResult() + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
+                currentResultDG.setText(String.format("%.1f", goal.getInitialResult()) + " " + units);
+                goalResultDG.setText(String.format("%.1f", goal.getGoalResult()) + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
@@ -679,9 +679,9 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         titleTxt.setText("MY NEW PROGRESS:");
                     }
                 }
-                currentResultDG.setText(goal.getInitialResult() + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
-                madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
+                currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
+                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КНИГА":
                 if(typeLang.equals("ru")) {
@@ -756,9 +756,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskOfDayUnits.setText("training");
                     taskOfWeek.setText("TASK FOR A WEEK:");
                 }
-                DecimalFormat precision = new DecimalFormat("0.0");
-                currentResultUnits.setText(precision.format(currentNumber) + " " + units);
-                goalResultUnits.setText(precision.format(goalNumber) + " " + units);
+                currentResultUnits.setText(String.format("%.1f", currentNumber) + " " + units);
+                goalResultUnits.setText(String.format("%.1f", goalNumber) + " " + units);
                 if(goal.getCurrentResult() <= goal.getGoalResult()) {
                     leftToGoalUnits.setText("+" + String.format("%.1f", leftGoalUnits) + " " + units);
                     taskOfWeekUnits.setText("+" + String.format("%.1f", dayTask * 7) + " " + units);
@@ -794,11 +793,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         goalResultUnits.setText(goal.getDistance() + " meters");
                     }
                 } else {
+                    TextView distanceRun = (TextView) convertView.findViewById(R.id.distanceRun);
+                    if(typeLang.equals("ru")) {
+                        distanceRun.setText("ДИСТАНЦИЯ:");
+                    } else {
+                        distanceRun.setText("DISTANCE:");
+                    }
                     runDistance.setVisibility(View.VISIBLE);
                     separator2.setVisibility(View.VISIBLE);
                     goalResultUnits.setText(goal.getGoalResult() + " " + units);
                 }
-                currentResultUnits.setText((int)currentNumber + " " + units);
+                currentResultUnits.setText(String.format("%.1f", currentNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 break;
             case "НАВЫКИ":
@@ -846,17 +851,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     } else {
                         taskOfDayUnits.setText("max. number of repetitions");
                     }
-                    goalResultUnits.setText((int) goalNumber + " " + units);
+                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
                 } else {
-                    goalResultUnits.setText((int) goalNumber + " " + units);
+                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
                     if(typeLang.equals("ru")) {
                         taskOfDayUnits.setText("макс. кол-во повторений");
                     } else {
                         taskOfDayUnits.setText("max. number of repetitions");
                     }
                 }
-                currentResultUnits.setText((int)currentNumber + " " + units);
-                leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
+                currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + units);
+                leftToGoalUnits.setText(String.format("%.0f", leftGoalUnits) + " " + units);
                 break;
             case "КНИГА":
                 if(goal.getDataBook().equals(" ") || goal.getDataBook().equals("")) {

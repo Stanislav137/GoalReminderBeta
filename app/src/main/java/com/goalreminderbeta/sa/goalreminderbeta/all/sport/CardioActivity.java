@@ -52,8 +52,8 @@ public class CardioActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distance;
-    private int currentRunTime = 0;
-    private int goalRunTime = 0;
+    private double currentRunTime = 0;
+    private double goalRunTime = 0;
     private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
     private boolean type = false;
@@ -378,11 +378,11 @@ public class CardioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(verifyMode[0]){
-                    currentRunTime = Integer.parseInt(value.getText().toString());
+                    currentRunTime = Double.parseDouble(value.getText().toString());
                     runTimeResult.setText(currentRunTime + "");
                     verifyNextTime = true;
                 } else {
-                    goalRunTime = Integer.parseInt(value.getText().toString());
+                    goalRunTime = Double.parseDouble(value.getText().toString());
                     runTimeResult.setText(goalRunTime + "");
                 }
                 dialog.dismiss();
