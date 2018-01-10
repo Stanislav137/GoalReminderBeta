@@ -432,6 +432,15 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         editor.putString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(),date);
                         editor.commit();
                         goal.setCompleted(true);
+                        if(goal instanceof CardioGoal||goal instanceof WeightCorrectionGoal ||goal instanceof RepeatsCorrectionGoal){
+                            goal.setCurrentResult(goal.getMadeTodayResult());
+                        }
+                        if(goal instanceof ReadBookGoal||goal instanceof LanguageLearningGoal){
+                            goal.setCurrentResult(goal.getMadeTodayResult());
+                        }
+                        if(goal instanceof ElementCorrectionGoal){
+                            ((ElementCorrectionGoal)goal).setCurrentResult2(goal.getMadeTodayResult());
+                        }
                         double iR;
                         double cR;
                         double gR;
