@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
@@ -165,7 +166,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
         dataBook = (TextView) view.findViewById(R.id.dataBook);
         taskOfDayUnits = (TextView) view.findViewById(R.id.taskOfDayUnits);
-        statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
         separator1 = (LinearLayout) view.findViewById(R.id.separator1);
         separator2 = (LinearLayout) view.findViewById(R.id.separator2);
         taskOfWeekUnits = (TextView) view.findViewById(R.id.taskOfWeekUnits);
@@ -899,9 +899,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             distanceRunUnits.setText("" + goal.getDistance() + " метров");
         } else distanceRunUnits.setText("" + goal.getDistance() + " meters");
         dataBook.setText(goal.getDataBook());
-
-        verifyStatus(currentStatus, goalStatus); // СТАТУС
-
+        double currentProgressStatus = goal.getProgress();
+        verifyStatus(currentProgressStatus, convertView); // СТАТУС
         if(goal.getDescriptionGoal().equals("")) {
             if(typeLang.equals("ru")) {
                 goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
@@ -924,11 +923,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         return 1 + (int) (milliseconds = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(milliseconds, TimeUnit.MILLISECONDS))));
     }
 
-    private void verifyStatus(double currentStatus, double goalStatus) {
-        if(currentStatus > goalStatus) {
-            statusGoal.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.circle_status_green));
-        } else {
-            statusGoal.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.circle_status_red));
+    private void verifyStatus(double currentProgressStatus, View view) {
+        statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
+        if(currentProgressStatus <= 30) {
+            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_red, mContext.getApplicationContext().getTheme()));
+        }
+        if(currentProgressStatus > 30 && currentProgressStatus <= 60) {
+            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_yellow, mContext.getApplicationContext().getTheme()));
+        }
+        if(currentProgressStatus > 60 && currentProgressStatus < 100 || currentProgressStatus >= 100) {
+            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_green, mContext.getApplicationContext().getTheme()));
         }
     }
 
