@@ -455,7 +455,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 taskDG.setTextColor(Color.parseColor("#d23134"));
                 taskOfWeekUnits.setText(String.format("%.1f", dayTask * 7) + " " + units);
                 titleDG.setTextColor(Color.parseColor("#d23134"));
-                currentResultDG.setText(goal.getInitialResult() + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
@@ -485,7 +485,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
                     distanceDG.setText(goal.getDistance() + " метров");
                     taskDG.setText("тренировка");
-                    currentResultDG.setText(goal.getInitialResult() + " " + units);
+                    currentResultDG.setText(goal.getCurrentResult() + " " + units);
                     goalResultDG.setText(goal.getGoalResult() + " " + units);
                     madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 }
@@ -514,7 +514,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     taskDG.setText("выполнить повторения");
                 } else {
                     taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                }                currentResultDG.setText(goal.getInitialResult() + " " + units);
+                }                currentResultDG.setText(goal.getCurrentResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
@@ -522,7 +522,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 units = "страниц";
                 dayTask = Math.ceil(dayTask);
                 taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                currentResultDG.setText(goal.getInitialResult() + " " + units);
+                currentResultDG.setText(goal.getCurrentResult() + " " + units);
                 goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;

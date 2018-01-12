@@ -403,10 +403,11 @@ public class StartActivity extends AppCompatActivity {
                 Goal g = list.get(0);
                 Date todayDate = new Date();
                 Date goalDate = g.getToDate();
-                if (todayDate.after(goalDate)) {
+                Toast.makeText(getApplicationContext(),"groupPos "+groupPosition,Toast.LENGTH_SHORT).show();
+               /* if (todayDate.after(goalDate)) {
                     showDialog(1);
                     return true;
-                }
+                }*/
                 return false;
             }
         });
