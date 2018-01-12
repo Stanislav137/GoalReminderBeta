@@ -111,11 +111,11 @@ public class LanguageLearningActivity extends AppCompatActivity {
         } else {
         Toast toast;
         if (dateTo.equals(dateFrom)) {
-            toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.your_date_going_with_todays_date), Toast.LENGTH_SHORT);
         } else if (goalName == null) {
-            toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
         } else {
-            toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
         }
         toast.show();
         }
@@ -277,7 +277,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
             currentLanguageTV.setTextColor(Color.rgb(68,182,72));
             currentLanguageTV.setTextSize(20);
             currentLanguageTV.setPadding(20,0,0,0);
-            currentLanguageTV.setText("Your language level is:");
+            currentLanguageTV.setText(R.string.currentLanguageTV_language);
             dialogLV.addView(currentLanguageTV,lp);
             currentLanguageET = new TextView(languageDialog.getContext());
             currentLanguageET.setPadding(20,20,20,20);
@@ -291,7 +291,7 @@ public class LanguageLearningActivity extends AppCompatActivity {
             goalLanguageTV.setTextColor(Color.rgb(68,182,72));
             goalLanguageTV.setTextSize(20);
             goalLanguageTV.setPadding(20,0,0,0);
-            goalLanguageTV.setText("Goal language level is:");
+            goalLanguageTV.setText(R.string.goalLanguageTV_language);
             dialogLV.addView(goalLanguageTV,lp);
             goalLanguageET = new TextView(languageDialog.getContext());
             goalLanguageET.setPadding(20,20,20,20);

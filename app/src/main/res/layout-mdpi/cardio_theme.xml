@@ -30,7 +30,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КАРДИО"
+            android:text="@string/cardio_category_cardio"
             android:textColor="@color/colorBackground"
             android:textSize="22sp" />
 
@@ -58,13 +58,13 @@
                 android:id="@+id/descriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="10sp"
                 android:text="@string/cardio_description_purpose"
                 android:textColor="@color/colorBlack"
-                android:textSize="22sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:textSize="22sp" />
 
             <ImageView
                 android:id="@+id/imgReadyDescription"
@@ -192,7 +192,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_margin="10sp"
                 android:background="@drawable/btn_red"
-                android:text="M"
+                android:text="@string/cardio_m"
                 android:textColor="@color/colorBackground" />
 
         </RelativeLayout>
@@ -311,11 +311,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_marginTop="10sp"
             android:text="@string/cardio_goal_date"
             android:textColor="@color/colorBlack"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/fromId"
+            android:layout_alignStart="@+id/fromId" />
 
         <TextView
             android:id="@+id/fromId"

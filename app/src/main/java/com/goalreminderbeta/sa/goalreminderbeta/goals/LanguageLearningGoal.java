@@ -95,6 +95,16 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public double getDayCompletedCardioRepeats() {
+        return 0;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return 0;
+    }
+
+    @Override
     public void setInitialResult(double initialResult) {
         this.initialResult = initialResult;
     }

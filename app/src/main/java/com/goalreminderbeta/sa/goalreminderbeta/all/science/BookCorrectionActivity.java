@@ -203,11 +203,11 @@ public class BookCorrectionActivity extends AppCompatActivity {
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
-                toast = Toast.makeText(getApplicationContext(), "ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.your_date_going_with_todays_date), Toast.LENGTH_SHORT);
             } else if (goalName == null) {
-                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
             }
             toast.show();
         }
@@ -324,7 +324,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             dataBookTV.setTextColor(Color.rgb(68,182,72));
             dataBookTV.setTextSize(20);
             dataBookTV.setPadding(20,0,0,0);
-            dataBookTV.setText("ДАННЫЕ КНИГИ");
+            dataBookTV.setText(R.string.dataBookTV_book_Activity);
             dialogLV.addView(dataBookTV,lp);
             dataBookET = new TextView(bookDialog.getContext());
             dataBookET.setPadding(20,20,20,20);
@@ -342,7 +342,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             currentBookTV.setTextColor(Color.rgb(68,182,72));
             currentBookTV.setTextSize(20);
             currentBookTV.setPadding(20,0,0,0);
-            currentBookTV.setText("ВАША ТЕКУЩЯЯ СТРАНИЦА:");
+            currentBookTV.setText(R.string.currentBookTV_book_Activity);
             dialogLV.addView(currentBookTV,lp);
             currentBookET = new TextView(bookDialog.getContext());
             currentBookET.setPadding(20,20,20,20);
@@ -356,7 +356,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             goalBookTV.setTextColor(Color.rgb(68,182,72));
             goalBookTV.setTextSize(20);
             goalBookTV.setPadding(20,0,0,0);
-            goalBookTV.setText("Your goal pages:");
+            goalBookTV.setText(R.string.goalBookTV_book_Activity);
             dialogLV.addView(goalBookTV,lp);
             goalBookET = new TextView(bookDialog.getContext());
             goalBookET.setPadding(20,20,20,20);

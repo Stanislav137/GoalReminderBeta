@@ -31,7 +31,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ ЯЗЫКИ"
+            android:text="@string/language_theme_category_languages"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 

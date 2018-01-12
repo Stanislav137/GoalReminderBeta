@@ -43,11 +43,11 @@ public class DialogFactory {
         public CardioDialog(Context context, final CardioGoal goal) {
             super(context);
             this.cardioGoal = goal;
-            setTitle("Подтверждение");
+            setTitle(R.string.adb_setTitle);
             setContentView(R.layout.confirm_dialog);
             findElements();
             sdf = new SimpleDateFormat("dd/MM/yyyy");
-            currentResult.setText("Сейчас вы преодолеваете:");
+            currentResult.setText(R.string.currentResult1);
             goalName.setText(cardioGoal.getNameGoal());
             goalDescr.setText(cardioGoal.getDescriptionGoal());
             //distance.setText(cardioGoal.getDistance());
@@ -98,11 +98,11 @@ public class DialogFactory {
                 super(activity);
                 this.repeatsCorrectionGoal= goal;
                 AlertDialog.Builder adb = new AlertDialog.Builder(activity);
-                adb.setTitle("Подтверждение");
+                adb.setTitle(R.string.adb_setTitle2);
                 lv = (LinearLayout)activity.getLayoutInflater().inflate(R.layout.confirm_dialog,null);
                 adb.setView(lv);
                 findElements();
-                currentResult.setText("Сейчас вы выполняете:");
+                currentResult.setText(R.string.current_Result);
                 sdf = new SimpleDateFormat("dd/MM/yyyy");
                 goalName.setText(repeatsCorrectionGoal.getNameGoal());
                 goalDescr.setText(repeatsCorrectionGoal.getDescriptionGoal());
@@ -119,7 +119,7 @@ public class DialogFactory {
                         repeatsCorrectionGoal.save();
                     }
                 });
-                adb.setNeutralButton("Отмена", new OnClickListener() {
+                adb.setNeutralButton(R.string.setNeutralButton, new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 

@@ -29,11 +29,11 @@
             android:id="@+id/ngTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:text="@string/book_select_category"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
-            android:text="ВЫБЕРИТЕ КАТЕГОРИЮ"
-            android:textColor="@color/colorBackground"
-            android:textSize="18sp" />
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
     <LinearLayout
@@ -57,7 +57,7 @@
                 android:layout_height="100sp"
                 android:background="@drawable/btn_blue_sct"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"/>
@@ -81,7 +81,7 @@
                         android:id="@+id/themeSportTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="КНИГА"
+                        android:text="@string/book_book"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp"
                         android:layout_alignParentTop="true"
@@ -130,7 +130,7 @@
                 android:layout_height="100sp"
                 android:background="@drawable/btn_blue_sct"
                 android:text="@string/chosen"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -157,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:text="ЯЗЫКИ"
+                        android:text="@string/languages_languages"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp"
                         tools:ignore="UnknownIdInLayout" />

@@ -13,10 +13,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     private String nameGoal, descriptionGoal;
     private String themeCategory;
     private double initialResult;
-    private int currentResult;
+    private double currentResult;
     private double goalResult;
     private double madeTodayResult;
     private double progress=0.0;
+    private double dayCompletedCardioRepeats;
     private int distance;
     private boolean completed;
     private boolean blink;
@@ -24,7 +25,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     public CardioGoal() {
     }
 
-    public CardioGoal(int distance, int currentRunDistance, double runTime, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
+    public CardioGoal(int distance, double currentRunDistance, double runTime, Date fromDate, Date toDate, String nameGoal, String descriptionGoal) {
         this.distance = distance;
         this.currentResult = currentRunDistance;
         this.initialResult = currentResult;
@@ -44,6 +45,16 @@ public class CardioGoal extends SugarRecord implements Goal{
         return initialResult;
     }
 
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return dayCompletedCardioRepeats;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return this.dayCompletedCardioRepeats = dayCompletedCardioRepeats;
+    }
+
     public void setInitialResult(double initialResult) {
         this.initialResult = initialResult;
     }
@@ -59,10 +70,6 @@ public class CardioGoal extends SugarRecord implements Goal{
 
     public double getProgress() {
         return progress;
-    }
-
-    public void setCurrentResult(int currentResult) {
-        this.currentResult += currentResult;
     }
 
     public void setProgress(double progress) {
@@ -131,7 +138,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     }
 
     public void setCurrentResult(double currentResult) {
-        this.currentResult = (int) currentResult;
+        this.currentResult = currentResult;
     }
 
     @Override

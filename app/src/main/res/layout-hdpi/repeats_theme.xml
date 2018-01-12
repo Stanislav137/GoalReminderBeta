@@ -30,7 +30,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ ПОВТОРЕНИЯ"
+            android:text="@string/category_repetition_title"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
@@ -313,7 +313,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_centerVertical="true"
-            android:text="ОТ"
+            android:text="@string/repeats_theme_from"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 

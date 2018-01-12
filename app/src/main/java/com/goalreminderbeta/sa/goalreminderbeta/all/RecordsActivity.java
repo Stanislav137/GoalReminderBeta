@@ -113,7 +113,7 @@ public class RecordsActivity extends AppCompatActivity {
         }else {distance.setText("м");}
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
-            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2).doubleValue();
+            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
             speed.setText(String.valueOf(s)+" м/с");
         }else {speed.setText(" м/с");}
 
@@ -273,7 +273,7 @@ public class RecordsActivity extends AppCompatActivity {
             for(CardioGoal goal:goals){
                 if(goal.getProgress()>=100){
                     tempGoal = goal;
-                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2).doubleValue();
+                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2, RoundingMode.UP).doubleValue();
                     break;
                 }else{
                     tempGoal = null;
@@ -282,7 +282,7 @@ public class RecordsActivity extends AppCompatActivity {
             if (tempGoal != null) {
                 for(CardioGoal goal:goals){
                     if(goal.getProgress()>=100){
-                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2).doubleValue();
+                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
                         if(d>result){
                             result=d;
                             tempGoal = goal;
