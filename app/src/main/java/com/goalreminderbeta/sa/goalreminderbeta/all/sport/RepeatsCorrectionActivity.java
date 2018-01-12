@@ -271,6 +271,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(RepeatsCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
         TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);

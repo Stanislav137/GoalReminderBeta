@@ -242,6 +242,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(BookCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
         TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
@@ -270,6 +271,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
     public void setPages(View view) {
         final Dialog dialog;
         dialog = new Dialog(BookCorrectionActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choose_value);
         Button apply = (Button) dialog.findViewById(R.id.apply);
         final EditText value = (EditText) dialog.findViewById(R.id.value);
