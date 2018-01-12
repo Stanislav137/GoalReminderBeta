@@ -597,6 +597,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
+                Button relax = (Button) view.findViewById(R.id.relax);
+                relax.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "сек";
                 } else units = "seconds";
@@ -663,6 +665,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "ПОВТОРЕНИЯ":
+                Button relax2 = (Button) view.findViewById(R.id.relax);
+                relax2.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "повторения";
                 } else units = "repetition";

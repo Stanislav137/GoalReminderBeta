@@ -358,6 +358,7 @@
             android:layout_height="wrap_content"
             android:text="@string/child_section_relax"
             android:padding="20sp"
+            android:visibility="gone"
             android:background="@color/clr_science"
             android:id="@+id/relax"
             android:textColor="@color/colorWhite"

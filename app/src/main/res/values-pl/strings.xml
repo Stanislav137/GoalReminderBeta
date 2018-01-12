@@ -256,6 +256,7 @@
     <string name="your_date_going_with_todays_date">YOUR GOAL DATE MATCHES TODAY\'S DATE</string>
     <string name="your_desired_goal_below_current_one">YOUR DESIRED GOAL BELOW THE CURRENT ONE</string>
     <string name="warning">Your time is up.\nTry the best!</string>
+    <string name="child_section_relax">Today relax</string>
 
 
 </resources>
