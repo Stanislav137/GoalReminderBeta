@@ -10,20 +10,16 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -40,7 +36,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.ReadBookGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -67,7 +62,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
     private double madeTodayResult = 0;
     private String units="";
-    Button completed;
+    Button completed, relax;
     Dialog congrDialog;
     AlertDialog.Builder adb;
     SharedPreferences sp;
@@ -265,15 +260,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         final String date2 = sp.getString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(), "");
         if (!date.equals(date2)) {
             goal.setCompleted(false);
+            goal.setRelax(false);
             goal.save();
         } else {
             goal.setBlink(false);
             goal.setMadeTodayResult(0);
             goal.setCompleted(true);
+            goal.setRelax(true);
             goal.save();
         }
 
-        if(goal.getCompleted() || goal.getProgress() >= 100) {
+        if(goal.getCompleted() || goal.getRelax() || goal.getProgress() >= 100) {
             convertView = inflater.inflate(R.layout.child_section_stat, null);
             //convertView.setMinimumHeight(1500);
             findWidgetsChild(convertView);
@@ -422,9 +419,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             showDataDG(goal,convertView);
 
                 completed = (Button) convertView.findViewById(R.id.completed);
+                relax = (Button) convertView.findViewById(R.id.relax);
 
                 faceBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/start_font.otf");
                 completed.setTypeface(faceBold);
+                relax.setTypeface(faceBold);
                 completed.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -522,6 +521,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         reload();
                     }
                 });
+            relax.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("date"+goal.getThemeCategory()+goal.getNameGoal()+goal.getDescriptionGoal(),date);
+                    editor.commit();
+                    goal.setRelax(true);
+                    goal.save();
+                    notifyDataSetChanged();
+                    reload();
+                }
+            });
             }
         return convertView;
     }
@@ -900,7 +911,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else distanceRunUnits.setText("" + goal.getDistance() + " meters");
         dataBook.setText(goal.getDataBook());
         double currentProgressStatus = goal.getProgress();
-      // verifyStatus(currentProgressStatus, convertView); // СТАТУС
+       verifyStatus(currentProgressStatus, convertView); // СТАТУС
         if(goal.getDescriptionGoal().equals("")) {
             if(typeLang.equals("ru")) {
                 goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
@@ -926,13 +937,25 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private void verifyStatus(double currentProgressStatus, View view) {
         statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
         if(currentProgressStatus <= 30) {
-            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_red, mContext.getApplicationContext().getTheme()));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                statusGoal.setBackground(mContext.getResources().getDrawable(R.drawable.circle_status_red));
+            } else {
+                statusGoal.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_red));
+            }
         }
         if(currentProgressStatus > 30 && currentProgressStatus <= 60) {
-            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_yellow, mContext.getApplicationContext().getTheme()));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                statusGoal.setBackground(mContext.getResources().getDrawable(R.drawable.circle_status_yellow));
+            } else {
+                statusGoal.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_yellow));
+            }
         }
         if(currentProgressStatus > 60 && currentProgressStatus < 100 || currentProgressStatus >= 100) {
-            statusGoal.setImageDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_green, mContext.getApplicationContext().getTheme()));
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                statusGoal.setBackground(mContext.getResources().getDrawable(R.drawable.circle_status_green));
+            } else {
+                statusGoal.setBackgroundDrawable(mContext.getResources().getDrawable(R.drawable.circle_status_green));
+            }
         }
     }
 

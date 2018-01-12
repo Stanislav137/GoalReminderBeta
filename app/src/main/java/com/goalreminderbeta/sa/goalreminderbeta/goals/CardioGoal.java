@@ -21,6 +21,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     private int distance;
     private boolean completed;
     private boolean blink;
+    private boolean relax;
 
     public CardioGoal() {
     }
@@ -92,6 +93,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public boolean getRelax() {
+        return relax;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -99,6 +105,11 @@ public class CardioGoal extends SugarRecord implements Goal{
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+        this.relax = relax;
     }
 
     @Override

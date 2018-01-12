@@ -74,6 +74,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     }
 
     @Override
+    public boolean getRelax() {
+        return false;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -81,6 +86,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+
     }
 
     @Override

@@ -339,7 +339,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -349,6 +349,17 @@
             android:padding="15sp"
             android:id="@+id/completed"
             android:background="@drawable/completed"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp"
+            android:onClick="popupTest"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/child_section_relax"
+            android:padding="20sp"
+            android:background="@color/clr_science"
+            android:id="@+id/relax"
             android:textColor="@color/colorWhite"
             android:textSize="22sp"
             android:onClick="popupTest"/>

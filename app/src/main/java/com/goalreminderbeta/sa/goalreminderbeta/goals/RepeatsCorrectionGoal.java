@@ -19,6 +19,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private double initialResult;
     private boolean blink;
     private double progress=0.0;
+    private boolean relax;
 
 
     public RepeatsCorrectionGoal() {
@@ -71,6 +72,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public boolean getRelax() {
+        return relax;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -78,6 +84,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+        this.relax = relax;
     }
 
     @Override
