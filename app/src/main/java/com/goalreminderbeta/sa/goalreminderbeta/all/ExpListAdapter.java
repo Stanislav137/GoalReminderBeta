@@ -900,7 +900,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         } else distanceRunUnits.setText("" + goal.getDistance() + " meters");
         dataBook.setText(goal.getDataBook());
         double currentProgressStatus = goal.getProgress();
-        verifyStatus(currentProgressStatus, convertView); // СТАТУС
+      // verifyStatus(currentProgressStatus, convertView); // СТАТУС
         if(goal.getDescriptionGoal().equals("")) {
             if(typeLang.equals("ru")) {
                 goalDescription.setText("Ты не проиграл пока не сдался!"); // в том случае если никто не ввел описание
