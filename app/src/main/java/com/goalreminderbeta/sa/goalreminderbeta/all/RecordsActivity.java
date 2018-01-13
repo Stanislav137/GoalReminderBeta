@@ -279,6 +279,7 @@ public class RecordsActivity extends AppCompatActivity {
                     tempGoal = null;
                 }
             }
+        }
             if (tempGoal != null) {
                 for(CardioGoal goal:goals){
                     if(goal.getProgress()>=100){
@@ -288,31 +289,8 @@ public class RecordsActivity extends AppCompatActivity {
                             tempGoal = goal;
                         }
                     }
-        if(goals.isEmpty()){
-            tempGoal=null;
-        }else{
-            tempGoal = goals.get(0);
-            for(CardioGoal goal:goals){
-                if(goal.getProgress()>=100){
-                    tempGoal = goal;
-                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2, RoundingMode.UP).doubleValue();
-                    break;
-                }else{
-                    tempGoal = null;
                 }
             }
-            if (tempGoal != null) {
-                for(CardioGoal goal:goals){
-                    if(goal.getProgress()>=100){
-                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
-                        if(d>result){
-                            result=d;
-                            tempGoal = goal;
-                        }
-                    }
-                }
-            }
-        }
         return tempGoal;
     }
 

@@ -19,6 +19,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private String themeCategory;
     private boolean completed;
     private boolean blink;
+    private boolean showDialog;
     private double initialResult;
     private double progress=0.0;
 
@@ -201,6 +202,15 @@ public class ReadBookGoal extends SugarRecord implements Goal {
 
     public void setThemeCategory(String themeCategory) {
         this.themeCategory = themeCategory;
+    }
+    @Override
+    public boolean getDialog() {
+        return showDialog;
+    }
+
+    @Override
+    public void setDialog(boolean showDialog) {
+        this.showDialog=showDialog;
     }
 
     @Override

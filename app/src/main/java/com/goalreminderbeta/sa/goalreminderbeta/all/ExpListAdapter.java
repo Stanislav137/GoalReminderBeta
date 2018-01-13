@@ -690,7 +690,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         taskDG.setText("max. number of repetitions");
                         titleTxt.setText("MY NEW PROGRESS:");
                     }
-                }
                 currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
                 goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
                 madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);

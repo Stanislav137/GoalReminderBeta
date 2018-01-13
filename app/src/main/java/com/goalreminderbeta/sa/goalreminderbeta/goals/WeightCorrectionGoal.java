@@ -18,6 +18,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private boolean completed;
     private boolean blink;
     private double progress=0.0;
+    private boolean showDialog;
 
     public WeightCorrectionGoal() {
     }
@@ -189,7 +190,15 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     public void setThemeCategory(String themeCategory) {
         this.themeCategory = themeCategory;
     }
+    @Override
+    public boolean getDialog() {
+        return showDialog;
+    }
 
+    @Override
+    public void setDialog(boolean showDialog) {
+        this.showDialog=showDialog;
+    }
     @Override
     public String toString() {
         return "WeightCorrectionGoal{" +
@@ -202,6 +211,4 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
                 ", themeCategory='" + themeCategory + '\'' +
                 '}';
     }
-
-
 }
