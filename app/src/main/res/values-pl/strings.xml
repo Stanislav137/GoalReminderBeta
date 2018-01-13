@@ -257,6 +257,17 @@
     <string name="your_desired_goal_below_current_one">YOUR DESIRED GOAL BELOW THE CURRENT ONE</string>
     <string name="warning">Your time is up.\nTry the best!</string>
     <string name="child_section_relax">Today relax</string>
-
+    <string name="save_options">SAVE</string>
+    <string name="notification_on_off">Notification on/off</string>
+    <string name="sound">Sound on/off</string>
+    <string name="vibration">Vibration on/off</string>
+    <string name="frequency">Frequency</string>
+    <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
+    <string-array name="frequency">
+        <item>Each hour</item>
+        <item>Each 2 hours</item>
+        <item>Each 3 hours</item>
+        <item>Each 4 hours</item>
+    </string-array>
 
 </resources>

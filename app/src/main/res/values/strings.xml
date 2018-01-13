@@ -63,8 +63,6 @@
 
     <string name="reminder_interval">ИНТЕРВАЛ НАПОМИНАНИЯ:</string>
     <string name="reminder_interval_hour">час</string>
-    <string name="sound_on_off">ВКЛ/ВЫКЛ ЗВУК:</string>
-    <string name="vibration_on_off">ВКЛ/ВЫКЛ ВИБРАЦИЮ:</string>
     <string name="days_tracking">ДНИ СЛЕЖЕНИЯ:</string>
     <string name="options_sunday">В</string>
     <string name="options_monday">П</string>
@@ -73,7 +71,12 @@
     <string name="options_thursday">Ч</string>
     <string name="options_friday">П</string>
     <string name="options_saturday">С</string>
-    <string name="notifications_on_off">ВКЛ/ВЫКЛ УВЕДОМЛЕНИЯ:</string>
+    <string name="save_options">СОХРАНИТЬ</string>
+    <string name="notification_on_off">Уведомления вкл/выкл</string>
+    <string name="sound">Звук вкл/выкл</string>
+    <string name="vibration">Вибрацию вкл/выкл</string>
+    <string name="frequency">Интервал Напоминания:</string>
+    <string name="frequency_summary">Выберите как часто вы хотите чтобы приходило уведомление</string>
 
     <!-- ACTIVITY STATISTICS-->
 
@@ -170,10 +173,10 @@
     <string name="warning">Ваше время истекло.\nПостарайтесь лучше!</string>
     <!--config-->
     <string-array name="frequency">
-        <item>Each hour</item>
-        <item>Each 2 hours</item>
-        <item>Each 3 hours</item>
-        <item>Each 4 hours</item>
+        <item>Каждый час</item>
+        <item>Каждые 2 часа</item>
+        <item>Каждые 3 часа</item>
+        <item>Каждые 4 часа</item>
     </string-array>
 
     <string-array name="frequencyValues">

@@ -103,7 +103,6 @@
     <string name="skills_goal_date_from" translatable="false">FROM</string>
     <string name="skills_your_level" translatable="false">MY LEVEL:</string>
     <string name="skills_your_max_level" translatable="false">MAX. LEVEL:</string>
-    <string name="sound_on_off">ON/OFF SOUND:</string>
     <string name="sport">SPORT</string>
     <string name="statistics">STATISTICS</string>
     <string name="statistics_current_result">CURRENT SCORE:</string>
@@ -118,7 +117,6 @@
     <string name="sum_learned_words_100_word">100 words</string>
     <string name="theme_of_sport">TOPIC SPORTS</string>
     <string name="theme_science">TOPIC OF SCIENCE</string>
-    <string name="vibration_on_off">ON / OFF VIBRATION:</string>
     <string name="weight_current_weight">CURRENT WEIGHT:</string>
     <string name="weight_current_weight_kg">KG</string>
     <string name="weight_description_purpose">DESCRIPTION OF OBJECTIVE:</string>
@@ -257,5 +255,17 @@
     <string name="your_desired_goal_below_current_one">YOUR DESIRED GOAL BELOW THE CURRENT ONE</string>
     <string name="warning">Your time is up.\nTry the best!</string>
     <string name="child_section_relax">Today relax</string>
+    <string name="save_options">SAVE</string>
+    <string name="notification_on_off">Notification on/off</string>
+    <string name="sound">Sound on/off</string>
+    <string name="vibration">Vibration on/off</string>
+    <string name="frequency">Frequency</string>
+    <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
+    <string-array name="frequency">
+        <item>Each hour</item>
+        <item>Each 2 hours</item>
+        <item>Each 3 hours</item>
+        <item>Each 4 hours</item>
+    </string-array>
 
 </resources>

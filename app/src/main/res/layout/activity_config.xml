@@ -83,10 +83,10 @@
             </RelativeLayout>
         </LinearLayout>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/saveBTN"
-            android:text="Save"
+            android:text="@string/save_options"
             android:layout_gravity="center"
             android:textSize="20sp"
             android:textColor="@color/colorBackground"

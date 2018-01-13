@@ -4,65 +4,26 @@
     <SwitchPreference
         android:defaultValue="true"
         android:key="notification"
-        android:title="Notification on/off"></SwitchPreference>
+        android:title="@string/notification_on_off">
+    </SwitchPreference>
     <SwitchPreference
         android:key="sound"
         android:defaultValue="true"
-        android:title="Sound on/off">
+        android:title="@string/sound">
     </SwitchPreference>
     <SwitchPreference
         android:key="vibration"
         android:defaultValue="true"
-        android:title="Vibration on/off">
+        android:title="@string/vibration">
     </SwitchPreference>
 
     <ListPreference
         android:key="interval"
         android:entries="@array/frequency"
         android:entryValues="@array/frequencyValues"
-        android:title="Frequency"
+        android:title="@string/frequency"
         android:defaultValue="1"
-        android:summary="Choose how often yo wish to receive notifications"
-        ></ListPreference>
-    <PreferenceScreen
-        android:enabled="false"
-        >
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="0"
-            android:title="Monday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="1"
-            android:title="Tuesday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="2"
-            android:title="Wednesday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="3"
-            android:title="Thursday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="4"
-            android:title="Friday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="5"
-            android:title="Saturday"
-            ></CheckBoxPreference>
-        <CheckBoxPreference
-            android:checked="false"
-            android:key="6"
-            android:title="Sunday"
-            ></CheckBoxPreference>
-
-    </PreferenceScreen>
+        android:summary="@string/frequency_summary">
+    </ListPreference>
 
 </PreferenceScreen>
