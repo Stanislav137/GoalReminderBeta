@@ -389,7 +389,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="ТЕМА НАУКА"
+                    android:text="@string/topic_of_science"
                     android:textSize="20sp"
                     android:enabled="false"
                     android:background="@color/clr_science"

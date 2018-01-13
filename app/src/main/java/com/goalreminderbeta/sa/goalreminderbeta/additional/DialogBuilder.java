@@ -38,7 +38,7 @@ public abstract class DialogBuilder {
         this.activity = activity;
         dialog = new Dialog(activity);
         dialogBuilderGoal = goal;
-        dialog.setTitle("Confirmation");
+        dialog.setTitle(R.string.dialog);
         dialog.setContentView(R.layout.confirm_dialog);
         goalName = (TextView)dialog.findViewById(R.id.goalName);
         goalDescr = (TextView)dialog.findViewById(R.id.goalDescr);
@@ -58,7 +58,7 @@ public abstract class DialogBuilder {
     }
 
     public void encourage(){
-        Toast.makeText(activity.getApplicationContext(),"Цель успешно добавлена!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity.getApplicationContext(),R.string.toast_makeText,Toast.LENGTH_SHORT).show();
     }
 
 }

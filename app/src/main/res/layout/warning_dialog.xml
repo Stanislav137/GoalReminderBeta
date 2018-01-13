@@ -3,22 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="130dp"
+    android:layout_height="wrap_content"
     android:gravity="center"
-    android:background="@color/clr_science">
+    android:background="@color/clr_sport">
 <TextView
-    android:textColor="#FFFFFF"
+    android:textColor="@color/colorWhite"
     android:textSize="20sp"
-    android:textStyle="bold"
+    android:layout_margin="5sp"
     android:gravity="center"
     android:text="@string/warning"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
     <Button
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
+        android:background="@color/colorBlack"
         android:text="OK"
+        android:textSize="15sp"
+        android:textColor="@color/colorWhite"
         android:id="@+id/acceptBTN"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

@@ -30,8 +30,8 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ ПОВТОРЕНИЯ"
-            android:textColor="@color/colorBackground"
+            android:text="@string/category_repetition_title"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
         <ImageView
@@ -130,7 +130,7 @@
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_red"
                 android:text="-"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <Button
@@ -142,7 +142,7 @@
                 android:layout_toRightOf="@+id/sportMinusRepeatCurrent"
                 android:background="@drawable/btn_red"
                 android:text="+"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <RelativeLayout
@@ -162,7 +162,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_red"
                     android:text="+10"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -182,7 +182,7 @@
                 android:background="@drawable/btn_green"
                 android:onClick="setCurrentRepeats"
                 android:text="0"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
 
         </RelativeLayout>
@@ -229,7 +229,7 @@
                 android:layout_marginLeft="10sp"
                 android:background="@drawable/btn_red"
                 android:text="-"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <Button
@@ -241,7 +241,7 @@
                 android:layout_toRightOf="@+id/sportMinusRepeatGoal"
                 android:background="@drawable/btn_red"
                 android:text="+"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <RelativeLayout
@@ -261,7 +261,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_red"
                     android:text="+10"
-                    android:textColor="@color/colorBackground"
+                    android:textColor="@color/colorWhite"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -281,7 +281,7 @@
                 android:background="@drawable/btn_green"
                 android:onClick="setGoalRepeats"
                 android:text="0"
-                android:textColor="@color/colorBackground"
+                android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
 
         </RelativeLayout>
@@ -313,7 +313,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:layout_centerVertical="true"
-            android:text="ОТ"
+            android:text="@string/repeats_theme_from"
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -369,7 +369,7 @@
         android:onClick="saveGoal"
         android:padding="15sp"
         android:text="@string/save_goal"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp" />
 
 </LinearLayout>

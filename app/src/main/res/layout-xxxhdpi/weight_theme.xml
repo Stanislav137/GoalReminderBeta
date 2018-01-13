@@ -30,7 +30,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ МАССА"
+            android:text="@string/category_weight"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 

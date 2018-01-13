@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="30sp"
-                    android:text="ВКЛ/ВЫКЛ ЗВУК:"
+                    android:text="вкл/выкл звук:"
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 

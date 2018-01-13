@@ -113,7 +113,7 @@ public class RecordsActivity extends AppCompatActivity {
         }else {distance.setText("м");}
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
-            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2).doubleValue();
+            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
             speed.setText(String.valueOf(s)+" м/с");
         }else {speed.setText(" м/с");}
 
@@ -121,7 +121,7 @@ public class RecordsActivity extends AppCompatActivity {
         if(rcGoal!=null){
             double rcGoalText = rcGoal.getGoalResult();
             if(rcGoalText>=2&&rcGoalText<=4)
-            repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
+                repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
             else repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раз");
         }else {repeats.setText("раз");}
         exercise = (TextView)findViewById(R.id.exerciseTV);
@@ -288,6 +288,28 @@ public class RecordsActivity extends AppCompatActivity {
                             tempGoal = goal;
                         }
                     }
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(CardioGoal goal:goals){
+                if(goal.getProgress()>=100){
+                    tempGoal = goal;
+                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2, RoundingMode.UP).doubleValue();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(CardioGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
+                        if(d>result){
+                            result=d;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
@@ -435,7 +457,8 @@ public class RecordsActivity extends AppCompatActivity {
 
         for(LanguageLearningGoal goal:goals){
             if(goal.getProgress()>=100){
-                double result2 = goal.getGoalResult()-goal.getInitialResult();
+                double result2 =
+                        goal.getGoalResult()-goal.getInitialResult();
                 long l2 =goal.getFromDate().getTime()-goal.getToDate().getTime();
                 l2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(l,TimeUnit.MILLISECONDS)));
                 l2++;
@@ -529,3 +552,4 @@ public class RecordsActivity extends AppCompatActivity {
         this.finish();
     }
 }
+

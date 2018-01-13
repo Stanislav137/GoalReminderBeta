@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВАБЕРИТЕ КАТЕГОРИЮ"
+            android:text="@string/SELECT_CATEGORY_sport"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
     </RelativeLayout>

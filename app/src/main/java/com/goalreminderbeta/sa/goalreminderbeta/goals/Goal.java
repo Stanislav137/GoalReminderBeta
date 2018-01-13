@@ -10,8 +10,10 @@ public interface Goal {
     boolean delete();
     Long getId();
     void setCompleted(boolean completed);
+    void setRelax(boolean relax);
     void setBlink(boolean blink);
     boolean getCompleted();
+    boolean getRelax();
     boolean getBlink();
     String getNameGoal();
     String getThemeCategory();
@@ -31,5 +33,7 @@ public interface Goal {
     double getProgress();
     void setProgress(double progress);
     double getInitialResult();
+    double getDayCompletedCardioRepeats();
+    double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats);
     void setInitialResult(double initialResult);
 }

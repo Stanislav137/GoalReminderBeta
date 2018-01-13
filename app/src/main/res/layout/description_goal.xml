@@ -7,20 +7,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nameGoal"
-        android:hint="Название цели или ключевое слово"/>
+        android:hint="@string/description_goal_goal_name_keyword"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/descriptionGoal"
-        android:hint="Напишите ради чего вы это делаете"/>
+        android:hint="@string/description_goal_write_for_what"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ГОТОВО"
+        android:text="@string/description_goal_done"
         android:onClick="saveDescription"
         android:background="@color/clr_main"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"/>
 
 </LinearLayout>
