@@ -597,12 +597,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
-                Button relax = (Button) view.findViewById(R.id.relax);
-                relax.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "сек";
                 } else units = "seconds";
                 if(goal.getCurrentResult()==0 && goal.getGoalResult() == 0) { // regular attack
+                    Button relax = (Button) view.findViewById(R.id.relax);
+                    relax.setVisibility(View.VISIBLE);
                     TextView distanceTitle = (TextView) view.findViewById(R.id.distanceTitle);
                     LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
                     LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
@@ -665,12 +665,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "ПОВТОРЕНИЯ":
-                Button relax2 = (Button) view.findViewById(R.id.relax);
-                relax2.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "повторения";
                 } else units = "repetition";
-                if(goal.getCurrentResult() == 0) {
+                if(goal.getCurrentResult() == 0) { // regular attack
+                    Button relax2 = (Button) view.findViewById(R.id.relax);
+                    relax2.setVisibility(View.VISIBLE);
                     LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
                     LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
                     LinearLayout separator4 = (LinearLayout) view.findViewById(R.id.separator4);
