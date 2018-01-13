@@ -362,46 +362,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     }
 
                                     goal.setProgress(Math.round(percent));
-                                    int currentProgress = (int)Math.round(goal.getProgress());
-                                    progressBar.setProgress(currentProgress);
+                                //    int currentProgress = (int)Math.round(goal.getProgress());
+                                //    progressBar.setProgress(currentProgress);
 
-                                    if(currentProgress <= 30) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorRed), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorRed));
-                                    }
-                                    if(currentProgress > 30 && currentProgress <= 60) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorYellow), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorYellow));
-                                    }
-                                    if(currentProgress > 60 && currentProgress < 100) {
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
-                                    }
-                                    if(currentProgress >= 100) {
-                                        String typeLang = mActivity.getResources().getConfiguration().locale.getLanguage();
-                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mActivity);
-                                        if(typeLang.equals("ru")) {
-                                            alertDialog.setTitle("ЦЕЛЬ ВЫПОЛНЕНА! ТАК ДЕРЖАТЬ!");
-                                            alertDialog.setMessage("ЗАПИШИТЕ СЛЕДУЮЩУЮ ЦЕЛЬ! ВПЕРЁД К ВЕЛИЧИЮ!");
-                                        } else {
-                                            alertDialog.setTitle("THE PURPOSE IS IMPLEMENTED! KEEP IT UP!");
-                                            alertDialog.setMessage("WRITE THE FOLLOWING PURPOSE! FORWARD TO VALUE!");
-                                        }
-                                        alertDialog.setPositiveButton("OK", null);
-                                        progressBar.getProgressDrawable().setColorFilter(mContext.
-                                                getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                                        textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
-                                        textCircleProgress.setText("100%");
-                                        alertDialog.show();
-                                    } else {
-                                        textCircleProgress.setText((int) currentProgress + "%");
-                                    }
+                                //    textCircleProgress.setText((int) currentProgress + "%");
                                     goal.setBlink(true);
                                     goal.save();
-                                    notifyDataSetChanged();
                                     dialog.cancel();
                                 }
                             });
@@ -494,31 +460,51 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
                             textCircleProgress.setTextColor(mActivity.getResources().getColor(R.color.colorGreen));
                         }
-                        if(currentProgress >= 100) {
-                            textCircleProgress.setText("100%");
-                            progressBar.getProgressDrawable().setColorFilter(mActivity.
-                                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
-                            textCircleProgress.setTextColor(mActivity.getResources().getColor(R.color.colorGreen));
-                        } else {
-                            textCircleProgress.setText((int)currentProgress + "%");
-                        }
                         goal.save();
                         String typeLang = mActivity.getResources().getConfiguration().locale.getLanguage();
-                        adb = new AlertDialog.Builder(mActivity);
-                        if(typeLang.equals("ru")) {
-                            adb.setTitle("Поздравляем!");
-                            adb.setMessage("Молодец! Продолжай в том же духе!");
-                            adb.setPositiveButton("ОКЕЙ", null);
+                        if(currentProgress >= 100) {
+                            adb = new AlertDialog.Builder(mActivity);
+                            if(typeLang.equals("ru")) {
+                                adb.setTitle("ЦЕЛЬ ВЫПОЛНЕНА! ТАК ДЕРЖАТЬ!");
+                                adb.setMessage("ЗАПИШИТЕ СЛЕДУЮЩУЮ ЦЕЛЬ! ВПЕРЁД К ВЕЛИЧИЮ!");
+                            } else {
+                                adb.setTitle("THE PURPOSE IS IMPLEMENTED! KEEP IT UP!");
+                                adb.setMessage("WRITE THE FOLLOWING PURPOSE! FORWARD TO VALUE!");
+                            }
+                            progressBar.getProgressDrawable().setColorFilter(mContext.
+                                    getResources().getColor(R.color.colorGreen), PorterDuff.Mode.SRC_IN);
+                            textCircleProgress.setTextColor(mContext.getResources().getColor(R.color.colorGreen));
+                            textCircleProgress.setText("100%");
+                            adb.setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        notifyDataSetChanged();
+                                        reload();
+                                    }
+                                });
+                            adb.show();
                         } else {
-                            adb.setTitle("Congratulations");
-                            adb.setMessage("Go on! You are the best!");
-                            adb.setPositiveButton("Thanks", null);
+                            adb = new AlertDialog.Builder(mActivity);
+                            if(typeLang.equals("ru")) {
+                                adb.setTitle("Поздравляем!");
+                                adb.setMessage("Молодец! Продолжай в том же духе!");
+                                adb.setPositiveButton("ОКЕЙ", null);
+                            } else {
+                                adb.setTitle("Congratulations");
+                                adb.setMessage("Go on! You are the best!");
+                                adb.setPositiveButton("Thanks", null);
+                            }
+                            adb.setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        notifyDataSetChanged();
+                                        reload();
+                                    }
+                                });
+                            adb.setCancelable(true);
+                            congrDialog = adb.create();
+                            congrDialog.show();
                         }
-                        adb.setCancelable(true);
-                        congrDialog = adb.create();
-                        congrDialog.show();
-                        notifyDataSetChanged();
-                        reload();
                     }
                 });
             relax.setOnClickListener(new View.OnClickListener() {
