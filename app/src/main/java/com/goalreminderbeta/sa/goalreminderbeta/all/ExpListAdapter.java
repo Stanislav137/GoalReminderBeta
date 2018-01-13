@@ -342,16 +342,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                         gR = ((ReadBookGoal)goal).getGoalResult();
                                         percent = Math.abs((cR/gR)*100);
                                     }else if(goal instanceof LanguageLearningGoal){
-                                        double mR = goal.getMadeTodayResult();
-                                        iR = ((LanguageLearningGoal)goal).getInitialResult();
-                                        gR = ((LanguageLearningGoal)goal).getGoalResult();
-                                        percent = Math.abs((mR/(gR-iR))*100);
+//                                        double mR = goal.getMadeTodayResult();
+//                                        iR = goal.getInitialResult();
+//                                        gR = goal.getGoalResult();
+//                                        percent = Math.abs((mR/(gR-iR))*100);
                                     }else if(goal instanceof CardioGoal
                                             ||goal instanceof RepeatsCorrectionGoal||goal instanceof WeightCorrectionGoal) {
-                                        iR = goal.getInitialResult();
-                                        cR = goal.getCurrentResult();
-                                        gR = goal.getGoalResult();
-                                        percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
+//                                        iR = goal.getInitialResult();
+//                                        cR = goal.getCurrentResult();
+//                                        gR = goal.getGoalResult();
+//                                        percent = Math.abs(((iR - cR) / (gR - iR)) * 100);
                                     }else if(goal instanceof ElementCorrectionGoal){
                                         iR = ((ElementCorrectionGoal)goal).getInitialResult();
                                         cR =((ElementCorrectionGoal)goal).getCurrentResult2();
