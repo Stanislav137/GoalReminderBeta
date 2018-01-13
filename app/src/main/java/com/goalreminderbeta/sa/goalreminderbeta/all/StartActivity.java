@@ -390,7 +390,7 @@ public class StartActivity extends AppCompatActivity {
                 }
                 if(todayDate.after(goalDate)){
                     return true;
-                }*/
+                }
                 return false;
             }
         });

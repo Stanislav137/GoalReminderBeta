@@ -580,7 +580,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 }
                 titleDG.setTextColor(Color.parseColor("#d23134"));
                 currentResultDG.setText(String.format("%.1f", goal.getInitialResult()) + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
+                goalResultDG.setText(String.format("%.1f", goal.getGoalResult()) + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
@@ -672,22 +672,18 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         taskDG.setText("execute repeats");
                     }
                 } else {
-                    taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                }                currentResultDG.setText(goal.getCurrentResult() + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
-                madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
-                titleTxt = (TextView) view.findViewById(R.id.titleTxt);
-                if(typeLang.equals("ru")) {
-                    taskDG.setText("макс. кол-во повторений");
-                    titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
-                } else {
-                    taskDG.setText("max. number of repetitions");
-                    titleTxt.setText("MY NEW PROGRESS:");
+                    titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                    if(typeLang.equals("ru")) {
+                        taskDG.setText("макс. кол-во повторений");
+                        titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
+                    } else {
+                        taskDG.setText("max. number of repetitions");
+                        titleTxt.setText("MY NEW PROGRESS:");
+                    }
                 }
-            }
-            currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
-            goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
-            madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
+                currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
+                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КНИГА":
                 if(typeLang.equals("ru")) {
@@ -714,6 +710,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
                 break;
         }
+
 
         /* FOR ALL GOALS */
         if(goal.getDescriptionGoal().equals("")) {
