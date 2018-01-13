@@ -598,12 +598,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
-                Button relax = (Button) view.findViewById(R.id.relax);
-                relax.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "сек";
                 } else units = "seconds";
                 if(goal.getCurrentResult()==0 && goal.getGoalResult() == 0) { // regular attack
+                    Button relax = (Button) view.findViewById(R.id.relax);
+                    relax.setVisibility(View.VISIBLE);
                     TextView distanceTitle = (TextView) view.findViewById(R.id.distanceTitle);
                     LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
                     LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
@@ -642,7 +642,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         distanceDG.setText(goal.getDistance() + " meters");
                         taskDG.setText("training");
                     }
-                    currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                    currentResultDG.setText(goal.getInitialResult() + " " + units);
                     goalResultDG.setText(goal.getGoalResult() + " " + units);
                     madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 }
@@ -666,12 +666,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "ПОВТОРЕНИЯ":
-                Button relax2 = (Button) view.findViewById(R.id.relax);
-                relax2.setVisibility(View.VISIBLE);
                 if(typeLang.equals("ru")) {
                     units = "повторения";
                 } else units = "repetition";
-                if(goal.getCurrentResult() == 0) {
+                if(goal.getCurrentResult() == 0) { // regular attack
+                    Button relax2 = (Button) view.findViewById(R.id.relax);
+                    relax2.setVisibility(View.VISIBLE);
                     LinearLayout llCurrentResult = (LinearLayout) view.findViewById(R.id.llCurrentResult);
                     LinearLayout showPopupDayTask = (LinearLayout) view.findViewById(R.id.showPopupDayTask);
                     LinearLayout separator4 = (LinearLayout) view.findViewById(R.id.separator4);
@@ -686,16 +686,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         taskDG.setText("execute repeats");
                     }
                 } else {
-                    taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                }
-                titleTxt = (TextView) view.findViewById(R.id.titleTxt);
-                if(typeLang.equals("ru")) {
-                    taskDG.setText("макс. кол-во повторений");
-                    titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
-                } else {
-                    taskDG.setText("max. number of repetitions");
-                    titleTxt.setText("MY NEW PROGRESS:");
-                }
+                    titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                    if(typeLang.equals("ru")) {
+                        taskDG.setText("макс. кол-во повторений");
+                        titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
+                    } else {
+                        taskDG.setText("max. number of repetitions");
+                        titleTxt.setText("MY NEW PROGRESS:");
+                    }
                 }
                 currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
                 goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
@@ -706,10 +704,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     units = "страниц";
                 } else units = "pages";
                 dayTask = Math.ceil(dayTask);
-                taskDG.setText(String.format("%.1f", dayTask) + " " + units);
-                currentResultDG.setText(goal.getCurrentResult() + " " + units);
-                goalResultDG.setText(goal.getGoalResult() + " " + units);
-                madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 taskDG.setText(String.format("%.0f", dayTask) + " " + units);
                 currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
                 goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
