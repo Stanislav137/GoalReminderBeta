@@ -30,7 +30,7 @@
             android:id="@+id/ngTitle"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КАРДИО"
+            android:text="@string/cardio_category_cardio"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
@@ -88,6 +88,11 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorGrey"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -192,17 +197,12 @@
                 android:layout_alignParentRight="true"
                 android:layout_margin="10sp"
                 android:background="@drawable/btn_red"
-                android:text="M"
+                android:text="@string/cardio_m"
                 android:textColor="@color/colorBackground" />
 
         </RelativeLayout>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="@color/colorGrey"></LinearLayout>
 
     <LinearLayout
         android:id="@+id/llGoalWeight"

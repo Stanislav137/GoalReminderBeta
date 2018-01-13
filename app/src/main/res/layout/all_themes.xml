@@ -13,8 +13,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="backToPrevActivity"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true"
+            android:onClick="backToPrevActivity">
 
             <ImageView
                 android:id="@+id/arrowBack"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ВЫБЕРИТЕ ТЕМУ"
+            android:text="@string/all_themes_select_themes"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </RelativeLayout>
@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:text="СПОРТ"
+                        android:text="@string/all_themes_sport"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
 
@@ -153,11 +153,11 @@
                         android:id="@+id/themeScienceTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5sp"
-                        android:text="НАУКА"
+                        android:text="@string/all_themes_science"
                         android:textColor="@color/colorBlack"
-                        android:textSize="28sp" />
+                        android:textSize="28sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -228,7 +228,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5sp"
-                        android:text="НАВЫКИ"
+                        android:text="@string/all_themes_skills"
                         android:textColor="@color/colorBlack"
                         android:textSize="28sp" />
 

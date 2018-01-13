@@ -9,30 +9,31 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/clr_sport"
+            android:text="@string/popup_choose_type_new_record"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:text="новый рекорд" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/descrRecord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
             android:layout_margin="5sp"
-            android:textSize="15sp"
-            android:text="@string/descr_new_record_cardio"/>
+            android:text="@string/descr_new_record_cardio"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/newRecord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp"
             android:background="@color/clr_main"
-            android:text="выбрать" />
+            android:text="@string/popup_choose_type_choose"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -53,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/clr_sport"
-            android:text="регулярная атака"
+            android:text="@string/popup_choose_type_regular_attack"
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
@@ -71,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/clr_main"
-            android:text="выбрать"
+            android:text="@string/popup_choose_typere_gular_attack"
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 

@@ -10,7 +10,7 @@
         android:background="@color/clr_sport"
         android:id="@+id/confirmDelete"
         android:textColor="@color/colorBackground"
-        android:text="ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ - "/>
+        android:text="@string/remove_your_purpose"/>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:textColor="@color/colorBackground"
         android:id="@+id/delete"
-        android:text="ДА"
+        android:text="@string/remove_your_purpose_Yes"
         />
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         android:layout_alignParentRight="true"
         android:textColor="@color/colorBackground"
         android:id="@+id/back"
-        android:text="НЕТ"
+        android:text="@string/remove_your_purpose_not"
         />
     </RelativeLayout>
 </LinearLayout>

@@ -41,6 +41,16 @@ public class ReadBookGoal extends SugarRecord implements Goal {
         return initialResult;
     }
 
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return 0;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return 0;
+    }
+
     public boolean isCompleted() {
         return completed;
     }
@@ -64,6 +74,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     }
 
     @Override
+    public boolean getRelax() {
+        return false;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -71,6 +86,11 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+
     }
 
     @Override

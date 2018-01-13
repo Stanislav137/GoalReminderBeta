@@ -30,16 +30,16 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ КНИГА"
+            android:text="@string/book_category_book"
             android:textColor="@color/colorBackground"
             android:textSize="18sp" />
 
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:layout_marginRight="5sp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="5sp"
             android:background="@drawable/menu_white"
             android:onClick="backToHome" />
     </RelativeLayout>

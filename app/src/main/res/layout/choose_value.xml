@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/apply"
         android:background="@color/clr_main"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"
-        android:text="ОК"/>
+        android:text="@string/choose_value_ОК"/>
 
 </LinearLayout>

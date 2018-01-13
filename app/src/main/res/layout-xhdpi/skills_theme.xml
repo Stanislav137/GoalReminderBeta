@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="КАТЕГОРИЯ НАВЫКИ"
+            android:text="@string/category_skills"
             android:textColor="@color/colorBackground"
             android:textSize="20sp" />
 

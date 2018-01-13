@@ -13,11 +13,13 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private double currentResult, goalResult;
     private double madeTodayResult;
     private String nameGoal, descriptionGoal;
+    private double dayCompletedCardioRepeats;
     private String themeCategory;
     private boolean completed;
     private double initialResult;
     private boolean blink;
     private double progress=0.0;
+    private boolean relax;
 
 
     public RepeatsCorrectionGoal() {
@@ -42,6 +44,16 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
         return initialResult;
     }
 
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return dayCompletedCardioRepeats;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return this.dayCompletedCardioRepeats = dayCompletedCardioRepeats;
+    }
+
     public void setInitialResult(double initialResult) {
         this.initialResult = initialResult;
     }
@@ -60,6 +72,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     }
 
     @Override
+    public boolean getRelax() {
+        return relax;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -67,6 +84,11 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+        this.relax = relax;
     }
 
     @Override

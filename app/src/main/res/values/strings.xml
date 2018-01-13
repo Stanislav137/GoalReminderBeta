@@ -7,7 +7,6 @@
     <string name="save_goal">СОХРАНИТЬ ЦЕЛЬ</string>
     <string name="description_theme_sport">Данная тема поможет достичь желаемого результата в сфере спорт и предоставит на выбор 3 категории. Вперёд к новым победам!</string>
     <string name="description_theme_science">Данная тема поможет достичь желаемого результата в сфере изучения и предоставит на выбор 2 категории. Будь мудрее с каждым днём!</string>
-    <string name="description_theme_other">Данная тема поможет достичь желаемых результатов в абсолютно разных сферах и предоставит на выюор 2 категории.</string>
     <string name="description_theme_mygoal">Данная категория позволит создать собственную цель, если это касается чего-то особенного.</string>
     <string name="chosen">ВЫБРАТЬ</string>
     <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса. Самое время для мощных тренировок!</string>
@@ -31,7 +30,7 @@
     <string name="minimum_weight">МИНИМАЛЬНЫЙ ВЕС:</string>
     <string name="max_kg">кг</string>
     <string name="category_cardio">КАТЕГОРИЯ КАРДИО</string>
-    <string name="far_distance">ДАЛЬНЯЯ ДИСТНАЦИЯ:</string>
+    <string name="far_distance">ДАЛЬНЯЯ ДИСТНЦИЯ:</string>
     <string name="far_distance_km">км</string>
     <string name="best_speed">ЛУЧШАЯ СКОРОСТЬ:</string>
     <string name="best_speed_sec">сек</string>
@@ -55,6 +54,10 @@
     <string name="sum_hours">СУМА ЧАСОВ ИЗУЧЕНИЯ:</string>
     <string name="maximum_number_hours_day">МАКСИМАЛЬНОЕ КОЛ-ВО ЧАСОВ ЗА ДЕНЬ:</string>
     <string name="lang_units">часов</string>
+    <string name="words_per_day">МАКС. КОЛ-ВО СЛОВ ЗА ДЕНЬ:</string>
+    <string name="words_per_day_words">слов</string>
+    <string name="sum_learned_words">СУММА ИЗУЧЕННЫХ СЛОВ:</string>
+    <string name="sum_learned_words_100_word">100 слов</string>
 
     <!-- ACTIVITY OPTIONS -->
 
@@ -131,9 +134,9 @@
 
     <string name="book_description_purpose">ОПИСАНИЕ ЦЕЛИ:</string>
     <string name="book_number_page_read">КОЛ-ВО СТРАНИЦ ДЛЯ ПРОЧТЕНИЯ:</string>
-    <string name="book_this_book">ДАННЫЕ КНИГИ:</string>
     <string name="book_untitled">БЕЗ НАЗВАНИЯ:</string>
     <string name="book_change">ИЗМЕНИТЬ</string>
+    <string name='book_this_book'>НАЗВАНИЕ КНИГИ:</string>
     <string name="book_goal_date">ДАТА ЦЕЛИ:</string>
     <string name="book_goal_date_from">ОТ</string>
     <string name="book_goal_date_before">ДО</string>
@@ -160,7 +163,7 @@
     <!-- POPUP TYPE GOAL -->
 
     <string name="descr_new_record_cardio">Выбрав это мы поможем тебе поставить новый рекорд твоей цели. Тебе нужно будет записать: дистанцию, текущею скорость и твою цель в секундах. Вперед!</string>
-    <string name="descr_regular_attack_cardio">Выбрав это мы поможем добиться твоей ругулярности, для этого запиши дистанцию которую хочешь преодолевать каждый день и вперёд!</string>
+    <string name="descr_regular_attack_cardio">Выбрав это мы поможем добиться твоей регулярности, для этого запиши дистанцию которую хочешь преодолевать каждый день и вперёд!</string>
 
     <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в твоих упражнениях на повторения, для этого введи текущее кол-во повторений и свой конечный результат!</string>
     <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться регулярности выполнения упражнения каждый день. Для этого просто запиши свою цель в повторениях за один день!</string>
@@ -208,7 +211,6 @@
     <!-- WARNINGS STRINGS -->
 
     <string name="descr_weight">Если твоя ближайшая цель это набрать массы или скинуть лишний вес, то эта категория для тебя! Помни, что самое главное это наращивать мышцы! Поэтому у тебя должна быть конкретная программа тренировок и не забывай о здоровом питании!</string>
-    <string name="instruct_weight">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, свой текущий вес и желаемый вес. В зависимости от того, что введёшь программа поймет, что конкретно ты хочешь сделать(похудать или набрать). Затем запиши дату своей цели и вперёд! Каждый день тебе будут приходить уведомления о том, что тебе нужно потренироваться а спустя каждую неделю взвеситься и записать свой прогресс. Удачи!</string>
 
     <string name="descr_cardio_nr">Если твоя ближайшая цель это поставить новый рекорд в скорости на время, то эта категория для тебя! Здесь ты можешь создать свою цель которая связана со временем и дистанцией!</string>
     <string name="instruct_cardio_nr">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, а также запиши свою дистанцию которую ты собираешься преодолевать, текущее время и желаемое время и конечно же дату завершение цели на когда хочешь закончить. Каждый день будет приходить уведомление, что нужно бить рекорд. Записав результат программа будет следить за твоим прогрессом, Удачи!</string>
@@ -217,7 +219,7 @@
 
     <string name="descr_repeats_nr">Если твоя ближайшая цель это поставить новый рекорд в упражнении на повторениях, то данная категория для тебя! Здесь ты сможешь создать свою цель которая связана с повторениями!</string>
     <string name="instruct_repeats_nr">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, а также запиши текущее кол-во повторений и твоё желаемое кол-во повторений, записывай дату выполнения цели и вперёд в атаку!</string>
-    <string name="descr_repeats_ra">Если твоя ближайшая цель это заняться регулярными тренировками на выполнения повторений в конкретным упражнении, то эта категория для тебя!</string>
+    <string name="descr_repeats_ra">Если твоя ближайшая цель это заняться регулярными тренировками на выполнения повторений в конкретном упражнении, то эта категория для тебя!</string>
     <string name="instruct_repeats_ra">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, а также запиши своё желаемое кол-во повторений для ежедневного выполнения, записывай дату цели и вперёд в атаку!</string>
 
     <string name="descr_book">Если твоя ближайшая цель это прочитать книгу, то данная категория тебе поможет вести контроль над чтением книги!</string>
@@ -228,5 +230,196 @@
     
     <string name="descr_skills">Если твоя ближайшая цель это улучшить навыки какого-то акробатического элемента или навыки рисования а может навыки танцев и т.д. то данная категория для тебя!</string>
     <string name="instruct_skills">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, а также тебе нужно будет оценить свой текущий уровень навыка который ты хочешь записать и в то же время представлять свой конечный результат данного навыка, это и будет твой 5 уровень - твоя цель. Затем введи дату своей цели и каждый день тебе будут приходить уведомление о том, что пора тренироваться чтобы улучшить свой навык и когда ты будешь чувствовать, что поднял уровень, то запиши свой прогресс! Каждый уровень это 100 очков! Удачи чемпион!</string>
+    <string name="instruct_weight">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, свой текущий вес и желаемый вес. В зависимости от того, что введёшь программа поймет, что конкретно ты хочешь сделать(похудеть или набрать). Затем запиши дату своей цели и вперёд! Каждый день тебе будут приходить уведомления о том, что тебе нужно потренироваться а спустя каждую неделю взвеситься и записать свой прогресс. Удачи!</string>
 
+    //16.12.2017 Yarik
+
+    <string name="topic_of_science">ТЕМА НАУКА</string>
+
+    <string name="book_select_category">ВЫБЕРИТЕ КАТЕГОРИЮ</string>
+    <string name="languages_languages">ЯЗЫКИ</string>
+    <string name="book_book">КНИГА</string>
+    // all_themes
+    <string name="all_themes_select_themes">ВЫБЕРИТЕ ТЕМУ</string>
+    <string name="all_themes_sport">СПОРТ</string>
+    <string name="all_themes_science">НАУКА</string>
+    <string name="all_themes_skills">НАВЫКИ</string>
+    //category
+    <string name="book_category_book">КАТЕГОРИЯ КНИГА</string>
+    <string name="cardio_category_cardio">КАТЕГОРИЯ КАРДИО</string>
+
+
+    //child_section_complete
+
+    <string name="child_section_complete_task_is_done">ЗАДАЧА ВЫПОЛНЕНА ?</string>
+    <string name="child_section_complete_Goal_name_of_book">НАЗВАНИЕ ЦЕЛИ | НАЗВАНИЕ КНИГИ</string>
+    <string name="child_section_complete_current_score">ТЕКУЩИЙ РЕЗУЛЬТАТ:</string>
+    <string name="child_section_complete_current_score_pages">страниц</string>
+    <string name="child_section_complete_your_goal">ВАША ЦЕЛЬ:</string>
+    <string name="child_section_complete_your_goal_pages">страниц</string>
+    <string name="child_section_complete_task_for_today">ЗАДАЧА НА СЕГОДНЯ:</string>
+    <string name="child_section_complete_task_for_today_pages">страниц</string>
+    <string name="child_section_complete_completed_today_pages">страниц</string>
+    <string name="child_section_complete_completed_today">СЕГОДНЯ ВЫПОЛНЕНО:</string>
+    <string name="child_section_complete_you">ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !</string>
+    <string name="child_section_complete_done">ВЫПОЛНЕНО</string>
+    <string name="child_section_relax">СЕГОДНЯ ОТДЫХ</string>
+
+    //child_section_stat
+
+    <string name="child_section_start_kg">кг</string>
+    <string name="statistics_your_aim_kg">кг</string>
+    <string name="statistics_remaining_purpose_kg">кг</string>confirm
+    <string name="statistics_task_day">ЗАДАЧА В ДЕНЬ:</string>
+    <string name="statistics_task_day_kg">кг</string>
+    <string name="statistics_days_left_day">10</string>
+
+    //choose_value
+
+    <string name="choose_value_ОК">ОК</string>
+
+    //confirm_deletion
+
+    <string name="remove_your_purpose">ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ</string>
+    <string name="remove_your_purpose_Yes">ДА</string>
+    <string name="remove_your_purpose_not">НЕТ</string>
+
+    //confirm_dialog
+
+    <string name="confirm_dialog_your_aim">Ваша цель:</string>
+    <string name="confirm_dialog_confirm_data">ПОДТВЕРДИТЕ ДАННЫЕ</string>
+    <string name="confirm_dialog_description_purpose">Описание цели:</string>
+    <string name="confirm_dialog_Beginning">Начало:</string>
+    <string name="confirm_dialog_ends">Окончание:</string>
+    <string name="confirm_dialog_confirm">ПОДТВЕРДИТЬ</string>
+    <string name="confirm_dialog_cancel">ОТМЕНА</string>
+
+    //description_goal
+
+    <string name="description_goal_goal_name_keyword">Название цели или ключевое слово</string>
+    <string name="description_goal_write_for_what">Напишите ради чего вы это делаете</string>
+    <string name="description_goal_done">ГОТОВО</string>
+
+    //help_user_start
+
+    <string name="help_user_start_hello_champ">ПРИВЕТ ЧЕМПИОН !</string>
+    <string name="help_user_start_hello_champ_text">Приветствуем тебя в нашем приложении, для того чтобы успешно начать ты должен вспомнить свою цель которую ты хочешь достичь в ближайшее время, найти подходящею категорию и записать её. Программа поможет тебе её закончить до конца!</string>
+    <string name="help_user_start_Go_on">Вперёд в АТАКУ !</string>
+
+    //language_theme
+
+    <string name="language_theme_category_languages">КАТЕГОРИЯ ЯЗЫКИ</string>
+
+    //popup_choose_type
+
+    <string name="popup_choose_type_new_record">новый рекорд</string>
+    <string name="popup_choose_type_choose">выбрать</string>
+    <string name="popup_choose_type_regular_attack">регулярная атака</string>
+    <string name="popup_choose_typere_gular_attack">выбрать</string>
+
+    //present_book
+
+    <string name="present_book_these_books">ДАННЫЕ КНИГИ</string>
+    <string name="present_book_title_book">НАЗВАНИЕ КНИГИ</string>
+    <string name="present_book_title_book_10X_Rule">The 10X Rule</string>
+    <string name="present_book_author">АВТОР КНИГИ</string>
+    <string name="present_book_grant_cardone">Grant Cardone</string>
+    <string name="present_book_seve">СОХРАНИТЬ</string>
+
+    //repeats
+
+    <string name="category_repetition_title">КАТЕГОРИЯ ПОВТОРЕНИЯ</string>
+
+    //section_thame
+
+    <string name="section_thame_sport">СПОРТ</string>
+    <string name="section_thame_Push_ups">Отжимания</string>
+
+   //start activity
+
+    <string name="button_start">Новая цель</string>
+
+    //verify_day
+
+    <string name="verify_day_today">СЕГОДНЯ Я</string>
+    <string name="verify_day_greatness">ИДУ К ВЕЛИЧИЮ</string>
+    <string name="verify_day_relax">ОТДЫХАЮ</string>
+
+    //warning
+
+    <string name="warning_attention">ВНИМАНИЕ !</string>
+    <string name="warning_description_ategory">ОПИСАНИЕ КАТЕГОРИИ</string>
+    <string name="warning_description_instructions">ИНСТРУКЦИЯ</string>
+    <string name="warning_description_good">ХОРОШО</string>
+
+    <string name="SELECT_CATEGORY_sport">ВЫБЕРИТЕ КАТЕГОРИЮ</string>
+    <string name="all_themes_SPORT">СПОРТ</string>
+
+    <string name="cardio_m">М</string>
+    <string name="repeats_theme_from">ОТ</string>
+
+    <string name="category_skills">КАТЕГОРИЯ НАВЫКИ</string>
+
+
+
+    //java
+    <string name="training_explist">тренировка</string>
+
+    //toast
+
+    <string name="your_date_going_with_todays_date">ВАША ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ</string>
+    <string name="yoour_date_going_with_todays_date">ТВОЯ ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ</string>
+    <string name="enter_description_objective">ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ</string>
+    <string name="please_chec_data_entered">ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ</string>
+    <string name="what_time_larger_than_current">ЖЕЛАЕМОЕ ВРЕМЯ БОЛЬШЕ ТЕКУЩЕГО</string>
+    <string name="your_desired_goal_below_current_one">ВАША ЖЕЛАЕМАЯ ЦЕЛЬ НИЖЕ ТЕКУЩЕЙ</string>
+
+    //start activity
+    <string name="want_remove_your_target">ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ -</string>
+
+    //ExpList
+    <string name="you_havent_failed_until_give_up">ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !</string>
+
+    <string name="cardio_current_time_java">ТЕКУЩЕЕ ВРЕМЯ:</string>
+    <string name="cardio_desired_time_java">"ЖЕЛАЕМОЕ ВРЕМЯ:":</string>
+    <string name="cardio_current_time_java2">ТЕКУЩЕЕ ВРЕМЯ:</string>
+    <string name="Your_distance_is">Ваше расстояние:</string>
+
+    <string name="g1_weight_correction_Activity">ГР</string>
+    <string name="kg1_weight_correction_Activity">КГ</string>
+    <string name="g2_weight_correction_Activity">ГР</string>
+    <string name="kg2_weight_correction_Activity">КГ</string>
+    <string name="g3_weight_correction_Activity">ГР</string>
+    <string name="kg3_weight_correction_Activity">КГ</string>
+    <string name="g4_weight_correction_Activity">ГР</string>
+
+    <string name="currentWeightTV_weight_correction_Activity">Ваш вес теперь:</string>
+    <string name="goalWeightTV_weight_correction_Activity">Вес цели:</string>
+    <string name="currentRepeatsTV_repeats_Activity">Ваши повторы теперь:</string>
+    <string name="goalRepeatsTVrepeats_Activity">Повторы цели:</string>
+
+    <string name="distanceTV_cardio_Activity">Ваше расстояние:</string>
+    <string name="currentRunTimeTV_cardio_Activity">Ваше время:</string>
+    <string name="goalRunTimeTV_cardio_Activity">Время выполнения:</string>
+
+    <string name="dataBookTV_book_Activity">ДАННЫЕ КНИГИ</string>
+    <string name="goalBookTV_book_Activity">Ваши целевые страницы:</string>
+
+    <string name="currentLanguageTV_language">Уровень владения языком:</string>
+    <string name="goalLanguageTV_language">Уровень языка:</string>
+
+    <string name="currentElementTV_element_Activity">Ваш текущий уровень:</string>
+    <string name="goalElementTV_element_Activity">Уровень цели:</string>
+
+    <string name="toast_makeText">Цель успешно добавлена!</string>
+
+    //dialog
+    <string name="adb_setTitle">Подтверждение</string>
+    <string name="current_Result">Сейчас вы выполняете:</string>
+    <string name="setNeutralButton">Отмена</string>
+    <string name="adb_setTitle2">Подтверждение</string>
+    <string name="currentResult1">Сейчас вы преодолеваете:</string>
+
+    <string name="dialog">Подтверждение</string>
+    <string name="currentBookTV_book_Activity">ВАША ТЕКУЩАЯ СТРАНИЦА:</string>
 </resources>

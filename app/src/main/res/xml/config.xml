@@ -2,10 +2,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-        android:key="notification"
         android:defaultValue="true"
-        android:title="Notification on/off">
-    </SwitchPreference>
+        android:key="notification"
+        android:title="Notification on/off"></SwitchPreference>
     <SwitchPreference
         android:key="sound"
         android:defaultValue="true"

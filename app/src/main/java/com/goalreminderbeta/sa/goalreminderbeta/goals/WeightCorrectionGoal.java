@@ -42,6 +42,16 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
         return initialResult;
     }
 
+    @Override
+    public double getDayCompletedCardioRepeats() {
+        return 0;
+    }
+
+    @Override
+    public double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats) {
+        return 0;
+    }
+
     public void setInitialResult(double initialResult) {
         this.initialResult = initialResult;
     }
@@ -68,6 +78,11 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     }
 
     @Override
+    public boolean getRelax() {
+        return false;
+    }
+
+    @Override
     public boolean getBlink() {
         return blink;
     }
@@ -75,6 +90,11 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     @Override
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void setRelax(boolean relax) {
+
     }
 
     @Override

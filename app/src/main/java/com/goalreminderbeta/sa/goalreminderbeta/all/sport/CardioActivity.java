@@ -52,8 +52,8 @@ public class CardioActivity extends AppCompatActivity {
     private Dialog dialog;
     private String goalDescription, goalName;
     private int distance;
-    private int currentRunTime = 0;
-    private int goalRunTime = 0;
+    private double currentRunTime = 0;
+    private double goalRunTime = 0;
     private boolean verifyMode[] = {false};
     public CardioDialogBuilder cdb;
     private boolean type = false;
@@ -277,13 +277,13 @@ public class CardioActivity extends AppCompatActivity {
         } else {
             Toast toast;
             if (dateTo.equals(dateFrom)) {
-                toast = Toast.makeText(getApplicationContext(), "ТВОЯ ДАТА ЦЕЛИ СОВПАДАЕТ С СЕГОДНЯШНЕЙ ДАТОЙ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.yoour_date_going_with_todays_date), Toast.LENGTH_SHORT);
             } else if (goalName == null) {
-                toast = Toast.makeText(getApplicationContext(), "ВВЕДИТЕ ОПИСАНИЕ ЦЕЛИ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.enter_description_objective), Toast.LENGTH_SHORT);
             } else if (currentRunTime <= goalRunTime) {
-                toast = Toast.makeText(getApplicationContext(), "ЖЕЛАЕМОЕ ВРЕМЯ БОЛЬШЕ ТЕКУЩЕГО", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.what_time_larger_than_current), Toast.LENGTH_SHORT);
             } else {
-                toast = Toast.makeText(getApplicationContext(), "ПОЖАЛУЙСТА, ПРОВЕРЬТЕ ДАННЫЕ", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), getString(R.string.please_chec_data_entered), Toast.LENGTH_SHORT);
             }
             toast.show();
         }
@@ -292,6 +292,7 @@ public class CardioActivity extends AppCompatActivity {
     public void showWarning(View view) {
         final Dialog dialog;
         dialog = new Dialog(CardioActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.warning);
         Button closeWarning = (Button) dialog.findViewById(R.id.closeWarning);
         TextView descrCategory = (TextView) dialog.findViewById(R.id.descrCategory);
@@ -316,15 +317,15 @@ public class CardioActivity extends AppCompatActivity {
         sportAddTime.setOnClickListener(null);
         sportMinusTime.setOnClickListener(null);
         if(verifyNextTime) {
-            if (changeTxtTime.getText().equals("ТЕКУЩЕЕ ВРЕМЯ:")) {
+            if (changeTxtTime.getText().equals(getString(R.string.cardio_current_time_java))) {
                 setTimerOnButton(sportMinusTime, "-", "false", 1);
                 setTimerOnButton(sportAddTime, "+", "false", 1);
-                changeTxtTime.setText("ЖЕЛАЕМОЕ ВРЕМЯ:");
+                changeTxtTime.setText(getString(R.string.cardio_desired_time_java));
                 runTimeResult.setText("" + goalRunTime);
             } else {
                 setTimerOnButton(sportMinusTime, "-", "true", 1);
                 setTimerOnButton(sportAddTime, "+", "true", 1);
-                changeTxtTime.setText("ТЕКУЩЕЕ ВРЕМЯ:");
+                changeTxtTime.setText(getString(R.string.cardio_current_time_java2));
                 runTimeResult.setText("" + currentRunTime);
             }
         } else return;
@@ -378,11 +379,11 @@ public class CardioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(verifyMode[0]){
-                    currentRunTime = Integer.parseInt(value.getText().toString());
+                    currentRunTime = Double.parseDouble(value.getText().toString());
                     runTimeResult.setText(currentRunTime + "");
                     verifyNextTime = true;
                 } else {
-                    goalRunTime = Integer.parseInt(value.getText().toString());
+                    goalRunTime = Double.parseDouble(value.getText().toString());
                     runTimeResult.setText(goalRunTime + "");
                 }
                 dialog.dismiss();
@@ -430,7 +431,7 @@ public class CardioActivity extends AppCompatActivity {
             distanceTV.setTextColor(Color.rgb(68,182,72));
             distanceTV.setTextSize(20);
             distanceTV.setPadding(20,0,0,0);
-            distanceTV.setText("Your distance is:");
+            distanceTV.setText(R.string.distanceTV_cardio_Activity);
             dialogLV.addView(distanceTV,lp);
             distanceET = new TextView(cardioDialog.getContext());
             distanceET.setText(String.valueOf(dialogBuilderGoal.getDistance()));
@@ -445,7 +446,7 @@ public class CardioActivity extends AppCompatActivity {
                 currentRunTimeTV.setTextColor(Color.rgb(68, 182, 72));
                 currentRunTimeTV.setTextSize(20);
                 currentRunTimeTV.setPadding(20, 0, 0, 0);
-                currentRunTimeTV.setText("Your time now is:");
+                currentRunTimeTV.setText(R.string.currentRunTimeTV_cardio_Activity);
                 dialogLV.addView(currentRunTimeTV, lp);
                 currentRunTimeET = new TextView(cardioDialog.getContext());
                 currentRunTimeET.setPadding(20, 20, 20, 20);
@@ -459,7 +460,7 @@ public class CardioActivity extends AppCompatActivity {
                 goalRunTimeTV.setTextColor(Color.rgb(68, 182, 72));
                 goalRunTimeTV.setTextSize(20);
                 goalRunTimeTV.setPadding(20, 0, 0, 0);
-                goalRunTimeTV.setText("Goal time is:");
+                goalRunTimeTV.setText(R.string.goalRunTimeTV_cardio_Activity);
                 dialogLV.addView(goalRunTimeTV, lp);
                 goalRunTimeET = new TextView(cardioDialog.getContext());
                 goalRunTimeET.setPadding(20, 20, 20, 20);

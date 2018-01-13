@@ -111,7 +111,7 @@
             android:textSize="15sp"
             android:textColor="@color/colorBackground"
             android:background="@drawable/start_add_goal"
-            android:text="Новая цель"
+            android:text="@string/button_start"
             android:layout_alignBottom="@+id/rlQuote"
             android:layout_alignRight="@+id/rlQuote"
             android:layout_alignEnd="@+id/rlQuote" />
