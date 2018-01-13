@@ -19,6 +19,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     private String themeCategory;
     private boolean completed;
     private boolean blink;
+    private boolean showDialog;
 
     public ElementCorrectionGoal() {
     }
@@ -182,7 +183,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     }
 
     public void setCurrentResult2(double currentResult2) {
-        this.currentResult2 += currentResult2;
+        this.currentResult2 = currentResult2;
         if(currentResult2>=100&&currentResult2<200){
             setCurrentResult(1);
         }else if(currentResult2>=200&&currentResult2<300){
@@ -241,6 +242,16 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
 
     public void setThemeCategory(String themeCategory) {
         this.themeCategory = themeCategory;
+    }
+
+    @Override
+    public boolean getDialog() {
+        return showDialog;
+    }
+
+    @Override
+    public void setDialog(boolean showDialog) {
+        this.showDialog=showDialog;
     }
 
     @Override

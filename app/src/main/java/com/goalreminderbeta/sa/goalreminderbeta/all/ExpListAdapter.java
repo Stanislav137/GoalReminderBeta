@@ -161,6 +161,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         leftToGoalUnits = (TextView) view.findViewById(R.id.leftToGoalUnits);
         dataBook = (TextView) view.findViewById(R.id.dataBook);
         taskOfDayUnits = (TextView) view.findViewById(R.id.taskOfDayUnits);
+        statusGoal = (ImageView) view.findViewById(R.id.statusGoal);
         separator1 = (LinearLayout) view.findViewById(R.id.separator1);
         separator2 = (LinearLayout) view.findViewById(R.id.separator2);
         taskOfWeekUnits = (TextView) view.findViewById(R.id.taskOfWeekUnits);
@@ -369,7 +370,6 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     goal.setBlink(true);
                                     goal.save();
                                     dialog.cancel();
-                                    reload();
                                 }
                             });
 
@@ -580,7 +580,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 }
                 titleDG.setTextColor(Color.parseColor("#d23134"));
                 currentResultDG.setText(String.format("%.1f", goal.getInitialResult()) + " " + units);
-                goalResultDG.setText(String.format("%.1f", goal.getGoalResult()) + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
@@ -672,18 +672,22 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         taskDG.setText("execute repeats");
                     }
                 } else {
-                    titleTxt = (TextView) view.findViewById(R.id.titleTxt);
-                    if(typeLang.equals("ru")) {
-                        taskDG.setText("макс. кол-во повторений");
-                        titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
-                    } else {
-                        taskDG.setText("max. number of repetitions");
-                        titleTxt.setText("MY NEW PROGRESS:");
-                    }
+                    taskDG.setText(String.format("%.1f", dayTask) + " " + units);
+                }                currentResultDG.setText(goal.getCurrentResult() + " " + units);
+                goalResultDG.setText(goal.getGoalResult() + " " + units);
+                madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
+                titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                if(typeLang.equals("ru")) {
+                    taskDG.setText("макс. кол-во повторений");
+                    titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
+                } else {
+                    taskDG.setText("max. number of repetitions");
+                    titleTxt.setText("MY NEW PROGRESS:");
                 }
-                currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
-                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
-                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
+            }
+            currentResultDG.setText(String.format("%.0f", goal.getInitialResult()) + " " + units);
+            goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
+            madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КНИГА":
                 if(typeLang.equals("ru")) {

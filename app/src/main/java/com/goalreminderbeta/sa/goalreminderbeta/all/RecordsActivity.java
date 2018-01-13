@@ -273,16 +273,17 @@ public class RecordsActivity extends AppCompatActivity {
             for(CardioGoal goal:goals){
                 if(goal.getProgress()>=100){
                     tempGoal = goal;
-                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2, RoundingMode.UP).doubleValue();
+                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2).doubleValue();
                     break;
                 }else{
                     tempGoal = null;
                 }
             }
+        }
             if (tempGoal != null) {
                 for(CardioGoal goal:goals){
                     if(goal.getProgress()>=100){
-                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
+                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2).doubleValue();
                         if(d>result){
                             result=d;
                             tempGoal = goal;
@@ -290,7 +291,6 @@ public class RecordsActivity extends AppCompatActivity {
                     }
                 }
             }
-        }
         return tempGoal;
     }
 

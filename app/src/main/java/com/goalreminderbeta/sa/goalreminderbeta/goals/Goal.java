@@ -36,4 +36,6 @@ public interface Goal {
     double getDayCompletedCardioRepeats();
     double setDayCompletedCardioRepeats(double dayCompletedCardioRepeats);
     void setInitialResult(double initialResult);
+    boolean getDialog();
+    void setDialog(boolean showDialog);
 }

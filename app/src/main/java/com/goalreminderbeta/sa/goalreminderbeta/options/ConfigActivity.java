@@ -2,6 +2,8 @@ package com.goalreminderbeta.sa.goalreminderbeta.options;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +29,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
     private SharedPreferences sp;
     SharedPreferences.Editor editor;
     Intent serviceIntent,serviceIntent2;
-
     private String freq;
     private boolean notOn;
     private boolean soundOn;
@@ -39,6 +40,9 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
     private Button save;
     private TextView config,dayText;
+    SaveButtonFragment fragment;
+    Config configFragment;
+    FragmentTransaction transaction;
 
     public String getFrequency() {
         return freq;
@@ -57,9 +61,17 @@ public class ConfigActivity extends Activity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
-        getFragmentManager().beginTransaction().add(R.id.mainLL,new Config()).commit();
+        configFragment = new Config();
+        fragment = new SaveButtonFragment();
+        transaction = getFragmentManager().beginTransaction();
+        transaction.add(R.id.mainLL,configFragment);
+       // transaction.add(R.id.mainLL,fragment);
+        transaction.commit();
+        //getFragmentManager().beginTransaction().add(R.id.mainLL,new Config()).commit();
+
         config = (TextView)findViewById(R.id.configTV);
         dayText = (TextView)findViewById(R.id.dayTV);
+
         sp = PreferenceManager.getDefaultSharedPreferences(this);
         days = new boolean[7];
         save = (Button)findViewById(R.id.saveBTN);

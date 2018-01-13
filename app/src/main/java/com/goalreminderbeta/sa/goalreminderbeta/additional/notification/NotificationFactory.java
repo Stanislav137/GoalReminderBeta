@@ -28,7 +28,7 @@ public class NotificationFactory {
     public Notification createNotification(){
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setTicker("Notification");
-        builder.setSmallIcon(R.drawable.my_goal_image);
+        builder.setSmallIcon(R.drawable.logo);
         builder.setContentTitle(title);
         builder.setContentText(content);
         builder.setAutoCancel(true);
