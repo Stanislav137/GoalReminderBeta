@@ -333,7 +333,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                             ||goal instanceof LanguageLearningGoal){
                                         goal.setCurrentResult(madeTodayResult);
                                     }
-                                    double iR;
+                                   /* double iR;
                                     double cR;
                                     double gR;
                                     double percent = 0;
@@ -361,7 +361,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                         percent = 0;
                                     }
 
-                                    goal.setProgress(Math.round(percent));
+                                    goal.setProgress(Math.round(percent));*/
                                 //    int currentProgress = (int)Math.round(goal.getProgress());
                                 //    progressBar.setProgress(currentProgress);
 
