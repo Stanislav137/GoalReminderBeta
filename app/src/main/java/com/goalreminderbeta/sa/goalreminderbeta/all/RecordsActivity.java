@@ -113,7 +113,7 @@ public class RecordsActivity extends AppCompatActivity {
         }else {distance.setText("м");}
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
-            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2).doubleValue();
+            double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
             speed.setText(String.valueOf(s)+" м/с");
         }else {speed.setText(" м/с");}
 
@@ -121,7 +121,7 @@ public class RecordsActivity extends AppCompatActivity {
         if(rcGoal!=null){
             double rcGoalText = rcGoal.getGoalResult();
             if(rcGoalText>=2&&rcGoalText<=4)
-            repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
+                repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
             else repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раз");
         }else {repeats.setText("раз");}
         exercise = (TextView)findViewById(R.id.exerciseTV);
@@ -170,156 +170,190 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     private WeightCorrectionGoal defineWeightGoal1(List<WeightCorrectionGoal> goals){
-        WeightCorrectionGoal tempGoal = goals.get(0);
+        WeightCorrectionGoal tempGoal;
         double result = 0;
-        for(WeightCorrectionGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getGoalResult();
-                break;
-            }
-        }
-
-        for(WeightCorrectionGoal goal:goals){
-            if(goal.getProgress()>=100){
-                if(goal.getGoalResult()>result){
-                    result=goal.getGoalResult();
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(WeightCorrectionGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getGoalResult();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(WeightCorrectionGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        if(goal.getGoalResult()>result){
+                            result=goal.getGoalResult();
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+
+        return tempGoal;
     }
 
     private WeightCorrectionGoal defineWeightGoal2(List<WeightCorrectionGoal> goals){
-        WeightCorrectionGoal tempGoal = goals.get(0);
+        WeightCorrectionGoal tempGoal;
         double result = 0;
-        for(WeightCorrectionGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getGoalResult();
-                break;
-            }
-        }
-
-        for(WeightCorrectionGoal goal:goals){
-            if(goal.getProgress()>=100){
-                if(goal.getGoalResult()<result){
-                    result=goal.getGoalResult();
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(WeightCorrectionGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getGoalResult();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(WeightCorrectionGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        if(goal.getGoalResult()<result){
+                            result=goal.getGoalResult();
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
     }
 
     private CardioGoal defineCardioGoal1(List<CardioGoal> goals){
-        CardioGoal tempGoal = goals.get(0);
+        CardioGoal tempGoal;
         double result = 0;
-        for(CardioGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getDistance();
-                break;
-            }
-        }
-
-        for(CardioGoal goal:goals){
-            if(goal.getProgress()>=100){
-                if(goal.getDistance()>result){
-                    result=goal.getDistance();
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            result=tempGoal.getDistance();
+            for(CardioGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getDistance();
+                    break;
+                }else{
+                    tempGoal = null;
+                    result=0;
+                }
+            }
+            if (tempGoal != null) {
+                for(CardioGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        if(goal.getDistance()>result){
+                            result=goal.getDistance();
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+
+        return tempGoal;
     }
 
     private CardioGoal defineCardioGoal2(List<CardioGoal> goals){
-        CardioGoal tempGoal = goals.get(0);
+        CardioGoal tempGoal;
         double result = 0;
-        for(CardioGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2).doubleValue();
-                break;
-            }
-        }
-
-        for(CardioGoal goal:goals){
-            if(goal.getProgress()>=100){
-                double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2).doubleValue();
-                if(d>result){
-                    result=d;
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(CardioGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = new BigDecimal(tempGoal.getDistance()/tempGoal.getGoalResult()).setScale(2, RoundingMode.UP).doubleValue();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(CardioGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        double d = new BigDecimal(goal.getDistance()/goal.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
+                        if(d>result){
+                            result=d;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
     }
 
 
     private RepeatsCorrectionGoal defineRepeatGoals(List<RepeatsCorrectionGoal> goals){
-        RepeatsCorrectionGoal tempGoal = goals.get(0);
+        RepeatsCorrectionGoal tempGoal;
         double result = 0;
-        for(RepeatsCorrectionGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getGoalResult();
-                break;
-            }
-        }
-
-        for(RepeatsCorrectionGoal goal:goals){
-            if(goal.getProgress()>=100){
-                double d = goal.getGoalResult();
-                if(d>result){
-                    result=d;
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(RepeatsCorrectionGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getGoalResult();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(RepeatsCorrectionGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        double d = goal.getGoalResult();
+                        if(d>result){
+                            result=d;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
     }
     private ReadBookGoal defineBookGoals(List<ReadBookGoal> goals){
-        ReadBookGoal tempGoal=goals.get(0);
+        ReadBookGoal tempGoal;
         double result = 0;
-        for(ReadBookGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getGoalResult();
-                break;
-            }
-        }
-
-        for(ReadBookGoal goal:goals){
-            if(goal.getProgress()>=100){
-                double d = goal.getGoalResult();
-                if(d>result){
-                    result=d;
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(ReadBookGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getGoalResult();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(ReadBookGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        double d = goal.getGoalResult();
+                        if(d>result){
+                            result=d;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
     }
 
     private int defineBookGoals3(List<ReadBookGoal> goals){
@@ -342,34 +376,38 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     private LanguageLearningGoal defineLanguageGoal1(List<LanguageLearningGoal> goals){
-        LanguageLearningGoal tempGoal = goals.get(0);
+        LanguageLearningGoal tempGoal;
         double result = 0;
-        for(LanguageLearningGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getGoalResult()-tempGoal.getInitialResult();
-                break;
-            }
-        }
-
-        for(LanguageLearningGoal goal:goals){
-            if(goal.getProgress()>=100){
-                double d = goal.getGoalResult()-goal.getInitialResult();
-                if(d>result){
-                    result=d;
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(LanguageLearningGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = goal.getGoalResult();
+                    break;
+                }else{
+                    tempGoal = null;
+                }
+            }
+            if (tempGoal != null) {
+                for(LanguageLearningGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        double d = goal.getGoalResult()-goal.getInitialResult();
+                        if(d>result){
+                            result=d;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
     }
 
     private double defineLanguageGoal3(List<LanguageLearningGoal> goals){
         double result = 0;
-
         for(LanguageLearningGoal goal:goals){
             if(goal.getProgress()>=100){
                 result+=goal.getGoalResult()-goal.getInitialResult();
@@ -397,7 +435,8 @@ public class RecordsActivity extends AppCompatActivity {
 
         for(LanguageLearningGoal goal:goals){
             if(goal.getProgress()>=100){
-                double result2 = goal.getGoalResult()-goal.getInitialResult();
+                double result2 =
+                        goal.getGoalResult()-goal.getInitialResult();
                 long l2 =goal.getFromDate().getTime()-goal.getToDate().getTime();
                 l2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(l,TimeUnit.MILLISECONDS)));
                 l2++;
@@ -414,34 +453,38 @@ public class RecordsActivity extends AppCompatActivity {
         return null;
     }
     private ElementCorrectionGoal defineElementGoals(List<ElementCorrectionGoal> goals){
-        ElementCorrectionGoal tempGoal = goals.get(0);
-        long result=0;
-
-        for(ElementCorrectionGoal goal:goals){
-            tempGoal = goal;
-            if(tempGoal.getProgress()>=100){
-                result = tempGoal.getToDate().getTime()-tempGoal.getFromDate().getTime();
-                result = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(result,TimeUnit.MILLISECONDS)));
-                result++;
-                break;
-            }
-        }
-
-        for(ElementCorrectionGoal goal:goals){
-            if(goal.getProgress()>=100){
-                long result2 = goal.getToDate().getTime()-goal.getFromDate().getTime();
-                result2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(result2,TimeUnit.MILLISECONDS)));
-                result2++;
-                if(result2>result){
-                    result=result2;
+        ElementCorrectionGoal tempGoal;
+        long result = 0;
+        if(goals.isEmpty()){
+            tempGoal=null;
+        }else{
+            tempGoal = goals.get(0);
+            for(ElementCorrectionGoal goal:goals){
+                if(goal.getProgress()>=100){
                     tempGoal = goal;
+                    result = tempGoal.getToDate().getTime()-tempGoal.getFromDate().getTime();
+                    result = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(result,TimeUnit.MILLISECONDS)));
+                    result++;
+                    break;
+                }
+            }
+
+            if (tempGoal != null) {
+                for(ElementCorrectionGoal goal:goals){
+                    if(goal.getProgress()>=100){
+                        long result2 = goal.getToDate().getTime()-goal.getFromDate().getTime();
+                        result2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(result2,TimeUnit.MILLISECONDS)));
+                        result2++;
+                        if(result2>result){
+                            result=result2;
+                            tempGoal = goal;
+                        }
+                    }
                 }
             }
         }
-        if(tempGoal!=null){
-            return tempGoal;
-        }
-        return null;
+        return tempGoal;
+
     }
 
     public void openGoals(View view) {
@@ -487,3 +530,4 @@ public class RecordsActivity extends AppCompatActivity {
         this.finish();
     }
 }
+

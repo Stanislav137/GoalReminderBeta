@@ -530,7 +530,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     goal.setRelax(true);
                     goal.save();
                     notifyDataSetChanged();
-                    reload();
+                   //reload();
                 }
             });
             }
