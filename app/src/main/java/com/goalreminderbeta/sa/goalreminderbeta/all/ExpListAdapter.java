@@ -369,6 +369,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     goal.setBlink(true);
                                     goal.save();
                                     dialog.cancel();
+                                    reload();
                                 }
                             });
 

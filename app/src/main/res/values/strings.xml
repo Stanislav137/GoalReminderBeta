@@ -7,6 +7,7 @@
     <string name="save_goal">СОХРАНИТЬ ЦЕЛЬ</string>
     <string name="description_theme_sport">Данная тема поможет достичь желаемого результата в сфере спорт и предоставит на выбор 3 категории. Вперёд к новым победам!</string>
     <string name="description_theme_science">Данная тема поможет достичь желаемого результата в сфере изучения и предоставит на выбор 2 категории. Будь мудрее с каждым днём!</string>
+    <string name="description_theme_other">Данная тема поможет достичь желаемых результатов в абсолютно разных сферах и предоставит на выюор 2 категории.</string>
     <string name="description_theme_mygoal">Данная категория позволит создать собственную цель, если это касается чего-то особенного.</string>
     <string name="chosen">ВЫБРАТЬ</string>
     <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса. Самое время для мощных тренировок!</string>
@@ -30,7 +31,7 @@
     <string name="minimum_weight">МИНИМАЛЬНЫЙ ВЕС:</string>
     <string name="max_kg">кг</string>
     <string name="category_cardio">КАТЕГОРИЯ КАРДИО</string>
-    <string name="far_distance">ДАЛЬНЯЯ ДИСТНЦИЯ:</string>
+    <string name="far_distance">ДАЛЬНЯЯ ДИСТАНЦИЯ:</string>
     <string name="far_distance_km">км</string>
     <string name="best_speed">ЛУЧШАЯ СКОРОСТЬ:</string>
     <string name="best_speed_sec">сек</string>
@@ -214,7 +215,6 @@
     <!-- WARNINGS STRINGS -->
 
     <string name="descr_weight">Если твоя ближайшая цель это набрать массы или скинуть лишний вес, то эта категория для тебя! Помни, что самое главное это наращивать мышцы! Поэтому у тебя должна быть конкретная программа тренировок и не забывай о здоровом питании!</string>
-
     <string name="descr_cardio_nr">Если твоя ближайшая цель это поставить новый рекорд в скорости на время, то эта категория для тебя! Здесь ты можешь создать свою цель которая связана со временем и дистанцией!</string>
     <string name="instruct_cardio_nr">Запиши своё название цели и мотивирующие слова которые помогут тебе дойти до конца, а также запиши свою дистанцию которую ты собираешься преодолевать, текущее время и желаемое время и конечно же дату завершение цели на когда хочешь закончить. Каждый день будет приходить уведомление, что нужно бить рекорд. Записав результат программа будет следить за твоим прогрессом, Удачи!</string>
     <string name="descr_cardio_ra">Если твоя ближайшая цель это заняться регулярными тренировками на дистанцию, то данная категория для тебя! Здесь ты можешь создать свою цель на одоление определенной дистанции!</string>
@@ -266,7 +266,6 @@
     <string name="child_section_complete_completed_today">СЕГОДНЯ ВЫПОЛНЕНО:</string>
     <string name="child_section_complete_you">ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !</string>
     <string name="child_section_complete_done">ВЫПОЛНЕНО</string>
-    <string name="child_section_relax">СЕГОДНЯ ОТДЫХ</string>
 
     //child_section_stat
 
@@ -425,4 +424,5 @@
 
     <string name="dialog">Подтверждение</string>
     <string name="currentBookTV_book_Activity">ВАША ТЕКУЩАЯ СТРАНИЦА:</string>
+
 </resources>
