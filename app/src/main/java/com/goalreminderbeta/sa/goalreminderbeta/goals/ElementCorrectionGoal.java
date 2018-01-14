@@ -20,6 +20,7 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     private boolean completed;
     private boolean blink;
     private boolean showDialog;
+    private boolean display=true;
 
     public ElementCorrectionGoal() {
     }
@@ -252,6 +253,15 @@ public class ElementCorrectionGoal extends SugarRecord implements Goal{
     @Override
     public void setDialog(boolean showDialog) {
         this.showDialog=showDialog;
+    }
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
+
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
     }
 
     @Override

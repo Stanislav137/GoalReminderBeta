@@ -23,6 +23,7 @@ public class CardioGoal extends SugarRecord implements Goal{
     private boolean blink;
     private boolean showDialog;
     private boolean relax;
+    private boolean display=true;
 
     public CardioGoal() {
     }
@@ -209,7 +210,15 @@ public class CardioGoal extends SugarRecord implements Goal{
     public void setDialog(boolean showDialog) {
         this.showDialog=showDialog;
     }
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
 
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
+    }
     @Override
     public String toString() {
         return "CardioGoal{" +

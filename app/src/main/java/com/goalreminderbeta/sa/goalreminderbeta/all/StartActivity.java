@@ -272,7 +272,9 @@ public class StartActivity extends AppCompatActivity {
                         delete.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                goal.delete();
+                               // goal.delete();
+                                goal.setDisplay(false);
+                                goal.save();
                                 dialog.dismiss();
                                 printAllGoals();
                             }
@@ -329,7 +331,9 @@ public class StartActivity extends AppCompatActivity {
                         delete.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                goal.delete();
+                               // goal.delete();
+                                goal.setDisplay(false);
+                                goal.save();
                                 dialog.dismiss();
                                 printAllGoals();
                             }
@@ -398,13 +402,42 @@ public class StartActivity extends AppCompatActivity {
     private void printAllGoals(){
         allGoals.clear();
         ArrayList<ArrayList<Goal>> groups = new ArrayList<>();
-
         List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
+        for(ReadBookGoal g:allReadBookGoals){
+            if(!g.getDisplay()){
+                allReadBookGoals.remove(g);
+            }
+        }
         List<WeightCorrectionGoal> allWeightCorrectionGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
+        for(WeightCorrectionGoal g:allWeightCorrectionGoals){
+            if(!g.getDisplay()){
+                allWeightCorrectionGoals.remove(g);
+            }
+        }
         List<CardioGoal> allCardioGoal = CardioGoal.listAll(CardioGoal.class);
+        for(CardioGoal g:allCardioGoal){
+            if(!g.getDisplay()){
+                allCardioGoal.remove(g);
+            }
+        }
         List<RepeatsCorrectionGoal> allRepeatsCorrectionGoal = RepeatsCorrectionGoal.listAll(RepeatsCorrectionGoal.class);
+        for(RepeatsCorrectionGoal g:allRepeatsCorrectionGoal){
+            if(!g.getDisplay()){
+                allRepeatsCorrectionGoal.remove(g);
+            }
+        }
         List<ElementCorrectionGoal> allElementsCorrectionGoal = ElementCorrectionGoal.listAll(ElementCorrectionGoal.class);
+        for(ElementCorrectionGoal g:allElementsCorrectionGoal){
+            if(!g.getDisplay()){
+                allElementsCorrectionGoal.remove(g);
+            }
+        }
         List<LanguageLearningGoal> allLanguageLearningGoal = LanguageLearningGoal.listAll(LanguageLearningGoal.class);
+        for(LanguageLearningGoal g:allLanguageLearningGoal){
+            if(!g.getDisplay()){
+                allLanguageLearningGoal.remove(g);
+            }
+        }
         //Находим все записи в базе
 
         for (ReadBookGoal goal : allReadBookGoals){ // Итерация по кажной записи в базе и добавления их в експандер

@@ -38,4 +38,6 @@ public interface Goal {
     void setInitialResult(double initialResult);
     boolean getDialog();
     void setDialog(boolean showDialog);
+    boolean getDisplay();
+    void setDisplay(boolean display);
 }

@@ -19,6 +19,7 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     private boolean blink;
     private double progress=0.0;
     private boolean showDialog;
+    private boolean display=true;
 
     public WeightCorrectionGoal() {
     }
@@ -193,6 +194,16 @@ public class WeightCorrectionGoal extends SugarRecord implements Goal {
     @Override
     public boolean getDialog() {
         return showDialog;
+    }
+
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
+
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
     }
 
     @Override
