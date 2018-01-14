@@ -21,6 +21,7 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     private double progress=0.0;
     private boolean relax;
     private boolean showDialog;
+    private boolean display=true;
 
 
     public RepeatsCorrectionGoal() {
@@ -199,7 +200,15 @@ public class RepeatsCorrectionGoal extends SugarRecord implements Goal{
     public void setDialog(boolean showDialog) {
         this.showDialog=showDialog;
     }
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
 
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
+    }
     @Override
     public String toString() {
         return "RepeatsCorrectionGoal{" +

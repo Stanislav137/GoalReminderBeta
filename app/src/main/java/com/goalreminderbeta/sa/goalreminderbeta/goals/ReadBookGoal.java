@@ -22,6 +22,7 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     private boolean showDialog;
     private double initialResult;
     private double progress=0.0;
+    private boolean display=true;
 
     public ReadBookGoal() {
     }
@@ -211,6 +212,15 @@ public class ReadBookGoal extends SugarRecord implements Goal {
     @Override
     public void setDialog(boolean showDialog) {
         this.showDialog=showDialog;
+    }
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
+
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
     }
 
     @Override

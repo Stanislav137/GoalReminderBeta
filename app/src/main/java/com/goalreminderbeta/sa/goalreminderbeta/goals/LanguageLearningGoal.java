@@ -22,6 +22,7 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     private double initialResult;
     private double goalResult;
     private boolean showDialog;
+    private boolean display=true;
 
     public LanguageLearningGoal() {
     }
@@ -295,6 +296,15 @@ public class LanguageLearningGoal extends SugarRecord implements Goal{
     @Override
     public void setDialog(boolean showDialog) {
         this.showDialog = showDialog;
+    }
+    @Override
+    public boolean getDisplay() {
+        return display;
+    }
+
+    @Override
+    public void setDisplay(boolean display) {
+        this.display = display;
     }
 
     @Override
