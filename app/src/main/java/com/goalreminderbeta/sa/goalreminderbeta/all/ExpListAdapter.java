@@ -525,6 +525,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                 });
                             adb.setCancelable(true);
                             congrDialog = adb.create();
+                            congrDialog.setCanceledOnTouchOutside(false);
                             congrDialog.show();
                         }
                     }
