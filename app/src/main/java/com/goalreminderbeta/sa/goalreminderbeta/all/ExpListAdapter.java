@@ -661,7 +661,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 }
                 break;
-            case "НАВЫКИ":
+            case "НАВЫКИ": // EDIT graduation
                 TextView titleTxtSkill = (TextView) view.findViewById(R.id.titleTxt);
                 if(typeLang.equals("ru")) {
                     titleTxtSkill.setText("ВВЕДИ НОВЫЙ ПРОГРЕСС:");
@@ -679,7 +679,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 skillsPoints(goal);
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
-            case "ПОВТОРЕНИЯ":
+            case "ПОВТОРЕНИЯ": // EDIT graduation
+                graduationUnits(goal, currentNumber);
                 if(typeLang.equals("ru")) {
                     units = "повторения";
                 } else units = "repetition";
@@ -716,7 +717,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             case "КНИГА":
                 titleTxt = (TextView) view.findViewById(R.id.titleTxt);
                 if(typeLang.equals("ru")) {
-                    units = "страниц";
+                    units = "стр.";
                     titleTxt.setText("СЕГОДНЯ ПРОЧИТАНО:");
                 } else {
                     units = "pages";
@@ -733,7 +734,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 languageLevelInHours(goal);
                 double lvlDayTask = (lvlLangHoursGoal - lvlLangHoursCurrent) / getDifferenceInDays(new Date(), goal.getToDate());
                 if(typeLang.equals("ru")) {
-                    units = "часы";
+                    units = "ч.";
                     titleTxt.setText("СЕГОДНЯ ИЗУЧЕНО:");
                 } else {
                     units = "hours";
@@ -842,7 +843,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 currentResultUnits.setText(String.format("%.1f", currentNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 break;
-            case "НАВЫКИ":
+            case "НАВЫКИ": // EDIT graduation
                 skillsPoints(goal);
                 //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
                 double left = 5 - ((ElementCorrectionGoal)goal).getCurrentResult();
@@ -861,7 +862,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     leftToGoalUnits.setText(String.format("%.1f", left) + " " + "level" + " / " + leftUnits + " points");
                 }
                 break;
-            case "ПОВТОРЕНИЯ":
+            case "ПОВТОРЕНИЯ": // EDIT graduation
                 if(typeLang.equals("ru")) {
                     units = "повторений";
                 } else units = "repeats";
@@ -904,7 +905,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     separator1.setVisibility(View.VISIBLE);
                 }
                 if(typeLang.equals("ru")) {
-                    units = "страниц";
+                    units = "стр.";
                 } else units = "pages";
                 currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + units);
                 goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
@@ -916,7 +917,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 languageLevelInHours(goal);
                 double lvlLangLeftGoal = (lvlLangHoursGoal - lvlLangHoursCurrent) / getDifferenceInDays(new Date(), goal.getToDate());
                 if(typeLang.equals("ru")) {
-                    units = "часов";
+                    units = "ч.";
                 } else units = "hours";
                 currentResultUnits.setText(((LanguageLearningGoal)goal).getCurrentLanguageLevel()+ " / " + String.format("%.0f", goal.getCurrentResult()) + " " + units);
                 goalResultUnits.setText( goal.getGoalLanguageLevel() + " / " + String.format("%.0f", lvlLangHoursGoal) + " " + units);
@@ -1084,5 +1085,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         mActivity.finish();//6
         mActivity.overridePendingTransition(0, 0);//7
         mActivity.startActivity(intent);//8*/
+    }
+
+    private void graduationUnits(Goal goal, double current) {
+        if(goal instanceof RepeatsCorrectionGoal) {
+
+        }
     }
 }
