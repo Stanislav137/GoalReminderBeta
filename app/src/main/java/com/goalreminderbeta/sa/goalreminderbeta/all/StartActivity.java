@@ -161,12 +161,23 @@ public class StartActivity extends AppCompatActivity {
                 Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
                 Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
                 serviceIntent = new Intent(this, MyService.class);
+                String typeLang = getResources().getConfiguration().locale.getLanguage();
                 if (sp.getInt("goals", 0) > 0) {
-                    serviceIntent.putExtra("title", "You goals are ready!");
-                    serviceIntent.putExtra("text", "Keep it up!");
+                    if(typeLang.equals("ru")) {
+                        serviceIntent.putExtra("title", "Проверь свои цели на сегодня!");
+                        serviceIntent.putExtra("text", "Твои цели записаны!");
+                    } else {
+                        serviceIntent.putExtra("title", "You goals are ready!");
+                        serviceIntent.putExtra("text", "Keep it up!");
+                    }
                 } else {
-                    serviceIntent.putExtra("title", "You have no goals!");
-                    serviceIntent.putExtra("text", "Add some goal to start");
+                    if(typeLang.equals("ru")) {
+                        serviceIntent.putExtra("title", "У Тебя нет целей!");
+                        serviceIntent.putExtra("text", "Срочно запиши цели! Не теряй времени!");
+                    } else {
+                        serviceIntent.putExtra("title", "You have no goals!");
+                        serviceIntent.putExtra("text", "Add some goal to start");
+                    }
                 }
 
                 goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {

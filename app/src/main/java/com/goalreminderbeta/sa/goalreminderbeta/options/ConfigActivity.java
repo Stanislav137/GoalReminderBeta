@@ -136,13 +136,23 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
 
         serviceIntent = new Intent(this,MyService.class);
-        if(sp.getInt("goals",0)>0) {
-            serviceIntent.putExtra("title", "You goals are ready!");
-            serviceIntent.putExtra("text", "Keep it up!");
-        }
-        else {
-            serviceIntent.putExtra("title", "You have no goals!");
-            serviceIntent.putExtra("text", "Add some goal to start");
+        String typeLang = getResources().getConfiguration().locale.getLanguage();
+        if (sp.getInt("goals", 0) > 0) {
+            if(typeLang.equals("ru")) {
+                serviceIntent.putExtra("title", "Проверь свои цели на сегодня!");
+                serviceIntent.putExtra("text", "Твои цели записаны!");
+            } else {
+                serviceIntent.putExtra("title", "You goals are ready!");
+                serviceIntent.putExtra("text", "Keep it up!");
+            }
+        } else {
+            if(typeLang.equals("ru")) {
+                serviceIntent.putExtra("title", "У Тебя нет целей!");
+                serviceIntent.putExtra("text", "Срочно запиши цели! Не теряй времени!");
+            } else {
+                serviceIntent.putExtra("title", "You have no goals!");
+                serviceIntent.putExtra("text", "Add some goal to start");
+            }
         }
         serviceIntent.putExtra("interval",freq);
         long delay = Integer.parseInt(freq)*1000*3600;
