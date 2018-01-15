@@ -432,7 +432,7 @@ public class StartActivity extends AppCompatActivity {
         }
         List<CardioGoal> allCardioGoal = CardioGoal.listAll(CardioGoal.class);
         Iterator<CardioGoal> it2 = allCardioGoal.iterator();
-        while(it.hasNext()){
+        while(it2.hasNext()){
             CardioGoal g = it2.next();
             if(!g.getDisplay()){
                 it2.remove();
