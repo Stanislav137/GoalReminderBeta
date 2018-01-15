@@ -43,6 +43,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -403,39 +404,51 @@ public class StartActivity extends AppCompatActivity {
         allGoals.clear();
         ArrayList<ArrayList<Goal>> groups = new ArrayList<>();
         List<ReadBookGoal> allReadBookGoals = ReadBookGoal.listAll(ReadBookGoal.class);
-        for(ReadBookGoal g:allReadBookGoals){
+        Iterator<ReadBookGoal> it = allReadBookGoals.iterator();
+        while(it.hasNext()){
+            ReadBookGoal g = it.next();
             if(!g.getDisplay()){
-                allReadBookGoals.remove(g);
+                it.remove();
             }
         }
         List<WeightCorrectionGoal> allWeightCorrectionGoals = WeightCorrectionGoal.listAll(WeightCorrectionGoal.class);
-        for(WeightCorrectionGoal g:allWeightCorrectionGoals){
+        Iterator<WeightCorrectionGoal> it1 = allWeightCorrectionGoals.iterator();
+        while(it1.hasNext()){
+            WeightCorrectionGoal g = it1.next();
             if(!g.getDisplay()){
-                allWeightCorrectionGoals.remove(g);
+                it1.remove();
             }
         }
         List<CardioGoal> allCardioGoal = CardioGoal.listAll(CardioGoal.class);
-        for(CardioGoal g:allCardioGoal){
+        Iterator<CardioGoal> it2 = allCardioGoal.iterator();
+        while(it.hasNext()){
+            CardioGoal g = it2.next();
             if(!g.getDisplay()){
-                allCardioGoal.remove(g);
+                it2.remove();
             }
         }
         List<RepeatsCorrectionGoal> allRepeatsCorrectionGoal = RepeatsCorrectionGoal.listAll(RepeatsCorrectionGoal.class);
-        for(RepeatsCorrectionGoal g:allRepeatsCorrectionGoal){
+        Iterator<RepeatsCorrectionGoal> it3 = allRepeatsCorrectionGoal.iterator();
+        while(it3.hasNext()){
+            RepeatsCorrectionGoal g = it3.next();
             if(!g.getDisplay()){
-                allRepeatsCorrectionGoal.remove(g);
+                it3.remove();
             }
         }
         List<ElementCorrectionGoal> allElementsCorrectionGoal = ElementCorrectionGoal.listAll(ElementCorrectionGoal.class);
-        for(ElementCorrectionGoal g:allElementsCorrectionGoal){
+        Iterator<ElementCorrectionGoal> it4 = allElementsCorrectionGoal.iterator();
+        while(it4.hasNext()){
+            ElementCorrectionGoal g = it4.next();
             if(!g.getDisplay()){
-                allElementsCorrectionGoal.remove(g);
+                it4.remove();
             }
         }
         List<LanguageLearningGoal> allLanguageLearningGoal = LanguageLearningGoal.listAll(LanguageLearningGoal.class);
-        for(LanguageLearningGoal g:allLanguageLearningGoal){
+        Iterator<LanguageLearningGoal> it5 = allLanguageLearningGoal.iterator();
+        while(it5.hasNext()){
+            LanguageLearningGoal g = it5.next();
             if(!g.getDisplay()){
-                allLanguageLearningGoal.remove(g);
+                it5.remove();
             }
         }
         //Находим все записи в базе
