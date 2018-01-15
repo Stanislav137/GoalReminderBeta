@@ -46,7 +46,7 @@
     <string name="description_theme_mygoal">This category will allow you to create your own goal, if it\'s anything special.</string>
     <string name="description_theme_science">This topic will help to achieve the desired result in the field of study and provide a choice of 2 categories. Be wiser every day!</string>
     <string name="description_theme_sport">This topic will help to achieve the desired result in the field of sport and provide a choice of 3 categories. Forward to new victories!</string>
-    <string name="duration">DURATION:</string>
+    <string name="duration">DURATION OF DAYS:</string>
     <string name="duration_days">days</string>
     <string name="exercise">EXERCISE:</string>
     <string name="far_distance">FAR DISTNACE:</string>
@@ -260,6 +260,8 @@
     <string name="sound">Sound on/off</string>
     <string name="vibration">Vibration on/off</string>
     <string name="frequency">Frequency</string>
+    <string name="sum_hours">THE SUM OF THE CLOCK OF STUDY:</string>
+    <string name="maximum_number_hours_day">MAXIMAL NUMBER OF WATCHES A DAY:</string>
     <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
     <string-array name="frequency">
         <item>Each hour</item>
