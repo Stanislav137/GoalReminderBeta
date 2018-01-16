@@ -61,6 +61,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Typeface faceBold = null;
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
     private double madeTodayResult = 0;
+    private String unitsCurrent, unitsGoal, unitsToday, unitsLeft;
     private String units = "";
     Button completed, relax;
     Dialog congrDialog;
@@ -221,9 +222,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         TextView nameGoal = (TextView) convertView.findViewById(R.id.nameGoal);
         nameGoal.setText(goal.getNameGoal());
         TextView themeCategory = (TextView) convertView.findViewById(R.id.themeCategory);
-        if (!typeLang.equals("en") || !typeLang.equals("pl")) {
-            themeCategory.setText(goal.getThemeCategory());
-        } else {
+        if (typeLang.equals("en") || typeLang.equals("pl")) {
             if (goal.getThemeCategory().equals("МАССА")) {
                 themeCategory.setText("WEIGHT");
             } else if (goal.getThemeCategory().equals("КАРДИО")) {
@@ -237,6 +236,8 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             } else if (goal.getThemeCategory().equals("НАВЫКИ")) {
                 themeCategory.setText("SKILLS");
             }
+        } else {
+            themeCategory.setText(goal.getThemeCategory());
         }
 
         //Double progress = 30.0;
@@ -847,6 +848,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
                 double left = 5 - ((ElementCorrectionGoal) goal).getCurrentResult();
                 double leftUnits = 500 - ((ElementCorrectionGoal) goal).getCurrentResult2();
+                //unitsValidation(goal, goal.getCurrentResult(), 0, leftUnits);
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "level";
                     currentResultUnits.setText(((ElementCorrectionGoal) goal).getCurrentResult() + " " + units + " / " + ((ElementCorrectionGoal) goal).getCurrentResult2() + " points");
@@ -1089,32 +1091,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
         mActivity.startActivity(intent);//8*/
     }
 
-//    private void graduationUnits(Goal goal, double current, double goalResult, double todayResult) {
-//        if (goal instanceof RepeatsCorrectionGoal) {
-//            current = Math.abs(current % 10);
-//            goalResult = Math.abs(goalResult % 10);
-//            todayResult = Math.abs(todayResult % 10);
-//            if (current == 1) {
-//                units = "повторение";
-//            } else if (current > 1 && current < 5) {
-//                units = "повторения";
-//            } else {
-//                units = "повторений";
-//            }
-//            if (goalResult == 1) {
-//                units = "повторение";
-//            } else if (goalResult > 1 && goalResult < 5) {
-//                units = "повторения";
-//            } else {
-//                units = "повторений";
-//            }
-//            if (todayResult == 1) {
-//                units = "повторение";
-//            } else if (todayResult > 1 && todayResult < 5) {
-//                units = "повторения";
-//            } else {
-//                units = "повторений";
-//            }
-//        }
-//    }
+    private void unitsValidation(Goal goal, double current, double goalResult, double left) {
+        if (goal instanceof RepeatsCorrectionGoal) {
+            current = Math.abs(current % 10);
+            goalResult = Math.abs(goalResult % 10);
+            left = Math.abs(left % 10);
+
+        }
+    }
 }

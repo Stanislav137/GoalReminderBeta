@@ -232,6 +232,12 @@
     <string name="sum_hours">THE SUM OF THE CLOCK OF STUDY:</string>
     <string name="maximum_number_hours_day">MAXIMAL NUMBER OF WATCHES A DAY:</string>
     <string name="frequency">Frequency</string>
+    <string name="autors">AUTORS</string>
+    <string name="team_develop">TEAM OF DEVELOPERS</string>
+    <string name="close_autors">CLOSE</string>
+    <string name="creator">CREATOR</string>
+    <string name="programmer">PROGRAMMER</string>
+    <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
     <string-array name="frequency">
         <item>Each hour</item>
         <item>Each 2 hours</item>
