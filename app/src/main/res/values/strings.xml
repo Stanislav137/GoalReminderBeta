@@ -73,6 +73,15 @@
     <string name="options_friday">П</string>
     <string name="options_saturday">С</string>
     <string name="save_options">СОХРАНИТЬ</string>
+    <string name="autors">АВТОРЫ</string>
+    <string name="ss">Semenets Stanislav - semenetsbeph@gmail.com</string>
+    <string name="ly">Li Yevgeniya - eugenija.li270392@gmail.com</string>
+    <string name="oa">Otrotskyi Anton - anton.otrotskyi@gmail.com</string>
+    <string name="dy">Yaroslav Doloban - yaruhas3@gmail.com</string>
+    <string name="team_develop">КОМАНДА РАЗРАБОТЧИКОВ</string>
+    <string name="close_autors">ЗАКРЫТЬ</string>
+    <string name="creator">СОЗДАТЕЛЬ</string>
+    <string name="programmer">ПРОГРАММИСТ</string>
     <string name="notification_on_off">Уведомления вкл/выкл</string>
     <string name="sound">Звук вкл/выкл</string>
     <string name="vibration">Вибрацию вкл/выкл</string>
