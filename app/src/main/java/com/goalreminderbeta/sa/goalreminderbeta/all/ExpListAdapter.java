@@ -61,7 +61,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     private Typeface faceBold = null;
     private double lvlLangHoursCurrent = 0, lvlLangHoursGoal = 0, pointsSkillsCurrent = 0, pointsSkillsGoal = 0;
     private double madeTodayResult = 0;
-    private String unitsCurrent, unitsGoal, unitsToday, unitsLeft;
+    private String unitsCurrent, unitsGoal, unitsToday, unitsLeft, unitsLvlLeft;
     private String units = "";
     Button completed, relax;
     Dialog congrDialog;
@@ -848,19 +848,24 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
                 double left = 5 - ((ElementCorrectionGoal) goal).getCurrentResult();
                 double leftUnits = 500 - ((ElementCorrectionGoal) goal).getCurrentResult2();
-                //unitsValidation(goal, goal.getCurrentResult(), 0, leftUnits);
+                unitsValidation(goal, ((ElementCorrectionGoal) goal).getCurrentResult2(), 0, leftUnits);
+                if(left == 0 || left == 5) {
+                    unitsLvlLeft = "уровней";
+                } else if(left == 1) {
+                    unitsLvlLeft = "уровень";
+                } else unitsLvlLeft = "уровня";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "level";
-                    currentResultUnits.setText(((ElementCorrectionGoal) goal).getCurrentResult() + " " + units + " / " + ((ElementCorrectionGoal) goal).getCurrentResult2() + " points");
+                    currentResultUnits.setText(String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult()) + " " + units + " / " + String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult2()) + " points");
                     goalResultUnits.setText(String.valueOf(5) + " " + units + " / " + "500 points");
                     taskOfDayUnits.setText("training");
-                    leftToGoalUnits.setText(String.format("%.1f", left) + " " + "level" + " / " + leftUnits + " points");
+                    leftToGoalUnits.setText(String.format("%.0f", left) + " " + "level" + " / " + String.format("%.0f", leftUnits) + " points");
                 } else {
                     units = "уровень";
-                    currentResultUnits.setText(((ElementCorrectionGoal) goal).getCurrentResult() + " " + units + " / " + ((ElementCorrectionGoal) goal).getCurrentResult2() + " очков");
+                    currentResultUnits.setText(String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult()) + " " + units + " / " + String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult2()) + " " + unitsCurrent);
                     goalResultUnits.setText(String.valueOf(5) + " " + units + " / " + "500 очков");
                     taskOfDayUnits.setText("тренировка");
-                    leftToGoalUnits.setText(String.format("%.1f", left) + " " + "уровня" + " / " + leftUnits + " очков");
+                    leftToGoalUnits.setText(String.format("%.0f", left) + " " + unitsLvlLeft + " / " + String.format("%.0f", leftUnits) + " " + unitsLeft);
                 }
                 break;
             case "ПОВТОРЕНИЯ": // EDIT graduation
@@ -1092,10 +1097,24 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     }
 
     private void unitsValidation(Goal goal, double current, double goalResult, double left) {
-        if (goal instanceof RepeatsCorrectionGoal) {
-            current = Math.abs(current % 10);
-            goalResult = Math.abs(goalResult % 10);
-            left = Math.abs(left % 10);
+        current = Math.abs(current % 10);
+        goalResult = Math.abs(goalResult % 10);
+        left = Math.abs(left % 10);
+        if (goal instanceof ElementCorrectionGoal) {
+            if(current >= 5 || current == 0) unitsCurrent = "очков";
+            else if(current == 1) unitsCurrent = "очко";
+            else unitsCurrent = "очка";
+            if(goalResult >= 5 || goalResult == 0) unitsGoal = "очков";
+            else if(goalResult == 1) unitsGoal = "очко";
+            else unitsGoal = "очка";
+            if(left >= 5 || left == 0) unitsLeft = "очков";
+            else if(left == 1) unitsLeft = "очко";
+            else unitsLeft = "очка";
+        } else if(goal instanceof RepeatsCorrectionGoal) {
+
+        } else if(goal instanceof CardioGoal) {
+
+        } else if(goal instanceof LanguageLearningGoal) {
 
         }
     }

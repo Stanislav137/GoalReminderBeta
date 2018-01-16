@@ -237,7 +237,6 @@
     <string name="close_autors">CLOSE</string>
     <string name="creator">CREATOR</string>
     <string name="programmer">PROGRAMMER</string>
-    <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
     <string-array name="frequency">
         <item>Each hour</item>
         <item>Each 2 hours</item>
@@ -267,7 +266,7 @@
     <string name="help_user_start_hello_champ_text">Welcome to our application, in order to successfully start You must remember your goal You want to achieve in the near future, find the appropriate category and record it. The program will help You to finish it to the end!</string>
     <string name="statistics_description_of_purpose">I WANT TO BE THE BEST IN THE WORLD AT RUNNING SPEED</string>
     <string name="quote">I find inspiration for myself... If someone pursues their dreams, it inspires me.</string>
-    <string name="description_category_book">If You wanted to read the book, this category will not let You to score that goal and You'll read the book to the end. Become even smarter!</string>
+    <string name="description_category_book">If You wanted to read the book, this category will not let You to score that goal and You\'ll read the book to the end. Become even smarter!</string>
     <string name="description_category_repeats">This category will help to set a new record in the exercise, such as pushups, squats, etc., and create an even more powerful body!</string>
     <string name="description_category_run">This category will help to achieve the desired result in speed and endurance, such as running, Cycling, etc.</string>
     <string name="instruct_cardio_nr">1. Enter the name of the destination.
@@ -281,7 +280,7 @@
 \n3. Enter your current and desired level of proficiency.
 \n4.Enter the planned date for the implementation of Your goals.
 the \nlist, the average person needs 70 hours to improve language skills by one level.
-So You don't forget to work out, BeBetter every day will remind you of the goal. Good luck!</string>
+So You don\'t forget to work out, BeBetter every day will remind you of the goal. Good luck!</string>
     <string name="instruct_repeats_ra">1. Enter the name of the destination.
 \n2. Put motivating words that will help You to reach the end.
 \n3. Write down the desired number of repetitions over which You plan to work.
@@ -291,7 +290,7 @@ So You don't forget to work out, BeBetter every day will remind you of the goal.
 \n2. Put motivating words that will help You to reach the end.
 \n3. Write down your current and desired weight.
 \n4.Enter the planned date for the implementation of Your goals.
-\ncheck this You have not forgotten to work out, BeBetter every day will remind you of the goal. Don't forget to weigh in each week and record your result.Good luck!</string>
+\ncheck this You have not forgotten to work out, BeBetter every day will remind you of the goal. Don\'t forget to weigh in each week and record your result.Good luck!</string>
     <string name="instruct_book">1. Enter the name of the book that is your goal.
 \n2. Put motivating words that will help You to reach the end.
 \n3. Write down the number of pages to read.
