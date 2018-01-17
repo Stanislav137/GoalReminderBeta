@@ -381,8 +381,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
                 currentRepeatsTV.setText(R.string.currentRepeatsTV_repeats_Activity);
                 dialogLV.addView(currentRepeatsTV, lp);
                 currentRepeatsET = new TextView(repeatsDialog.getContext());
-                currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
-                currentRepeatsET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+                currentRepeatsET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getCurrentResult())));
                 currentRepeatsET.setPadding(20, 20, 20, 20);
                 currentRepeatsET.setTextSize(20);
                 currentRepeatsET.setTextColor(Color.BLACK);
@@ -396,8 +395,7 @@ public class RepeatsCorrectionActivity extends AppCompatActivity {
             goalRepeatsTV.setText(R.string.goalRepeatsTVrepeats_Activity);
             dialogLV.addView(goalRepeatsTV,lp);
             goalRepeatsET = new TextView(repeatsDialog.getContext());
-            goalRepeatsET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
-            goalRepeatsET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalRepeatsET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getGoalResult())));
             goalRepeatsET.setPadding(20,20,20,20);
             goalRepeatsET.setTextSize(20);
             goalRepeatsET.setTextColor(Color.BLACK);

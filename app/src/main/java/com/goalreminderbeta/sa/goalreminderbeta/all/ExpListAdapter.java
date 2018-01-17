@@ -612,6 +612,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 break;
             case "КАРДИО":
+                String distanceMeters = "м";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "seconds";
                 } else units = "сек";
@@ -635,9 +636,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         goalResultDG.setText(goal.getDistance() + " " + "meters");
                         distanceTitle.setText("DISTANCE");
                     } else {
-                        distanceDG.setText(goal.getDistance() + " метров");
+                        double distance = Math.abs(goal.getDistance() % 10);
+                        if(distance >= 5 || distance == 0) distanceMeters = "метор";
+                        else if(distance == 1) distanceMeters = "метр";
+                        else distanceMeters = "метра";
+                        if (typeLang.equals("en") || typeLang.equals("pl")) {
+                            distanceMeters = "pages";
+                        }
+                        distanceDG.setText(goal.getDistance() + " " + distanceMeters);
                         taskDG.setText("преодолеть дистанцию");
-                        goalResultDG.setText(goal.getDistance() + " " + "метров");
+                        goalResultDG.setText(goal.getDistance() + " " + distanceMeters);
                         distanceTitle.setText("ДИСТАНЦИЯ");
                     }
                     //madeToday.setText("ТРЕНИРОВКА");
@@ -647,13 +655,17 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     llDistance.setVisibility(View.VISIBLE);
                     separator.setVisibility(View.VISIBLE);
                     TextView titleTxtCardio = (TextView) view.findViewById(R.id.titleTxt);
+                    double distance = Math.abs(goal.getDistance() % 10);
+                    if(distance >= 5 || distance == 0) units = "метор";
+                    else if(distance == 1) distanceMeters = "метр";
+                    else distanceMeters = "метра";
                     if (typeLang.equals("en") || typeLang.equals("pl")) {
                         titleTxtCardio.setText("MY NEW TIME:");
                         distanceDG.setText(goal.getDistance() + " meters");
                         taskDG.setText("bridge the distance");
                     } else {
                         titleTxtCardio.setText("МОЁ НОВОЕ ВРЕМЯ:");
-                        distanceDG.setText(goal.getDistance() + " метров");
+                        distanceDG.setText(goal.getDistance() + " " + distanceMeters);
                         taskDG.setText("преодолеть дистанцию");
                     }
                     currentResultDG.setText(currentNumber + " " + units);
@@ -661,28 +673,27 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
                 }
                 break;
-            case "НАВЫКИ": // EDIT graduation
+            case "НАВЫКИ":
                 TextView titleTxtSkill = (TextView) view.findViewById(R.id.titleTxt);
+                unitsValidation(goal, ((ElementCorrectionGoal) goal).getCurrentResult2(), pointsSkillsGoal, goal.getMadeTodayResult()); //4 param will be madeToday instead left
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     titleTxtSkill.setText("ENTER THE NEW PROGRESS:");
                     units = "points";
                     taskDG.setText("training");
-                    currentResultDG.setText(((ElementCorrectionGoal) goal).getCurrentResult() + " " + units + " / " + ((ElementCorrectionGoal) goal).getCurrentResult2() + " " + units);
-                    goalResultDG.setText(goal.getGoalResult() + " level" + " / " + pointsSkillsGoal + " " + units);
+                    currentResultDG.setText(String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult()) + " " + units + " / " + String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult2()) + " " + units);
+                    goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " level" + " / " + String.format("%.0f", pointsSkillsGoal) + " " + units);
                 } else {
                     titleTxtSkill.setText("ВВЕДИ НОВЫЙ ПРОГРЕСС:");
                     units = "очки";
                     taskDG.setText("тренировка");
-                    currentResultDG.setText(((ElementCorrectionGoal) goal).getCurrentResult() + " " + units + " / " + ((ElementCorrectionGoal) goal).getCurrentResult2() + " " + units);
-                    goalResultDG.setText(goal.getGoalResult() + " уровень" + " / " + pointsSkillsGoal + " " + units);
+                    currentResultDG.setText(String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult()) + " уровень" + " / " + String.format("%.0f", ((ElementCorrectionGoal) goal).getCurrentResult2()) + " " + unitsCurrent);
+                    goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " уровень" + " / " + String.format("%.0f", pointsSkillsGoal) + " " + unitsGoal);
                 }
                 skillsPoints(goal);
-                madeToday.setText(String.format("%.1f", goal.getMadeTodayResult()) + " " + units);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + unitsLeft);
                 break;
-            case "ПОВТОРЕНИЯ": // EDIT graduation
-//                if(typeLang.equals("en") || typeLang.equals("pl")) {
-//                    units = "repetition";
-//                } else units = "повторения";
+            case "ПОВТОРЕНИЯ":
+                unitsValidation(goal, currentNumber, goal.getGoalResult(), goal.getMadeTodayResult()); //4 param will be madeToday instead left
                 if (goal.getCurrentResult() == 0) { // regular attack
                     Button relax2 = (Button) view.findViewById(R.id.relax);
                     relax2.setVisibility(View.VISIBLE);
@@ -709,42 +720,59 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                         titleTxt.setText("МОЙ НОВЫЙ ПРОГРЕСС:");
                     }
                 }
+                if(typeLang.equals("en") || typeLang.equals("pl")) {
+                    unitsCurrent = "repetitions";
+                    unitsGoal = "repetitions";
+                    unitsLeft = "repetitions";
+                }
                 //graduationUnits(goal, currentNumber, goal.getGoalResult(), goal.getMadeTodayResult());
-                currentResultDG.setText(String.format("%.0f", currentNumber) + " " + units);
-                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
-                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
+                currentResultDG.setText(String.format("%.0f", currentNumber) + " " + unitsCurrent);
+                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + unitsGoal);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + unitsLeft);
                 break;
             case "КНИГА":
+                unitsValidation(goal, currentNumber, goal.getGoalResult(), goal.getMadeTodayResult()); //4 param will be madeToday instead left
                 titleTxt = (TextView) view.findViewById(R.id.titleTxt);
+                double dayTask2 = Math.abs(dayTask % 10);
+                if(dayTask2 >= 5 || dayTask2 == 0) units = "страниц";
+                else if(dayTask2 == 1) units = "страница";
+                else units = "страницы";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "pages";
+                    unitsCurrent = "pages";
+                    unitsGoal = "pages";
+                    unitsLeft = "pages";
                     titleTxt.setText("TODAY READ:");
-                } else {
-                    units = "стр.";
-                    titleTxt.setText("СЕГОДНЯ ПРОЧИТАНО:");
                 }
                 dayTask = Math.ceil(dayTask);
                 taskDG.setText(String.format("%.0f", dayTask) + " " + units);
-                currentResultDG.setText(String.format("%.0f", currentNumber) + " " + units);
-                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + units);
-                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
+                currentResultDG.setText(String.format("%.0f", currentNumber) + " " + unitsCurrent);
+                goalResultDG.setText(String.format("%.0f", goal.getGoalResult()) + " " + unitsGoal);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + unitsLeft);
                 break;
             case "ЯЗЫКИ":
+                unitsValidation(goal, currentNumber, goal.getGoalResult(), goal.getMadeTodayResult()); //4 param will be madeToday instead left
                 titleTxt = (TextView) view.findViewById(R.id.titleTxt);
                 languageLevelInHours(goal);
                 double lvlDayTask = (lvlLangHoursGoal - lvlLangHoursCurrent) / getDifferenceInDays(new Date(), goal.getToDate());
+                double lvlDayTask2 = Math.abs(lvlDayTask % 10);
+                if(lvlDayTask2 >= 5 || lvlDayTask2 == 0) units = "часов";
+                else if(lvlDayTask2 == 1) units = "час";
+                else units = "часа";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "hours";
-                    titleTxt.setText("TODAY STUDYED:");
+                    unitsCurrent = "hours";
+                    unitsGoal = "hours";
+                    unitsLeft = "hours";
+                    titleTxt.setText("TODAY READ:");
                 } else {
-                    units = "ч.";
                     titleTxt.setText("СЕГОДНЯ ИЗУЧЕНО:");
                 }
                 lvlDayTask = Math.round(lvlDayTask);
                 taskDG.setText(String.format("%.0f", lvlDayTask) + " " + units);
-                currentResultDG.setText(goal.getCurrentLanguageLevel() + " / " + String.format("%.0f", currentNumber) + " " + units);
-                goalResultDG.setText(goal.getGoalLanguageLevel() + " / " + String.format("%.0f", goal.getGoalResult()) + " " + units);
-                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + units);
+                currentResultDG.setText(goal.getCurrentLanguageLevel() + " / " + String.format("%.0f", currentNumber) + " " + unitsCurrent);
+                goalResultDG.setText(goal.getGoalLanguageLevel() + " / " + String.format("%.0f", goal.getGoalResult()) + " " + unitsGoal);
+                madeToday.setText(String.format("%.0f", goal.getMadeTodayResult()) + " " + unitsLeft);
                 break;
         }
 
@@ -804,6 +832,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                 }
                 break;
             case "КАРДИО":
+                String unitsDistance;
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "seconds";
                     taskOfDayUnits.setText("bridge the distance");
@@ -824,10 +853,14 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     separator1.setVisibility(View.GONE);
                     separator7.setVisibility(View.GONE);
                     separator8.setVisibility(View.GONE);
+                    double distance2 = Math.abs(goal.getDistance() % 10);
+                    if(distance2 >= 5 || distance2 == 0) unitsDistance = "метров";
+                    else if(distance2 == 1) unitsDistance = "метр";
+                    else unitsDistance = "метра";
                     if (typeLang.equals("en") || typeLang.equals("pl")) {
                         goalResultUnits.setText(goal.getDistance() + " meters");
                     } else {
-                        goalResultUnits.setText(goal.getDistance() + " метров");
+                        goalResultUnits.setText(goal.getDistance() + " " + unitsDistance);
                     }
                 } else {
                     TextView distanceRun = (TextView) convertView.findViewById(R.id.distanceRun);
@@ -838,12 +871,16 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     }
                     runDistance.setVisibility(View.VISIBLE);
                     separator2.setVisibility(View.VISIBLE);
-                    goalResultUnits.setText(goal.getGoalResult() + " " + units);
+                    if (typeLang.equals("en") || typeLang.equals("pl")) {
+                        goalResultUnits.setText(goal.getGoalResult() + " meters");
+                    } else {
+                        goalResultUnits.setText(goal.getGoalResult() + " " + units);
+                    }
                 }
                 currentResultUnits.setText(String.format("%.1f", currentNumber) + " " + units);
                 leftToGoalUnits.setText(String.format("%.1f", leftGoalUnits) + " " + units);
                 break;
-            case "НАВЫКИ": // EDIT graduation
+            case "НАВЫКИ":
                 skillsPoints(goal);
                 //double leftPointsSkill = (pointsSkillsGoal - pointsSkillsCurrent) / getDifferenceInDays(new Date(), goal.getToDate()
                 double left = 5 - ((ElementCorrectionGoal) goal).getCurrentResult();
@@ -868,10 +905,11 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     leftToGoalUnits.setText(String.format("%.0f", left) + " " + unitsLvlLeft + " / " + String.format("%.0f", leftUnits) + " " + unitsLeft);
                 }
                 break;
-            case "ПОВТОРЕНИЯ": // EDIT graduation
+            case "ПОВТОРЕНИЯ":
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "repeats";
                 } else units = "повторений";
+                unitsValidation(goal, currentNumber, goalNumber, leftGoalUnits);
                 if (goal.getCurrentResult() == 0) {
                     LinearLayout runDistance = (LinearLayout) convertView.findViewById(R.id.runDistance);
                     LinearLayout llCurrentResult = (LinearLayout) convertView.findViewById(R.id.llCurrentResult);
@@ -890,19 +928,20 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     } else {
                         taskOfDayUnits.setText("макс. кол-во повторений");
                     }
-                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
+                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + unitsGoal);
                 } else {
-                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
+                    goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + unitsGoal);
                     if (typeLang.equals("en") || typeLang.equals("pl")) {
                         taskOfDayUnits.setText("max. number of repetitions");
                     } else {
                         taskOfDayUnits.setText("макс. кол-во повторений");
                     }
                 }
-                currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + units);
-                leftToGoalUnits.setText(String.format("%.0f", leftGoalUnits) + " " + units);
+                currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + unitsCurrent);
+                leftToGoalUnits.setText(String.format("%.0f", leftGoalUnits) + " " + unitsLeft);
                 break;
             case "КНИГА":
+                unitsValidation(goal, currentNumber, goalNumber, leftGoalUnits);
                 if (goal.getDataBook().equals(" ") || goal.getDataBook().equals("")) {
                     bookPresent.setVisibility(View.GONE);
                     separator1.setVisibility(View.GONE);
@@ -910,26 +949,35 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                     bookPresent.setVisibility(View.VISIBLE);
                     separator1.setVisibility(View.VISIBLE);
                 }
+                currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + unitsCurrent);
+                goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + unitsGoal);
+                dayTask = Math.ceil(dayTask);
+                double dayTask2 = Math.abs(dayTask % 10);
+                if(dayTask2 == 0 || dayTask2 >= 5) units = "страниц";
+                else if(dayTask2 == 1) units = "страница";
+                else units = "страницы";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "pages";
-                } else units = "стр.";
-                currentResultUnits.setText(String.format("%.0f", currentNumber) + " " + units);
-                goalResultUnits.setText(String.format("%.0f", goalNumber) + " " + units);
-                dayTask = Math.ceil(dayTask);
+                }
                 taskOfDayUnits.setText(String.format("%.0f", dayTask) + " " + units);
-                leftToGoalUnits.setText(String.format("%.0f", leftGoalUnits) + " " + units);
+                leftToGoalUnits.setText(String.format("%.0f", leftGoalUnits) + " " + unitsLeft);
                 break;
             case "ЯЗЫКИ":
+                unitsValidation(goal, goal.getCurrentResult(), lvlLangHoursGoal, goal.getGoalResult() - goal.getCurrentResult());
                 languageLevelInHours(goal);
                 double lvlLangLeftGoal = (lvlLangHoursGoal - lvlLangHoursCurrent) / getDifferenceInDays(new Date(), goal.getToDate());
+                double lvlLangLeftGoal2 = Math.abs(lvlLangLeftGoal % 10);
+                if(lvlLangLeftGoal2 >= 5 || lvlLangLeftGoal2 == 0) units = "часов";
+                else if(lvlLangLeftGoal2 == 1) units = "час";
+                else units = "часа";
                 if (typeLang.equals("en") || typeLang.equals("pl")) {
                     units = "hours";
-                } else units = "ч.";
-                currentResultUnits.setText(((LanguageLearningGoal) goal).getCurrentLanguageLevel() + " / " + String.format("%.0f", goal.getCurrentResult()) + " " + units);
-                goalResultUnits.setText(goal.getGoalLanguageLevel() + " / " + String.format("%.0f", lvlLangHoursGoal) + " " + units);
+                }
+                currentResultUnits.setText(((LanguageLearningGoal) goal).getCurrentLanguageLevel() + " / " + String.format("%.0f", goal.getCurrentResult()) + " " + unitsCurrent);
+                goalResultUnits.setText(goal.getGoalLanguageLevel() + " / " + String.format("%.0f", lvlLangHoursGoal) + " " + unitsGoal);
                 lvlLangLeftGoal = Math.round(lvlLangLeftGoal);
                 taskOfDayUnits.setText(String.format("%.0f", lvlLangLeftGoal) + " " + units);
-                leftToGoalUnits.setText(String.format("%.0f", (goal.getGoalResult() - goal.getCurrentResult())) + " " + units);
+                leftToGoalUnits.setText(String.format("%.0f", (goal.getGoalResult() - goal.getCurrentResult())) + " " + unitsLeft);
                 break;
         }
 
@@ -1111,11 +1159,35 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
             else if(left == 1) unitsLeft = "очко";
             else unitsLeft = "очка";
         } else if(goal instanceof RepeatsCorrectionGoal) {
-
-        } else if(goal instanceof CardioGoal) {
-
+            if(current >= 5 || current == 0) unitsCurrent = "повторений";
+            else if(current == 1) unitsCurrent = "повторение";
+            else unitsCurrent = "повторения";
+            if(goalResult >= 5 || goalResult == 0) unitsGoal = "повторений";
+            else if(goalResult == 1) unitsGoal = "повторение";
+            else unitsGoal = "повторения";
+            if(left >= 5 || left == 0) unitsLeft = "повторений";
+            else if(left == 1) unitsLeft = "повторение";
+            else unitsLeft = "повторения";
         } else if(goal instanceof LanguageLearningGoal) {
-
+            if(current >= 5 || current == 0) unitsCurrent = "часов";
+            else if(current == 1) unitsCurrent = "час";
+            else unitsCurrent = "часа";
+            if(goalResult >= 5 || goalResult == 0) unitsGoal = "часов";
+            else if(goalResult == 1) unitsGoal = "час";
+            else unitsGoal = "часа";
+            if(left >= 5 || left == 0) unitsLeft = "часов";
+            else if(left == 1) unitsLeft = "час";
+            else unitsLeft = "часа";
+        } else if(goal instanceof ReadBookGoal) {
+            if(current >= 5 || current == 0) unitsCurrent = "страниц";
+            else if(current == 1) unitsCurrent = "страница";
+            else unitsCurrent = "страницы";
+            if(goalResult >= 5 || goalResult == 0) unitsGoal = "страниц";
+            else if(goalResult == 1) unitsGoal = "страница";
+            else unitsGoal = "страницы";
+            if(left >= 5 || left == 0) unitsLeft = "страниц";
+            else if(left == 1) unitsLeft = "страница";
+            else unitsLeft = "страницы";
         }
     }
 }

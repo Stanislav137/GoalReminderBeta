@@ -227,7 +227,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             currentElementET.setPadding(20,20,20,20);
             currentElementET.setTextSize(20);
             currentElementET.setTextColor(Color.BLACK);
-            currentElementET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            currentElementET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getCurrentResult())));
             dialogLV.addView(currentElementET,lp);
             dialogLV.addView(ll, params);
 
@@ -241,7 +241,7 @@ public class ElementCorrectionActivity extends AppCompatActivity implements View
             goalElementET.setPadding(20,20,20,20);
             goalElementET.setTextSize(20);
             goalElementET.setTextColor(Color.BLACK);
-            goalElementET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalElementET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getGoalResult())));
             dialogLV.addView(goalElementET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
