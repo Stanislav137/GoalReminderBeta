@@ -20,6 +20,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
 
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.all.RecordsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 
@@ -38,6 +39,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
     private boolean days[];
     private int size;
 
+    private Intent senderIntent;
+    boolean delay=false;
+    NotificationPublisher mySender;
+    IntentFilter senderFilter;
     private Button save;
     private TextView config,dayText;
     SaveButtonFragment fragment;
@@ -76,6 +81,9 @@ public class ConfigActivity extends Activity implements OnClickListener{
         days = new boolean[7];
         save = (Button)findViewById(R.id.saveBTN);
         save.setOnClickListener(this);
+        mySender = new NotificationPublisher();
+        senderFilter = new IntentFilter("sender");
+        registerReceiver(mySender,senderFilter);
     }
 
     @Override
@@ -133,9 +141,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
             sb.append(String.valueOf(days[i])).append(" ");
         }
         size = sp.getInt("goals",0);
+        senderIntent = new Intent("sender");
+        sendBroadcast(senderIntent);
 
-
-        serviceIntent = new Intent(this,MyService.class);
+        /*serviceIntent = new Intent(this,MyService.class);
         if(sp.getInt("goals",0)>0) {
             serviceIntent.putExtra("title", "You goals are ready!");
             serviceIntent.putExtra("text", "Keep it up!");
@@ -150,7 +159,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
         serviceIntent.putExtra("notification",notOn);
         serviceIntent.putExtra("sound",soundOn);
         serviceIntent.putExtra("vibration",vibrOn);
-        startService(serviceIntent);
+        startService(serviceIntent);*/
 
         config.setText("F "+freq+" nOn "+notOn+" sOn "+soundOn+" vOn "+vibrOn+" fM "+fromMain
                 +" size "+size
