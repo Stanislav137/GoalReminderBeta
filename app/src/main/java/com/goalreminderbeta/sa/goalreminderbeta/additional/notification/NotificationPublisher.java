@@ -97,7 +97,7 @@ public class NotificationPublisher extends BroadcastReceiver {
     public Notification createNotification(Context context, String title,String text,PendingIntent pIntent) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setTicker("Notification");
-        builder.setSmallIcon(R.drawable.logo);
+        builder.setSmallIcon(R.mipmap.logo);
         builder.setContentTitle(title);
         builder.setContentText(text);
         builder.setAutoCancel(true);

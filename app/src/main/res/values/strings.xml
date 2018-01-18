@@ -292,6 +292,7 @@
     //category
     <string name="book_category_book">КАТЕГОРИЯ КНИГА</string>
     <string name="cardio_category_cardio">КАТЕГОРИЯ КАРДИО</string>
+    <string name="is_max_goals">Выполните и удалите одну из целей! 8 - целей максимум!</string>
 
 
     //child_section_complete
@@ -300,7 +301,7 @@
     <string name="child_section_complete_Goal_name_of_book">НАЗВАНИЕ ЦЕЛИ | НАЗВАНИЕ КНИГИ</string>
     <string name="child_section_complete_current_score">ТЕКУЩИЙ РЕЗУЛЬТАТ:</string>
     <string name="child_section_complete_current_score_pages">страниц</string>
-    <string name="child_section_complete_your_goal">ВАША ЦЕЛЬ:</string>
+    <string name="child_section_complete_your_goal">ТВОЯ ЦЕЛЬ:</string>
     <string name="child_section_complete_your_goal_pages">страниц</string>
     <string name="child_section_complete_task_for_today">ЗАДАЧА НА СЕГОДНЯ:</string>
     <string name="child_section_complete_task_for_today_pages">страниц</string>
@@ -331,7 +332,7 @@
 
     //confirm_dialog
 
-    <string name="confirm_dialog_your_aim">Ваша цель:</string>
+    <string name="confirm_dialog_your_aim">Название цели:</string>
     <string name="confirm_dialog_confirm_data">ПОДТВЕРДИТЕ ДАННЫЕ</string>
     <string name="confirm_dialog_description_purpose">Описание цели:</string>
     <string name="confirm_dialog_Beginning">Начало:</string>
@@ -438,22 +439,22 @@
     <string name="kg3_weight_correction_Activity">КГ</string>
     <string name="g4_weight_correction_Activity">ГР</string>
 
-    <string name="currentWeightTV_weight_correction_Activity">Ваш вес теперь:</string>
-    <string name="goalWeightTV_weight_correction_Activity">Вес цели:</string>
-    <string name="currentRepeatsTV_repeats_Activity">Ваши повторы теперь:</string>
-    <string name="goalRepeatsTVrepeats_Activity">Повторы цели:</string>
+    <string name="currentWeightTV_weight_correction_Activity">Твой вес сейчас:</string>
+    <string name="goalWeightTV_weight_correction_Activity">Твоя цель:</string>
+    <string name="currentRepeatsTV_repeats_Activity">Твои повторения сейчас:</string>
+    <string name="goalRepeatsTVrepeats_Activity">Желаемый результат:</string>
 
     <string name="distanceTV_cardio_Activity">Твоё расстояние:</string>
-    <string name="currentRunTimeTV_cardio_Activity">Твоё время:</string>
-    <string name="goalRunTimeTV_cardio_Activity">Время выполнения:</string>
+    <string name="currentRunTimeTV_cardio_Activity">Твоё время сейчас:</string>
+    <string name="goalRunTimeTV_cardio_Activity">Твоя цель:</string>
 
-    <string name="dataBookTV_book_Activity">ДАННЫЕ КНИГИ</string>
-    <string name="goalBookTV_book_Activity">Ваши целевые страницы:</string>
+    <string name="dataBookTV_book_Activity">Название книги:</string>
+    <string name="goalBookTV_book_Activity">Твои целевые страницы:</string>
 
-    <string name="currentLanguageTV_language">Уровень владения языком:</string>
-    <string name="goalLanguageTV_language">Уровень языка:</string>
+    <string name="currentLanguageTV_language">Уровень владения сейчас:</string>
+    <string name="goalLanguageTV_language">Твоя цель:</string>
 
-    <string name="currentElementTV_element_Activity">Ваш текущий уровень:</string>
+    <string name="currentElementTV_element_Activity">Твой текущий уровень:</string>
     <string name="goalElementTV_element_Activity">Уровень цели:</string>
 
     <string name="toast_makeText">Цель успешно добавлена!</string>
@@ -466,5 +467,5 @@
     <string name="currentResult1">Сейчас Ты преодолеваешь:</string>
 
     <string name="dialog">Подтверждение</string>
-    <string name="currentBookTV_book_Activity">ВАША ТЕКУЩАЯ СТРАНИЦА:</string>
+    <string name="currentBookTV_book_Activity">Твоя текущяя страница:</string>
 </resources>

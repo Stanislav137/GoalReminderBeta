@@ -411,12 +411,6 @@ private NotificationPublisher mySender;
                     }
                     printAllGoals();
 
-                    if (allGoals.size() > 7){
-                        startAddGoal.setVisibility(View.INVISIBLE);
-                        Toast toast = Toast.makeText(getApplicationContext(),
-                                "Seven goals is maximum", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
                     if (allGoals.size() == 0) {
                         startAddGoal.setVisibility(View.VISIBLE);
                         bootStrapAddGoalCenter();
@@ -574,9 +568,15 @@ private NotificationPublisher mySender;
         allGoalsList.setAdapter(adapter);
     }
     public void openGoalChooser(View view) {
-        Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
-        startActivity(intent);
-        this.finish();
+        if (allGoals.size() > 7){
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    R.string.is_max_goals, Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            Intent intent = new Intent(StartActivity.this, AllSectionTheme.class);
+            startActivity(intent);
+            this.finish();
+        }
     }
     public void openRecords(View view) {
         Intent intent = new Intent(StartActivity.this, RecordsActivity.class);

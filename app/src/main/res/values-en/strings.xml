@@ -235,6 +235,7 @@
     <string name="close_autors">CLOSE</string>
     <string name="creator">CREATOR</string>
     <string name="programmer">PROGRAMMER</string>
+    <string name="is_max_goals">Complete and remove one of the targets! 8 goals - maximum!</string>
     <string-array name="frequency">
         <item>Each hour</item>
         <item>Each 2 hours</item>
