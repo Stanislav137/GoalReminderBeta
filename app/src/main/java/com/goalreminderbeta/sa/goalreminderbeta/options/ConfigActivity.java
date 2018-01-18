@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 
@@ -91,7 +92,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
     @Override
     protected void onResume() {
         super.onResume();
-
         freq = sp.getString("interval","");
         notOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
