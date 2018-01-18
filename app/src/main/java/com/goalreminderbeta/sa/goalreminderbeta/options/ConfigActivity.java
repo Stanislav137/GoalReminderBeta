@@ -22,6 +22,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
 
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.all.RecordsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.all.StartActivity;
 
@@ -40,6 +41,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
     private boolean days[];
     private int size;
 
+    private Intent senderIntent;
+    boolean delay=false;
+    NotificationPublisher mySender;
+    IntentFilter senderFilter;
     private Button save;
     private TextView config,dayText;
     SaveButtonFragment fragment;
@@ -78,11 +83,15 @@ public class ConfigActivity extends Activity implements OnClickListener{
         days = new boolean[7];
         save = (Button)findViewById(R.id.saveBTN);
         save.setOnClickListener(this);
+        mySender = new NotificationPublisher();
+        senderFilter = new IntentFilter("sender");
+        registerReceiver(mySender,senderFilter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         freq = sp.getString("interval","");
         notOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
@@ -118,8 +127,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
     @Override
     public void onClick(View view) {
+        String typeLang = getResources().getConfiguration().locale.getLanguage();
         editor = sp.edit();
         editor.putBoolean("main",false);
+        editor.putString("lang",typeLang);
         editor.commit();
         freq = sp.getString("interval","");
         notOn = sp.getBoolean("notification",true);
@@ -135,26 +146,17 @@ public class ConfigActivity extends Activity implements OnClickListener{
             sb.append(String.valueOf(days[i])).append(" ");
         }
         size = sp.getInt("goals",0);
+        senderIntent = new Intent("sender");
+        sendBroadcast(senderIntent);
 
-
-        serviceIntent = new Intent(this,MyService.class);
-        String typeLang = getResources().getConfiguration().locale.getLanguage();
-        if (sp.getInt("goals", 0) > 0) {
-            if(typeLang.equals("en") || typeLang.equals("pl")) {
-                serviceIntent.putExtra("title", "You goals are ready!");
-                serviceIntent.putExtra("text", "Keep it up!");
-            } else {
-                serviceIntent.putExtra("title", "Проверь свои цели на сегодня!");
-                serviceIntent.putExtra("text", "Твои цели записаны!");
-            }
-        } else {
-            if(typeLang.equals("en") || typeLang.equals("pl")) {
-                serviceIntent.putExtra("title", "You have no goals!");
-                serviceIntent.putExtra("text", "Add some goal to start");
-            } else {
-                serviceIntent.putExtra("title", "У Тебя нет целей!");
-                serviceIntent.putExtra("text", "Срочно запиши цели! Не теряй времени!");
-            }
+        /*serviceIntent = new Intent(this,MyService.class);
+        if(sp.getInt("goals",0)>0) {
+            serviceIntent.putExtra("title", "You goals are ready!");
+            serviceIntent.putExtra("text", "Keep it up!");
+        }
+        else {
+            serviceIntent.putExtra("title", "You have no goals!");
+            serviceIntent.putExtra("text", "Add some goal to start");
         }
         serviceIntent.putExtra("interval",freq);
         long delay = Integer.parseInt(freq)*1000*3600;
@@ -162,7 +164,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
         serviceIntent.putExtra("notification",notOn);
         serviceIntent.putExtra("sound",soundOn);
         serviceIntent.putExtra("vibration",vibrOn);
-        startService(serviceIntent);
+        startService(serviceIntent);*/
 
         config.setText("F "+freq+" nOn "+notOn+" sOn "+soundOn+" vOn "+vibrOn+" fM "+fromMain
                 +" size "+size

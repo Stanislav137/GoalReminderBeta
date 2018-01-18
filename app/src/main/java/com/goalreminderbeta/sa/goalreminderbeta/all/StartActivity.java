@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
@@ -28,6 +29,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DayPicker;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -66,7 +68,16 @@ public class StartActivity extends AppCompatActivity {
     private int countHelpUser = 0;
     private SharedPreferences.Editor editor;
     private GregorianCalendar calendar;
-
+private NotificationPublisher mySender;
+    IntentFilter senderFilter;
+    private Intent senderIntent;
+    private boolean delay=false;
+    private String freq;
+    private boolean notOn;
+    private boolean soundOn;
+    private boolean vibrOn;
+    private boolean isServ;
+    private boolean fromMain;
     private Dialog dialog,warningDialog;
     private AlertDialog.Builder adb;
     private View warningView;
@@ -87,6 +98,9 @@ public class StartActivity extends AppCompatActivity {
         if(countHelpUser == 0) {
             helpUserStart();
         }
+        mySender = new NotificationPublisher();
+        senderFilter = new IntentFilter("sender");
+        registerReceiver(mySender,senderFilter);
 
         setListenersOnChild();
         setListenerOnGroup();
@@ -137,6 +151,30 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        freq = sp.getString("interval","1");
+        //int frequency = Integer.parseInt(freq);
+        notOn = sp.getBoolean("notification",true);
+        soundOn = sp.getBoolean("sound",true);
+        vibrOn = sp.getBoolean("vibration",true);
+        delay = sp.getBoolean("delay",false);
+        fromMain = sp.getBoolean("main",true);
+
+        if(allGoals.size()>0) {
+            //text = "You goals are ready!";
+            //title = "Keep it up!";
+        }
+        else{
+            //text = "You have no goals!";
+            //title="Add some goal to start";
+            senderIntent = new Intent("sender");
+            sendBroadcast(senderIntent);
+
+        }
+        //editor = sp.edit();
+        //editor.putString("text",text);
+        //editor.putString("title",title);
+       // editor.putBoolean("delay",false);
+        //editor.commit();
         if(allGoals.size() != 0) {
             calendar = new GregorianCalendar();
             int day = calendar.get(Calendar.DATE);
@@ -151,7 +189,9 @@ public class StartActivity extends AppCompatActivity {
             } else {
                 verifyDay = false;
             }
+            String typeLang = getResources().getConfiguration().locale.getLanguage();
             editor = sp.edit();
+            editor.putString("lang",typeLang);
             editor.putInt("goals", allGoals.size());
             editor.commit();
             if (verifyDay) {
@@ -161,9 +201,11 @@ public class StartActivity extends AppCompatActivity {
                 dialog.setCanceledOnTouchOutside(false);
                 Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
                 Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
-                serviceIntent = new Intent(this, MyService.class);
-                String typeLang = getResources().getConfiguration().locale.getLanguage();
-                if (sp.getInt("goals", 0) > 0) {
+                //serviceIntent = new Intent(this, MyService.class);
+                //String typeLang = getResources().getConfiguration().locale.getLanguage();
+                /*if (sp.getInt("goals", 0) > 0) {
+                    //serviceIntent.putExtra("title", "You goals are ready!");
+                    //serviceIntent.putExtra("text", "Keep it up!");
                     if(typeLang.equals("en") || typeLang.equals("pl")) {
                         serviceIntent.putExtra("title", "You goals are ready!");
                         serviceIntent.putExtra("text", "Keep it up!");
@@ -172,38 +214,45 @@ public class StartActivity extends AppCompatActivity {
                         serviceIntent.putExtra("text", "Твои цели записаны!");
                     }
                 } else {
-                    if(typeLang.equals("en") || typeLang.equals("pl")) {
-                        serviceIntent.putExtra("title", "You have no goals!");
-                        serviceIntent.putExtra("text", "Add some goal to start");
-                    } else {
-                        serviceIntent.putExtra("title", "У Тебя нет целей!");
-                        serviceIntent.putExtra("text", "Срочно запиши цели! Не теряй времени!");
-                    }
-                }
+                    //serviceIntent.putExtra("title", "You have no goals!");
+                    //serviceIntent.putExtra("text", "Add some goal to start");
+                }*/
 
                 goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         editor = sp.edit();
                         editor.putString("date", date);
                         editor.commit();
+                        senderIntent = new Intent("sender");
+                        sendBroadcast(senderIntent);
+                        /*if (fromMain) {
 
-                        if (sp.getBoolean("main", true)) {
+                            senderIntent.putExtra("text",text);
+                            senderIntent.putExtra("title",title);
+                            senderIntent.putExtra("interval",1);
+                            senderIntent.putExtra("notification",true);
+                            senderIntent.putExtra("sound",true);
+                            senderIntent.putExtra("vibration",true);
+                            senderIntent.putExtra("delay",false);
+                            sendBroadcast(senderIntent);
                             serviceIntent.putExtra("interval", "1");
                             serviceIntent.putExtra("delay", 3600000);
                             serviceIntent.putExtra("notification", true);
                             serviceIntent.putExtra("sound", true);
                             serviceIntent.putExtra("vibration", true);
                         } else {
-                            serviceIntent.putExtra("interval", sp.getString("interval", ""));
+                            senderIntent = new Intent("sender");
+                            /*serviceIntent.putExtra("interval", sp.getString("interval", ""));
                             String delayStr = sp.getString("interval", "");
                             long delay = Integer.parseInt(delayStr) * 1000 * 3600;
                             serviceIntent.putExtra("delay", delay);
                             serviceIntent.putExtra("notification", sp.getBoolean("notification", true));
                             serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
                             serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
-                        }
-                        startService(serviceIntent);
+                        }*/
+                        //startService(serviceIntent);
                         dialog.cancel();
 
                     }
@@ -213,8 +262,11 @@ public class StartActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         editor = sp.edit();
                         editor.putString("date", date);
+                        editor.putBoolean("delay",true);
                         editor.commit();
-                        if (sp.getBoolean("main", true)) {
+                        senderIntent = new Intent("sender");
+                        sendBroadcast(senderIntent);
+                        /*if (sp.getBoolean("main", true)) {
                             serviceIntent.putExtra("interval", "1");
                             serviceIntent.putExtra("delay", 3600000);
                             serviceIntent.putExtra("notification", true);
@@ -228,7 +280,7 @@ public class StartActivity extends AppCompatActivity {
                             serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
                             serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
                         }
-                        startService(serviceIntent);
+                        startService(serviceIntent);*/
                         finish();
                         dialog.dismiss();
                     }
