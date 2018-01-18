@@ -30,10 +30,16 @@ public class NotificationPublisher extends BroadcastReceiver {
     private boolean delay=false;
     SharedPreferences sp;
     private String typeLang="en";
-    private long t=3600*1000;
+    private long t=5000;
+    AlarmManager alarmManager;
+    Intent i;
+    PendingIntent pending;
     @Override
     public void onReceive(Context context, Intent intent) {
         nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if(alarmManager!=null){
+            alarmManager.cancel(pending);
+        }
         sp = PreferenceManager.getDefaultSharedPreferences(context);
         freq = sp.getString("interval","1");
         frequency=Integer.parseInt(freq);
@@ -61,21 +67,23 @@ public class NotificationPublisher extends BroadcastReceiver {
                 title="Добавь целей, чтобы начать!";
             }
         }
+
         if(notOn){
-        sendNotif(context,title,text,soundOn,vibrOn);
-        }
-        AlarmManager alarmManager = (AlarmManager) context
-                .getSystemService(Context.ALARM_SERVICE);
-        Intent i = new Intent(context, NotificationPublisher.class);
-        PendingIntent pending = PendingIntent.getBroadcast(context, 0, i,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-        if(!delay){
-            t = System.currentTimeMillis() + frequency*1000*3600;
+            sendNotif(context,title,text,soundOn,vibrOn);
+            alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            i = new Intent(context, NotificationPublisher.class);
+            pending = PendingIntent.getBroadcast(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
+        if(delay){
+            //alarmManager.cancel(pending);
+            t= System.currentTimeMillis()+DayPicker.getDelay();
         }else{
-            t= DayPicker.getDelay();
+            t = System.currentTimeMillis() + frequency*1000*3600;
         }
-        long time_update = frequency*1000*3600;
-        alarmManager.setRepeating(AlarmManager.RTC, t, time_update, pending);
+
+       alarmManager.set(AlarmManager.RTC, t, pending);
+        }else {
+       alarmManager.cancel(pending);
+        }
     }
 
     void sendNotif(Context context,String title,String text,boolean soundOn,boolean vibrOn) {

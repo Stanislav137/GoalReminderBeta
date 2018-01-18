@@ -101,7 +101,7 @@ private NotificationPublisher mySender;
         mySender = new NotificationPublisher();
         senderFilter = new IntentFilter("sender");
         registerReceiver(mySender,senderFilter);
-
+        senderIntent = new Intent("sender");
         setListenersOnChild();
         setListenerOnGroup();
         printAllGoals();
@@ -164,10 +164,12 @@ private NotificationPublisher mySender;
             //title = "Keep it up!";
         }
         else{
+            if(notOn&fromMain){
             //text = "You have no goals!";
             //title="Add some goal to start";
-            senderIntent = new Intent("sender");
+
             sendBroadcast(senderIntent);
+            }
 
         }
         //editor = sp.edit();
@@ -225,7 +227,7 @@ private NotificationPublisher mySender;
                         editor = sp.edit();
                         editor.putString("date", date);
                         editor.commit();
-                        senderIntent = new Intent("sender");
+
                         sendBroadcast(senderIntent);
                         /*if (fromMain) {
 
@@ -264,7 +266,7 @@ private NotificationPublisher mySender;
                         editor.putString("date", date);
                         editor.putBoolean("delay",true);
                         editor.commit();
-                        senderIntent = new Intent("sender");
+                        //senderIntent = new Intent("sender");
                         sendBroadcast(senderIntent);
                         /*if (sp.getBoolean("main", true)) {
                             serviceIntent.putExtra("interval", "1");
@@ -281,8 +283,8 @@ private NotificationPublisher mySender;
                             serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
                         }
                         startService(serviceIntent);*/
-                        finish();
-                        dialog.dismiss();
+                       finish();
+                       dialog.cancel();
                     }
                 });
                 dialog.show();
