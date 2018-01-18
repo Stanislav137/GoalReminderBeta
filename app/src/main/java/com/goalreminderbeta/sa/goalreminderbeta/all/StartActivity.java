@@ -29,6 +29,7 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DayPicker;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
+import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -67,7 +68,16 @@ public class StartActivity extends AppCompatActivity {
     private int countHelpUser = 0;
     private SharedPreferences.Editor editor;
     private GregorianCalendar calendar;
-
+private NotificationPublisher mySender;
+    IntentFilter senderFilter;
+    private Intent senderIntent;
+    private boolean delay=false;
+    private String freq;
+    private boolean notOn;
+    private boolean soundOn;
+    private boolean vibrOn;
+    private boolean isServ;
+    private boolean fromMain;
     private Dialog dialog,warningDialog;
     private AlertDialog.Builder adb;
     private View warningView;
