@@ -91,6 +91,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
     @Override
     protected void onResume() {
         super.onResume();
+
         freq = sp.getString("interval","");
         notOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
@@ -126,8 +127,10 @@ public class ConfigActivity extends Activity implements OnClickListener{
 
     @Override
     public void onClick(View view) {
+        String typeLang = getResources().getConfiguration().locale.getLanguage();
         editor = sp.edit();
         editor.putBoolean("main",false);
+        editor.putString("lang",typeLang);
         editor.commit();
         freq = sp.getString("interval","");
         notOn = sp.getBoolean("notification",true);

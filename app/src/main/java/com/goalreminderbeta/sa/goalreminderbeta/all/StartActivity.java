@@ -189,7 +189,9 @@ private NotificationPublisher mySender;
             } else {
                 verifyDay = false;
             }
+            String typeLang = getResources().getConfiguration().locale.getLanguage();
             editor = sp.edit();
+            editor.putString("lang",typeLang);
             editor.putInt("goals", allGoals.size());
             editor.commit();
             if (verifyDay) {
@@ -200,9 +202,8 @@ private NotificationPublisher mySender;
                 Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
                 Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
                 //serviceIntent = new Intent(this, MyService.class);
-                serviceIntent = new Intent(this, MyService.class);
-                String typeLang = getResources().getConfiguration().locale.getLanguage();
-                if (sp.getInt("goals", 0) > 0) {
+                //String typeLang = getResources().getConfiguration().locale.getLanguage();
+                /*if (sp.getInt("goals", 0) > 0) {
                     //serviceIntent.putExtra("title", "You goals are ready!");
                     //serviceIntent.putExtra("text", "Keep it up!");
                     if(typeLang.equals("en") || typeLang.equals("pl")) {
@@ -215,7 +216,7 @@ private NotificationPublisher mySender;
                 } else {
                     //serviceIntent.putExtra("title", "You have no goals!");
                     //serviceIntent.putExtra("text", "Add some goal to start");
-                }
+                }*/
 
                 goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
                     @Override

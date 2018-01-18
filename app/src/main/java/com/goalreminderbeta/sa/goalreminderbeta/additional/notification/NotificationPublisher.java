@@ -29,6 +29,7 @@ public class NotificationPublisher extends BroadcastReceiver {
     private boolean vibrOn=true;
     private boolean delay=false;
     SharedPreferences sp;
+    private String typeLang="en";
     private long t=3600*1000;
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -40,14 +41,25 @@ public class NotificationPublisher extends BroadcastReceiver {
         soundOn = sp.getBoolean("sound",true);
         vibrOn = sp.getBoolean("vibration",true);
         delay = sp.getBoolean("delay",false);
+        typeLang = sp.getString("lang","en");
         size=sp.getInt("goals",0);
         if(size>0) {
-            text = "You goals are ready!";
-            title = "Keep it up!";
+            if((typeLang.equals("en")||typeLang.equals("pl")))
+            {text = "You goals are ready!";
+            title = "Keep it up!";}
+            else{
+                title="Проверь свои цели на сегодня!";
+                text="Твои цели записаны!";
+            }
         }
         else{
-            text = "You have no goals!";
-            title="Add some goal to start";
+            if((typeLang.equals("en")||typeLang.equals("pl")))
+            {text = "You have no goals!";
+            title="Add some goal to start";}
+            else{
+                text="Ты не записал цели!";
+                title="Добавь целей, чтобы начать!";
+            }
         }
         if(notOn){
         sendNotif(context,title,text,soundOn,vibrOn);
