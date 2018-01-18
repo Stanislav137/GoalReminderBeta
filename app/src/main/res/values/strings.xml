@@ -13,12 +13,12 @@
     <string name="description_category_weight">Данная категория поможет набрать массу или избавиться от лишнего веса. Самое время для мощных тренировок!</string>
     <string name="description_category_run">Данная категория поможет добиться желаемого результата в скорости и выносливости, например: в беге,
         езды на велосипеде и т.д.</string>
-    <string name="description_category_skills">Данная категория поможет улучшить твои навыки в практически любом деле до определенного уровня, например: выход на турнике, шпагат, танец, рисование и т.д.</string>
+    <string name="description_category_skills">Данная категория поможет улучшить Твои навыки в практически любом деле до определенного уровня, например: выход на турнике, шпагат, танец, рисование и т.д.</string>
     <string name="description_category_repeats">Данная категория поможет поставить новый рекорд в упражнении, например: отжимания, приседания и т.д., а
         также создать еще более мощное тело!</string>
-    <string name="description_category_book">Если ты хотел прочитать книгу, то эта категория не даст тебе забросить эту цель
-        и ты прочитаешь книгу до конца. Становись еще сообразительней!</string>
-    <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который ты хочешь выучить. Вперёд за знаниями!</string>
+    <string name="description_category_book">Если Ты хотел прочитать книгу, то эта категория не даст Тебе забросить эту цель
+        и Ты прочитаешь книгу до конца. Становись еще сообразительней!</string>
+    <string name="description_category_language">Данная категория поможет улучшить знания любого иностранного языка до определенного уровня который Ты хочешь выучить. Вперёд за знаниями!</string>
     <string name="quote">Я во всем ищу вдохновение для себя… Если кто-либо преследует свою мечту, то это вдохновляет меня.</string>
     <string name="quote_author">Конор МакГрегор</string>
 
@@ -38,7 +38,7 @@
     <string name="cetegory_skills">КАТЕГОРИЯ НАВЫКИ</string>
     <string name="learn_fast">БЫСТРОЕ ИЗУЧЕНИЕ:</string>
     <string name="yield_on_two_hands">Выход на две руки</string>
-    <string name="duration">ДЛИТЕЛЬНОСТЬ:</string>
+    <string name="duration">ДЛИТЕЛЬНОСТЬ ДНЕЙ:</string>
     <string name="duration_days">дней</string>
     <string name="category_repetition">КАТЕГОРИЯ ПОВТОРЕНИЯ</string>
     <string name="maximum_number_repetitions">МАКС. КОЛ-ВО ПОВТОРЕНИЙ:</string>
@@ -73,11 +73,20 @@
     <string name="options_friday">П</string>
     <string name="options_saturday">С</string>
     <string name="save_options">СОХРАНИТЬ</string>
+    <string name="autors">АВТОРЫ</string>
+    <string name="ss">Semenets Stanislav - semenetsbeph@gmail.com</string>
+    <string name="ly">Li Yevgeniya - eugenija.li270392@gmail.com</string>
+    <string name="oa">Otrotskyi Anton - anton.otrotskyi@gmail.com</string>
+    <string name="dy">Yaroslav Doloban - yaruhas3@gmail.com</string>
+    <string name="team_develop">КОМАНДА РАЗРАБОТЧИКОВ</string>
+    <string name="close_autors">ЗАКРЫТЬ</string>
+    <string name="creator">СОЗДАТЕЛЬ</string>
+    <string name="programmer">ПРОГРАММИСТ</string>
     <string name="notification_on_off">Уведомления вкл/выкл</string>
     <string name="sound">Звук вкл/выкл</string>
     <string name="vibration">Вибрацию вкл/выкл</string>
     <string name="frequency">Интервал Напоминания:</string>
-    <string name="frequency_summary">Выберите как часто вы хотите чтобы приходило уведомление</string>
+    <string name="frequency_summary">Выбери как часто вы хотите чтобы приходило уведомление</string>
 
     <!-- ACTIVITY STATISTICS-->
 
@@ -93,7 +102,7 @@
 
     <!-- ACTIVITY all themes -->
 
-    <string name="select_themes">ВЫБЕРИТЕ ТЕМУ</string>
+    <string name="select_themes">ВЫБЕРИ ТЕМУ</string>
     <string name="sport">СПОРТ</string>
     <string name="science">НАУКА</string>
     <string name="other">ДРУГОЕ</string>
@@ -170,8 +179,8 @@
     <string name="descr_regular_attack_cardio">Выбрав это мы поможем добиться Твоей регулярности, для этого запиши дистанцию которую хочешь преодолевать каждый день и вперёд!</string>
 
     <string name="descr_new_record">Выбрав это мы поможем добиться нового рекорда в Твоих упражнениях на повторения! Вперёд!</string>
-    <string name="descr_regular_attack">Выбрав это мы поможем тебе добиться регулярности выполнения упражнения каждый день. Для этого запиши свою цель в повторениях за один день!</string>
-    <string name="warning">Ваше время истекло.\nПостарайтесь лучше!</string>
+    <string name="descr_regular_attack">Выбрав это мы поможем Тебе добиться регулярности выполнения упражнения каждый день. Для этого запиши свою цель в повторениях за один день!</string>
+    <string name="warning">Твоё время истекло.\nПостарайтесь лучше!</string>
     <!--config-->
     <string-array name="frequency">
         <item>Каждый час</item>
@@ -219,14 +228,14 @@
                                    \n4.Впиши планированную дату осуществления Твоей цели.
                                    \nЧтобы Ты не забыл позаниматься, BeBetter ежедневно будет напоминать тебе о цели. Не забывай также взвешиваться каждую неделю и записывать свой результат.Удачи!</string>
     <string name="descr_weight">Если твоя цель это набрать массы или скинуть лишний вес, то эта категория для тебя! Помни, что самое главное это наращивать мышцы! Поэтому у тебя должна быть конкретная программа тренировок и не забывай о здоровом питании!</string>
-    <string name="descr_cardio_nr">Если твоя цель это поставить новый рекорд в скорости на время, то эта категория для тебя! Здесь ты можешь создать свою цель которая связана со временем и дистанцией!</string>
+    <string name="descr_cardio_nr">Если твоя цель это поставить новый рекорд в скорости на время, то эта категория для тебя! Здесь Ты можешь создать свою цель которая связана со временем и дистанцией!</string>
     <string name="instruct_cardio_nr">1. Впиши название цели.
                                     \n2. Впиши мотивирующие слова, которые помогут Тебе дойти до конца.
-                                    \n3. Запиши дистанцию, над которой ты планируешь работать.
+                                    \n3. Запиши дистанцию, над которой Ты планируешь работать.
                                     \n4. Запиши текущее время и желаемый результат в секундах.
                                     \n5. Запиши планированную дату осуществления цели.
                                     \nЖди ежедневных напоминаний от BeBetter, следи за прогрессом и бей свои рекорды! Удачи!</string>
-    <string name="descr_cardio_ra">Если твоя цель это заняться регулярными тренировками на дистанцию, то данная категория для тебя! Здесь ты можешь создать свою цель на одоление определенной дистанции!</string>
+    <string name="descr_cardio_ra">Если твоя цель это заняться регулярными тренировками на дистанцию, то данная категория для тебя! Здесь Ты можешь создать свою цель на одоление определенной дистанции!</string>
     <string name="instruct_cardio_ra">1. Впиши название цели.
                                     \n2. Впиши мотивирующие слова, которые помогут Тебе дойти до конца.
                                     \n3. Запиши дистанцию, над которой Ты планируешь работать.
@@ -272,11 +281,11 @@
 
     <string name="topic_of_science">ТЕМА НАУКА</string>
 
-    <string name="book_select_category">ВЫБЕРИТЕ КАТЕГОРИЮ</string>
+    <string name="book_select_category">ВЫБЕРИ КАТЕГОРИЮ</string>
     <string name="languages_languages">ЯЗЫКИ</string>
     <string name="book_book">КНИГА</string>
     // all_themes
-    <string name="all_themes_select_themes">ВЫБЕРИТЕ ТЕМУ</string>
+    <string name="all_themes_select_themes">ВЫБЕРИ ТЕМУ</string>
     <string name="all_themes_sport">СПОРТ</string>
     <string name="all_themes_science">НАУКА</string>
     <string name="all_themes_skills">НАВЫКИ</string>
@@ -316,7 +325,7 @@
 
     //confirm_deletion
 
-    <string name="remove_your_purpose">ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ</string>
+    <string name="remove_your_purpose">УДАЛИТЬ ЦЕЛЬ</string>
     <string name="remove_your_purpose_Yes">ДА</string>
     <string name="remove_your_purpose_not">НЕТ</string>
 
@@ -333,13 +342,13 @@
     //description_goal
 
     <string name="description_goal_goal_name_keyword">Название цели или ключевое слово</string>
-    <string name="description_goal_write_for_what">Напишите ради чего вы это делаете</string>
+    <string name="description_goal_write_for_what">Напишите ради чего Ты это делаешь</string>
     <string name="description_goal_done">ГОТОВО</string>
 
     //help_user_start
 
     <string name="help_user_start_hello_champ">ПРИВЕТ ЧЕМПИОН !</string>
-    <string name="help_user_start_hello_champ_text">Приветствуем тебя в нашем приложении, для того чтобы успешно начать ты должен вспомнить свою цель которую ты хочешь достичь в ближайшее время, найти подходящею категорию и записать её. Программа поможет тебе её закончить до конца!</string>
+    <string name="help_user_start_hello_champ_text">Приветствуем тебя в нашем приложении, для того чтобы успешно начать Ты должен вспомнить свою цель которую Ты хочешь достичь в ближайшее время, найти подходящею категорию и записать её. Программа поможет Тебе её закончить до конца!</string>
     <string name="help_user_start_Go_on">Вперёд в АТАКУ !</string>
 
     //language_theme
@@ -388,7 +397,7 @@
     <string name="warning_description_instructions">ИНСТРУКЦИЯ</string>
     <string name="warning_description_good">ХОРОШО</string>
 
-    <string name="SELECT_CATEGORY_sport">ВЫБЕРИТЕ КАТЕГОРИЮ</string>
+    <string name="SELECT_CATEGORY_sport">ВЫБЕРИ КАТЕГОРИЮ</string>
     <string name="all_themes_SPORT">СПОРТ</string>
 
     <string name="cardio_m">М</string>
@@ -411,7 +420,7 @@
     <string name="your_desired_goal_below_current_one">ВАША ЖЕЛАЕМАЯ ЦЕЛЬ НИЖЕ ТЕКУЩЕЙ</string>
 
     //start activity
-    <string name="want_remove_your_target">ВЫ ХОТИТЕ УДАЛИТЬ ВАШУ ЦЕЛЬ -</string>
+    <string name="want_remove_your_target">УДАЛИТЬ ЦЕЛЬ -</string>
 
     //ExpList
     <string name="you_havent_failed_until_give_up">ТЫ НЕ ПРОИГРАЛ ПОКА НЕ СДАЛСЯ !</string>
@@ -419,7 +428,7 @@
     <string name="cardio_current_time_java">ТЕКУЩЕЕ ВРЕМЯ:</string>
     <string name="cardio_desired_time_java">"ЖЕЛАЕМОЕ ВРЕМЯ:":</string>
     <string name="cardio_current_time_java2">ТЕКУЩЕЕ ВРЕМЯ:</string>
-    <string name="Your_distance_is">Ваше расстояние:</string>
+    <string name="Your_distance_is">Твоё расстояние:</string>
 
     <string name="g1_weight_correction_Activity">ГР</string>
     <string name="kg1_weight_correction_Activity">КГ</string>
@@ -434,8 +443,8 @@
     <string name="currentRepeatsTV_repeats_Activity">Ваши повторы теперь:</string>
     <string name="goalRepeatsTVrepeats_Activity">Повторы цели:</string>
 
-    <string name="distanceTV_cardio_Activity">Ваше расстояние:</string>
-    <string name="currentRunTimeTV_cardio_Activity">Ваше время:</string>
+    <string name="distanceTV_cardio_Activity">Твоё расстояние:</string>
+    <string name="currentRunTimeTV_cardio_Activity">Твоё время:</string>
     <string name="goalRunTimeTV_cardio_Activity">Время выполнения:</string>
 
     <string name="dataBookTV_book_Activity">ДАННЫЕ КНИГИ</string>
@@ -451,10 +460,10 @@
 
     //dialog
     <string name="adb_setTitle">Подтверждение</string>
-    <string name="current_Result">Сейчас вы выполняете:</string>
+    <string name="current_Result">Сейчас Ты выполняешь:</string>
     <string name="setNeutralButton">Отмена</string>
     <string name="adb_setTitle2">Подтверждение</string>
-    <string name="currentResult1">Сейчас вы преодолеваете:</string>
+    <string name="currentResult1">Сейчас Ты преодолеваешь:</string>
 
     <string name="dialog">Подтверждение</string>
     <string name="currentBookTV_book_Activity">ВАША ТЕКУЩАЯ СТРАНИЦА:</string>

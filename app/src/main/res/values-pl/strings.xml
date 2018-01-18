@@ -28,36 +28,11 @@
     <string name="cetegory_skills">CATEGORY SKILLS</string>
     <string name="chosen">CHOOSE</string>
     <string name="days_tracking">THE DAYS OF TRACKING:</string>
-    <string name="descr_book">If your immediate goal is to read the book, then this category will help you to control the reading of the book!</string>
-    <string name="descr_cardio_nr">If your immediate goal is to set a new record in speed for a while, then this category is for you! Here you can create your own goal associated with time and distance!</string>
-    <string name="descr_cardio_ra">If your immediate goal is to do regular exercise at a distance, this category is for you! Here you can create your goal for overcoming a certain distance!</string>
-    <string name="descr_lang">If your immediate goal is to improve knowledge of a foreign language, this category is just for you!</string>
-    <string name="descr_new_record">By selecting this we will help you to achieve a new record in your exercises repetition, to do this enter the current number of reps and your final result!</string>
-    <string name="descr_new_record_cardio">By selecting this we will help you to set a new record of your goals. You will need to record: distance, current speed and your target in seconds. Forward!</string>
-    <string name="descr_regular_attack">By selecting this we will help you to achieve regularity of exercise every day. To do this, simply write down your goal in the reps in one day!</string>
-    <string name="descr_regular_attack_cardio">By selecting this we will help you to achieve your regularity, for that write down the distance you want to overcome every day and go!</string>
-    <string name="descr_repeats_nr">If your immediate goal is to set a new record in an exercise at the reps, then this category is for you! Here you can create your own goal associated with repetitions!</string>
-    <string name="descr_repeats_ra">If your immediate goal is to engage in regular exercises to perform repetitions in a particular exercise, then this category is for you!</string>
-    <string name="descr_skills">If your immediate goal is to improve my skills in some acrobatic element or drawing skills or maybe skills in the kitchen.</string>
-    <string name="descr_weight">If your immediate goal is to gain mass or to lose weight, then this category is for you! Remember that the most important thing is to build muscle! Therefore, you should have specific exercise program and don\'t forget about healthy eating!</string>
-    <string name="description_category_language">This category will help to improve the knowledge of any foreign language to a certain level you want to learn. Thirst for knowledge!</string>
-    <string name="description_category_skills">This category will help to improve your skills in virtually any business to a certain level, for example: the output on the bar, twine, dance, drawing, etc.</string>
-    <string name="description_category_weight">This category will help to gain weight or to lose weight. It\'s time for powerful workouts!</string>
-    <string name="description_theme_mygoal">This category will allow you to create your own goal, if it\'s anything special.</string>
-    <string name="description_theme_science">This topic will help to achieve the desired result in the field of study and provide a choice of 2 categories. Be wiser every day!</string>
-    <string name="description_theme_sport">This topic will help to achieve the desired result in the field of sport and provide a choice of 3 categories. Forward to new victories!</string>
-    <string name="duration">DURATION:</string>
+    <string name="duration">DURATION OF DAYS:</string>
     <string name="duration_days">days</string>
     <string name="exercise">EXERCISE:</string>
     <string name="far_distance">FAR DISTNACE:</string>
     <string name="far_distance_km">km</string>
-    <string name="instruct_book">Put your name goals and motivating words which will help you to reach the end, and write down the number of pages of reading, then write down the date of the end goal, in your case, the date when you want to finish reading his book and go for knowledge!</string>
-    <string name="instruct_cardio_nr">Put your name goals and motivating words which will help you to reach the end, and tape the distance which you are going to overcome the current time and the desired time and of course the date of the completion of a goal on when you want to finish. Every day a notice will come that you need to beat your highscore. Recording the result of the program is to monitor your progress, good Luck!</string>
-    <string name="instruct_cardio_ra">Put your name goals and motivating words which will help you to reach the end, and tape the distance you want to overcome and regularly every day you will receive the notification that you need to defeat your target for today! Good luck!</string>
-    <string name="instruct_lang">Write down the name of the language which is going to improve and motivating words which will help you to reach the end and enter your current level of proficiency and then the desired level, record the goal date for when you want to learn the language to a certain level and go! Good luck!</string>
-    <string name="instruct_repeats_nr">Put your name goals and motivating words which will help you to reach the end, and write down the current number of repetitions of your desired number of repetitions, write down the due date goals and attack!</string>
-    <string name="instruct_repeats_ra">Put your name goals and motivating words which will help you to reach the end, and put your desired number of repetitions to run on a daily basis, write down the goal date and go on the attack!</string>
-    <string name="instruct_weight">Put your name goals and motivating words which will help you to reach the end, your current weight and desired weight. Depending on that will introduce the program understand what specifically you want to do(lose or gain). Then make note of the date your goal and go! Every day you will receive a notification that you need to practice and after every week to weigh and record your progress. Good luck!</string>
     <string name="language_desired_result">DESIRED RESULT:</string>
     <string name="language_goal_date" translatable="false">GOAL DATE:</string>
     <string name="language_goal_date_before">TO</string>
@@ -84,7 +59,6 @@
     <string name="other">MORE</string>
     <string name="pages100">100 pages</string>
     <string name="quick_read">THE QUICK READ:</string>
-    <string name="quote">I find inspiration for myself... If someone pursues their dreams, it inspires me.</string>
     <string name="quote_author">Conor McGregor</string>
     <string name="reminder_interval">REMINDER INTERVAL:</string>
     <string name="reminder_interval_hour">hour</string>
@@ -109,7 +83,6 @@
     <string name="statistics_current_result">CURRENT SCORE:</string>
     <string name="statistics_day_task">THE TASK OF THE DAY:</string>
     <string name="statistics_days_left">DAYS LEFT:</string>
-    <string name="statistics_description_of_purpose">I WANT TO BE THE BEST IN THE WORLD AT RUNNING SPEED</string>
     <string name="statistics_done">DAYS LEFT:</string>
     <string name="statistics_remaining_purpose">LEFT UNTIL GOAL:</string>
     <string name="statistics_status">STATUS:</string>
@@ -171,8 +144,6 @@
     <string name="description_goal_write_for_what">Write what you do</string>
     <string name="help_user_start_Go_on">Forward to ATTACK!</string>
     <string name="help_user_start_hello_champ">HELLO CHAMP !</string>
-    <string name="help_user_start_hello_champ_text">Welcome to our application, in order to successfully start you must remember your goal you want to achieve in the near future, find the appropriate category and record it. The program will help you to finish it to the end!</string>
-    <string name="instruct_skills">Write down your goal name and motivating words that will help you reach the end, and also you will need to evaluate your current level of skill that you want to record and at the same time represent your final result of this skill, this will be your 5th level - yours target. Then enter the date of your goal and every day you will receive a notification that it is time to train to improve your skill and when you feel that raised the level, then write down your progress! Each level is 100 points! Good luck champion!</string>
     <string name="language_theme_category_languages">CATEGORY LANGUAGES</string>
     <string name="languages_languages">LANGUAGES</string>
     <string name="popup_choose_type_choose">choose</string>
@@ -203,9 +174,6 @@
     <string name="warning_description_ategory">DESCRIPTION OF THE CATEGORY</string>
     <string name="warning_description_good">WELL</string>
     <string name="warning_description_instructions">MANUAL</string>
-    <string name="description_category_book">If you wanted to read the book, this category will not let you to score that goal and you\'ll read the book to the end. Become even smarter!</string>
-    <string name="description_category_repeats">This category will help to set a new record in the exercise, such as pushups, squats, etc., and create an even more powerful body!</string>
-    <string name="description_category_run">This category will help to achieve the desired result in speed and endurance, such as running, Cycling, etc.</string>
     <string name="all_themes_sport">SPORT</string>
     <string name="SELECT_CATEGORY_sport">CHOOSE CATEGORY</string>
     <string name="repetitions_description_exercise">DESCRIPTION OF EXERCISE:</string>
@@ -261,13 +229,88 @@
     <string name="notification_on_off">Notification on/off</string>
     <string name="sound">Sound on/off</string>
     <string name="vibration">Vibration on/off</string>
+    <string name="sum_hours">THE SUM OF THE CLOCK OF STUDY:</string>
+    <string name="maximum_number_hours_day">MAXIMAL NUMBER OF WATCHES A DAY:</string>
     <string name="frequency">Frequency</string>
-    <string name="frequency_summary">Choose how often yo wish to receive notifications</string>
+    <string name="autors">AUTORS</string>
+    <string name="team_develop">TEAM OF DEVELOPERS</string>
+    <string name="close_autors">CLOSE</string>
+    <string name="creator">CREATOR</string>
+    <string name="programmer">PROGRAMMER</string>
     <string-array name="frequency">
         <item>Each hour</item>
         <item>Each 2 hours</item>
         <item>Each 3 hours</item>
         <item>Each 4 hours</item>
     </string-array>
+    <string name="descr_book">If you plan to read this new book for some time - this category is for You!</string>
+    <string name="descr_cardio_nr">If your goal is to set a new record in speed for a while, then this category is for you! Here You can create your own goal associated with time and distance!</string>
+    <string name="descr_cardio_ra">If your goal is to do regular exercise at a distance, this category is for you! Here You can create your goal for overcoming a certain distance!</string>
+    <string name="descr_lang">If your goal is to improve knowledge of a foreign language, this category is just for you!</string>
+    <string name="descr_new_record">By selecting this we will help you to achieve a new record in Your exercises repetition! Forward!</string>
+    <string name="descr_new_record_cardio">By selecting this we will help You to set a new record in speed over distance. Forward!</string>
+    <string name="descr_regular_attack">By selecting this we will help You to achieve regularity of exercise every day. To do this, write down your goal in the reps in one day!</string>
+    <string name="descr_regular_attack_cardio">By selecting this we will help you to achieve Your regularity, for that write down the distance you want to overcome every day and go!</string>
+    <string name="descr_repeats_nr">If your goal - a new record in exercises on repetition, this category is for You!</string>
+    <string name="descr_repeats_ra">If your goal is to engage in regular exercises to perform repetitions, this category is for you!</string>
+    <string name="descr_skills">If your goal is to improve my skills in some acrobatic element or drawing skills, and maybe the dancing skills etc. then this category is for you!</string>
+    <string name="descr_weight">If your goal is to gain mass or to lose weight, then this category is for you! Remember that the most important thing is to build muscle! Therefore, you should have specific exercise program and don\'t forget about healthy eating!</string>
+    <string name="description_category_language">This category will help to improve the knowledge of any foreign language to a certain level You want to learn. Thirst for knowledge!</string>
+    <string name="description_category_skills">This category will help to improve Your skills in virtually any business to a certain level, for example: the output on the bar, twine, dance, drawing, etc.</string>
+    <string name="description_category_weight">This category will help to gain weight or to lose weight. It\'s time for powerful workouts!</string>
+    <string name="description_theme_mygoal">This category will allow you to create your own goal, if it\'s anything special.</string>
+    <string name="description_theme_other">This topic will help to achieve the desired results in completely different areas and provide a choice of 2 categories.</string>
+    <string name="description_theme_science">This topic will help to achieve the desired result in the field of study and provide a choice of 2 categories. Be wiser every day!</string>
+    <string name="description_theme_sport">This topic will help to achieve the desired result in the field of sport and provide a choice of 3 categories. Forward to new victories!</string>
+    <string name="frequency_summary">Choose how often you want to receive notification</string>
+    <string name="help_user_start_hello_champ_text">Welcome to our application, in order to successfully start You must remember your goal You want to achieve in the near future, find the appropriate category and record it. The program will help You to finish it to the end!</string>
+    <string name="statistics_description_of_purpose">I WANT TO BE THE BEST IN THE WORLD AT RUNNING SPEED</string>
+    <string name="quote">I find inspiration for myself... If someone pursues their dreams, it inspires me.</string>
+    <string name="description_category_book">If You wanted to read the book, this category will not let You to score that goal and You\'ll read the book to the end. Become even smarter!</string>
+    <string name="description_category_repeats">This category will help to set a new record in the exercise, such as pushups, squats, etc., and create an even more powerful body!</string>
+    <string name="description_category_run">This category will help to achieve the desired result in speed and endurance, such as running, Cycling, etc.</string>
+    <string name="instruct_cardio_nr">1. Enter the name of the destination.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down the distance over which You plan to work.
+\n4. Write down the current time and the desired result in seconds.
+\n5. Record the planned date of implementation of the goal.
+\pedi daily reminders from BeBetter, watch your progress and beat your records! Good luck!</string>
+    <string name="instruct_lang">1. Write in the language that are going to improve.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Enter your current and desired level of proficiency.
+\n4.Enter the planned date for the implementation of Your goals.
+the \nlist, the average person needs 70 hours to improve language skills by one level.
+So You don\'t forget to work out, BeBetter every day will remind you of the goal. Good luck!</string>
+    <string name="instruct_repeats_ra">1. Enter the name of the destination.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down the desired number of repetitions over which You plan to work.
+\n4. Write the planned date will override the target.
+\pedi daily reminders from BeBetter! Good luck!</string>
+    <string name="instruct_weight">1. Enter the name of the destination.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down your current and desired weight.
+\n4.Enter the planned date for the implementation of Your goals.
+\ncheck this You have not forgotten to work out, BeBetter every day will remind you of the goal. Don\'t forget to weigh in each week and record your result.Good luck!</string>
+    <string name="instruct_book">1. Enter the name of the book that is your goal.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down the number of pages to read.
+\n4. Record the planned date of implementation of the goal.
+\pedi daily reminders and thirst for knowledge. Good luck!</string>
+    <string name="instruct_cardio_ra">1. Enter the name of the destination.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down the distance over which You plan to work.
+\n4. Write the planned date will override the target.
+\pedi daily reminders from BeBetter! Good luck!</string>
+    <string name="instruct_repeats_nr">1. Enter the name of the destination.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Write down your current record in the repetition and the desired result.
+\n4. Record the planned date of implementation of the goal.
+\pedi daily reminders from BeBetter, watch your progress and beat your records! Good luck!</string>
+    <string name="instruct_skills">1. Write down the name of your goal.
+\n2. Put motivating words that will help You to reach the end.
+\n3. Really assess your current skill level.
+\n4. Imagine your end result, which will be Your 5 level.
+\n5. Enter the planned date of implementation of the goal.
+\pedi daily reminders from BeBetter and record your progress. Each level gives You +100 points, bringing You to the goal. Good luck, Champ!</string>
 
 </resources>

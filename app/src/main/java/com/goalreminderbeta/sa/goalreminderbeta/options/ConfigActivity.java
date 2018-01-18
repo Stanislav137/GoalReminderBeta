@@ -2,6 +2,7 @@ package com.goalreminderbeta.sa.goalreminderbeta.options;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -167,8 +169,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
                +" days "+sb.toString());
     }
 
-
-
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -177,5 +177,21 @@ public class ConfigActivity extends Activity implements OnClickListener{
             }
         }
         return false;
+    }
+
+    public void showAutors(View view) {
+        final Dialog dialog;
+        dialog = new Dialog(ConfigActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.autors);
+        Button closeAutors = (Button) dialog.findViewById(R.id.closeAutors);
+
+        closeAutors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }

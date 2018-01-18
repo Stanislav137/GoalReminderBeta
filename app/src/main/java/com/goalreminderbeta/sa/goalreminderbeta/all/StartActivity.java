@@ -29,7 +29,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.DayPicker;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.LanguageLearningGoal;
@@ -62,17 +61,6 @@ public class StartActivity extends AppCompatActivity {
     private boolean switchQuote, verifyDay;
     private String date,dateFromSP;
     Intent serviceIntent;
-    private String freq;
-    private String text="";
-    private String title="";
-    private boolean notOn;
-    private boolean soundOn;
-    private boolean vibrOn;
-    private boolean fromMain;
-    private boolean delay=false;
-    private NotificationPublisher mySender;
-    private Intent senderIntent;
-    private IntentFilter senderFilter;
     private SharedPreferences sp;
 
     private SharedPreferences sPref;
@@ -202,9 +190,18 @@ public class StartActivity extends AppCompatActivity {
                 Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
                 Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
                 //serviceIntent = new Intent(this, MyService.class);
+                serviceIntent = new Intent(this, MyService.class);
+                String typeLang = getResources().getConfiguration().locale.getLanguage();
                 if (sp.getInt("goals", 0) > 0) {
                     //serviceIntent.putExtra("title", "You goals are ready!");
                     //serviceIntent.putExtra("text", "Keep it up!");
+                    if(typeLang.equals("en") || typeLang.equals("pl")) {
+                        serviceIntent.putExtra("title", "You goals are ready!");
+                        serviceIntent.putExtra("text", "Keep it up!");
+                    } else {
+                        serviceIntent.putExtra("title", "Проверь свои цели на сегодня!");
+                        serviceIntent.putExtra("text", "Твои цели записаны!");
+                    }
                 } else {
                     //serviceIntent.putExtra("title", "You have no goals!");
                     //serviceIntent.putExtra("text", "Add some goal to start");
@@ -476,7 +473,7 @@ public class StartActivity extends AppCompatActivity {
         }
         List<CardioGoal> allCardioGoal = CardioGoal.listAll(CardioGoal.class);
         Iterator<CardioGoal> it2 = allCardioGoal.iterator();
-        while(it.hasNext()){
+        while(it2.hasNext()){
             CardioGoal g = it2.next();
             if(!g.getDisplay()){
                 it2.remove();

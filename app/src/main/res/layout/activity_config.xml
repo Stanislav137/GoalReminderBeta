@@ -85,6 +85,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/autors"
+            android:onClick="showAutors"
+            android:text="@string/autors"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorBlack"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/saveBTN"
             android:text="@string/save_options"
             android:layout_gravity="center"

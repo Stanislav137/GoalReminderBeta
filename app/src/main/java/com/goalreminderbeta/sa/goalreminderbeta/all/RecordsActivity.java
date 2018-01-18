@@ -96,50 +96,125 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     private void defineElements(){
+        String typeLang = getResources().getConfiguration().locale.getLanguage();
         maxWeight = (TextView)findViewById(R.id.maxWeightTV);
         if(wcG1!=null){
-            maxWeight.setText(String.valueOf(wcG1.getGoalResult())+" кг");
-        }else {maxWeight.setText("кг");}
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                maxWeight.setText(String.valueOf(String.format("%.1f", wcG1.getGoalResult())) + " kg");
+            } else {
+                maxWeight.setText(String.valueOf(String.format("%.1f", wcG1.getGoalResult())) + " кг");
+            }
+        }else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                maxWeight.setText("kg");
+            } else {
+                maxWeight.setText("кг");
+            }
+        }
         minWeight = (TextView)findViewById(R.id.minWeightTV);
         if(wcG2!=null){
-            minWeight.setText(String.valueOf(wcG2.getGoalResult())+" кг");
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                minWeight.setText(String.valueOf(String.format("%.1f", wcG2.getGoalResult())) + " kg");
+            } else {
+                minWeight.setText(String.valueOf(String.format("%.1f", wcG2.getGoalResult())) + " кг");
+            }
         }else {
-            minWeight.setText("кг");
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                minWeight.setText("kg");
+            } else {
+                minWeight.setText("кг");
+            }
         }
 
         distance = (TextView)findViewById(R.id.distanceTV);
         if(cGoal1!=null){
-            distance.setText(String.valueOf(cGoal1.getDistance())+" м");
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                distance.setText(String.valueOf(cGoal1.getDistance()) + " meters");
+            } else {
+                distance.setText(String.valueOf(cGoal1.getDistance()) + " м.");
+            }
         }else {distance.setText("м");}
         speed = (TextView)findViewById(R.id.speedTV);
         if(cGoal2!=null){
             double s = new BigDecimal(cGoal2.getDistance()/cGoal2.getGoalResult()).setScale(2,RoundingMode.UP).doubleValue();
-            speed.setText(String.valueOf(s)+" м/с");
-        }else {speed.setText(" м/с");}
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                speed.setText(String.valueOf(String.format("%.0f", s)) + " m/s");
+            } else {
+                speed.setText(String.valueOf(String.format("%.0f", s)) + " м/с");
+            }
+        }else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                speed.setText(" m/s");
+            } else {
+                speed.setText(" м/с");
+            }
+        }
 
         repeats = (TextView)findViewById(R.id.repeatsTV);
         if(rcGoal!=null){
             double rcGoalText = rcGoal.getGoalResult();
-            if(rcGoalText>=2&&rcGoalText<=4)
-                repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раза");
-            else repeats.setText(String.valueOf(rcGoal.getGoalResult())+" раз");
-        }else {repeats.setText("раз");}
+            if(rcGoalText>=2&&rcGoalText<=4) {
+                if(typeLang.equals("en") || typeLang.equals("pl")) {
+                    repeats.setText(String.valueOf(String.format("%.0f", rcGoal.getGoalResult())) + " repeats");
+                } else {
+                    repeats.setText(String.valueOf(String.format("%.0f", rcGoal.getGoalResult())) + " раза");
+                }
+            }
+            else {
+                if(typeLang.equals("en") || typeLang.equals("pl")) {
+                    repeats.setText(String.valueOf(String.format("%.0f", rcGoal.getGoalResult())) + " repeat");
+                } else {
+                    repeats.setText(String.valueOf(String.format("%.0f", rcGoal.getGoalResult())) + " раз");
+                }
+            }
+        }else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                repeats.setText("repeat");
+            } else {
+                repeats.setText("раз");
+            }
+        }
         exercise = (TextView)findViewById(R.id.exerciseTV);
         if(rcGoal!=null){
             exercise.setText(rcGoal.getNameGoal());
-        }else {repeats.setText("Название упражнения");}
+        }else {
+            repeats.setText("0");
+        }
 
         pages = (TextView)findViewById(R.id.pagesTV);
-        pages.setText(String.valueOf(rbGoal3)+" стр");
+        if(typeLang.equals("en") || typeLang.equals("pl")) {
+            pages.setText(String.valueOf(rbGoal3) + " pages");
+        } else {
+            pages.setText(String.valueOf(rbGoal3 + " стр."));
+        }
         count = (TextView)findViewById(R.id.countBookTV);
-        if(rbGoal2==1)
-            count.setText(String.valueOf(rbGoal2)+" книга");
-        else if(rbGoal2>=2&&rbGoal2<=4)
-            count.setText(String.valueOf(rbGoal2)+" книги");
-        else
-            count.setText(String.valueOf(rbGoal2)+" книг");
+        if(rbGoal2==1) {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                count.setText(rbGoal2 + " books");
+            } else {
+                count.setText(rbGoal2 + " книга");
+            }
+        }
+        else if(rbGoal2>=2&&rbGoal2<=4) {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                count.setText(rbGoal2 + " books");
+            } else {
+                count.setText(rbGoal2 + " книги");
+            }
+        }
+        else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                count.setText(rbGoal2 + " book");
+            } else {
+                count.setText(rbGoal2 + " книг");
+            }
+        }
         sumOfHours = (TextView)findViewById(R.id.sumOfHoursTV);
-        sumOfHours.setText(String.valueOf(llGoal3)+" ч");
+        if(typeLang.equals("en") || typeLang.equals("pl")) {
+            sumOfHours.setText(String.valueOf(String.format("%.0f", llGoal3)) + " hours");
+        } else {
+            sumOfHours.setText(String.valueOf(String.format("%.0f", llGoal3)) + " ч.");
+        }
         maxHours = (TextView)findViewById(R.id.maxHoursTV);
         if(llGoal2!=null){
             double d1 = llGoal2.getGoalResult()-llGoal2.getInitialResult();
@@ -148,8 +223,18 @@ public class RecordsActivity extends AppCompatActivity {
             d2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(d2,TimeUnit.MILLISECONDS)));
             d2++;
             int d3=(int)(Math.round(d1/d2));
-            maxHours.setText(String.valueOf(d3)+" ч/день");
-        }else {maxHours.setText("ч/день");}
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                maxHours.setText(String.valueOf(d3) + " h/days");
+            } else {
+                maxHours.setText(String.valueOf(d3) + " ч/день");
+            }
+        }else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                maxHours.setText("h/days");
+            } else {
+                maxHours.setText("ч/день");
+            }
+        }
 
         duration = (TextView)findViewById(R.id.durationTV);
         if(aecGoal!=null){
@@ -157,14 +242,22 @@ public class RecordsActivity extends AppCompatActivity {
             long d2 = today.getTime() - aecGoal.getFromDate().getTime();
             d2 = Integer.parseInt(String.valueOf(TimeUnit.DAYS.convert(d2,TimeUnit.MILLISECONDS)));
             d2++;
-            if(d2==1)duration.setText(String.valueOf(d2)+" день");
-            else if(d2>=2&&d2<=4)duration.setText(String.valueOf(d2)+" дня");
-            duration.setText(String.valueOf(d2)+" дней");
-        }else { duration.setText("0 дней");}
+            if(d2==1)duration.setText(String.valueOf(d2));
+            else if(d2>=2&&d2<=4)duration.setText(String.valueOf(d2));
+            duration.setText(String.valueOf(d2));
+        }else {
+            duration.setText("0");
+        }
         skill = (TextView)findViewById(R.id.skillTV);
         if(aecGoal!=null){
             skill.setText(aecGoal.getNameGoal());
-        }else {skill.setText("Название навыка");}
+        }else {
+            if(typeLang.equals("en") || typeLang.equals("pl")) {
+                skill.setText("Skill name");
+            } else {
+                skill.setText("Название навыка");
+            }
+        }
 
 
     }

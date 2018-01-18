@@ -350,7 +350,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             currentBookET.setPadding(20,20,20,20);
             currentBookET.setTextSize(20);
             currentBookET.setTextColor(Color.BLACK);
-            currentBookET.setText(String.valueOf(dialogBuilderGoal.getCurrentResult()));
+            currentBookET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getCurrentResult())));
             dialogLV.addView(currentBookET,lp);
             dialogLV.addView(ll_2, params);
 
@@ -364,7 +364,7 @@ public class BookCorrectionActivity extends AppCompatActivity {
             goalBookET.setPadding(20,20,20,20);
             goalBookET.setTextSize(20);
             goalBookET.setTextColor(Color.BLACK);
-            goalBookET.setText(String.valueOf(dialogBuilderGoal.getGoalResult()));
+            goalBookET.setText(String.valueOf(String.format("%.0f", dialogBuilderGoal.getGoalResult())));
             dialogLV.addView(goalBookET,lp);
             confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
