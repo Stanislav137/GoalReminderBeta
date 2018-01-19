@@ -81,10 +81,8 @@ public class NotificationPublisher extends BroadcastReceiver {
             alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             i = new Intent(context, NotificationPublisher.class);
             pending = PendingIntent.getBroadcast(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
-            t = System.currentTimeMillis() + frequency*3000;
+            t=System.currentTimeMillis()+frequency*1000*3600;
             alarmManager.set(AlarmManager.RTC, t, pending);
-        }else {
-       //alarmManager.cancel(pending);
         }
     }
 

@@ -166,6 +166,9 @@ private NotificationPublisher mySender;
 
         if(fromMain) {
             sendBroadcast(senderIntent);
+            editor = sp.edit();
+            editor.putBoolean("main", false);
+            editor.commit();
         }
         /*if(allGoals.size() != 0) {
             calendar = new GregorianCalendar();
