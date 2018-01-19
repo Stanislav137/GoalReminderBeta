@@ -9,6 +9,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
@@ -42,7 +44,13 @@ public class NotificationPublisher extends BroadcastReceiver {
         }
         sp = PreferenceManager.getDefaultSharedPreferences(context);
         freq = sp.getString("interval","1");
-        frequency=Integer.parseInt(freq);
+        switch (freq){
+            case "1":{frequency=1;}break;
+            case "2":{frequency=2;}break;
+            case "3":{frequency=3;}break;
+            case "4":{frequency=4;}break;
+            default:{frequency=1;}
+        }
         notOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
         vibrOn = sp.getBoolean("vibration",true);
@@ -73,16 +81,10 @@ public class NotificationPublisher extends BroadcastReceiver {
             alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             i = new Intent(context, NotificationPublisher.class);
             pending = PendingIntent.getBroadcast(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
-        if(delay){
-            //alarmManager.cancel(pending);
-            t= System.currentTimeMillis()+DayPicker.getDelay();
-        }else{
-            t = System.currentTimeMillis() + frequency*1000*3600;
-        }
-
-       alarmManager.set(AlarmManager.RTC, t, pending);
+            t = System.currentTimeMillis() + frequency*3000;
+            alarmManager.set(AlarmManager.RTC, t, pending);
         }else {
-       alarmManager.cancel(pending);
+       //alarmManager.cancel(pending);
         }
     }
 
@@ -104,7 +106,10 @@ public class NotificationPublisher extends BroadcastReceiver {
 
     public Notification createNotification(Context context, String title,String text,PendingIntent pIntent) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.mipmap.logo,options);
         builder.setTicker("Notification");
+        builder.setLargeIcon(bitmap);
         builder.setSmallIcon(R.mipmap.logo);
         builder.setContentTitle(title);
         builder.setContentText(text);

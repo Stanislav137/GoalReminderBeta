@@ -78,6 +78,7 @@ private NotificationPublisher mySender;
     private boolean vibrOn;
     private boolean isServ;
     private boolean fromMain;
+    private String typeLang;
     private Dialog dialog,warningDialog;
     private AlertDialog.Builder adb;
     private View warningView;
@@ -152,32 +153,21 @@ private NotificationPublisher mySender;
     protected void onResume() {
         super.onResume();
         freq = sp.getString("interval","1");
-        //int frequency = Integer.parseInt(freq);
         notOn = sp.getBoolean("notification",true);
         soundOn = sp.getBoolean("sound",true);
         vibrOn = sp.getBoolean("vibration",true);
         delay = sp.getBoolean("delay",false);
         fromMain = sp.getBoolean("main",true);
+        typeLang = getResources().getConfiguration().locale.getLanguage();
+        editor = sp.edit();
+        editor.putString("lang",typeLang);
+        editor.putInt("goals", allGoals.size());
+        editor.commit();
 
-        if(allGoals.size()>0) {
-            //text = "You goals are ready!";
-            //title = "Keep it up!";
-        }
-        else{
-            if(notOn&fromMain){
-            //text = "You have no goals!";
-            //title="Add some goal to start";
-
+        if(fromMain) {
             sendBroadcast(senderIntent);
-            }
-
         }
-        //editor = sp.edit();
-        //editor.putString("text",text);
-        //editor.putString("title",title);
-       // editor.putBoolean("delay",false);
-        //editor.commit();
-        if(allGoals.size() != 0) {
+        /*if(allGoals.size() != 0) {
             calendar = new GregorianCalendar();
             int day = calendar.get(Calendar.DATE);
             int month = calendar.get(Calendar.MONTH);
@@ -191,11 +181,7 @@ private NotificationPublisher mySender;
             } else {
                 verifyDay = false;
             }
-            String typeLang = getResources().getConfiguration().locale.getLanguage();
-            editor = sp.edit();
-            editor.putString("lang",typeLang);
-            editor.putInt("goals", allGoals.size());
-            editor.commit();
+
             if (verifyDay) {
                 dialog = new Dialog(StartActivity.this);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -203,11 +189,11 @@ private NotificationPublisher mySender;
                 dialog.setCanceledOnTouchOutside(false);
                 Button goToWorkOnGoals = (Button) dialog.findViewById(R.id.goToWorkOnGoals);
                 Button goToRelax = (Button) dialog.findViewById(R.id.goToRelax);
-                //serviceIntent = new Intent(this, MyService.class);
-                //String typeLang = getResources().getConfiguration().locale.getLanguage();
-                /*if (sp.getInt("goals", 0) > 0) {
-                    //serviceIntent.putExtra("title", "You goals are ready!");
-                    //serviceIntent.putExtra("text", "Keep it up!");
+                serviceIntent = new Intent(this, MyService.class);
+                String typeLang = getResources().getConfiguration().locale.getLanguage();
+                if (sp.getInt("goals", 0) > 0) {
+                    serviceIntent.putExtra("title", "You goals are ready!");
+                    serviceIntent.putExtra("text", "Keep it up!");
                     if(typeLang.equals("en") || typeLang.equals("pl")) {
                         serviceIntent.putExtra("title", "You goals are ready!");
                         serviceIntent.putExtra("text", "Keep it up!");
@@ -218,7 +204,7 @@ private NotificationPublisher mySender;
                 } else {
                     //serviceIntent.putExtra("title", "You have no goals!");
                     //serviceIntent.putExtra("text", "Add some goal to start");
-                }*/
+                }
 
                 goToWorkOnGoals.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -229,7 +215,7 @@ private NotificationPublisher mySender;
                         editor.commit();
 
                         sendBroadcast(senderIntent);
-                        /*if (fromMain) {
+                        if (fromMain) {
 
                             senderIntent.putExtra("text",text);
                             senderIntent.putExtra("title",title);
@@ -253,7 +239,7 @@ private NotificationPublisher mySender;
                             serviceIntent.putExtra("notification", sp.getBoolean("notification", true));
                             serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
                             serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
-                        }*/
+                        }
                         //startService(serviceIntent);
                         dialog.cancel();
 
@@ -268,7 +254,7 @@ private NotificationPublisher mySender;
                         editor.commit();
                         //senderIntent = new Intent("sender");
                         sendBroadcast(senderIntent);
-                        /*if (sp.getBoolean("main", true)) {
+                        if (sp.getBoolean("main", true)) {
                             serviceIntent.putExtra("interval", "1");
                             serviceIntent.putExtra("delay", 3600000);
                             serviceIntent.putExtra("notification", true);
@@ -282,14 +268,14 @@ private NotificationPublisher mySender;
                             serviceIntent.putExtra("sound", sp.getBoolean("sound", true));
                             serviceIntent.putExtra("vibration", sp.getBoolean("vibration", true));
                         }
-                        startService(serviceIntent);*/
+                        startService(serviceIntent);
                        finish();
                        dialog.cancel();
                     }
                 });
                 dialog.show();
             }
-        }
+        }*/
     }
 
     private void setListenersOnChild(){
@@ -297,7 +283,6 @@ private NotificationPublisher mySender;
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-
                 //printAllGoals(); // обновляем наш лейаут после удаления
 
 //                if (allGoals.size() == 0) {
