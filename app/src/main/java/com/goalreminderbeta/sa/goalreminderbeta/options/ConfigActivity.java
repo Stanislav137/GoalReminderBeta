@@ -86,6 +86,7 @@ public class ConfigActivity extends Activity implements OnClickListener{
         save.setOnClickListener(this);
         mySender = new NotificationPublisher();
         senderFilter = new IntentFilter("sender");
+        senderIntent = new Intent("sender");
         registerReceiver(mySender,senderFilter);
     }
 
@@ -146,7 +147,6 @@ public class ConfigActivity extends Activity implements OnClickListener{
             sb.append(String.valueOf(days[i])).append(" ");
         }
         size = sp.getInt("goals",0);
-        senderIntent = new Intent("sender");
         sendBroadcast(senderIntent);
 
         /*serviceIntent = new Intent(this,MyService.class);
