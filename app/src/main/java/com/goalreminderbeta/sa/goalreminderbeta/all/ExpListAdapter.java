@@ -386,6 +386,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                                     //    textCircleProgress.setText((int) currentProgress + "%");
                                     goal.setBlink(true);
                                     goal.save();
+                                    notifyDataSetChanged();
                                     dialog.cancel();
                                 }
                             });
