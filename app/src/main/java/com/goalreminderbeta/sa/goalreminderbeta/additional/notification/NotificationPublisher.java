@@ -62,17 +62,17 @@ public class NotificationPublisher extends BroadcastReceiver {
             {text = "You goals are ready!";
             title = "Keep it up!";}
             else{
-                title="Проверь свои цели на сегодня!";
+                title="Выполни свои цели на сегодня!";
                 text="Твои цели записаны!";
             }
         }
         else{
-            if((typeLang.equals("en")||typeLang.equals("pl")))
-            {text = "You have no goals!";
-            title="Add some goal to start";}
+            if((typeLang.equals("en")||typeLang.equals("pl"))) {
+                text = "You have no goals!";
+                title="Add some goal to start";}
             else{
                 text="Ты не записал цели!";
-                title="Добавь целей, чтобы начать!";
+                title="Добавь цель, чтобы начать! Не теряй времени!";
             }
         }
 
