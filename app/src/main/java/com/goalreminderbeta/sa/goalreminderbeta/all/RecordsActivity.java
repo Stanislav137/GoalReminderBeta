@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,7 +17,6 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 
 import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -54,7 +51,6 @@ public class RecordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records);
-        gestureObject = new GestureDetectorCompat(this, new GestureRecords());
         defineLists();
         defineGoals();
         defineElements();
@@ -590,31 +586,6 @@ public class RecordsActivity extends AppCompatActivity {
         Intent intent = new Intent(RecordsActivity.this, ConfigActivity.class);
         startActivity(intent);
         this.finish();
-    }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.gestureObject.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
-    class GestureRecords extends GestureDetector.SimpleOnGestureListener{
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
-
-            if (event2.getX() > event1.getX()){
-                Intent intent = new Intent(RecordsActivity.this, StartActivity.class);
-                finish();
-                startActivity(intent);
-            }
-            else
-            if (event2.getX() < event1.getX()){
-
-                Intent intent = new Intent(RecordsActivity.this, OptionsActivity.class);
-                finish();
-                startActivity(intent);
-            }
-
-            return true;
-        }
     }
     @Override
     public void onBackPressed() {

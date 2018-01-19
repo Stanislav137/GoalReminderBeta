@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BeBetter</string>
-    <string name="best_speed" translatable="false">BEST SPEED</string>
-    <string name="Pushups" translatable="false">Push ups</string>
-    <string name="SUM_READ_PAPERS" translatable="false">SUM OF READING PAGES:</string>
-    <string name="X_rule" translatable="false">10X rule</string>
-    <string name="menu_mygoal" translatable="false">GOALS</string>
+    <string name="best_speed">BEST SPEED</string>
+    <string name="Pushups">Push ups</string>
+    <string name="SUM_READ_PAPERS">SUM OF READING PAGES:</string>
+    <string name="X_rule">10X rule</string>
+    <string name="menu_mygoal">GOALS</string>
     <string name="best_speed_sec">seconds</string>
     <string name="book_change">To CHANGE</string>
     <string name="book_goal_date">GOAL DATE:</string>
@@ -34,7 +34,7 @@
     <string name="far_distance">FAR DISTNACE:</string>
     <string name="far_distance_km">km</string>
     <string name="language_desired_result">DESIRED RESULT:</string>
-    <string name="language_goal_date" translatable="false">GOAL DATE:</string>
+    <string name="language_goal_date">GOAL DATE:</string>
     <string name="language_goal_date_before">TO</string>
     <string name="language_goal_date_from">FROM</string>
     <string name="language_level_language">CURRENT LANGUAGE LEVEL:</string>
@@ -48,7 +48,6 @@
     <string name="menu_myrecords">RECORDS</string>
     <string name="min_kg">kg</string>
     <string name="minimum_weight">MINIMUM WEIGHT:</string>
-    <string name="notifications_on_off">ON/OFF NOTIFICATION:</string>
     <string name="options_friday">F</string>
     <string name="options_monday">M</string>
     <string name="options_saturday">SA</string>
@@ -74,10 +73,9 @@
     <string name="skills_choose_level">PICK A LEVEL:</string>
     <string name="skills_goal_date">GOAL DATE:</string>
     <string name="skills_goal_date_before">TO</string>
-    <string name="skills_goal_date_from" translatable="false">FROM</string>
-    <string name="skills_your_level" translatable="false">MY LEVEL:</string>
-    <string name="skills_your_max_level" translatable="false">MAX. LEVEL:</string>
-    <string name="sound_on_off">ON/OFF SOUND:</string>
+    <string name="skills_goal_date_from">FROM</string>
+    <string name="skills_your_level">MY LEVEL:</string>
+    <string name="skills_your_max_level">MAX. LEVEL:</string>
     <string name="sport">SPORT</string>
     <string name="statistics">STATISTICS</string>
     <string name="statistics_current_result">CURRENT SCORE:</string>
@@ -91,7 +89,6 @@
     <string name="sum_learned_words_100_word">100 words</string>
     <string name="theme_of_sport">TOPIC SPORTS</string>
     <string name="theme_science">TOPIC OF SCIENCE</string>
-    <string name="vibration_on_off">ON / OFF VIBRATION:</string>
     <string name="weight_current_weight">CURRENT WEIGHT:</string>
     <string name="weight_current_weight_kg">KG</string>
     <string name="weight_description_purpose">DESCRIPTION OF OBJECTIVE:</string>
@@ -116,7 +113,6 @@
     <string name="button_start">New goal</string>
     <string name="cardio_category_cardio">CATEGORY CARDIO</string>
     <string name="category_repetition_title">CATEGORY REPETITION</string>
-    <string name="category_weight1">CATEGORY WEIGHT</string>
     <string name="child_section_complete_Goal_name_of_book">OAL NAME | TITLE OF THE BOOK</string>
     <string name="child_section_complete_completed_today">TODAY COMPLETED:</string>
     <string name="child_section_complete_completed_today_pages">pages</string>
@@ -244,6 +240,30 @@
         <item>Each 3 hours</item>
         <item>Each 4 hours</item>
     </string-array>
+    <string-array name="frequencyValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string-array name="daysValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
     <string name="descr_book">If you plan to read this new book for some time - this category is for You!</string>
     <string name="descr_cardio_nr">If your goal is to set a new record in speed for a while, then this category is for you! Here You can create your own goal associated with time and distance!</string>
     <string name="descr_cardio_ra">If your goal is to do regular exercise at a distance, this category is for you! Here You can create your goal for overcoming a certain distance!</string>
@@ -264,6 +284,11 @@
     <string name="description_theme_science">This topic will help to achieve the desired result in the field of study and provide a choice of 2 categories. Be wiser every day!</string>
     <string name="description_theme_sport">This topic will help to achieve the desired result in the field of sport and provide a choice of 3 categories. Forward to new victories!</string>
     <string name="frequency_summary">Choose how often you want to receive notification</string>
+    <string name="lang_units">hours</string>
+    <string name="ss">Semenets Stanislav - semenetsbeph@gmail.com</string>
+    <string name="ly">Li Yevgeniya - eugenija.li270392@gmail.com</string>
+    <string name="oa">Otrotskyi Anton - anton.otrotskyi@gmail.com</string>
+    <string name="dy">Doloban Yaroslav - yaruhas3@gmail.com</string>
     <string name="help_user_start_hello_champ_text">Welcome to our application, in order to successfully start You must remember your goal You want to achieve in the near future, find the appropriate category and record it. The program will help You to finish it to the end!</string>
     <string name="statistics_description_of_purpose">I WANT TO BE THE BEST IN THE WORLD AT RUNNING SPEED</string>
     <string name="quote">I find inspiration for myself... If someone pursues their dreams, it inspires me.</string>

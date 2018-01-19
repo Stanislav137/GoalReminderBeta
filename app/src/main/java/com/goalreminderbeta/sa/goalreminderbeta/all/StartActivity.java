@@ -1,11 +1,9 @@
 package com.goalreminderbeta.sa.goalreminderbeta.all;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -27,8 +25,6 @@ import android.widget.Toast;
 
 import com.goalreminderbeta.sa.goalreminderbeta.R;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.BootStrap;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.DayPicker;
-import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.MyService;
 import com.goalreminderbeta.sa.goalreminderbeta.additional.notification.NotificationPublisher;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.ElementCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.Goal;
@@ -38,10 +34,8 @@ import com.goalreminderbeta.sa.goalreminderbeta.goals.RepeatsCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.CardioGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.goals.WeightCorrectionGoal;
 import com.goalreminderbeta.sa.goalreminderbeta.options.ConfigActivity;
-import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;

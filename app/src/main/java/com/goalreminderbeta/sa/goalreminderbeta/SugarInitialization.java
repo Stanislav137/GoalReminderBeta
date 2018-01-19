@@ -2,14 +2,11 @@ package com.goalreminderbeta.sa.goalreminderbeta;
 
 import android.content.res.Configuration;
 
-import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsActivity;
 import com.goalreminderbeta.sa.goalreminderbeta.options.OptionsDTO;
 import com.orm.SchemaGenerator;
 import com.orm.SugarApp;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
-
-import java.util.List;
 
 public class SugarInitialization extends SugarApp {
 

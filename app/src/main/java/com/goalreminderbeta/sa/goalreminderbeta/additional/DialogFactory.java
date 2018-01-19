@@ -21,7 +21,7 @@ public class DialogFactory {
     final static int GOAL_DIALOG = 1;
     private static Dialog dialog;
     private static LinearLayout lv;
-    private static EditText goalName, goalDescr, distance, currentRunTime, goalRunTime, dateFrom, dateTo;
+    private static TextView goalName, goalDescr, distance, currentRunTime, goalRunTime, dateFrom, dateTo;
     private static TextView currentResult;
     private static Button confirm, cancel;
     private static SimpleDateFormat sdf;
@@ -73,13 +73,13 @@ public class DialogFactory {
         }
 
         private void findElements(){
-            goalName = (EditText)findViewById(R.id.goalName);
-            goalDescr = (EditText)findViewById(R.id.goalDescr);
+            goalName = (TextView) findViewById(R.id.goalName);
+            goalDescr = (TextView)findViewById(R.id.goalDescr);
             //distance = (EditText) findViewById(R.id.distance);
             //currentRunTime = (EditText)findViewById(R.id.currentRunTime);
             //goalRunTime = (EditText)findViewById(R.id.goalRunTime);
-            dateFrom = (EditText)findViewById(R.id.dateFrom);
-            dateTo = (EditText) findViewById(R.id.dateTo);
+            dateFrom = (TextView)findViewById(R.id.dateFrom);
+            dateTo = (TextView) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);
             cancel = (Button)findViewById(R.id.cancel);
            // currentResult = (TextView)findViewById(R.id.currentProgress);
@@ -128,13 +128,13 @@ public class DialogFactory {
                 adb.create().show();
             }
         private void findElements(){
-            goalName = (EditText)findViewById(R.id.goalName);
-            goalDescr = (EditText)findViewById(R.id.goalDescr);
+            goalName = (TextView) findViewById(R.id.goalName);
+            goalDescr = (TextView)findViewById(R.id.goalDescr);
             //distance = (EditText) findViewById(R.id.distance);
             //currentRunTime = (EditText)findViewById(R.id.currentRunTime);
             //goalRunTime = (EditText)findViewById(R.id.goalRunTime);
-            dateFrom = (EditText)findViewById(R.id.dateFrom);
-            dateTo = (EditText) findViewById(R.id.dateTo);
+            dateFrom = (TextView)findViewById(R.id.dateFrom);
+            dateTo = (TextView) findViewById(R.id.dateTo);
             confirm = (Button)findViewById(R.id.confirm);
             cancel = (Button)findViewById(R.id.cancel);
             //currentResult = (TextView)findViewById(R.id.currentProgress);

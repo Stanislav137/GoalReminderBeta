@@ -3,6 +3,9 @@
     package="com.goalreminderbeta.sa.goalreminderbeta"
     android:installLocation="internalOnly">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:name=".SugarInitialization"
         android:allowBackup="true"
@@ -19,9 +22,6 @@
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
-
-        <uses-permission android:name="android.permission.VIBRATE" />
-        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
         <receiver android:name=".additional.notification.NotificationPublisher">
             <intent-filter>
@@ -68,9 +68,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".all.RecordsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".options.OptionsActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".options.ConfigActivity" />
 
