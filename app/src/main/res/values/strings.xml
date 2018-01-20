@@ -343,13 +343,13 @@
     //description_goal
 
     <string name="description_goal_goal_name_keyword">Название цели или ключевое слово</string>
-    <string name="description_goal_write_for_what">Напишите ради чего Ты это делаешь</string>
+    <string name="description_goal_write_for_what">Ради чего Ты это делаешь</string>
     <string name="description_goal_done">ГОТОВО</string>
 
     //help_user_start
 
     <string name="help_user_start_hello_champ">ПРИВЕТ ЧЕМПИОН !</string>
-    <string name="help_user_start_hello_champ_text">Приветствуем тебя в нашем приложении, для того чтобы успешно начать Ты должен вспомнить свою цель которую Ты хочешь достичь в ближайшее время, найти подходящею категорию и записать её. Программа поможет Тебе её закончить до конца!</string>
+    <string name="help_user_start_hello_champ_text">Приветствуем тебя в нашем приложении, для того чтобы успешно начать Ты должен вспомнить свою цель которую Ты хочешь достичь в ближайшее время, найти подходящую категорию и записать её. Программа поможет Тебе её закончить до конца!</string>
     <string name="help_user_start_Go_on">Вперёд в АТАКУ !</string>
 
     //language_theme
